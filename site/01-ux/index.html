@@ -489,6 +489,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Ejemplo Guiado 1: Auditoría de Usabilidad de una Aplicación Real con las 10 Heurísticas de Nielsen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Solución
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backlog-priorizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Backlog priorizado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1095,6 +1123,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Ejemplo Guiado 1: Auditoría de Usabilidad de una Aplicación Real con las 10 Heurísticas de Nielsen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Solución
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backlog-priorizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Backlog priorizado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1652,34 +1708,125 @@
 <p>La heurística 9, ayudar a reconocer y diagnosticar errores, encuentra el típico mensaje "Error al guardar" sin ninguna indicación de la causa. La solución implica mapear los errores HTTP recibidos del backend a mensajes comprensibles: errores 409 (conflicto) se traducen como "Este libro ya está prestado a otro alumno", errores 422 (validación) como "Revisa los campos marcados en rojo", y errores 500 como "Error interno del servidor. Inténtalo de nuevo más tarde".</p>
 <p>Finalmente, la heurística 10, ayuda y documentación, está ausente en la aplicación. No hay tooltips, textos de ayuda ni documentación contextual. Se propone añadir iconos de información junto a los conceptos complejos (como la diferencia entre "préstamo" y "reserva") con tooltips que se muestren al pasar el cursor, y un enlace a una sección de preguntas frecuentes en el pie de cada pantalla.</p>
 <p>El resultado de la auditoría se documenta en una tabla con las columnas: heurística, ubicación en la app, descripción del problema, gravedad (0-4), solución propuesta y esfuerzo estimado de implementación. Esta tabla se convierte en el backlog de mejoras de usabilidad priorizado por gravedad y esfuerzo.</p>
-<!-- ####Solución
-
-| # | Heurística | Ubicación | Problema | Gravedad | Solución | Esfuerzo |
-|---|------------|-----------|----------|----------|----------|----------|
-| 1 | Visibilidad del estado del sistema | Botón "Registrar préstamo" | Sin indicador de carga; doble clic genera préstamos duplicados | 3 | Signal `isLoading` + spinner Tailwind, botón `[disabled]` y toast de confirmación | Bajo |
-| 2 | Sistema y mundo real | Menú y búsqueda | Términos técnicos: "Colecciones", "Ejemplares", "Query builder" | 2 | Renombrar: "Secciones", "Libros disponibles", "Búsqueda avanzada" | Bajo |
-| 3 | Control y libertad del usuario | Flujo de préstamo (3 pantallas) | No se puede volver atrás; hay que cancelar y empezar de nuevo | 3 | Botones "Anterior"/"Siguiente" + estado en servicio con signals | Medio |
-| 4 | Consistencia y estándares | Catálogo vs. Préstamos | Botones azules vs. verdes; iconos vs. botones de texto | 2 | Componente de botón reutilizable + directiva de tabla con slots | Medio |
-| 5 | Prevención de errores | Selector de libros del préstamo | Permite prestar libros ya prestados; error solo al enviar | 4 | Filtrar solo ejemplares disponibles (pipe o filtro reactivo) | Bajo |
-| 6 | Reconocimiento antes que recuerdo | Búsqueda de alumno | Hay que teclear el expediente completo; sin autocompletado | 3 | Typeahead con nombre, apellidos, curso y expediente | Medio |
-| 7 | Flexibilidad y eficiencia de uso | Navegación general | Solo teclado básico; sin atajos | 1 | `Alt+B` búsqueda, `Alt+P` nuevo préstamo, `Escape` cerrar modales | Bajo |
-| 8 | Diseño estético y minimalista | Ficha de libro | 22 campos en una pantalla | 2 | Pestañas: "Datos básicos", "Ejemplares", "Estadísticas" | Medio |
-| 9 | Diagnosticar errores | Mensajes de error | "Error al guardar" sin causa | 3 | Mapear HTTP: 409 → "Ya prestado", 422 → "Revisa campos", 500 → "Error interno" | Bajo |
-| 10 | Ayuda y documentación | Toda la app | Sin tooltips ni ayuda contextual | 2 | Iconos de info con tooltips + enlace a FAQ | Bajo |
-
-#### Backlog priorizado
-
-1. **H5** — Filtrar libros disponibles (gravedad 4, esfuerzo bajo) ← urgente
-2. **H1** — Estado de loading en préstamo (3, bajo)
-3. **H9** — Mensajes de error comprensibles (3, bajo)
-4. **H6** — Typeahead de alumnos (3, medio)
-5. **H3** — Navegación con Anterior/Siguiente (3, medio)
-6. **H2** — Renombrar textos con vocabulario real (2, bajo)
-7. **H8** — Ficha de libro en pestañas (2, medio)
-8. **H10** — Tooltips y FAQ (2, bajo)
-9. **H4** — Unificar botones y tablas (2, medio)
-10. **H7** — Atajos de teclado (1, bajo) -->
-
+<h4 id="solucion">Solución</h4>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Heurística</th>
+<th>Ubicación</th>
+<th>Problema</th>
+<th>Gravedad</th>
+<th>Solución</th>
+<th>Esfuerzo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Visibilidad del estado del sistema</td>
+<td>Botón "Registrar préstamo"</td>
+<td>Sin indicador de carga; doble clic genera préstamos duplicados</td>
+<td>3</td>
+<td>Signal <code>isLoading</code> + spinner Tailwind, botón <code>[disabled]</code> y toast de confirmación</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sistema y mundo real</td>
+<td>Menú y búsqueda</td>
+<td>Términos técnicos: "Colecciones", "Ejemplares", "Query builder"</td>
+<td>2</td>
+<td>Renombrar: "Secciones", "Libros disponibles", "Búsqueda avanzada"</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Control y libertad del usuario</td>
+<td>Flujo de préstamo (3 pantallas)</td>
+<td>No se puede volver atrás; hay que cancelar y empezar de nuevo</td>
+<td>3</td>
+<td>Botones "Anterior"/"Siguiente" + estado en servicio con signals</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Consistencia y estándares</td>
+<td>Catálogo vs. Préstamos</td>
+<td>Botones azules vs. verdes; iconos vs. botones de texto</td>
+<td>2</td>
+<td>Componente de botón reutilizable + directiva de tabla con slots</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Prevención de errores</td>
+<td>Selector de libros del préstamo</td>
+<td>Permite prestar libros ya prestados; error solo al enviar</td>
+<td>4</td>
+<td>Filtrar solo ejemplares disponibles (pipe o filtro reactivo)</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reconocimiento antes que recuerdo</td>
+<td>Búsqueda de alumno</td>
+<td>Hay que teclear el expediente completo; sin autocompletado</td>
+<td>3</td>
+<td>Typeahead con nombre, apellidos, curso y expediente</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Flexibilidad y eficiencia de uso</td>
+<td>Navegación general</td>
+<td>Solo teclado básico; sin atajos</td>
+<td>1</td>
+<td><code>Alt+B</code> búsqueda, <code>Alt+P</code> nuevo préstamo, <code>Escape</code> cerrar modales</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Diseño estético y minimalista</td>
+<td>Ficha de libro</td>
+<td>22 campos en una pantalla</td>
+<td>2</td>
+<td>Pestañas: "Datos básicos", "Ejemplares", "Estadísticas"</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Diagnosticar errores</td>
+<td>Mensajes de error</td>
+<td>"Error al guardar" sin causa</td>
+<td>3</td>
+<td>Mapear HTTP: 409 → "Ya prestado", 422 → "Revisa campos", 500 → "Error interno"</td>
+<td>Bajo</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ayuda y documentación</td>
+<td>Toda la app</td>
+<td>Sin tooltips ni ayuda contextual</td>
+<td>2</td>
+<td>Iconos de info con tooltips + enlace a FAQ</td>
+<td>Bajo</td>
+</tr>
+</tbody>
+</table>
+<h4 id="backlog-priorizado">Backlog priorizado</h4>
+<ol>
+<li><strong>H5</strong> — Filtrar libros disponibles (gravedad 4, esfuerzo bajo) ← urgente</li>
+<li><strong>H1</strong> — Estado de loading en préstamo (3, bajo)</li>
+<li><strong>H9</strong> — Mensajes de error comprensibles (3, bajo)</li>
+<li><strong>H6</strong> — Typeahead de alumnos (3, medio)</li>
+<li><strong>H3</strong> — Navegación con Anterior/Siguiente (3, medio)</li>
+<li><strong>H2</strong> — Renombrar textos con vocabulario real (2, bajo)</li>
+<li><strong>H8</strong> — Ficha de libro en pestañas (2, medio)</li>
+<li><strong>H10</strong> — Tooltips y FAQ (2, bajo)</li>
+<li><strong>H4</strong> — Unificar botones y tablas (2, medio)</li>
+<li><strong>H7</strong> — Atajos de teclado (1, bajo) --&gt;</li>
+</ol>
 <h3 id="ejemplo-guiado-2-rediseno-de-un-formulario-problematico">Ejemplo Guiado 2: Rediseño de un Formulario Problemático</h3>
 <p>En este ejemplo, tomamos un formulario de alta de cliente en una aplicación de gestión comercial para PYMES andaluzas y lo rediseñamos aplicando los principios de UX vistos en la unidad. Partimos del formulario original, que presenta los siguientes problemas: 18 campos en una sola columna sin agrupación lógica, etiquetas como placeholders que desaparecen al escribir, validación solo al enviar con un listado de errores genérico en la parte superior, botón de envío etiquetado "OK", sin confirmación de éxito más allá de recargar la página, y sin indicación de campos obligatorios.</p>
 <p>El rediseño comienza agrupando los campos en secciones lógicas con encabezados claros. La sección "Datos fiscales" contiene razón social, CIF, dirección fiscal y código postal. La sección "Datos de contacto" contiene persona de contacto, teléfono, email y observaciones. La sección "Datos comerciales" contiene tipo de cliente (particular, autónomo, empresa), sector y comercial asignado. Cada sección se separa visualmente con un título y espacio en blanco, aplicando la ley de proximidad de Gestalt.</p>
