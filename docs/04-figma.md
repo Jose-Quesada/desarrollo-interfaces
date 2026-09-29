@@ -1,3 +1,7 @@
+---
+icon: lucide/pen-tool
+---
+
 # Unidad 4: Diseño de Interfaces con Figma
 
 ## Objetivos de aprendizaje
@@ -32,15 +36,15 @@ Como RA secundario, esta unidad se vincula al **RA 1** («Genera interfaces grá
 - CE a) Se han analizado las herramientas y librerías disponibles para la generación de interfaces gráficos.
 - CE b) Se ha creado un interfaz gráfico utilizando las herramientas de un editor visual (Figma como entorno de diseño).
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-El alumnado debe poseer los siguientes conocimientos y habilidades antes de abordar esta unidad:
+    El alumnado debe poseer los siguientes conocimientos y habilidades antes de abordar esta unidad:
 
-- Comprensión sólida de los conceptos de UX y UI tratados en la Unidad 1, incluyendo la distinción entre ambas disciplinas y las fases del proceso de diseño.
-- Familiaridad con los fundamentos de HTML5 y CSS3: modelo de caja, selectores, propiedades de layout (display, position, flex), colores (hex, rgb, hsl), tipografía y espaciado. Esta base es esencial porque Figma utiliza conceptos análogos (Auto Layout = Flexbox, constraints = posicionamiento CSS, variables = custom properties).
-- Familiaridad con la nomenclatura básica de Tailwind CSS (colores, espaciado y sistema responsive; se trabaja en la Unidad 6). Figma y Tailwind comparten filosofía de sistema de diseño, y estableceremos equivalencias directas entre ambos.
-- Familiaridad con el entorno de desarrollo (Angular + Tailwind + Storybook + VS Code), que se configura a lo largo de las Unidades 9 y 10; aunque esta unidad se centre en Figma, los diseños que creemos serán implementados posteriormente en Angular + Tailwind. La Unidad 15 (del diseño a la implementación) cerrará el ciclo.
-- Cuenta de Figma (gratuita, plan Starter) creada y verificada. Figma ofrece el plan gratuito con todas las funcionalidades necesarias para esta unidad. Opcionalmente, el alumnado puede solicitar el plan educativo (Figma for Education) que incluye funcionalidades adicionales.
+    - Comprensión sólida de los conceptos de UX y UI tratados en la Unidad 1, incluyendo la distinción entre ambas disciplinas y las fases del proceso de diseño.
+    - Familiaridad con los fundamentos de HTML5 y CSS3: modelo de caja, selectores, propiedades de layout (display, position, flex), colores (hex, rgb, hsl), tipografía y espaciado. Esta base es esencial porque Figma utiliza conceptos análogos (Auto Layout = Flexbox, constraints = posicionamiento CSS, variables = custom properties).
+    - Familiaridad con la nomenclatura básica de Tailwind CSS (colores, espaciado y sistema responsive; se trabaja en la Unidad 6). Figma y Tailwind comparten filosofía de sistema de diseño, y estableceremos equivalencias directas entre ambos.
+    - Familiaridad con el entorno de desarrollo (Angular + Tailwind + Storybook + VS Code), que se configura a lo largo de las Unidades 9 y 10; aunque esta unidad se centre en Figma, los diseños que creemos serán implementados posteriormente en Angular + Tailwind. La Unidad 15 (del diseño a la implementación) cerrará el ciclo.
+    - Cuenta de Figma (gratuita, plan Starter) creada y verificada. Figma ofrece el plan gratuito con todas las funcionalidades necesarias para esta unidad. Opcionalmente, el alumnado puede solicitar el plan educativo (Figma for Education) que incluye funcionalidades adicionales.
 
 ## Contenidos
 
@@ -228,7 +232,7 @@ En **Modo Desarrollador (Dev Mode)**:
 
 ### 3. Auto Layout: Flexbox en Figma
 
-Auto Layout es, sin exageración, la funcionalidad más importante de Figma para un desarrollador de interfaces. Comprender Auto Layout es comprender cómo los diseñadores piensan en layouts flexibles, y establecer un puente mental directo entre el diseño visual y el código CSS (Flexbox) o las clases de Tailwind.
+**Auto Layout** es, sin exageración, la funcionalidad más importante de Figma para un desarrollador de interfaces. Comprender Auto Layout es comprender cómo los diseñadores piensan en layouts flexibles, y establecer un puente mental directo entre el diseño visual y el código CSS (Flexbox) o las clases de Tailwind.
 
 **Concepto fundamental**
 
@@ -274,7 +278,7 @@ Cada nivel de anidamiento de Auto Layout en Figma se traduce en un `<div>` con c
 
 ### 4. Variables en Figma: Design Tokens nativos
 
-Las variables de Figma, introducidas en 2023, representan la adopción formal de los Design Tokens dentro de la herramienta de diseño. Antes de las variables, los diseñadores usaban "Styles" (estilos de color, texto, efectos) que eran reutilizables pero tenían limitaciones importantes: no soportaban modos (light/dark), no podían referenciarse entre sí, y no se podían exportar fácilmente a código.
+Las variables de Figma, introducidas en 2023, representan la adopción formal de los **Design Tokens** dentro de la herramienta de diseño. Antes de las variables, los diseñadores usaban "Styles" (estilos de color, texto, efectos) que eran reutilizables pero tenían limitaciones importantes: no soportaban modos (light/dark), no podían referenciarse entre sí, y no se podían exportar fácilmente a código.
 
 **Tipos de variables**
 
@@ -288,7 +292,7 @@ Las variables de Figma, introducidas en 2023, representan la adopción formal de
 
 **Colecciones**
 
-Las variables se organizan en colecciones (collections). Una colección agrupa variables relacionadas y, crucialmente, comparte los mismos modos. Una organización profesional típica:
+Las variables se organizan en **colecciones** (collections). Una colección agrupa variables relacionadas y, crucialmente, comparte los mismos modos. Una organización profesional típica:
 
 - **Colección "Colors":** Todas las variables de color. Modos: Light, Dark, High Contrast.
 - **Colección "Spacing":** Todas las variables de espaciado. Modos: Desktop, Mobile (móvil puede tener espaciados más compactos).
@@ -298,7 +302,7 @@ Las variables se organizan en colecciones (collections). Una colección agrupa v
 
 **Modos**
 
-Los modos son la clave para temas (light/dark) y adaptaciones multiplataforma. Una variable `color/bg-default` puede tener valor `#FFFFFF` en modo Light y `#1E293B` en modo Dark. Al cambiar el modo del frame, todos los elementos que usen variables se actualizan automáticamente. Este es exactamente el mismo concepto que las variables CSS con `prefers-color-scheme` o la estrategia `class` de Tailwind con el prefijo `dark:`.
+Los **modos** son la clave para temas (light/dark) y adaptaciones multiplataforma. Una variable `color/bg-default` puede tener valor `#FFFFFF` en modo Light y `#1E293B` en modo Dark. Al cambiar el modo del frame, todos los elementos que usen variables se actualizan automáticamente. Este es exactamente el mismo concepto que las variables CSS con `prefers-color-scheme` o la estrategia `class` de Tailwind con el prefijo `dark:`.
 
 **Vinculación entre variables**
 
@@ -319,12 +323,12 @@ Los componentes en Figma son el equivalente a los componentes en Angular/React/V
 1. Diseña el elemento con todas sus capas (textos, rectángulos, iconos, Auto Layouts).
 2. Selecciona todo.
 3. Pulsa Ctrl+Alt+K (Windows/Linux) o Cmd+Option+K (macOS), o haz clic en "Create component" en la toolbar.
-4. El elemento se convierte en un componente (master), indicado por un icono de rombo púrpura en el panel de capas.
+4. El elemento se convierte en un componente (**master**), indicado por un icono de rombo púrpura en el panel de capas.
 5. Nómbralo adecuadamente (ej: `Button / Primary / Default`).
 
 **Instancias**
 
-Cuando arrastras un componente desde el panel Assets al canvas, creas una instancia (copia vinculada al master). Las instancias tienen un icono de rombo hueco. Puedes modificar ciertas propiedades de la instancia (si el componente las ha definido como propiedades), pero no su estructura interna (a menos que hagas "Detach instance" que la rompe la vinculación, algo que debería evitarse en el flujo normal).
+Cuando arrastras un componente desde el panel Assets al canvas, creas una **instancia** (copia vinculada al master). Las instancias tienen un icono de rombo hueco. Puedes modificar ciertas propiedades de la instancia (si el componente las ha definido como propiedades), pero no su estructura interna (a menos que hagas "Detach instance" que la rompe la vinculación, algo que debería evitarse en el flujo normal).
 
 **Propiedades de componente**
 
@@ -350,7 +354,7 @@ Las propiedades permiten configurar las instancias sin romper el vínculo con el
 
 ### 6. Variantes (Component Sets): todos los estados de un componente
 
-Un component set es una agrupación de componentes relacionados que comparten las mismas propiedades pero con diferentes valores. Es la forma que tiene Figma de modelar lo que en código llamaríamos "variantes" o "estados" de un componente.
+Un **component set** es una agrupación de componentes relacionados que comparten las mismas propiedades pero con diferentes valores. Es la forma que tiene Figma de modelar lo que en código llamaríamos "variantes" o "estados" de un componente.
 
 **Creación de un component set**
 
@@ -482,7 +486,7 @@ Un sistema de diseño completo en Figma es la culminación de todo lo aprendido:
 
 **Estructura de páginas en el archivo Figma del sistema de diseño**
 
-```
+```text
 📁 Design System - [Nombre del proyecto]
 ├── 📄 Cover                    (portada, nombre, versión, fecha, autores)
 ├── 📄 Foundations               (cimientos del sistema)
@@ -831,34 +835,34 @@ Esta documentación es la que el equipo de desarrollo consultará para implement
 
 **Resultado:** Una pantalla de login profesional, completa, con modo claro y oscuro, utilizando componentes reutilizables (Button, Input — si lo creamos como componente), variables semánticas y Auto Layout en toda su jerarquía. Preparada para ser implementada en Angular + Tailwind en la Unidad 5 (layout) y la Unidad 15 (handoff a código).
 
-## Casos reales
+!!! example "Casos reales"
 
-### Caso 1: El Design System de Shopify (Polaris)
+    ### Caso 1: El Design System de Shopify (Polaris)
 
-Shopify, plataforma de ecommerce canadiense, mantiene Polaris, uno de los sistemas de diseño más completos y accesibles públicamente. Polaris se gestiona en Figma como fuente de verdad de diseño y se implementa en React como librería de componentes. Es un caso de estudio notable porque Shopify ha compartido públicamente su proceso.
+    Shopify, plataforma de ecommerce canadiense, mantiene Polaris, uno de los sistemas de diseño más completos y accesibles públicamente. Polaris se gestiona en Figma como fuente de verdad de diseño y se implementa en React como librería de componentes. Es un caso de estudio notable porque Shopify ha compartido públicamente su proceso.
 
-En Figma, el equipo de Shopify organiza Polaris con múltiples archivos de librería:
-- **Polaris Foundations:** Variables de color, tipografía, espaciado, iconografía.
-- **Polaris Components:** Todos los componentes con todas sus variantes y estados. Cada componente tiene una página dedicada con explicaciones de uso, ejemplos y consideraciones de accesibilidad.
-- **Polaris Patterns:** Combinaciones de componentes para flujos comunes (creación de producto, configuración de envíos, gestión de pedidos).
+    En Figma, el equipo de Shopify organiza Polaris con múltiples archivos de librería:
+    - **Polaris Foundations:** Variables de color, tipografía, espaciado, iconografía.
+    - **Polaris Components:** Todos los componentes con todas sus variantes y estados. Cada componente tiene una página dedicada con explicaciones de uso, ejemplos y consideraciones de accesibilidad.
+    - **Polaris Patterns:** Combinaciones de componentes para flujos comunes (creación de producto, configuración de envíos, gestión de pedidos).
 
-El equipo de desarrollo de Polaris utiliza Storybook para documentar los componentes implementados. Mantienen un riguroso alineamiento Figma ↔ Storybook: cada variante en Figma debe tener su story correspondiente. Cualquier discrepancia se considera un bug. El resultado es un sistema de diseño que reduce drásticamente el tiempo de desarrollo de nuevas funcionalidades (los equipos de producto no diseñan ni implementan componentes desde cero, solo los ensamblan).
+    El equipo de desarrollo de Polaris utiliza Storybook para documentar los componentes implementados. Mantienen un riguroso alineamiento Figma ↔ Storybook: cada variante en Figma debe tener su story correspondiente. Cualquier discrepancia se considera un bug. El resultado es un sistema de diseño que reduce drásticamente el tiempo de desarrollo de nuevas funcionalidades (los equipos de producto no diseñan ni implementan componentes desde cero, solo los ensamblan).
 
-### Caso 2: Startup andaluza: sistema de diseño para una app de turismo
+    ### Caso 2: Startup andaluza: sistema de diseño para una app de turismo
 
-Imaginemos una startup malagueña desarrollando una aplicación de turismo sostenible para la Costa del Sol. La app incluye un dashboard para gestores de alojamientos (escritorio) y una app para viajeros (móvil, PWA). El equipo tiene un diseñador UI y dos desarrolladores (frontend Angular y backend).
+    Imaginemos una startup malagueña desarrollando una aplicación de turismo sostenible para la Costa del Sol. La app incluye un dashboard para gestores de alojamientos (escritorio) y una app para viajeros (móvil, PWA). El equipo tiene un diseñador UI y dos desarrolladores (frontend Angular y backend).
 
-Flujo de trabajo con Figma:
+    Flujo de trabajo con Figma:
 
-1. **El diseñador crea el sistema de diseño en Figma:** define los colores inspirados en la Costa del Sol (ocres, azules mediterráneos, blancos rotos), la tipografía (una serif para headings evocando tradición, una sans-serif para cuerpo para legibilidad en móvil), y diseña los componentes (botones, tarjetas de experiencias, barras de búsqueda, filtros, galerías de fotos, calendarios de disponibilidad).
+    1. **El diseñador crea el sistema de diseño en Figma:** define los colores inspirados en la Costa del Sol (ocres, azules mediterráneos, blancos rotos), la tipografía (una serif para headings evocando tradición, una sans-serif para cuerpo para legibilidad en móvil), y diseña los componentes (botones, tarjetas de experiencias, barras de búsqueda, filtros, galerías de fotos, calendarios de disponibilidad).
 
-2. **El diseñador comparte la librería** con los desarrolladores, que pueden inspeccionar cada componente en Dev Mode: ver exactamente cuánto padding tiene una tarjeta, qué tipografía usa, cómo se comporta en hover.
+    2. **El diseñador comparte la librería** con los desarrolladores, que pueden inspeccionar cada componente en Dev Mode: ver exactamente cuánto padding tiene una tarjeta, qué tipografía usa, cómo se comporta en hover.
 
-3. **Los desarrolladores implementan progresivamente** los componentes en Angular + Tailwind y los documentan en Storybook. El diseñador revisa cada componente en Storybook contra su diseño en Figma.
+    3. **Los desarrolladores implementan progresivamente** los componentes en Angular + Tailwind y los documentan en Storybook. El diseñador revisa cada componente en Storybook contra su diseño en Figma.
 
-4. **Cuando el diseñador actualiza** un componente en Figma (ej: ajusta el espaciado de las tarjetas de 16px a 20px porque los tests con usuarios mostraron que se sentían "apretadas"), los desarrolladores reciben una notificación (Figma comenta automáticamente en el componente actualizado), revisan el cambio en Dev Mode para ver exactamente qué ha cambiado, y actualizan el código correspondiente.
+    4. **Cuando el diseñador actualiza** un componente en Figma (ej: ajusta el espaciado de las tarjetas de 16px a 20px porque los tests con usuarios mostraron que se sentían "apretadas"), los desarrolladores reciben una notificación (Figma comenta automáticamente en el componente actualizado), revisan el cambio en Dev Mode para ver exactamente qué ha cambiado, y actualizan el código correspondiente.
 
-Este flujo, aparentemente simple, es revolucionario respecto a prácticas anteriores (diseñador exporta PNGs → desarrollador mide "a ojo" con una regla en pantalla → implementa aproximadamente → diseñador ve el resultado en el staging → enumera discrepancias → desarrollador ajusta → iterar hasta converger). Figma + Storybook reducen los ciclos de feedback de semanas a horas.
+    Este flujo, aparentemente simple, es revolucionario respecto a prácticas anteriores (diseñador exporta PNGs → desarrollador mide "a ojo" con una regla en pantalla → implementa aproximadamente → diseñador ve el resultado en el staging → enumera discrepancias → desarrollador ajusta → iterar hasta converger). Figma + Storybook reducen los ciclos de feedback de semanas a horas.
 
 ## Actividades guiadas
 
@@ -1010,110 +1014,110 @@ Para cada pantalla: (a) Usa exclusivamente instancias de componentes (no diseñe
 **Pistas:** Usa el plugin "Annotations" o simplemente frames con texto para las anotaciones en Figma. Para exportar a PDF, Figma permite File → Export frames to PDF.
 **Criterios de evaluación:** (1) Exhaustividad (¿está TODO lo que un desarrollador necesita?). (2) Organización y claridad. (3) Precisión de las traducciones a Tailwind. (4) Calidad de las consideraciones de implementación (no solo describir lo obvio, sino anticipar dificultades).
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Design system completo listo para producción
+    ### Actividad de ampliación 1: Design system completo listo para producción
 
-Desarrolla un sistema de diseño completo en Figma que cubra TODOS los componentes necesarios para una aplicación CRUD empresarial típica. Requisitos mínimos:
+    Desarrolla un sistema de diseño completo en Figma que cubra TODOS los componentes necesarios para una aplicación CRUD empresarial típica. Requisitos mínimos:
 
-1. **Foundations:** Paleta de colores completa (primitivas + semánticas), tipografía, espaciado, radius, sombras, iconografía (mínimo 20 iconos) — todo con variables y modos Light/Dark.
+    1. **Foundations:** Paleta de colores completa (primitivas + semánticas), tipografía, espaciado, radius, sombras, iconografía (mínimo 20 iconos) — todo con variables y modos Light/Dark.
 
-2. **Componentes (18 mínimo):** Button, Input, Textarea, Select, Checkbox, Radio, Toggle, Badge, Chip/Tag, Avatar, Card, Modal/Dialog, Tooltip, Dropdown/Menu, Table, Tabs, Breadcrumbs, Pagination, Alert/Toast, Skeleton loader, Empty state, Progress bar.
+    2. **Componentes (18 mínimo):** Button, Input, Textarea, Select, Checkbox, Radio, Toggle, Badge, Chip/Tag, Avatar, Card, Modal/Dialog, Tooltip, Dropdown/Menu, Table, Tabs, Breadcrumbs, Pagination, Alert/Toast, Skeleton loader, Empty state, Progress bar.
 
-3. **Patrones (5 mínimo):** Formulario de creación/edición, Tabla con búsqueda y filtros, Dashboard con widgets, Wizard multi-paso, Layout de aplicación (sidebar + header + contenido).
+    3. **Patrones (5 mínimo):** Formulario de creación/edición, Tabla con búsqueda y filtros, Dashboard con widgets, Wizard multi-paso, Layout de aplicación (sidebar + header + contenido).
 
-4. **Pantallas de ejemplo (3 mínimo):** Listado CRUD, detalle de elemento, formulario de creación, pantalla de login.
+    4. **Pantallas de ejemplo (3 mínimo):** Listado CRUD, detalle de elemento, formulario de creación, pantalla de login.
 
-5. **Documentación:** Página de "Getting Started" en Figma explicando cómo usar el sistema de diseño. Página de "Changelog" para versionado. Anotaciones de accesibilidad en al menos los 5 componentes más críticos.
+    5. **Documentación:** Página de "Getting Started" en Figma explicando cómo usar el sistema de diseño. Página de "Changelog" para versionado. Anotaciones de accesibilidad en al menos los 5 componentes más críticos.
 
-6. **Prototipo interactivo:** Conecta las pantallas de ejemplo para simular flujos de usuario reales.
+    6. **Prototipo interactivo:** Conecta las pantallas de ejemplo para simular flujos de usuario reales.
 
-Entrega: enlace al archivo Figma (acceso público como view-only) + breve informe (500 palabras) sobre las decisiones de diseño más importantes que tomaste (¿por qué elegiste esos colores? ¿qué escala de espaciado usaste y por qué? ¿cómo organizaste las variables?).
+    Entrega: enlace al archivo Figma (acceso público como view-only) + breve informe (500 palabras) sobre las decisiones de diseño más importantes que tomaste (¿por qué elegiste esos colores? ¿qué escala de espaciado usaste y por qué? ¿cómo organizaste las variables?).
 
-### Actividad de ampliación 2: Plugin de Figma para auditoría de accesibilidad visual
+    ### Actividad de ampliación 2: Plugin de Figma para auditoría de accesibilidad visual
 
-Desarrolla un plugin de Figma que, al ejecutarse sobre un frame seleccionado, audite los siguientes aspectos de accesibilidad visual y muestre un informe en el panel del plugin:
+    Desarrolla un plugin de Figma que, al ejecutarse sobre un frame seleccionado, audite los siguientes aspectos de accesibilidad visual y muestre un informe en el panel del plugin:
 
-1. **Contraste de color:** Para cada elemento de texto, detecta el color del texto y del fondo (inmediato y fondos intermedios con opacidad) y verifica si cumple WCAG AA (ratio ≥ 4.5:1 para texto normal, ≥ 3:1 para texto grande > 18px o bold > 14px).
+    1. **Contraste de color:** Para cada elemento de texto, detecta el color del texto y del fondo (inmediato y fondos intermedios con opacidad) y verifica si cumple WCAG AA (ratio ≥ 4.5:1 para texto normal, ≥ 3:1 para texto grande > 18px o bold > 14px).
 
-2. **Tamaño de texto:** Identifica todos los textos menores de 12px (difíciles de leer) y los marca como warning.
+    2. **Tamaño de texto:** Identifica todos los textos menores de 12px (difíciles de leer) y los marca como warning.
 
-3. **Tamaño de target táctil:** Identifica todos los elementos interactivos (botones, inputs, checkboxes, links) cuyas dimensiones sean menores a 44×44px (mínimo recomendado por Apple y Google para targets táctiles).
+    3. **Tamaño de target táctil:** Identifica todos los elementos interactivos (botones, inputs, checkboxes, links) cuyas dimensiones sean menores a 44×44px (mínimo recomendado por Apple y Google para targets táctiles).
 
-4. **Espaciado entre targets táctiles:** Identifica targets táctiles que estén a menos de 8px de distancia entre sí (riesgo de pulsación errónea).
+    4. **Espaciado entre targets táctiles:** Identifica targets táctiles que estén a menos de 8px de distancia entre sí (riesgo de pulsación errónea).
 
-El plugin debe usar la API de plugins de Figma (https://www.figma.com/plugin-docs/) y mostrar los resultados en el panel de UI del plugin (iframe HTML). Entrega: código del plugin en GitHub + README con instrucciones de instalación y uso.
+    El plugin debe usar la API de plugins de Figma (https://www.figma.com/plugin-docs/) y mostrar los resultados en el panel de UI del plugin (iframe HTML). Entrega: código del plugin en GitHub + README con instrucciones de instalación y uso.
 
-### Actividad de ampliación 3: Automatización de Design Tokens con Style Dictionary
+    ### Actividad de ampliación 3: Automatización de Design Tokens con Style Dictionary
 
-Utiliza Style Dictionary (de Amazon, https://amzn.github.io/style-dictionary/) para crear un pipeline automatizado que:
+    Utiliza Style Dictionary (de Amazon, https://amzn.github.io/style-dictionary/) para crear un pipeline automatizado que:
 
-1. Toma como entrada un archivo JSON con design tokens (puedes exportar tus variables de Figma con un plugin como "Design Tokens" y convertirlo a JSON, o escribir el JSON manualmente).
+    1. Toma como entrada un archivo JSON con design tokens (puedes exportar tus variables de Figma con un plugin como "Design Tokens" y convertirlo a JSON, o escribir el JSON manualmente).
 
-2. Genera como salida:
-   - Archivo CSS con custom properties (listo para copiar en `styles.css` de Angular).
-   - Archivo de configuración `@theme` para Tailwind CSS 4 (con la sintaxis correcta de `@theme { ... }`).
-   - Archivo TypeScript con las variables como objetos tipados (para usar en Angular si se necesita acceso programático a los tokens).
-   - Archivo SCSS (opcional, para compatibilidad con proyectos legacy).
-   - Documentación Markdown con tabla de tokens y muestras de color.
+    2. Genera como salida:
+       - Archivo CSS con custom properties (listo para copiar en `styles.css` de Angular).
+       - Archivo de configuración `@theme` para Tailwind CSS 4 (con la sintaxis correcta de `@theme { ... }`).
+       - Archivo TypeScript con las variables como objetos tipados (para usar en Angular si se necesita acceso programático a los tokens).
+       - Archivo SCSS (opcional, para compatibilidad con proyectos legacy).
+       - Documentación Markdown con tabla de tokens y muestras de color.
 
-3. Configura un script npm que ejecute Style Dictionary como parte del build, de modo que una modificación del JSON de entrada regenere automáticamente todos los archivos de salida.
+    3. Configura un script npm que ejecute Style Dictionary como parte del build, de modo que una modificación del JSON de entrada regenere automáticamente todos los archivos de salida.
 
-4. Documenta todo el proceso en un README: estructura del JSON de entrada, comandos, archivos de salida, cómo integrarlo en el flujo de trabajo Angular + Tailwind.
+    4. Documenta todo el proceso en un README: estructura del JSON de entrada, comandos, archivos de salida, cómo integrarlo en el flujo de trabajo Angular + Tailwind.
 
-Entrega: repositorio GitHub con el JSON de entrada, la configuración de Style Dictionary, los archivos de salida generados (como demostración) y el README.
+    Entrega: repositorio GitHub con el JSON de entrada, la configuración de Style Dictionary, los archivos de salida generados (como demostración) y el README.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Diseña con Auto Layout desde el primer frame.** El Auto Layout no debe ser un añadido posterior ("voy a diseñar y luego le pongo Auto Layout"). Es la forma natural de construir layouts en Figma, equivalente a usar `display: flex` en CSS mental. Todo frame que contenga otros elementos debe tener Auto Layout.
+    1. **Diseña con Auto Layout desde el primer frame.** El Auto Layout no debe ser un añadido posterior ("voy a diseñar y luego le pongo Auto Layout"). Es la forma natural de construir layouts en Figma, equivalente a usar `display: flex` en CSS mental. Todo frame que contenga otros elementos debe tener Auto Layout.
 
-2. **Usa variables desde el principio, no valores hardcodeados.** Antes de diseñar el primer componente, define las variables de color, tipografía y espaciado. Conforme avances, añadir variables se vuelve exponencialmente más difícil. Si empiezas con valores hardcodeados, la migración a variables es tediosa y propensa a errores.
+    2. **Usa variables desde el principio, no valores hardcodeados.** Antes de diseñar el primer componente, define las variables de color, tipografía y espaciado. Conforme avances, añadir variables se vuelve exponencialmente más difícil. Si empiezas con valores hardcodeados, la migración a variables es tediosa y propensa a errores.
 
-3. **Nombra las capas con significado.** "Frame 47" no dice nada. "Card / Header / Avatar" es comprensible para cualquier persona que abra el archivo. En sistemas grandes con cientos de frames, la nomenclatura semántica es la diferencia entre un archivo navegable y uno incomprensible.
+    3. **Nombra las capas con significado.** "Frame 47" no dice nada. "Card / Header / Avatar" es comprensible para cualquier persona que abra el archivo. En sistemas grandes con cientos de frames, la nomenclatura semántica es la diferencia entre un archivo navegable y uno incomprensible.
 
-4. **Mantén las librerías de componentes al día.** Los componentes no deben ser estáticos. A medida que el producto evoluciona, el sistema de diseño debe evolucionar con él. Dedica tiempo a revisar, actualizar y refinar los componentes. Un sistema de diseño desactualizado es contraproducente (los diseñadores dejan de usarlo porque "los componentes no se parecen a lo que necesitamos").
+    4. **Mantén las librerías de componentes al día.** Los componentes no deben ser estáticos. A medida que el producto evoluciona, el sistema de diseño debe evolucionar con él. Dedica tiempo a revisar, actualizar y refinar los componentes. Un sistema de diseño desactualizado es contraproducente (los diseñadores dejan de usarlo porque "los componentes no se parecen a lo que necesitamos").
 
-5. **Diseña para el peor caso, no solo para el caso ideal.** ¿Qué pasa si el nombre del usuario es "María del Carmen Fernández de la Torre y Rodríguez de la Fuente"? ¿Qué pasa si no hay datos y hay que mostrar un empty state? ¿Qué pasa si hay un error de red? Diseñar todos los estados (ideal, vacío, error, carga, borde) evita que el desarrollador tenga que improvisar.
+    5. **Diseña para el peor caso, no solo para el caso ideal.** ¿Qué pasa si el nombre del usuario es "María del Carmen Fernández de la Torre y Rodríguez de la Fuente"? ¿Qué pasa si no hay datos y hay que mostrar un empty state? ¿Qué pasa si hay un error de red? Diseñar todos los estados (ideal, vacío, error, carga, borde) evita que el desarrollador tenga que improvisar.
 
-6. **Comunica el comportamiento, no solo la apariencia.** Una interfaz no es una imagen estática. ¿Qué animación ocurre al cambiar de pantalla? ¿Aparece un tooltip con delay o instantáneamente? ¿El modal se cierra con Escape? Estas decisiones impactan la implementación y deben ser comunicadas explícitamente, no inferidas.
+    6. **Comunica el comportamiento, no solo la apariencia.** Una interfaz no es una imagen estática. ¿Qué animación ocurre al cambiar de pantalla? ¿Aparece un tooltip con delay o instantáneamente? ¿El modal se cierra con Escape? Estas decisiones impactan la implementación y deben ser comunicadas explícitamente, no inferidas.
 
-7. **Establece un solo source of truth.** Figma debe ser el lugar donde se responde a la pregunta "¿cómo debe verse este componente?". Si las decisiones de diseño se toman en Slack, en emails o en conversaciones de pasillo, pero no se reflejan en Figma, el archivo deja de ser la fuente de verdad y pierde su valor. Todo cambio de diseño debe pasar por Figma.
+    7. **Establece un solo source of truth.** Figma debe ser el lugar donde se responde a la pregunta "¿cómo debe verse este componente?". Si las decisiones de diseño se toman en Slack, en emails o en conversaciones de pasillo, pero no se reflejan en Figma, el archivo deja de ser la fuente de verdad y pierde su valor. Todo cambio de diseño debe pasar por Figma.
 
-8. **Valida la accesibilidad en Figma, no solo en código.** Plugins como Stark permiten verificar contraste y simular daltonismo en tiempo de diseño. Corregir un problema de contraste en Figma cuesta 30 segundos (cambiar un color). Hacerlo en código después de implementar 20 componentes cuesta horas. Adelanta la validación de accesibilidad al diseño.
+    8. **Valida la accesibilidad en Figma, no solo en código.** Plugins como Stark permiten verificar contraste y simular daltonismo en tiempo de diseño. Corregir un problema de contraste en Figma cuesta 30 segundos (cambiar un color). Hacerlo en código después de implementar 20 componentes cuesta horas. Adelanta la validación de accesibilidad al diseño.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **No usar Auto Layout y posicionar elementos manualmente con coordenadas X/Y absolutas.** Es el equivalente a maquetar una web con `position: absolute` para todo. Funciona para diseños estáticos, pero se rompe en cuanto el contenido cambia. Cualquier desarrollador que intente implementar un diseño sin Auto Layout tendrá que adivinar cómo debe comportarse cuando el texto es más largo o cuando se añaden más elementos.
+    1. **No usar Auto Layout y posicionar elementos manualmente con coordenadas X/Y absolutas.** Es el equivalente a maquetar una web con `position: absolute` para todo. Funciona para diseños estáticos, pero se rompe en cuanto el contenido cambia. Cualquier desarrollador que intente implementar un diseño sin Auto Layout tendrá que adivinar cómo debe comportarse cuando el texto es más largo o cuando se añaden más elementos.
 
-2. **No usar variables o usar variables incorrectamente.** Usar colores hardcodeados (#3B82F6 repetido 50 veces en lugar de usar la variable `blue-600`) crea una pesadilla de mantenimiento. Si el color primario cambia, hay que editar 50 elementos manualmente. Peor aún: definir una variable `blue-600` y luego usar otra variable `blue-600-duplicated` porque "no me acordaba de que ya existía". Mantén una única fuente de verdad para cada valor.
+    2. **No usar variables o usar variables incorrectamente.** Usar colores hardcodeados (#3B82F6 repetido 50 veces en lugar de usar la variable `blue-600`) crea una pesadilla de mantenimiento. Si el color primario cambia, hay que editar 50 elementos manualmente. Peor aún: definir una variable `blue-600` y luego usar otra variable `blue-600-duplicated` porque "no me acordaba de que ya existía". Mantén una única fuente de verdad para cada valor.
 
-3. **Crear componentes demasiado específicos que no son reutilizables.** "CardProductWithDiscountBadgeAndFreeShippingBanner" no es un componente, es una instancia configurada de un componente Card genérico. Los componentes base deben ser genéricos y configurables; las instancias se configuran para casos específicos. Si cada pantalla necesita su propio componente, has fallado en la abstracción.
+    3. **Crear componentes demasiado específicos que no son reutilizables.** "CardProductWithDiscountBadgeAndFreeShippingBanner" no es un componente, es una instancia configurada de un componente Card genérico. Los componentes base deben ser genéricos y configurables; las instancias se configuran para casos específicos. Si cada pantalla necesita su propio componente, has fallado en la abstracción.
 
-4. **No diseñar estados (hover, focus, disabled, error, loading, empty).** El desarrollador recibe el diseño del estado "ideal" de la pantalla y nada más. Cuando implementa los estados de error y loading, los inventa sobre la marcha. El resultado: inconsistencia visual entre pantallas (cada una tiene su propio estilo de loading spinner, su propio color de error, su propio mensaje de empty state).
+    4. **No diseñar estados (hover, focus, disabled, error, loading, empty).** El desarrollador recibe el diseño del estado "ideal" de la pantalla y nada más. Cuando implementa los estados de error y loading, los inventa sobre la marcha. El resultado: inconsistencia visual entre pantallas (cada una tiene su propio estilo de loading spinner, su propio color de error, su propio mensaje de empty state).
 
-5. **No nombrar capas y luego pretender que el desarrollador entienda el diseño.** Abrir un Figma y ver "Rectangle 1, Rectangle 2, Group 3, Frame 4" es desmoralizador. El desarrollador tiene que hacer ingeniería inversa del diseño para entender qué es cada cosa. Invertir 30 segundos en nombrar cada capa ahorra horas de confusión.
+    5. **No nombrar capas y luego pretender que el desarrollador entienda el diseño.** Abrir un Figma y ver "Rectangle 1, Rectangle 2, Group 3, Frame 4" es desmoralizador. El desarrollador tiene que hacer ingeniería inversa del diseño para entender qué es cada cosa. Invertir 30 segundos en nombrar cada capa ahorra horas de confusión.
 
-6. **No alinear diseño y código en cuanto a sistema de espaciado.** El diseñador usa espaciados de 3px, 7px, 11px, 13px... valores que no están en la escala de Tailwind ni en su propio sistema de diseño. El desarrollador tiene que decidir entre usar valores arbitrarios (w-[13px]) rompiendo la consistencia, o redondear a 12px o 16px y tener una discrepancia con el diseño. Define y usa una escala de espaciado clara, y que sea compatible con Tailwind (múltiplos de 4px = 0.25rem).
+    6. **No alinear diseño y código en cuanto a sistema de espaciado.** El diseñador usa espaciados de 3px, 7px, 11px, 13px... valores que no están en la escala de Tailwind ni en su propio sistema de diseño. El desarrollador tiene que decidir entre usar valores arbitrarios (w-[13px]) rompiendo la consistencia, o redondear a 12px o 16px y tener una discrepancia con el diseño. Define y usa una escala de espaciado clara, y que sea compatible con Tailwind (múltiplos de 4px = 0.25rem).
 
-7. **Exportar PNG de todo en lugar de usar SVG para gráficos vectoriales.** Iconos, logos, ilustraciones simples deben exportarse como SVG (infinitamente escalables, tamaño mínimo, editables). Exportarlos como PNG los pixeliza en pantallas de alta densidad y aumenta el peso de la aplicación. La regla: si es vectorial, SVG; si es fotográfico, PNG/WebP.
+    7. **Exportar PNG de todo en lugar de usar SVG para gráficos vectoriales.** Iconos, logos, ilustraciones simples deben exportarse como SVG (infinitamente escalables, tamaño mínimo, editables). Exportarlos como PNG los pixeliza en pantallas de alta densidad y aumenta el peso de la aplicación. La regla: si es vectorial, SVG; si es fotográfico, PNG/WebP.
 
-8. **Olvidar que Figma NO es un navegador web.** Figma renderiza texto de forma diferente a los navegadores (especialmente en cuanto a line-height y espaciado). Un diseño que se ve perfecto en Figma puede tener diferencias sutiles al implementarlo en HTML/CSS. No te obsesiones con la precisión al píxel; el objetivo es la consistencia visual general, no la réplica exacta (que es técnicamente imposible). Las diferencias de 1-2px son aceptables.
+    8. **Olvidar que Figma NO es un navegador web.** Figma renderiza texto de forma diferente a los navegadores (especialmente en cuanto a line-height y espaciado). Un diseño que se ve perfecto en Figma puede tener diferencias sutiles al implementarlo en HTML/CSS. No te obsesiones con la precisión al píxel; el objetivo es la consistencia visual general, no la réplica exacta (que es técnicamente imposible). Las diferencias de 1-2px son aceptables.
 
-## Resumen
+!!! abstract "Resumen"
 
-Esta unidad ha sido un viaje completo por Figma, desde los fundamentos del espacio de trabajo hasta la construcción de sistemas de diseño profesionales listos para handoff a desarrollo. Hemos establecido el puente conceptual y práctico entre el mundo del diseño visual y el mundo del desarrollo frontend, un puente que transitaremos constantemente durante todo el módulo.
+    Esta unidad ha sido un viaje completo por Figma, desde los fundamentos del espacio de trabajo hasta la construcción de sistemas de diseño profesionales listos para handoff a desarrollo. Hemos establecido el puente conceptual y práctico entre el mundo del diseño visual y el mundo del desarrollo frontend, un puente que transitaremos constantemente durante todo el módulo.
 
-Comenzamos con los fundamentos: el canvas, las capas, los frames, las herramientas de creación. Conceptualmente simples, pero la base sobre la que se construye todo lo demás. Aprendimos a crear y organizar diseños como jerarquías de frames, entendiendo que cada frame de Figma es un futuro `<div>` en HTML y que cada grupo es un futuro componente.
+    Comenzamos con los fundamentos: el canvas, las capas, los frames, las herramientas de creación. Conceptualmente simples, pero la base sobre la que se construye todo lo demás. Aprendimos a crear y organizar diseños como jerarquías de frames, entendiendo que cada frame de Figma es un futuro `<div>` en HTML y que cada grupo es un futuro componente.
 
-Auto Layout se reveló como la funcionalidad estrella: el equivalente en Figma a Flexbox en CSS y a las clases `flex` de Tailwind. Dominar Auto Layout significa pensar en layouts flexibles y dinámicos, no en composiciones estáticas. Cada propiedad de Auto Layout (dirección, gap, padding, alineación, resizing) tiene una traducción directa a código, y ejercitar esta traducción mental es una de las competencias más valiosas de esta unidad.
+    Auto Layout se reveló como la funcionalidad estrella: el equivalente en Figma a Flexbox en CSS y a las clases `flex` de Tailwind. Dominar Auto Layout significa pensar en layouts flexibles y dinámicos, no en composiciones estáticas. Cada propiedad de Auto Layout (dirección, gap, padding, alineación, resizing) tiene una traducción directa a código, y ejercitar esta traducción mental es una de las competencias más valiosas de esta unidad.
 
-Las variables llevaron el diseño al siguiente nivel de profesionalización. Definir paletas de colores, escalas tipográficas y sistemas de espaciado como variables reutilizables, vinculables y con soporte para modos (light/dark) transforma un archivo de diseño en un verdadero sistema. La equivalencia con los Design Tokens y con las custom properties de CSS (y por extensión con `@theme` de Tailwind) hace que la transición del diseño al código sea fluida y predecible.
+    Las variables llevaron el diseño al siguiente nivel de profesionalización. Definir paletas de colores, escalas tipográficas y sistemas de espaciado como variables reutilizables, vinculables y con soporte para modos (light/dark) transforma un archivo de diseño en un verdadero sistema. La equivalencia con los Design Tokens y con las custom properties de CSS (y por extensión con `@theme` de Tailwind) hace que la transición del diseño al código sea fluida y predecible.
 
-Los componentes y variantes de Figma son el corazón del sistema de diseño. Aprendimos a crearlos, configurarlos con propiedades (texto, boolean, instance swap), agruparlos en component sets con múltiples dimensiones de variación (variant × size × state × icon), y a pensar en ellos como los futuros componentes Angular con sus inputs y sus clases condicionales de Tailwind.
+    Los componentes y variantes de Figma son el corazón del sistema de diseño. Aprendimos a crearlos, configurarlos con propiedades (texto, boolean, instance swap), agruparlos en component sets con múltiples dimensiones de variación (variant × size × state × icon), y a pensar en ellos como los futuros componentes Angular con sus inputs y sus clases condicionales de Tailwind.
 
-El Dev Mode y las estrategias de handoff cierran el círculo: el diseño no es un fin en sí mismo, sino el plano de construcción para el desarrollo. Aprendimos a inspeccionar diseños, extraer especificaciones precisas, exportar assets y comunicar decisiones de diseño de forma que el equipo de desarrollo pueda implementarlas fielmente sin ambigüedades.
+    El Dev Mode y las estrategias de handoff cierran el círculo: el diseño no es un fin en sí mismo, sino el plano de construcción para el desarrollo. Aprendimos a inspeccionar diseños, extraer especificaciones precisas, exportar assets y comunicar decisiones de diseño de forma que el equipo de desarrollo pueda implementarlas fielmente sin ambigüedades.
 
-En la Unidad 5 nos centraremos en los layouts modernos con Flexbox y CSS Grid implementados con Tailwind CSS, construyendo las estructuras sobre las que se asentarán los componentes diseñados en esta unidad. En la Unidad 15 (del diseño a la implementación) recorreremos el camino completo: desde un diseño en Figma hasta una aplicación Angular completa, pasando por la extracción de tokens, la configuración de Tailwind y la implementación de componentes documentados en Storybook.
+    En la Unidad 5 nos centraremos en los layouts modernos con Flexbox y CSS Grid implementados con Tailwind CSS, construyendo las estructuras sobre las que se asentarán los componentes diseñados en esta unidad. En la Unidad 15 (del diseño a la implementación) recorreremos el camino completo: desde un diseño en Figma hasta una aplicación Angular completa, pasando por la extracción de tokens, la configuración de Tailwind y la implementación de componentes documentados en Storybook.
 
 ## Recursos complementarios
 

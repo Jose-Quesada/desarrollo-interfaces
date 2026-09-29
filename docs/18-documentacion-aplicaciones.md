@@ -1,3 +1,7 @@
+---
+icon: lucide/file-text
+---
+
 # Documentación de Aplicaciones
 
 ## Objetivos de aprendizaje
@@ -25,14 +29,14 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 - CE f) Se han confeccionado los manuales de instalación, configuración y administración.
 - CE g) Se han confeccionado tutoriales.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar esta unidad con garantías, el alumnado debe:
+    Para abordar esta unidad con garantías, el alumnado debe:
 
-- Dominar Markdown y su uso en README, guías y documentación técnica.
-- Conocer la aplicación del módulo (Angular + Tailwind + Electron) para poder describir su instalación, configuración y uso.
-- Tener nociones de la información persistente que utiliza la aplicación (base de datos o API), para documentar su estructura.
-- Haber trabajado Storybook (Unidad 14), cuya documentación de componentes es un caso concreto de documentación técnica reutilizable.
+    - Dominar Markdown y su uso en README, guías y documentación técnica.
+    - Conocer la aplicación del módulo (Angular + Tailwind + Electron) para poder describir su instalación, configuración y uso.
+    - Tener nociones de la información persistente que utiliza la aplicación (base de datos o API), para documentar su estructura.
+    - Haber trabajado Storybook (Unidad 14), cuya documentación de componentes es un caso concreto de documentación técnica reutilizable.
 
 ## Contenidos
 
@@ -76,7 +80,7 @@ Documentar no es escribir más: es poner la información adecuada ante el usuari
 
 ### 2. Ayuda sensible al contexto
 
-La ayuda contextual aparece «donde el usuario la necesita»: un icono de ayuda junto a cada campo que despliega una explicación específica, o un panel lateral que cambia según la vista activa. En Angular se implementa con directivas/componentes reutilizables:
+La **ayuda contextual** aparece «donde el usuario la necesita»: un icono de ayuda junto a cada campo que despliega una explicación específica, o un panel lateral que cambia según la vista activa. En Angular se implementa con directivas/componentes reutilizables:
 
 ```typescript
 // help.directive.ts (esquemático)
@@ -130,10 +134,10 @@ Añadimos `HelpDirective` a los campos de un formulario (Unidad 12). Cada campo 
 ### Ejemplo 2: Contrato OpenAPI de la aplicación
 Generamos el especificador OpenAPI del servicio de notas que consume la aplicación Angular, lo validamos con una herramienta (Swagger Editor) y documentamos los códigos de error y ejemplos de petición/respuesta.
 
-## Casos reales
+!!! example "Casos reales"
 
-- **Documentación in-app de productos SaaS:** las aplicaciones empresariales combinan guías rápidas interactivas (*onboarding*), base de conocimiento y ayuda contextual; la coherencia entre ellas reduce el soporte.
-- **OpenAPI como contrato:** equipos frontend/backend que comparten un único especificador evitan divergencias y permiten generar clientes y documentación automáticamente.
+    - **Documentación in-app de productos SaaS:** las aplicaciones empresariales combinan guías rápidas interactivas (*onboarding*), base de conocimiento y ayuda contextual; la coherencia entre ellas reduce el soporte.
+    - **OpenAPI como contrato:** equipos frontend/backend que comparten un único especificador evitan divergencias y permiten generar clientes y documentación automáticamente.
 
 ## Actividades guiadas
 
@@ -147,31 +151,31 @@ Generamos el especificador OpenAPI del servicio de notas que consume la aplicaci
 - Redacta el manual de instalación y configuración para la versión de escritorio (Electron), incluyendo requisitos y resolución de problemas frecuentes.
 - Crea un tutorial orientado a una tarea concreta («crear y exportar mi primer informe»).
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-- Publica la documentación con Docusaurus/VitePress desde el pipeline del proyecto (CI que genera y despliega el sitio).
-- Genera documentación de API automáticamente a partir del especificador OpenAPI.
-- Define una política de `CHANGELOG` y versionado semántico para la aplicación.
+    - Publica la documentación con Docusaurus/VitePress desde el pipeline del proyecto (CI que genera y despliega el sitio).
+    - Genera documentación de API automáticamente a partir del especificador OpenAPI.
+    - Define una política de `CHANGELOG` y versionado semántico para la aplicación.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-- Trata la documentación como código: en el repositorio, revisada y actualizada con cada cambio.
-- Un documento, un destinatario, un formato; evita duplicar contenido que puede desincronizarse.
-- Documenta el «por qué» en el código y las decisiones de diseño (ADR).
-- Haz la ayuda contextual accesible por teclado y coherente con la guía de referencia.
-- Usa OpenAPI como fuente única de verdad para los contratos de API.
+    - Trata la documentación como código: en el repositorio, revisada y actualizada con cada cambio.
+    - Un documento, un destinatario, un formato; evita duplicar contenido que puede desincronizarse.
+    - Documenta el «por qué» en el código y las decisiones de diseño (ADR).
+    - Haz la ayuda contextual accesible por teclado y coherente con la guía de referencia.
+    - Usa OpenAPI como fuente única de verdad para los contratos de API.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-- Documentar solo al final, cuando la aplicación ya cambió (desactualización inmediata).
-- Ayuda contextual que no es accesible por teclado ni está asociada con ARIA.
-- Duplicar información entre manual y ayuda in-app sin un único origen.
-- Omitir la documentación de instalación/configuración/administración, imprescindible para el despliegue (RA 7).
-- Comentar el «qué» en lugar del «por qué», aportando poco valor a quien mantiene el código.
+    - Documentar solo al final, cuando la aplicación ya cambió (desactualización inmediata).
+    - Ayuda contextual que no es accesible por teclado ni está asociada con ARIA.
+    - Duplicar información entre manual y ayuda in-app sin un único origen.
+    - Omitir la documentación de instalación/configuración/administración, imprescindible para el despliegue (RA 7).
+    - Comentar el «qué» en lugar del «por qué», aportando poco valor a quien mantiene el código.
 
-## Resumen
+!!! abstract "Resumen"
 
-Documentar una aplicación (RA 6) exige elegir el documento adecuado para cada destinatario: ayuda general y sensible al contexto, manual de usuario, guía de referencia, manuales de instalación/configuración/administración y tutoriales, en formatos habituales (HTML, PDF, Markdown). Se documenta también la información persistente (modelo de datos, diccionario y contratos OpenAPI) y el código (comentarios, Storybook, changelogs). La documentación se trata como código: vive en el repositorio, se revisa y se publica desde el pipeline.
+    Documentar una aplicación (RA 6) exige elegir el documento adecuado para cada destinatario: ayuda general y sensible al contexto, manual de usuario, guía de referencia, manuales de instalación/configuración/administración y tutoriales, en formatos habituales (HTML, PDF, Markdown). Se documenta también la información persistente (modelo de datos, diccionario y contratos OpenAPI) y el código (comentarios, Storybook, changelogs). La documentación se trata como código: vive en el repositorio, se revisa y se publica desde el pipeline.
 
 ## Recursos complementarios
 

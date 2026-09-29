@@ -1,3 +1,7 @@
+---
+icon: lucide/bug
+---
+
 # Pruebas de Software
 
 ## Objetivos de aprendizaje
@@ -25,14 +29,14 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 - CE f) Se han realizado pruebas de uso de recursos por parte de la aplicación.
 - CE g) Se ha documentado la estrategia de pruebas y los resultados obtenidos.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar esta unidad con garantías, el alumnado debe:
+    Para abordar esta unidad con garantías, el alumnado debe:
 
-- Dominar las unidades anteriores de componentes Angular (Unidades 10–15), para saber qué y cómo probar.
-- Conocer Jest y Testing Library (o Karma) como frameworks de prueba unitaria en Angular.
-- Tener nociones de control de versiones (Git) para entender el concepto de regresión entre versiones.
-- Conocer el flujo completo de la aplicación (formularios, navegación, informes) para diseñar pruebas end-to-end.
+    - Dominar las unidades anteriores de componentes Angular (Unidades 10–15), para saber qué y cómo probar.
+    - Conocer Jest y Testing Library (o Karma) como frameworks de prueba unitaria en Angular.
+    - Tener nociones de control de versiones (Git) para entender el concepto de regresión entre versiones.
+    - Conocer el flujo completo de la aplicación (formularios, navegación, informes) para diseñar pruebas end-to-end.
 
 ## Contenidos
 
@@ -126,10 +130,10 @@ Escribimos pruebas para el componente de tabla de la unidad de componentes Tailw
 ### Ejemplo 2: Flujo E2E con Playwright
 Automatizamos el flujo «crear informe → exportar a PDF» (Unidad 16) en Chromium y Firefox, verificando que el descarga se produce y que la interfaz queda en estado coherente.
 
-## Casos reales
+!!! example "Casos reales"
 
-- **CI con calidad como puerta:** equipos que bloquean el merge si la suite de pruebas o los umbrales de cobertura fallan; la regresión se detecta antes de llegar a producción.
-- **Pruebas de rendimiento como métrica:** seguimiento de Core Web Vitals en cada versión para evitar regresiones de rendimiento imperceptibles hasta en producción.
+    - **CI con calidad como puerta:** equipos que bloquean el merge si la suite de pruebas o los umbrales de cobertura fallan; la regresión se detecta antes de llegar a producción.
+    - **Pruebas de rendimiento como métrica:** seguimiento de Core Web Vitals en cada versión para evitar regresiones de rendimiento imperceptibles hasta en producción.
 
 ## Actividades guiadas
 
@@ -143,31 +147,31 @@ Automatizamos el flujo «crear informe → exportar a PDF» (Unidad 16) en Chrom
 - Realiza una prueba de estrés alimentando la tabla con 10.000 filas y documenta tiempos y consumo de memoria.
 - Revisa la aplicación buscando al menos dos riesgos de seguridad básicos y propón su mitigación.
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-- Mide Core Web Vitals antes y después de un cambio y documenta el impacto.
-- Detecta una fuga de memoria por suscripciones no dadas de baja y corrígela, verificando con el perfilador.
-- Genera un informe de pruebas automatizado desde el pipeline con cobertura y resultados.
+    - Mide Core Web Vitals antes y después de un cambio y documenta el impacto.
+    - Detecta una fuga de memoria por suscripciones no dadas de baja y corrígela, verificando con el perfilador.
+    - Genera un informe de pruebas automatizado desde el pipeline con cobertura y resultados.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-- Prioriza la pirámide: muchas pruebas unitarias, pocas E2E.
-- Prueba comportamientos observables (roles, texto), no detalles de implementación frágiles.
-- Automatiza la regresión en el CI; que corra en cada cambio.
-- Mide rendimiento y recursos como métricas, no solo «pasa/falla».
-- Documenta defectos con severidad y trazabilidad hacia requisitos.
+    - Prioriza la pirámide: muchas pruebas unitarias, pocas E2E.
+    - Prueba comportamientos observables (roles, texto), no detalles de implementación frágiles.
+    - Automatiza la regresión en el CI; que corra en cada cambio.
+    - Mide rendimiento y recursos como métricas, no solo «pasa/falla».
+    - Documenta defectos con severidad y trazabilidad hacia requisitos.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-- Depender casi solo de pruebas E2E (suite lenta y frágil).
-- No dar de baja suscripciones en `ngOnDestroy`, provocando fugas de memoria.
-- Probar implementaciones internas en lugar del comportamiento, rompiendo pruebas con refactorizaciones inocuas.
-- Omitir pruebas de seguridad básicas (HTML no sanitizado, errores que filtran datos).
-- No documentar resultados ni trazabilidad, dejando la prueba sin valor accionable.
+    - Depender casi solo de pruebas E2E (suite lenta y frágil).
+    - No dar de baja suscripciones en `ngOnDestroy`, provocando fugas de memoria.
+    - Probar implementaciones internas en lugar del comportamiento, rompiendo pruebas con refactorizaciones inocuas.
+    - Omitir pruebas de seguridad básicas (HTML no sanitizado, errores que filtran datos).
+    - No documentar resultados ni trazabilidad, dejando la prueba sin valor accionable.
 
-## Resumen
+!!! abstract "Resumen"
 
-Evaluar el funcionamiento de una aplicación (RA 8) exige una estrategia estructurada en pirámide: pruebas unitarias (Jest + Testing Library), de integración y end-to-end (Playwright/Cypress). Se completan con pruebas de regresión, volumen y estrés, seguridad básica y uso de recursos (memoria, Core Web Vitals, consumo en Electron). Todo se automatiza en el pipeline y se documenta con trazabilidad requisito → caso → resultado, produciendo informes accionables.
+    Evaluar el funcionamiento de una aplicación (RA 8) exige una estrategia estructurada en pirámide: pruebas unitarias (Jest + Testing Library), de integración y end-to-end (Playwright/Cypress). Se completan con pruebas de regresión, volumen y estrés, seguridad básica y uso de recursos (memoria, Core Web Vitals, consumo en Electron). Todo se automatiza en el pipeline y se documenta con trazabilidad requisito → caso → resultado, produciendo informes accionables.
 
 ## Recursos complementarios
 

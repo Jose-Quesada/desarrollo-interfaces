@@ -1,15 +1,19 @@
+---
+icon: lucide/palette
+---
+
 # Design Systems
 
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
-- Comprender qué es un Design System, sus componentes y su valor estratégico en el desarrollo de interfaces profesionales.
-- Aplicar la metodología Atomic Design para descomponer una interfaz en átomos, moléculas, organismos, templates y páginas, y trasladar esta estructura a un proyecto Angular.
-- Definir, implementar y gestionar Design Tokens como fuente única de verdad visual, sincronizándolos entre Figma y código mediante Tailwind CSS 4.
+- Comprender qué es un **Design System**, sus componentes y su valor estratégico en el desarrollo de interfaces profesionales.
+- Aplicar la metodología **Atomic Design** para descomponer una interfaz en átomos, moléculas, organismos, templates y páginas, y trasladar esta estructura a un proyecto Angular.
+- Definir, implementar y gestionar **Design Tokens** como fuente única de verdad visual, sincronizándolos entre Figma y código mediante **Tailwind CSS 4**.
 - Construir un Design System completo paso a paso, desde la auditoría visual hasta la documentación y el versionado.
 - Establecer escalas consistentes de tipografía, espaciado, color, sombras y bordes como base de un lenguaje visual coherente.
-- Analizar y extraer aprendizajes de Design Systems reales (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) para aplicarlos en proyectos propios.
-- Implementar un ThemeProvider en Angular con Signals para alternar entre temas visuales (claro, oscuro, high-contrast).
+- Analizar y extraer aprendizajes de **Design Systems reales** (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) para aplicarlos en proyectos propios.
+- Implementar un **ThemeProvider** en Angular con **Signals** para alternar entre temas visuales (claro, oscuro, high-contrast).
 
 ## Resultado de aprendizaje asociado
 
@@ -29,16 +33,16 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
 
 - CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-El alumnado debe dominar los siguientes conocimientos antes de abordar esta unidad:
-- Angular Standalone Components, Signals, @Input/@Output, proyección de contenido (Unidades 10 y 11).
-- Tailwind CSS 4: sistema de clases utilitarias, configuración con @theme, capas (base, components, utilities).
-- Figma: fundamentos de diseño de interfaces, manejo de estilos compartidos, componentes y variantes.
-- TypeScript: tipos avanzados, interfaces, objetos de configuración.
-- CSS avanzado: custom properties (variables CSS), herencia, especificidad.
-- Principios de diseño: teoría del color, tipografía, espaciado, jerarquía visual, accesibilidad (contraste WCAG).
-- Control de versiones con Git y convenciones de commit semántico.
+    El alumnado debe dominar los siguientes conocimientos antes de abordar esta unidad:
+    - **Angular Standalone Components**, **Signals**, @Input/@Output, proyección de contenido (Unidades 10 y 11).
+    - **Tailwind CSS 4**: sistema de clases utilitarias, configuración con @theme, capas (base, components, utilities).
+    - **Figma**: fundamentos de diseño de interfaces, manejo de estilos compartidos, componentes y variantes.
+    - **TypeScript**: tipos avanzados, interfaces, objetos de configuración.
+    - **CSS avanzado**: custom properties (variables CSS), herencia, especificidad.
+    - **Principios de diseño**: teoría del color, tipografía, espaciado, jerarquía visual, accesibilidad (contraste WCAG).
+    - Control de versiones con **Git** y convenciones de commit semántico.
 
 ## Contenidos
 
@@ -54,13 +58,15 @@ El alumnado debe dominar los siguientes conocimientos antes de abordar esta unid
 
 ### SECCIÓN A — QUÉ ES UN DESIGN SYSTEM
 
-Un Design System es mucho más que una librería de componentes o una guía de estilos. Es un lenguaje visual compartido que establece las reglas, los principios y los activos que permiten a equipos multidisciplinares (diseño, desarrollo, producto, marketing) construir interfaces coherentes, escalables y eficientes. Un Design System es, en esencia, la materialización de la identidad visual de un producto o marca en un conjunto de herramientas reutilizables y documentadas.
+!!! info "Definición"
+
+    Un **Design System** es mucho más que una librería de componentes o una guía de estilos. Es un **lenguaje visual compartido** que establece las reglas, los principios y los activos que permiten a equipos multidisciplinares (diseño, desarrollo, producto, marketing) construir interfaces coherentes, escalables y eficientes. Un Design System es, en esencia, la materialización de la identidad visual de un producto o marca en un conjunto de herramientas reutilizables y documentadas.
 
 Los componentes fundamentales de un Design System son:
 
 1. **Principios de diseño:** Los valores y creencias que guían las decisiones de diseño. Por ejemplo: "Claridad sobre consistencia", "Accesibilidad primero", "Menos es más". Estos principios ayudan a decidir cuando surgen dudas sobre qué enfoque tomar.
 
-2. **Design Tokens:** Las unidades atómicas del sistema visual. Colores, tipografía, espaciado, sombras, bordes y animaciones expresadas como variables que pueden consumirse tanto en herramientas de diseño (Figma) como en código (CSS custom properties, Tailwind @theme, TypeScript). Los tokens son la fuente única de verdad que garantiza la coherencia entre diseño y desarrollo.
+2. **Design Tokens:** Las unidades atómicas del sistema visual. Colores, tipografía, espaciado, sombras, bordes y animaciones expresadas como variables que pueden consumirse tanto en herramientas de diseño (Figma) como en código (CSS custom properties, Tailwind @theme, TypeScript). Los tokens son ==la fuente única de verdad que garantiza la coherencia entre diseño y desarrollo==.
 
 3. **Componentes:** Bloques de construcción de la interfaz implementados como componentes Angular reutilizables (Button, Input, Card, Modal, etc.), cada uno con sus variantes, estados y documentación.
 
@@ -77,11 +83,11 @@ Los beneficios de invertir en un Design System son sustanciales y medibles:
 
 ### SECCIÓN B — ATOMIC DESIGN APLICADO A ANGULAR
 
-Atomic Design, metodología creada por Brad Frost, propone descomponer las interfaces en cinco niveles jerárquicos de complejidad creciente. Esta metodología se adapta perfectamente a la arquitectura de componentes de Angular y proporciona un marco mental para organizar el catálogo de componentes de un Design System.
+**Atomic Design**, metodología creada por **Brad Frost**, propone descomponer las interfaces en cinco niveles jerárquicos de complejidad creciente. Esta metodología se adapta perfectamente a la arquitectura de componentes de Angular y proporciona un marco mental para organizar el catálogo de componentes de un Design System.
 
 #### Átomos: los bloques fundamentales
 
-Los átomos son los elementos más básicos de la interfaz: etiquetas HTML nativas estilizadas y los tokens de diseño aplicados a ellas. En el contexto de Angular + Tailwind, los átomos no suelen ser componentes independientes, sino que se implementan como:
+Los **átomos** son los elementos más básicos de la interfaz: etiquetas HTML nativas estilizadas y los **tokens de diseño** aplicados a ellas. En el contexto de Angular + Tailwind, los átomos no suelen ser componentes independientes, sino que se implementan como:
 - **Design Tokens en Tailwind:** La configuración `@theme` define los átomos de color (colores primitivos y semánticos), tipografía (familias, tamaños, pesos, alturas de línea) y espaciado (escala base de 4px).
 - **Estilos base (layer base de Tailwind):** Estilos globales para elementos HTML nativos como `h1-h6`, `p`, `a`, `ul`, `ol`, `blockquote`, `code`, que se definen una sola vez y afectan a toda la aplicación.
 - **Componentes atómicos simples:** `BadgeComponent`, `AvatarComponent`, `IconComponent`, `DividerComponent` — componentes que envuelven un único concepto visual sin composición de otros componentes.
@@ -160,7 +166,7 @@ Ejemplo de átomos como tokens en Tailwind 4:
 
 #### Moléculas: combinación de átomos
 
-Las moléculas son combinaciones de átomos que funcionan juntos como una unidad. En Angular, las moléculas son componentes que combinan elementos HTML (átomos) y posiblemente otros componentes atómicos para formar una unidad funcional con propósito específico.
+Las **moléculas** son combinaciones de átomos que funcionan juntos como una unidad. En Angular, las moléculas son componentes que combinan elementos HTML (átomos) y posiblemente otros componentes atómicos para formar una unidad funcional con propósito específico.
 
 Ejemplos de moléculas en Angular:
 - **FormFieldComponent:** Combina un `label` (átomo), un `input` (átomo HTML), un mensaje de `error` (átomo de texto) y posiblemente un `icon` (átomo visual) en una unidad cohesiva de entrada de datos.
@@ -211,7 +217,7 @@ export class SearchBarComponent {
 
 #### Organismos: secciones funcionales complejas
 
-Los organismos son conjuntos de moléculas y átomos que forman una sección distintiva de la interfaz. Son lo suficientemente complejos como para tener una función autónoma dentro de la página, pero no son páginas completas. En Angular, los organismos son Smart Components o componentes compuestos que orquestan múltiples moléculas.
+Los **organismos** son conjuntos de moléculas y átomos que forman una sección distintiva de la interfaz. Son lo suficientemente complejos como para tener una función autónoma dentro de la página, pero no son páginas completas. En Angular, los organismos son **Smart Components** o componentes compuestos que orquestan múltiples moléculas.
 
 Ejemplos de organismos:
 - **HeaderComponent:** Contiene el logotipo, la navegación principal (múltiples NavItem), la barra de búsqueda (SearchBar), el menú de usuario (Dropdown) y el toggle de tema (ThemeToggle).
@@ -272,11 +278,11 @@ export class HeaderComponent { ... }
 
 #### Templates: estructura de página
 
-Los templates son la estructura de página donde los organismos se combinan para formar el layout completo. Definen la disposición espacial y el esqueleto, pero sin contenido real. En Angular, el template por excelencia es el `LayoutComponent` que contiene el header, sidebar, área de contenido y footer.
+Los **templates** son la estructura de página donde los organismos se combinan para formar el layout completo. Definen la disposición espacial y el esqueleto, pero sin contenido real. En Angular, el template por excelencia es el `LayoutComponent` que contiene el header, sidebar, área de contenido y footer.
 
 #### Páginas: instancias concretas
 
-Las páginas son instancias específicas de templates rellenas con contenido real. Por ejemplo, el `DashboardPageComponent` es una página que utiliza el `LayoutComponent` como template y lo rellena con datos reales de estadísticas, gráficos y tablas. Las páginas son donde se prueba que el Design System funciona en condiciones reales.
+Las **páginas** son instancias específicas de templates rellenas con contenido real. Por ejemplo, el `DashboardPageComponent` es una página que utiliza el `LayoutComponent` como template y lo rellena con datos reales de estadísticas, gráficos y tablas. Las páginas son donde se prueba que el Design System funciona en condiciones reales.
 
 #### Aplicación práctica de la estructura Atomic Design en el proyecto Angular
 
@@ -312,7 +318,7 @@ src/app/
 
 #### Categorías de tokens
 
-Los Design Tokens se organizan en tres niveles jerárquicos, cada uno con un propósito y un ámbito de uso específico:
+Los **Design Tokens** se organizan en **tres niveles jerárquicos**, cada uno con un propósito y un ámbito de uso específico:
 
 **Tokens globales (opciones primitivas):** Son los valores más básicos y atómicos. No tienen significado semántico, solo representan opciones disponibles en la paleta. Ejemplos:
 - `--color-blue-500: #3b82f6`
@@ -320,7 +326,9 @@ Los Design Tokens se organizan en tres niveles jerárquicos, cada uno con un pro
 - `--font-size-16: 1rem`
 - `--spacing-16: 1rem`
 
-Estos tokens no deberían usarse directamente en componentes, porque si se decide cambiar el color primario de azul a verde, habría que modificar todos los componentes individualmente.
+!!! warning "Precaución"
+
+    Estos tokens no deberían usarse directamente en componentes, porque si se decide cambiar el color primario de azul a verde, habría que modificar todos los componentes individualmente.
 
 **Tokens de alias (semánticos):** Mapean los tokens globales a significados funcionales en el contexto de la aplicación. Son el nivel que los componentes deben consumir:
 - `--color-primary: var(--color-blue-600)`
@@ -328,7 +336,7 @@ Estos tokens no deberían usarse directamente en componentes, porque si se decid
 - `--color-text-primary: var(--color-gray-900)`
 - `--color-text-secondary: var(--color-gray-500)`
 
-Si el color primario cambia de azul a verde, solo se modifica la definición del alias, y todos los componentes que usan `--color-primary` se actualizan automáticamente. Esta indirección es la clave de la flexibilidad de un Design System.
+Si el color primario cambia de azul a verde, solo se modifica la definición del alias, y todos los componentes que usan `--color-primary` se actualizan automáticamente. ==Esta indirección es la clave de la flexibilidad de un Design System==.
 
 **Tokens de componente:** Valores específicos para componentes concretos que heredan de los tokens semánticos pero pueden sobrescribirse:
 - `--button-primary-bg: var(--color-primary)`
@@ -338,7 +346,7 @@ Si el color primario cambia de azul a verde, solo se modifica la definición del
 
 #### Implementación en Tailwind 4 con @theme
 
-Tailwind 4 introduce la directiva `@theme` que permite definir tokens directamente en CSS, reemplazando el antiguo archivo de configuración `tailwind.config.js`. Los tokens definidos en `@theme` se integran automáticamente con el motor de clases utilitarias y están disponibles mediante la función `theme()`:
+**Tailwind 4** introduce la directiva `@theme` que permite definir tokens directamente en CSS, reemplazando el antiguo archivo de configuración `tailwind.config.js`. Los tokens definidos en `@theme` se integran automáticamente con el motor de clases utilitarias y están disponibles mediante la función `theme()`:
 
 ```
 /* styles/tokens.css */
@@ -409,7 +417,9 @@ export const tokens = {
 } as const;
 ```
 
-Para mantener la sincronización entre los tokens CSS y TypeScript, se pueden utilizar herramientas como Style Dictionary, que genera ambos formatos a partir de una única fuente en JSON o YAML.
+!!! tip "Consejo"
+
+    Para mantener la sincronización entre los tokens CSS y TypeScript, se pueden utilizar herramientas como **Style Dictionary**, que genera ambos formatos a partir de una única fuente en JSON o YAML.
 
 #### Sincronización Figma ↔ Código
 
@@ -430,14 +440,14 @@ La sincronización entre Figma (diseño) y el código (Tailwind + Angular) es un
 #### Paso 1: Auditoría de interfaz
 
 La auditoría consiste en inventariar sistemáticamente todos los elementos visuales existentes en la aplicación. El objetivo es identificar:
-- Colores utilizados (muchas veces hay 15 azules ligeramente diferentes).
-- Tamaños de fuente y familias tipográficas presentes.
-- Tipos de botones y sus variaciones visuales.
-- Tipos de tarjetas, modales, formularios.
-- Patrones de espaciado utilizados (márgenes, paddings).
-- Inconsistencias: elementos que deberían ser iguales pero son diferentes.
+- **Colores utilizados** (muchas veces hay 15 azules ligeramente diferentes).
+- **Tamaños de fuente** y familias tipográficas presentes.
+- **Tipos de botones** y sus variaciones visuales.
+- **Tipos de tarjetas**, modales, formularios.
+- **Patrones de espaciado** utilizados (márgenes, paddings).
+- **Inconsistencias**: elementos que deberían ser iguales pero son diferentes.
 
-Herramientas para la auditoría: capturas de pantalla de todas las pantallas, extensión "CSS Peeper" para extraer estilos, e inspección manual con DevTools. El resultado de la auditoría es un documento que lista todos los hallazgos y las inconsistencias detectadas.
+**Herramientas para la auditoría**: capturas de pantalla de todas las pantallas, extensión "CSS Peeper" para extraer estilos, e inspección manual con DevTools. El resultado de la auditoría es un documento que lista todos los hallazgos y las inconsistencias detectadas.
 
 #### Paso 2: Definir principios de diseño
 
@@ -452,10 +462,10 @@ Los principios de diseño son 3-5 frases que resumen los valores que guiarán la
 #### Paso 3: Definir Design Tokens
 
 Con la auditoría completada, se procede a consolidar todos los valores en un conjunto coherente de tokens:
-- Consolidar colores: elegir una paleta principal con escalas de 50 a 950 para cada matiz, definir colores semánticos (primary, success, warning, error, info) y colores de superficie y texto.
-- Definir la escala tipográfica: elegir una o dos familias tipográficas, definir la escala modular de tamaños y sus pesos y alturas de línea asociados.
-- Definir la escala de espaciado: baseline grid de 4px u 8px, definiendo los valores de spacing desde 1 (4px) hasta 16 (64px) o más.
-- Definir sombras/elevación (1-5 niveles) y bordes redondeados (escala de 3 valores: sm, md, lg).
+- **Consolidar colores**: elegir una paleta principal con escalas de 50 a 950 para cada matiz, definir colores semánticos (primary, success, warning, error, info) y colores de superficie y texto.
+- **Definir la escala tipográfica**: elegir una o dos familias tipográficas, definir la escala modular de tamaños y sus pesos y alturas de línea asociados.
+- **Definir la escala de espaciado**: baseline grid de 4px u 8px, definiendo los valores de spacing desde 1 (4px) hasta 16 (64px) o más.
+- **Definir sombras/elevación** (1-5 niveles) y **bordes redondeados** (escala de 3 valores: sm, md, lg).
 
 #### Paso 4: Implementar tokens en Tailwind
 
@@ -476,7 +486,9 @@ Crear el archivo `design-system/tokens.css` con la directiva `@theme` de Tailwin
 
 #### Paso 5: Construir componentes atómicos
 
-Comenzar por los componentes más básicos (Botón, Input, Badge, Avatar, Icon) y construirlos siguiendo estrictamente los tokens definidos. Cada componente debe usar exclusivamente las clases de Tailwind generadas a partir de los tokens, nunca valores hardcodeados como `#3b82f6` o `16px`.
+!!! warning "Precaución"
+
+    Comenzar por los componentes más básicos (Botón, Input, Badge, Avatar, Icon) y construirlos siguiendo estrictamente los tokens definidos. Cada componente debe usar exclusivamente las clases de Tailwind generadas a partir de los tokens, nunca valores hardcodeados como `#3b82f6` o `16px`.
 
 #### Paso 6: Construir componentes moleculares y organismos
 
@@ -485,26 +497,30 @@ Con la base atómica sólida, construir las moléculas (FormField, SearchBar, Na
 #### Paso 7: Documentar en Storybook
 
 Cada componente debe documentarse en Storybook con:
-- Descripción del propósito y uso del componente.
-- Stories para cada variante y estado.
-- Tabla de inputs, outputs y slots de contenido.
-- Notas de accesibilidad.
-- Código de ejemplo listo para copiar y pegar.
+- **Descripción** del propósito y uso del componente.
+- **Stories** para cada variante y estado.
+- **Tabla** de inputs, outputs y slots de contenido.
+- **Notas de accesibilidad**.
+- **Código de ejemplo** listo para copiar y pegar.
 
 #### Paso 8: Versionar y mantener
 
-El Design System es un producto vivo que evoluciona con la aplicación. Debe versionarse semánticamente (MAJOR.MINOR.PATCH):
+El Design System es un **producto vivo** que evoluciona con la aplicación. Debe versionarse semánticamente (MAJOR.MINOR.PATCH):
 - **MAJOR:** Cambios que rompen la compatibilidad (eliminación de un componente, cambio en la API de inputs).
 - **MINOR:** Nuevos componentes o nuevas variantes en componentes existentes.
 - **PATCH:** Corrección de bugs visuales o de accesibilidad.
 
-Cada cambio debe documentarse en un CHANGELOG y comunicarse al equipo. Las deprecaciones deben anunciarse con al menos una versión de antelación, ofreciendo una migración clara.
+!!! tip "Consejo"
+
+    Cada cambio debe documentarse en un **CHANGELOG** y comunicarse al equipo. Las deprecaciones deben anunciarse con al menos una versión de antelación, ofreciendo una migración clara.
 
 ### SECCIÓN E — ESCALAS Y SISTEMAS
 
 #### Escala tipográfica
 
-Una escala tipográfica define un conjunto limitado y armonioso de tamaños de fuente. La escala modular (basada en una razón matemática, comúnmente 1.25 o 1.333) produce tamaños que guardan una relación proporcional entre sí, creando un ritmo visual agradable.
+!!! info "Definición"
+
+    Una **escala tipográfica** define un conjunto limitado y armonioso de tamaños de fuente. La **escala modular** (basada en una razón matemática, comúnmente 1.25 o 1.333) produce tamaños que guardan una relación proporcional entre sí, creando un ritmo visual agradable.
 
 Escala modular típica (razón 1.25):
 ```
@@ -523,7 +539,7 @@ xl:   20px  (1.25rem)   — Subtítulos
 
 #### Escala de espaciado (baseline grid)
 
-El baseline grid establece que todos los espacios verticales y horizontales deben ser múltiplos de una unidad base (normalmente 4px). Esto garantiza un ritmo vertical consistente y alineación perfecta entre columnas y elementos.
+El **baseline grid** establece que todos los espacios verticales y horizontales deben ser múltiplos de una **unidad base (normalmente 4px)**. Esto garantiza un ritmo vertical consistente y alineación perfecta entre columnas y elementos.
 
 Escala de espaciado base 4px:
 ```
@@ -542,7 +558,7 @@ spacing-16 4rem      64px     Márgenes de layout en desktop
 
 #### Paletas de color
 
-Cada color en el Design System debe tener una escala completa (50-950) que permita seleccionar el tono adecuado según el contexto. Las escalas se definen matemáticamente para que cada paso sea perceptiblemente diferente del anterior.
+Cada color en el Design System debe tener una **escala completa (50-950)** que permita seleccionar el tono adecuado según el contexto. Las escalas se definen matemáticamente para que cada paso sea perceptiblemente diferente del anterior.
 
 Estructura de paleta semántica:
 ```
@@ -553,7 +569,7 @@ error:      red-600       — Errores, acciones destructivas
 info:       blue-500      — Información, estados neutrales
 ```
 
-Además de los colores semánticos, se necesitan colores de superficie y texto:
+Además de los colores semánticos, se necesitan **colores de superficie y texto**:
 ```
 surface:         white        — Fondo principal
 surface-secondary: gray-50    — Fondo secundario (filas alternas, aside)
@@ -567,7 +583,7 @@ border-focus:    blue-500     — Borde en foco
 
 #### Escala de sombras
 
-Las sombras comunican elevación y jerarquía. Una escala de 1 a 5 niveles, de menor a mayor elevación, es suficiente para la mayoría de aplicaciones:
+Las sombras comunican **elevación y jerarquía**. Una escala de 1 a 5 niveles, de menor a mayor elevación, es suficiente para la mayoría de aplicaciones:
 
 ```
 Nivel 1 (sm):   0 1px 2px 0 rgb(0 0 0 / 0.05)           — Tarjetas, inputs
@@ -579,7 +595,7 @@ Nivel 5 (2xl):  0 25px 50px -12px rgb(0 0 0 / 0.25)     — Solo para elementos 
 
 #### Border radius
 
-Una escala de 4-5 valores cubre todas las necesidades de redondeo:
+Una escala de **4-5 valores** cubre todas las necesidades de redondeo:
 
 ```
 sm:    0.375rem (6px)   — Checkboxes, badges pequeños
@@ -593,20 +609,20 @@ full:  9999px           — Elementos circulares (avatares, badges circulares)
 
 #### Material Design 3 (Google)
 
-Material Design 3 (Material You) representa la evolución más reciente del sistema de diseño de Google. Sus características distintivas incluyen:
+**Material Design 3 (Material You)** representa la evolución más reciente del sistema de diseño de Google. Sus características distintivas incluyen:
 - **Dynamic Color:** Extrae colores del wallpaper del usuario y genera automáticamente una paleta de colores completa (primario, secundario, terciario, neutral y sus variantes), demostrando el poder de los tokens semánticos.
 - **Tokens en 3 niveles:** Reference tokens (valores crudos de color, tipografía, forma), System tokens (mapeo semántico de los reference tokens al contexto), y Component tokens (valores específicos de cada componente Material).
 - **Tipografía:** Escala de 15 tamaños agrupados en 5 categorías (Display, Headline, Title, Body, Label), cada una con 3 tamaños.
 - **Forma (Shape):** Sistema de redondeo con 4 familias (none, extra small, small, medium, large, extra large, full) aplicables a 3 categorías de componentes.
 
 Lecciones para nuestro Design System:
-- La separación en 3 niveles de tokens es muy poderosa y debería adoptarse.
+- La separación en **3 niveles de tokens** es muy poderosa y debería adoptarse.
 - La generación dinámica de temas a partir de una semilla de color demuestra la importancia de los tokens semánticos.
 - La documentación exhaustiva y las guías de uso son tan importantes como los componentes mismos.
 
 #### Ant Design (Alibaba)
 
-Ant Design es el sistema de diseño enterprise más popular del mundo, creado por Alibaba. Sus características:
+**Ant Design** es el sistema de diseño enterprise más popular del mundo, creado por Alibaba. Sus características:
 - **Enfoque enterprise:** Diseñado para aplicaciones de gestión con mucha densidad de datos: tablas complejas, formularios extensos, flujos de trabajo.
 - **Sistema de 10 colores:** Paleta con 12 tonos por color, más colores funcionales (success, warning, error, info, link).
 - **Componentes de alto nivel:** Más de 60 componentes que cubren casos de uso enterprise (Transfer, Cascader, ProTable, ProForm).
@@ -616,17 +632,17 @@ Lecciones: La densidad de información no está reñida con un diseño limpio si
 
 #### Carbon (IBM)
 
-Carbon es el sistema de diseño open-source de IBM, orientado a productos enterprise con un fuerte énfasis en accesibilidad e inclusión:
+**Carbon** es el sistema de diseño open-source de IBM, orientado a productos enterprise con un fuerte énfasis en accesibilidad e inclusión:
 - **Accesibilidad como requisito fundamental:** Cada componente está diseñado y testeado para cumplir WCAG AA, con documentación específica de accesibilidad.
 - **Sistema de grid 2x:** El grid de Carbon usa el concepto de "2x grid" donde cada unidad de grid es 8px, y todo el layout se construye sobre múltiplos de 8.
 - **Temas:** Soporte para 4 temas (White, Gray 10, Gray 90, Gray 100) que cubren desde claro hasta oscuro extremo.
 - **Data visualization:** Componentes específicos para gráficos y visualizaciones de datos, un área que muchos Design Systems descuidan.
 
-Lecciones: La accesibilidad debe ser un pilar fundacional, no un añadido. El sistema de grid 2x (8px) es superior al tradicional 4px para aplicaciones enterprise porque reduce las opciones y fuerza decisiones más consistentes.
+Lecciones: ==La accesibilidad debe ser un pilar fundacional, no un añadido==. El sistema de grid 2x (8px) es superior al tradicional 4px para aplicaciones enterprise porque reduce las opciones y fuerza decisiones más consistentes.
 
 #### Spectrum (Adobe)
 
-Spectrum es el sistema de diseño de Adobe para sus productos Creative Cloud y Experience Cloud. Sus características:
+**Spectrum** es el sistema de diseño de Adobe para sus productos Creative Cloud y Experience Cloud. Sus características:
 - **Multiplataforma:** Diseñado para funcionar en web, desktop y mobile con adaptaciones específicas para cada plataforma pero manteniendo el lenguaje visual.
 - **Escala de títulos y cuerpos separadas:** Spectrum distingue entre "heading" (para títulos) y "body" (para texto de lectura), con escalas diferentes.
 - **Sistema de slots visuales:** Componentes como Card, Dialog y Popover tienen "slots" predefinidos (imagen, encabezado, cuerpo, acciones) que guían la composición.
@@ -635,16 +651,16 @@ Lecciones: La distinción entre plataformas es importante; un botón en web pued
 
 #### Lightning (Salesforce)
 
-Lightning Design System es la base de todas las interfaces de Salesforce. Su enfoque:
+**Lightning Design System** es la base de todas las interfaces de Salesforce. Su enfoque:
 - **Consistencia ecosistema:** Cientos de aplicaciones construidas por equipos diferentes deben verse y comportarse como una sola.
 - **Componentes accesibles e internacionalizados:** Todo componente funciona con lectores de pantalla y soporta RTL (right-to-left) y traducción.
 - **Sistema de iconos:** Más de 500 iconos SVG personalizados y categorizados, disponibles como componentes o como URLs de sprite.
 
-Lecciones: Para grandes ecosistemas, la gobernanza del Design System es tan importante como su implementación técnica. Se necesita un proceso claro de contribución, revisión y aprobación de cambios.
+Lecciones: Para grandes ecosistemas, la **gobernanza** del Design System es tan importante como su implementación técnica. Se necesita un proceso claro de contribución, revisión y aprobación de cambios.
 
 ### SECCIÓN G — THEME PROVIDER
 
-El ThemeProvider es el mecanismo que permite cambiar el tema visual de toda la aplicación en tiempo real (claro ↔ oscuro, o entre diferentes paletas corporativas). En Angular, se implementa como un servicio con Signals que manipula clases CSS a nivel de documento y, opcionalmente, variables CSS.
+El **ThemeProvider** es el mecanismo que permite cambiar el tema visual de toda la aplicación en tiempo real (claro ↔ oscuro, o entre diferentes paletas corporativas). En Angular, se implementa como un servicio con **Signals** que manipula clases CSS a nivel de documento y, opcionalmente, variables CSS.
 
 #### Implementación del ThemeService
 
@@ -705,7 +721,7 @@ export class ThemeService {
 
 #### Uso de variables CSS para temas
 
-En lugar de depender exclusivamente del selector `.dark` de Tailwind, se pueden usar variables CSS para definir los colores del tema y luego cambiarlas con JavaScript cuando el tema cambia:
+En lugar de depender exclusivamente del selector `.dark` de Tailwind, se pueden usar **variables CSS** para definir los colores del tema y luego cambiarlas con JavaScript cuando el tema cambia:
 
 ```
 /* tokens.css - Definicion de variables para temas */
@@ -951,118 +967,118 @@ export class ThemeToggleComponent {
 
 ---
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Implementar un Theme Builder visual (WYSIWYG)
+    ### Actividad de ampliación 1: Implementar un Theme Builder visual (WYSIWYG)
 
-**Duración:** 300 minutos.
+    **Duración:** 300 minutos.
 
-**Descripción:** Construir una herramienta visual que permita a diseñadores o desarrolladores crear nuevos temas para el Design System sin escribir código.
+    **Descripción:** Construir una herramienta visual que permita a diseñadores o desarrolladores crear nuevos temas para el Design System sin escribir código.
 
-**Requisitos:**
-- Interfaz visual con controles para modificar: color primario (con generación automática de la paleta completa), color de fondo, color de texto, familia tipográfica, radio de borde base, y densidad de espaciado.
-- Previsualización en vivo de una página de muestra con todos los componentes del Design System.
-- Exportación del tema creado a: archivo CSS de variables, archivo de configuración de Tailwind, y archivo JSON de tokens.
-- Los temas exportados deben ser directamente importables en el proyecto Angular.
+    **Requisitos:**
+    - Interfaz visual con controles para modificar: color primario (con generación automática de la paleta completa), color de fondo, color de texto, familia tipográfica, radio de borde base, y densidad de espaciado.
+    - Previsualización en vivo de una página de muestra con todos los componentes del Design System.
+    - Exportación del tema creado a: archivo CSS de variables, archivo de configuración de Tailwind, y archivo JSON de tokens.
+    - Los temas exportados deben ser directamente importables en el proyecto Angular.
 
-**Entregable:** Theme Builder funcional con al menos 3 temas de ejemplo exportados.
+    **Entregable:** Theme Builder funcional con al menos 3 temas de ejemplo exportados.
 
-### Actividad de ampliación 2: Migrar un Design System de CSS tradicional a Tailwind 4
+    ### Actividad de ampliación 2: Migrar un Design System de CSS tradicional a Tailwind 4
 
-**Duración:** 180 minutos.
+    **Duración:** 180 minutos.
 
-**Descripción:** Tomar un Design System existente implementado con CSS tradicional (clases BEM o similares) y migrarlo completamente a Tailwind 4 con Design Tokens.
+    **Descripción:** Tomar un Design System existente implementado con CSS tradicional (clases BEM o similares) y migrarlo completamente a Tailwind 4 con Design Tokens.
 
-**Requisitos:**
-- Analizar el Design System de origen (proporcionado por el docente o uno público como Bootstrap).
-- Mapear todas las variables CSS y clases a tokens de Tailwind (@theme).
-- Reescribir los componentes usando exclusivamente clases utilitarias de Tailwind.
-- Verificar que el resultado visual es pixel-perfect comparado con el original.
-- Documentar el proceso de migración y las decisiones tomadas.
+    **Requisitos:**
+    - Analizar el Design System de origen (proporcionado por el docente o uno público como Bootstrap).
+    - Mapear todas las variables CSS y clases a tokens de Tailwind (@theme).
+    - Reescribir los componentes usando exclusivamente clases utilitarias de Tailwind.
+    - Verificar que el resultado visual es pixel-perfect comparado con el original.
+    - Documentar el proceso de migración y las decisiones tomadas.
 
-**Entregable:** Design System migrado a Tailwind 4 + documento de migración.
+    **Entregable:** Design System migrado a Tailwind 4 + documento de migración.
 
-### Actividad de ampliación 3: Crear un plugin de Figma para exportar componentes a Angular
+    ### Actividad de ampliación 3: Crear un plugin de Figma para exportar componentes a Angular
 
-**Duración:** 240 minutos.
+    **Duración:** 240 minutos.
 
-**Descripción:** Desarrollar un plugin de Figma que, dado un componente de diseño seleccionado, genere automáticamente el código Angular correspondiente con Tailwind.
+    **Descripción:** Desarrollar un plugin de Figma que, dado un componente de diseño seleccionado, genere automáticamente el código Angular correspondiente con Tailwind.
 
-**Requisitos:**
-- El plugin detecta las propiedades del componente en Figma: dimensiones, colores, tipografía, espaciado, bordes, sombras.
-- Mapea los estilos de Figma a tokens del Design System (si el componente usa estilos de Figma que coinciden con tokens definidos).
-- Genera un archivo TypeScript con el componente Angular (decorador, inputs/outputs deducidos de las variantes de Figma) y un template HTML con las clases de Tailwind correspondientes.
-- No se requiere generación 100% automática perfecta, pero sí una base sólida que un desarrollador pueda refinar.
+    **Requisitos:**
+    - El plugin detecta las propiedades del componente en Figma: dimensiones, colores, tipografía, espaciado, bordes, sombras.
+    - Mapea los estilos de Figma a tokens del Design System (si el componente usa estilos de Figma que coinciden con tokens definidos).
+    - Genera un archivo TypeScript con el componente Angular (decorador, inputs/outputs deducidos de las variantes de Figma) y un template HTML con las clases de Tailwind correspondientes.
+    - No se requiere generación 100% automática perfecta, pero sí una base sólida que un desarrollador pueda refinar.
 
-**Entregable:** Plugin de Figma funcional (puede ser en desarrollo, no necesariamente publicado) + documentación.
-
----
-
-## Buenas prácticas
-
-1. **Una única fuente de verdad para los tokens.** Los valores de color, tipografía y espaciado deben definirse en un solo lugar (archivo de tokens CSS + TypeScript) y todo el código debe referenciarlos. Nunca usar valores literales como `#3b82f6` en componentes.
-
-2. **Tres niveles de tokens.** Mantener la jerarquía: tokens globales (paleta cruda) → tokens semánticos (significado funcional) → tokens de componente (específicos). Los componentes solo deben consumir tokens semánticos o de componente, nunca globales directamente.
-
-3. **Nombrar tokens por su función, no por su valor.** `--color-primary` es un buen nombre; `--color-blue-600` es un nombre de token global, no semántico. Si el azul cambia a verde, `primary` sigue teniendo sentido; `blue` no.
-
-4. **Versionar el Design System con semver.** Tratar el Design System como una librería software: MAJOR para breaking changes, MINOR para nuevas funcionalidades, PATCH para correcciones. Mantener un CHANGELOG.
-
-5. **Documentar el "por qué" de cada decisión de diseño.** No basta con mostrar el token o el componente; explicar por qué existe, cuándo usarlo y cuándo no. Esta información es invaluable para nuevos miembros del equipo.
-
-6. **Probar el tema oscuro desde el principio.** Diseñar el tema claro primero y luego "traducirlo" al oscuro es un error común que resulta en temas oscuros deficientes. Ambos temas deben diseñarse y probarse simultáneamente.
-
-7. **Mantener el Design System desacoplado de la aplicación.** Los tokens y componentes del Design System no deben importar nada de la aplicación (modelos, servicios de features, rutas). El Design System es un producto independiente que la aplicación consume.
-
-8. **WCAG AA como requisito mínimo.** Todo componente del Design System debe cumplir AA en contraste, navegación por teclado, y ARIA. Si un componente no cumple, no está terminado.
-
-9. **Los cambios en el Design System deben ser revisados por diseño y desarrollo.** Un cambio en un token o componente afecta a toda la aplicación. Establecer un proceso de revisión cruzada (design review + code review) antes de mergear cualquier cambio.
-
-10. **Proporcionar migraciones para breaking changes.** Si un cambio rompe la API de un componente, proporcionar una guía de migración clara y, cuando sea posible, un script automatizado que realice la migración.
+    **Entregable:** Plugin de Figma funcional (puede ser en desarrollo, no necesariamente publicado) + documentación.
 
 ---
 
-## Errores frecuentes
+!!! tip "Buenas prácticas"
 
-1. **Construir una librería de componentes y llamarla Design System.** Un Design System incluye componentes, pero también principios, tokens, patrones, documentación y gobernanza. Reducirlo a solo componentes es perder la mayor parte de su valor.
+    1. **Una única fuente de verdad para los tokens.** Los valores de color, tipografía y espaciado deben definirse en un solo lugar (archivo de tokens CSS + TypeScript) y todo el código debe referenciarlos. Nunca usar valores literales como `#3b82f6` en componentes.
 
-2. **No separar tokens globales de tokens semánticos.** Si los componentes usan directamente `--color-blue-500` en lugar de `--color-primary`, cambiar el color primario de azul a verde requiere modificar decenas de componentes en lugar de un solo token.
+    2. **Tres niveles de tokens.** Mantener la jerarquía: tokens globales (paleta cruda) → tokens semánticos (significado funcional) → tokens de componente (específicos). Los componentes solo deben consumir tokens semánticos o de componente, nunca globales directamente.
 
-3. **Crear demasiados tokens demasiado pronto.** Definir tokens para cada posible valor lleva a un sistema inflado e inmanejable. Es mejor comenzar con los tokens mínimos necesarios e ir añadiendo según surjan necesidades reales.
+    3. **Nombrar tokens por su función, no por su valor.** `--color-primary` es un buen nombre; `--color-blue-600` es un nombre de token global, no semántico. Si el azul cambia a verde, `primary` sigue teniendo sentido; `blue` no.
 
-4. **Ignorar el tema oscuro hasta el final.** Añadir soporte para tema oscuro a posteriori es costoso y suele resultar en un tema oscuro de baja calidad. Todos los componentes deben diseñarse desde el principio con ambos temas en mente.
+    4. **Versionar el Design System con semver.** Tratar el Design System como una librería software: MAJOR para breaking changes, MINOR para nuevas funcionalidades, PATCH para correcciones. Mantener un CHANGELOG.
 
-5. **Romper la encapsulación atómica.** Un átomo no debe importar una molécula. Si `BadgeComponent` importa `ButtonComponent`, la jerarquía está rota y se generan dependencias circulares.
+    5. **Documentar el "por qué" de cada decisión de diseño.** No basta con mostrar el token o el componente; explicar por qué existe, cuándo usarlo y cuándo no. Esta información es invaluable para nuevos miembros del equipo.
 
-6. **No testear los componentes en todos los temas y breakpoints.** Un componente que se ve bien en tema claro y desktop puede ser ilegible en tema oscuro o móvil. Testear cada variante en cada combinación de tema y viewport.
+    6. **Probar el tema oscuro desde el principio.** Diseñar el tema claro primero y luego "traducirlo" al oscuro es un error común que resulta en temas oscuros deficientes. Ambos temas deben diseñarse y probarse simultáneamente.
 
-7. **Usar medidas absolutas (px) en lugar de relativas (rem).** Los tokens de espaciado y tipografía deben estar en `rem` para respetar la configuración de zoom del usuario y las preferencias de tamaño de fuente del navegador.
+    7. **Mantener el Design System desacoplado de la aplicación.** Los tokens y componentes del Design System no deben importar nada de la aplicación (modelos, servicios de features, rutas). El Design System es un producto independiente que la aplicación consume.
 
-8. **Cambiar tokens sin revisar el impacto.** Modificar un token de espaciado o color puede causar efectos en cascada en docenas de componentes. Antes de cambiar un token, revisar todos los lugares donde se utiliza.
+    8. **WCAG AA como requisito mínimo.** Todo componente del Design System debe cumplir AA en contraste, navegación por teclado, y ARIA. Si un componente no cumple, no está terminado.
 
-9. **Sobrecargar los tokens de componente.** No es necesario crear un token para cada propiedad CSS de cada componente. Los tokens de componente deben reservarse para valores que realmente necesitan ser tematizables o variables.
+    9. **Los cambios en el Design System deben ser revisados por diseño y desarrollo.** Un cambio en un token o componente afecta a toda la aplicación. Establecer un proceso de revisión cruzada (design review + code review) antes de mergear cualquier cambio.
 
-10. **Olvidar los estados de los componentes en el Design System.** Un Design System no está completo si solo define el estado default de cada componente. Debe incluir hover, active, focus, disabled, loading, error, success y empty.
+    10. **Proporcionar migraciones para breaking changes.** Si un cambio rompe la API de un componente, proporcionar una guía de migración clara y, cuando sea posible, un script automatizado que realice la migración.
 
 ---
 
-## Resumen
+!!! warning "Errores frecuentes"
 
-Esta unidad ha cubierto la teoría y práctica de los Design Systems aplicados al desarrollo de interfaces con Angular y Tailwind:
+    1. **Construir una librería de componentes y llamarla Design System.** Un Design System incluye componentes, pero también principios, tokens, patrones, documentación y gobernanza. Reducirlo a solo componentes es perder la mayor parte de su valor.
 
-- Un **Design System** es un lenguaje visual compartido que abarca principios, Design Tokens, componentes, patrones, documentación y gobernanza, proporcionando consistencia, velocidad y escalabilidad.
+    2. **No separar tokens globales de tokens semánticos.** Si los componentes usan directamente `--color-blue-500` en lugar de `--color-primary`, cambiar el color primario de azul a verde requiere modificar decenas de componentes en lugar de un solo token.
 
-- La metodología **Atomic Design** de Brad Frost descompone las interfaces en átomos, moléculas, organismos, templates y páginas, proporcionando un marco que se alinea naturalmente con la arquitectura de componentes de Angular.
+    3. **Crear demasiados tokens demasiado pronto.** Definir tokens para cada posible valor lleva a un sistema inflado e inmanejable. Es mejor comenzar con los tokens mínimos necesarios e ir añadiendo según surjan necesidades reales.
 
-- Los **Design Tokens** son la unidad atómica del sistema visual y se organizan en tres niveles: globales (valores crudos), semánticos (significado funcional) y de componente (específicos). En Tailwind 4 se implementan con la directiva `@theme`.
+    4. **Ignorar el tema oscuro hasta el final.** Añadir soporte para tema oscuro a posteriori es costoso y suele resultar en un tema oscuro de baja calidad. Todos los componentes deben diseñarse desde el principio con ambos temas en mente.
 
-- La **construcción de un Design System** sigue un proceso de 8 pasos: auditoría visual, definición de principios, definición de tokens, implementación en código, construcción de componentes atómicos, construcción de componentes compuestos, documentación y versionado.
+    5. **Romper la encapsulación atómica.** Un átomo no debe importar una molécula. Si `BadgeComponent` importa `ButtonComponent`, la jerarquía está rota y se generan dependencias circulares.
 
-- Las **escalas** (tipográfica, espaciado, color, sombras, bordes) son la base matemática que garantiza un ritmo visual consistente y armonioso.
+    6. **No testear los componentes en todos los temas y breakpoints.** Un componente que se ve bien en tema claro y desktop puede ser ilegible en tema oscuro o móvil. Testear cada variante en cada combinación de tema y viewport.
 
-- El estudio de **Design Systems reales** (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) proporciona patrones y lecciones aplicables a nuestros propios sistemas.
+    7. **Usar medidas absolutas (px) en lugar de relativas (rem).** Los tokens de espaciado y tipografía deben estar en `rem` para respetar la configuración de zoom del usuario y las preferencias de tamaño de fuente del navegador.
 
-- El **ThemeProvider** implementado mediante un servicio Angular con Signals permite cambiar entre temas visuales en tiempo real, persistiendo la preferencia del usuario.
+    8. **Cambiar tokens sin revisar el impacto.** Modificar un token de espaciado o color puede causar efectos en cascada en docenas de componentes. Antes de cambiar un token, revisar todos los lugares donde se utiliza.
+
+    9. **Sobrecargar los tokens de componente.** No es necesario crear un token para cada propiedad CSS de cada componente. Los tokens de componente deben reservarse para valores que realmente necesitan ser tematizables o variables.
+
+    10. **Olvidar los estados de los componentes en el Design System.** Un Design System no está completo si solo define el estado default de cada componente. Debe incluir hover, active, focus, disabled, loading, error, success y empty.
+
+---
+
+!!! abstract "Resumen"
+
+    Esta unidad ha cubierto la teoría y práctica de los Design Systems aplicados al desarrollo de interfaces con Angular y Tailwind:
+
+    - Un **Design System** es un lenguaje visual compartido que abarca principios, Design Tokens, componentes, patrones, documentación y gobernanza, proporcionando consistencia, velocidad y escalabilidad.
+
+    - La metodología **Atomic Design** de Brad Frost descompone las interfaces en átomos, moléculas, organismos, templates y páginas, proporcionando un marco que se alinea naturalmente con la arquitectura de componentes de Angular.
+
+    - Los **Design Tokens** son la unidad atómica del sistema visual y se organizan en tres niveles: globales (valores crudos), semánticos (significado funcional) y de componente (específicos). En Tailwind 4 se implementan con la directiva `@theme`.
+
+    - La **construcción de un Design System** sigue un proceso de 8 pasos: auditoría visual, definición de principios, definición de tokens, implementación en código, construcción de componentes atómicos, construcción de componentes compuestos, documentación y versionado.
+
+    - Las **escalas** (tipográfica, espaciado, color, sombras, bordes) son la base matemática que garantiza un ritmo visual consistente y armonioso.
+
+    - El estudio de **Design Systems reales** (Material Design 3, Ant Design, Carbon, Spectrum, Lightning) proporciona patrones y lecciones aplicables a nuestros propios sistemas.
+
+    - El **ThemeProvider** implementado mediante un servicio Angular con Signals permite cambiar entre temas visuales en tiempo real, persistiendo la preferencia del usuario.
 
 ---
 

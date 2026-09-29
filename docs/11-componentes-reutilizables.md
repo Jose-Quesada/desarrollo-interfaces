@@ -1,12 +1,16 @@
+---
+icon: lucide/blocks
+---
+
 # Componentes Reutilizables
 
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
-- Diseñar e implementar componentes de interfaz de usuario verdaderamente reutilizables siguiendo principios SOLID.
-- Construir un catálogo completo de componentes UI con Angular Standalone, TypeScript estricto y Tailwind CSS 4.
-- Aplicar proyección de contenido con ng-content para crear componentes compuestos y flexibles.
-- Implementar accesibilidad (ARIA, teclado, foco) como parte integral del diseño de cada componente.
+- Diseñar e implementar componentes de interfaz de usuario verdaderamente reutilizables siguiendo principios **SOLID**.
+- Construir un catálogo completo de componentes UI con **Angular Standalone**, TypeScript estricto y Tailwind CSS 4.
+- Aplicar proyección de contenido con **ng-content** para crear componentes compuestos y flexibles.
+- Implementar accesibilidad (**ARIA**, teclado, foco) como parte integral del diseño de cada componente.
 - Gestionar estados de interfaz (loading, empty, error, data) de forma consistente en todos los componentes.
 - Documentar la API pública de componentes (inputs, outputs, modelos) con tipado completo.
 - Evaluar la reutilización de un componente en diferentes contextos y refactorizarlo para aumentar su genericidad.
@@ -19,21 +23,21 @@ Esta unidad contribuye al **RA 3** del módulo profesional 0488 *Desarrollo de i
 
 Criterios de evaluación oficiales que se trabajan en esta unidad:
 
-- CE a) Se han identificado las herramientas para diseño y prueba de componentes.
-- CE b) Se han creado componentes visuales.
-- CE c) Se han definido sus métodos y propiedades con asignación de valores por defecto.
-- CE d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
-- CE e) Se han realizado pruebas unitarias sobre los componentes desarrollados.
-- CE f) Se han documentado los componentes creados.
-- CE h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+- **CE a)** Se han identificado las herramientas para diseño y prueba de componentes.
+- **CE b)** Se han creado componentes visuales.
+- **CE c)** Se han definido sus métodos y propiedades con asignación de valores por defecto.
+- **CE d)** Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
+- **CE e)** Se han realizado pruebas unitarias sobre los componentes desarrollados.
+- **CE f)** Se han documentado los componentes creados.
+- **CE h)** Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-- TypeScript avanzado: interfaces, tipos genéricos, tipos condicionales, utility types.
-- Angular: Standalone Components, Signals, inputs/outputs, ciclo de vida.
-- Tailwind CSS 4: clases utilitarias, variantes, personalización con @theme.
-- Accesibilidad web: roles ARIA, atributos aria-*, navegación por teclado.
-- Principios SOLID aplicados al desarrollo de software.
+    - **TypeScript avanzado**: interfaces, tipos genéricos, tipos condicionales, utility types.
+    - **Angular**: Standalone Components, Signals, inputs/outputs, ciclo de vida.
+    - **Tailwind CSS 4**: clases utilitarias, variantes, personalización con @theme.
+    - **Accesibilidad web**: roles ARIA, atributos aria-*, navegación por teclado.
+    - **Principios SOLID** aplicados al desarrollo de software.
 
 ## Contenidos
 
@@ -47,7 +51,9 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 
 ### Qué hace que un componente sea reutilizable
 
-Un componente de interfaz verdaderamente reutilizable posee cuatro características fundamentales: genericidad, configurabilidad, ausencia de acoplamiento y documentación exhaustiva. Analicemos cada una en profundidad.
+!!! info "Definición"
+
+    Un componente de interfaz verdaderamente reutilizable posee cuatro características fundamentales: genericidad, configurabilidad, ausencia de acoplamiento y documentación exhaustiva. Analicemos cada una en profundidad.
 
 La **genericidad** implica que el componente no contiene referencias a conceptos específicos del dominio de la aplicación. Un componente `Button` no debe saber qué significa "guardar cambios" o "eliminar producto"; solo debe saber que es un botón que muestra un texto, un icono opcional y emite un evento al ser pulsado. La separación entre el comportamiento genérico del componente y el significado de negocio es responsabilidad del código que consume el componente.
 
@@ -59,9 +65,9 @@ La **documentación exhaustiva** es el cuarto pilar de la reutilización. Sin do
 
 ### Principios SOLID aplicados a componentes UI
 
-Los principios SOLID, formulados por Robert C. Martin, se aplican de manera natural al diseño de componentes de interfaz de usuario:
+Los principios **SOLID**, formulados por Robert C. Martin, se aplican de manera natural al diseño de componentes de interfaz de usuario:
 
-**Single Responsibility Principle (SRP):** Un componente debe tener una única razón para cambiar. En el contexto de componentes UI, esto significa que un componente debe hacer una sola cosa: mostrar un botón, renderizar una tabla, presentar un modal. Si un componente `DataTable` además gestiona la obtención de datos desde una API, está violando SRP. La solución es separar: un Smart Component (`ProductListPage`) obtiene los datos, y un Presentational Component (`DataTable`) los muestra.
+**Single Responsibility Principle (SRP):** ==Un componente debe tener una única razón para cambiar.== En el contexto de componentes UI, esto significa que un componente debe hacer una sola cosa: mostrar un botón, renderizar una tabla, presentar un modal. Si un componente `DataTable` además gestiona la obtención de datos desde una API, está violando SRP. La solución es separar: un **Smart Component** (`ProductListPage`) obtiene los datos, y un **Presentational Component** (`DataTable`) los muestra.
 
 **Open/Closed Principle (OCP):** Un componente debe estar abierto a la extensión pero cerrado a la modificación. En la práctica, esto significa que añadir una nueva variante de botón (por ejemplo, "ghost") no debería requerir modificar la lógica interna del componente `Button`, sino simplemente añadir una nueva opción al input `variant` y las clases de Tailwind correspondientes. Las proyecciones de contenido (`<ng-content>`) son el mecanismo principal para cumplir OCP: un `Card` puede aceptar cualquier contenido en su header, body y footer sin necesidad de modificar su implementación.
 
@@ -79,7 +85,7 @@ A continuación se presenta un catálogo exhaustivo de componentes de interfaz d
 
 ### 1. BUTTON
 
-El componente Button es el más fundamental de cualquier sistema de diseño. A pesar de su aparente simplicidad, un botón profesional debe manejar múltiples variantes visuales, tamaños, estados (incluyendo loading y disabled), iconos en diferentes posiciones y cumplir con requisitos estrictos de accesibilidad.
+El componente **Button** es el más fundamental de cualquier sistema de diseño. A pesar de su aparente simplicidad, un botón profesional debe manejar múltiples variantes visuales, tamaños, estados (incluyendo loading y disabled), iconos en diferentes posiciones y cumplir con requisitos estrictos de accesibilidad.
 
 **Interfaz TypeScript:**
 
@@ -194,13 +200,13 @@ export class ButtonComponent {
 - `aria-busy` se establece a `true` durante el estado de carga, notificando a tecnologías asistivas.
 - El texto "Cargando..." es visible solo para lectores de pantalla (`sr-only`).
 - `focus-visible` en lugar de `focus` para evitar anillos de foco al hacer click con ratón.
-- El contraste de color debe cumplir WCAG AA (ratio 4.5:1 para texto normal).
+- El contraste de color debe cumplir **WCAG AA** (ratio 4.5:1 para texto normal).
 
 ---
 
 ### 2. INPUT / FORM FIELD
 
-El componente Input o FormField es el bloque constructor de todos los formularios. Un buen componente de entrada de datos debe manejar múltiples estados visuales y proporcionar feedback claro al usuario.
+El componente **Input** o **FormField** es el bloque constructor de todos los formularios. Un buen componente de entrada de datos debe manejar múltiples estados visuales y proporcionar feedback claro al usuario.
 
 **Interfaz TypeScript:**
 
@@ -379,7 +385,7 @@ export class FormFieldComponent {
 
 ### 3. CARD
 
-La tarjeta es un contenedor visual fundamental que agrupa contenido relacionado. Su fortaleza como componente reutilizable reside en la proyección de contenido mediante `ng-content`, que permite al consumidor decidir exactamente qué contenido mostrar en cada zona de la tarjeta.
+La tarjeta es un contenedor visual fundamental que agrupa contenido relacionado. Su fortaleza como componente reutilizable reside en la **proyección de contenido** mediante `ng-content`, que permite al consumidor decidir exactamente qué contenido mostrar en cada zona de la tarjeta.
 
 **Implementación del componente:**
 
@@ -486,7 +492,7 @@ export class CardComponent {
 
 ### 4. MODAL / DIALOG
 
-El componente Modal es uno de los más complejos de implementar correctamente debido a sus requisitos de accesibilidad (trampa de foco, tecla Escape, rol dialog), su comportamiento de overlay y sus animaciones de entrada y salida.
+El componente **Modal** es uno de los más complejos de implementar correctamente debido a sus requisitos de accesibilidad (trampa de foco, tecla Escape, rol dialog), su comportamiento de overlay y sus animaciones de entrada y salida.
 
 **Implementación del componente:**
 
@@ -742,7 +748,7 @@ export class DropdownComponent {
 
 ### 6. TABLE / DATA TABLE
 
-La tabla de datos es uno de los componentes más complejos y solicitados en aplicaciones enterprise. Una implementación profesional debe manejar ordenación, paginación, selección, estados (loading, empty, error) y ser completamente genérica (tipada con `<T>`).
+La **tabla de datos** es uno de los componentes más complejos y solicitados en aplicaciones enterprise. Una implementación profesional debe manejar ordenación, paginación, selección, estados (loading, empty, error) y ser completamente genérica (tipada con `<T>`).
 
 **Interfaz TypeScript:**
 
@@ -1714,146 +1720,146 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 
 ---
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Crear un componente de gráfico (Chart) con entrada de datos genérica
+    ### Actividad de ampliación 1: Crear un componente de gráfico (Chart) con entrada de datos genérica
 
-**Duración:** 180 minutos.
+    **Duración:** 180 minutos.
 
-**Descripción:** Diseñar un componente `ChartWidget` reutilizable que envuelva Chart.js y exponga una API genérica para diferentes tipos de gráficos.
+    **Descripción:** Diseñar un componente `ChartWidget` reutilizable que envuelva Chart.js y exponga una API genérica para diferentes tipos de gráficos.
 
-**Requisitos:**
-- Soportar al menos 4 tipos de gráfico: líneas, barras, circular (doughnut) y radar.
-- Input `series` genérico que acepte datos en un formato común.
-- Inputs para configuración: `title`, `height`, `showLegend`, `showTooltip`, `colors`.
-- Estado loading (skeleton del gráfico), empty (mensaje) y error.
-- Botón de exportación a PNG.
-- Responsive: el gráfico debe redimensionarse con su contenedor.
-- Dos temas de color: claro y oscuro (reaccionar a la clase `dark` en `<html>`).
+    **Requisitos:**
+    - Soportar al menos 4 tipos de gráfico: líneas, barras, circular (doughnut) y radar.
+    - Input `series` genérico que acepte datos en un formato común.
+    - Inputs para configuración: `title`, `height`, `showLegend`, `showTooltip`, `colors`.
+    - Estado loading (skeleton del gráfico), empty (mensaje) y error.
+    - Botón de exportación a PNG.
+    - Responsive: el gráfico debe redimensionarse con su contenedor.
+    - Dos temas de color: claro y oscuro (reaccionar a la clase `dark` en `<html>`).
 
-**Entregable:** Componente `ChartWidgetComponent` con demostración de los 4 tipos de gráfico.
+    **Entregable:** Componente `ChartWidgetComponent` con demostración de los 4 tipos de gráfico.
 
-### Actividad de ampliación 2: Implementar virtual scrolling en DataTable
+    ### Actividad de ampliación 2: Implementar virtual scrolling en DataTable
 
-**Duración:** 150 minutos.
+    **Duración:** 150 minutos.
 
-**Descripción:** Extender el componente `DataTable` desarrollado en el catálogo para que soporte scroll virtual con 10.000+ filas mediante `@angular/cdk/scrolling`.
+    **Descripción:** Extender el componente `DataTable` desarrollado en el catálogo para que soporte scroll virtual con 10.000+ filas mediante `@angular/cdk/scrolling`.
 
-**Requisitos:**
-- Utilizar `CdkVirtualScrollViewport` de Angular CDK.
-- Renderizar solo las filas visibles + un buffer configurable.
-- Mantener la funcionalidad de ordenación y selección.
-- Medir y comparar el rendimiento (FPS, tiempo de renderizado, memoria) entre la versión con scroll virtual y sin él para 1.000, 5.000 y 10.000 filas.
-- Presentar resultados en un breve informe.
+    **Requisitos:**
+    - Utilizar `CdkVirtualScrollViewport` de Angular CDK.
+    - Renderizar solo las filas visibles + un buffer configurable.
+    - Mantener la funcionalidad de ordenación y selección.
+    - Medir y comparar el rendimiento (FPS, tiempo de renderizado, memoria) entre la versión con scroll virtual y sin él para 1.000, 5.000 y 10.000 filas.
+    - Presentar resultados en un breve informe.
 
-**Entregable:** `DataTableComponent` con scroll virtual + informe de rendimiento.
+    **Entregable:** `DataTableComponent` con scroll virtual + informe de rendimiento.
 
-### Actividad de ampliación 3: Construir un componente Rich Text Editor reutilizable
+    ### Actividad de ampliación 3: Construir un componente Rich Text Editor reutilizable
 
-**Duración:** 240 minutos.
+    **Duración:** 240 minutos.
 
-**Descripción:** Integrar una librería de edición de texto enriquecido (Quill, Tiptap o Slate) en un componente Angular reutilizable con todas las funcionalidades esperables de un editor profesional.
+    **Descripción:** Integrar una librería de edición de texto enriquecido (Quill, Tiptap o Slate) en un componente Angular reutilizable con todas las funcionalidades esperables de un editor profesional.
 
-**Requisitos:**
-- Barra de herramientas configurable por input (ej: `['bold', 'italic', 'underline', 'link', 'image', 'list']`).
-- Two-way binding del contenido HTML mediante `model()`.
-- Placeholder personalizable.
-- Límite de caracteres opcional con contador visual.
-- Modo solo lectura.
-- Validación visual (borde rojo si hay error de validación).
-- Accesibilidad: toolbar operable por teclado, anuncio del modo de edición.
+    **Requisitos:**
+    - Barra de herramientas configurable por input (ej: `['bold', 'italic', 'underline', 'link', 'image', 'list']`).
+    - Two-way binding del contenido HTML mediante `model()`.
+    - Placeholder personalizable.
+    - Límite de caracteres opcional con contador visual.
+    - Modo solo lectura.
+    - Validación visual (borde rojo si hay error de validación).
+    - Accesibilidad: toolbar operable por teclado, anuncio del modo de edición.
 
-**Entregable:** Componente `RichTextEditorComponent` completamente funcional.
-
----
-
-## Buenas prácticas
-
-1. **API de inputs basada en signals.** Utilizar `input()`, `model()` y `output()` en lugar de los decoradores tradicionales `@Input` y `@Output` para aprovechar la reactividad de Signals y la mejor integración con la detección de cambios OnPush.
-
-2. **Un solo output por evento conceptual.** Evitar outputs genéricos como `action` con un discriminador de tipo. Es preferible tener outputs específicos: `save`, `delete`, `cancel`, cada uno con su tipo de dato correspondiente.
-
-3. **Proyección de contenido con selectores nombrados.** Utilizar `ng-content` con atributos `select` para zonas específicas (header, body, footer) en lugar de múltiples inputs para contenido, lo que proporciona mayor flexibilidad y mejor experiencia de desarrollo.
-
-4. **Estados de interfaz explícitos.** Todo componente que muestre datos asíncronos debe contemplar los estados loading, empty, error y data. No hacerlo resulta en interfaces que "parpadean" o muestran información incorrecta durante las transiciones.
-
-5. **CSS solo con Tailwind.** Evitar mezclar CSS personalizado con Tailwind en componentes reutilizables. Si un estilo no se puede expresar con clases de Tailwind, es un buen momento para reconsiderar el diseño o extender la configuración de Tailwind con valores personalizados.
-
-6. **Documentar cada input con JSDoc.** Un comentario `/** Descripción del input */` antes de cada `input()` proporciona documentación que aparece en tooltips del editor y puede extraerse con herramientas de generación de documentación.
-
-7. **No filtrar ni transformar datos en el componente presentacional.** Las transformaciones de datos pertenecen al Smart Component o a un pipe. El componente presentacional debe mostrar exactamente lo que recibe.
-
-8. **Usar `ChangeDetectionStrategy.OnPush` siempre.** En componentes presentacionales, OnPush combinado con Signals produce una detección de cambios extremadamente eficiente, ya que solo se ejecuta cuando los inputs (signals) cambian.
-
-9. **Internacionalizar textos de componentes reutilizables.** Los textos mostrados por componentes del catálogo (como "Cargando...", "Sin resultados", "Reintentar") deben ser configurables mediante inputs para permitir internacionalización.
-
-10. **Testear la accesibilidad desde el principio.** Utilizar `@storybook/addon-a11y` o `axe-core` para verificar automáticamente que cada variante del componente cumple con los estándares de accesibilidad.
-
-11. **Evitar dependencias circulares.** Los componentes de `shared/` no deben importar nada de `features/`. Si un componente necesita conocer un tipo de dominio, ese tipo debe definirse en `core/models` y ser importado por ambos.
-
-12. **Usar `model()` para two-way binding en controles de formulario.** Para componentes como Input, Toggle, Select, Slider que representan un valor modificable, `model()` es la opción más limpia y idiomática.
+    **Entregable:** Componente `RichTextEditorComponent` completamente funcional.
 
 ---
 
-## Errores frecuentes
+!!! tip "Buenas prácticas"
 
-1. **Crear componentes demasiado específicos.** El error más común es crear `ProductCard` en lugar de `Card`, `UserAvatar` en lugar de `Avatar`, `OrderTable` en lugar de `DataTable`. Los nombres deben reflejar la función genérica del componente, no su uso particular.
+    1. **API de inputs basada en signals.** Utilizar `input()`, `model()` y `output()` en lugar de los decoradores tradicionales `@Input` y `@Output` para aprovechar la reactividad de Signals y la mejor integración con la detección de cambios OnPush.
 
-2. **No tipificar correctamente los genéricos.** Un `DataTable<any>` anula los beneficios de TypeScript. Debe ser `DataTable<T extends Record<string, any>>` y las columnas deben tipificarse con `Column<T>`.
+    2. **Un solo output por evento conceptual.** Evitar outputs genéricos como `action` con un discriminador de tipo. Es preferible tener outputs específicos: `save`, `delete`, `cancel`, cada uno con su tipo de dato correspondiente.
 
-3. **Olvidar el estado loading.** Un componente que recibe datos asíncronos siempre debe contemplar un estado de carga. Mostrar una tabla vacía mientras los datos se están cargando confunde al usuario, que piensa que no hay resultados.
+    3. **Proyección de contenido con selectores nombrados.** Utilizar `ng-content` con atributos `select` para zonas específicas (header, body, footer) en lugar de múltiples inputs para contenido, lo que proporciona mayor flexibilidad y mejor experiencia de desarrollo.
 
-4. **No limpiar timers en ngOnDestroy.** Los `setTimeout` y `setInterval` utilizados para auto-dismiss de toasts o tooltips deben limpiarse al destruir el componente para evitar fugas de memoria e intentos de actualizar estado de un componente destruido.
+    4. **Estados de interfaz explícitos.** ==Todo componente que muestre datos asíncronos debe contemplar los estados loading, empty, error y data.== No hacerlo resulta en interfaces que "parpadean" o muestran información incorrecta durante las transiciones.
 
-5. **Usar `any` en los tipos de eventos emitidos.** Si un `EventEmitter` emite `any`, el componente padre no tiene información sobre la forma de los datos que recibe, eliminando la seguridad de tipos.
+    5. **CSS solo con Tailwind.** Evitar mezclar CSS personalizado con Tailwind en componentes reutilizables. Si un estilo no se puede expresar con clases de Tailwind, es un buen momento para reconsiderar el diseño o extender la configuración de Tailwind con valores personalizados.
 
-6. **No bloquear el scroll del body en modales.** Un modal abierto sin `overflow: hidden` en el body permite al usuario hacer scroll del contenido detrás del modal, una experiencia de usuario deficiente.
+    6. **Documentar cada input con JSDoc.** Un comentario `/** Descripción del input */` antes de cada `input()` proporciona documentación que aparece en tooltips del editor y puede extraerse con herramientas de generación de documentación.
 
-7. **Implementar mal la trampa de foco en modales.** Sin trampa de foco, un usuario navegando con Tab puede salir del modal y perderse en elementos del fondo que no deberían ser accesibles.
+    7. **No filtrar ni transformar datos en el componente presentacional.** Las transformaciones de datos pertenecen al Smart Component o a un pipe. El componente presentacional debe mostrar exactamente lo que recibe.
 
-8. **Iconos sin `aria-hidden`.** Los iconos decorativos deben tener `aria-hidden="true"` para que los lectores de pantalla no intenten leerlos. Si el icono transmite información, debe tener una etiqueta `aria-label`.
+    8. **Usar `ChangeDetectionStrategy.OnPush` siempre.** En componentes presentacionales, OnPush combinado con Signals produce una detección de cambios extremadamente eficiente, ya que solo se ejecuta cuando los inputs (signals) cambian.
 
-9. **Usar clases CSS de Tailwind inline en lugar de `computed` signals.** Cuando un elemento tiene más de 3-4 clases condicionales, extraer la lógica a un `computed` que devuelva un string de clases mejora la legibilidad del template.
+    9. **Internacionalizar textos de componentes reutilizables.** Los textos mostrados por componentes del catálogo (como "Cargando...", "Sin resultados", "Reintentar") deben ser configurables mediante inputs para permitir internacionalización.
 
-10. **No proporcionar ejemplos de uso.** Un componente sin documentación de cómo usarlo, aunque esté perfectamente implementado, no será utilizado correctamente por otros desarrolladores. Storybook resuelve este problema.
+    10. **Testear la accesibilidad desde el principio.** Utilizar `@storybook/addon-a11y` o `axe-core` para verificar automáticamente que cada variante del componente cumple con los estándares de accesibilidad.
 
-11. **Confundir `viewChild` con `contentChild`.** `viewChild` accede a elementos del template propio. `contentChild` accede a elementos proyectados por el padre. Confundirlos resulta en referencias `undefined`.
+    11. **Evitar dependencias circulares.** Los componentes de `shared/` no deben importar nada de `features/`. Si un componente necesita conocer un tipo de dominio, ese tipo debe definirse en `core/models` y ser importado por ambos.
 
-12. **No respetar el tamaño del bundle.** Cada dependencia (librería de iconos, utilidades, animaciones) añadida a un componente reutilizable incrementa el tamaño del bundle final. Evaluar si la funcionalidad justifica el coste.
+    12. **Usar `model()` para two-way binding en controles de formulario.** Para componentes como Input, Toggle, Select, Slider que representan un valor modificable, `model()` es la opción más limpia y idiomática.
 
 ---
 
-## Resumen
+!!! warning "Errores frecuentes"
 
-Esta unidad ha abordado en profundidad el diseño e implementación de componentes de interfaz de usuario reutilizables en Angular, cubriendo:
+    1. **Crear componentes demasiado específicos.** El error más común es crear `ProductCard` en lugar de `Card`, `UserAvatar` en lugar de `Avatar`, `OrderTable` en lugar de `DataTable`. Los nombres deben reflejar la función genérica del componente, no su uso particular.
 
-- Las **cuatro características esenciales** de un componente reutilizable: genericidad, configurabilidad, ausencia de acoplamiento y documentación exhaustiva.
+    2. **No tipificar correctamente los genéricos.** Un `DataTable<any>` anula los beneficios de TypeScript. Debe ser `DataTable<T extends Record<string, any>>` y las columnas deben tipificarse con `Column<T>`.
 
-- La **aplicación de los principios SOLID** al diseño de componentes UI, con énfasis en la Responsabilidad Única (un componente, un propósito) y el Principio Abierto/Cerrado (extensible sin modificar).
+    3. **Olvidar el estado loading.** Un componente que recibe datos asíncronos siempre debe contemplar un estado de carga. Mostrar una tabla vacía mientras los datos se están cargando confunde al usuario, que piensa que no hay resultados.
 
-- Un **catálogo completo de 14 componentes** con su interfaz TypeScript, implementación Angular + Tailwind, variantes y consideraciones de accesibilidad: Button, Input/FormField, Card, Modal, Dropdown, DataTable, Tabs, Toast, Badge, Avatar, Skeleton, Progress, Tooltip y Empty State.
+    4. **No limpiar timers en ngOnDestroy.** Los `setTimeout` y `setInterval` utilizados para auto-dismiss de toasts o tooltips deben limpiarse al destruir el componente para evitar fugas de memoria e intentos de actualizar estado de un componente destruido.
 
-- El uso de **proyección de contenido** (`ng-content` con selectores) para crear componentes compuestos flexibles que permiten al consumidor personalizar cada zona (header, body, footer).
+    5. **Usar `any` en los tipos de eventos emitidos.** Si un `EventEmitter` emite `any`, el componente padre no tiene información sobre la forma de los datos que recibe, eliminando la seguridad de tipos.
 
-- La gestión de los **cuatro estados fundamentales** de interfaz: loading (skeleton), empty (ilustración + mensaje), error (mensaje + reintentar) y data (contenido real).
+    6. **No bloquear el scroll del body en modales.** Un modal abierto sin `overflow: hidden` en el body permite al usuario hacer scroll del contenido detrás del modal, una experiencia de usuario deficiente.
 
-- La **accesibilidad como parte integral** del diseño, no como un añadido posterior: roles ARIA correctos, navegación por teclado, gestión del foco, textos para lectores de pantalla y contraste de color.
+    7. **Implementar mal la trampa de foco en modales.** Sin trampa de foco, un usuario navegando con Tab puede salir del modal y perderse en elementos del fondo que no deberían ser accesibles.
+
+    8. **Iconos sin `aria-hidden`.** Los iconos decorativos deben tener `aria-hidden="true"` para que los lectores de pantalla no intenten leerlos. Si el icono transmite información, debe tener una etiqueta `aria-label`.
+
+    9. **Usar clases CSS de Tailwind inline en lugar de `computed` signals.** Cuando un elemento tiene más de 3-4 clases condicionales, extraer la lógica a un `computed` que devuelva un string de clases mejora la legibilidad del template.
+
+    10. **No proporcionar ejemplos de uso.** Un componente sin documentación de cómo usarlo, aunque esté perfectamente implementado, no será utilizado correctamente por otros desarrolladores. Storybook resuelve este problema.
+
+    11. **Confundir `viewChild` con `contentChild`.** `viewChild` accede a elementos del template propio. `contentChild` accede a elementos proyectados por el padre. Confundirlos resulta en referencias `undefined`.
+
+    12. **No respetar el tamaño del bundle.** Cada dependencia (librería de iconos, utilidades, animaciones) añadida a un componente reutilizable incrementa el tamaño del bundle final. Evaluar si la funcionalidad justifica el coste.
+
+---
+
+!!! abstract "Resumen"
+
+    Esta unidad ha abordado en profundidad el diseño e implementación de componentes de interfaz de usuario reutilizables en Angular, cubriendo:
+
+    - Las **cuatro características esenciales** de un componente reutilizable: genericidad, configurabilidad, ausencia de acoplamiento y documentación exhaustiva.
+
+    - La **aplicación de los principios SOLID** al diseño de componentes UI, con énfasis en la Responsabilidad Única (un componente, un propósito) y el Principio Abierto/Cerrado (extensible sin modificar).
+
+    - Un **catálogo completo de 14 componentes** con su interfaz TypeScript, implementación Angular + Tailwind, variantes y consideraciones de accesibilidad: Button, Input/FormField, Card, Modal, Dropdown, DataTable, Tabs, Toast, Badge, Avatar, Skeleton, Progress, Tooltip y Empty State.
+
+    - El uso de **proyección de contenido** (`ng-content` con selectores) para crear componentes compuestos flexibles que permiten al consumidor personalizar cada zona (header, body, footer).
+
+    - La gestión de los **cuatro estados fundamentales** de interfaz: loading (skeleton), empty (ilustración + mensaje), error (mensaje + reintentar) y data (contenido real).
+
+    - La **accesibilidad como parte integral** del diseño, no como un añadido posterior: roles ARIA correctos, navegación por teclado, gestión del foco, textos para lectores de pantalla y contraste de color.
 
 ---
 
 ## Recursos complementarios
 
 ### Documentación oficial
-- Angular — Signal Inputs: https://angular.dev/guide/signals/inputs
-- Angular — Model Inputs: https://angular.dev/guide/signals/model
-- Angular — Content Projection: https://angular.dev/guide/components/content-projection
-- Tailwind CSS — Hover, Focus, and Other States: https://tailwindcss.com/docs/hover-focus-and-other-states
-- ARIA Authoring Practices Guide (WAI): https://www.w3.org/WAI/ARIA/apg/
+- Angular — **Signal Inputs**: https://angular.dev/guide/signals/inputs
+- Angular — **Model Inputs**: https://angular.dev/guide/signals/model
+- Angular — **Content Projection**: https://angular.dev/guide/components/content-projection
+- Tailwind CSS — **Hover, Focus, and Other States**: https://tailwindcss.com/docs/hover-focus-and-other-states
+- **ARIA Authoring Practices Guide (WAI)**: https://www.w3.org/WAI/ARIA/apg/
 
 ### Bibliotecas de referencia
-- Angular CDK (Component Dev Kit): https://material.angular.io/cdk
-- TanStack Table (inspiración para DataTable): https://tanstack.com/table
-- Radix UI (inspiración de accesibilidad): https://www.radix-ui.com
+- **Angular CDK** (Component Dev Kit): https://material.angular.io/cdk
+- **TanStack Table** (inspiración para DataTable): https://tanstack.com/table
+- **Radix UI** (inspiración de accesibilidad): https://www.radix-ui.com
 
 ### Artículos y guías
 - "Building Reusable Components in Angular" — Tim Deschryver
@@ -1863,10 +1869,10 @@ Esta unidad ha abordado en profundidad el diseño e implementación de component
 - "Tailwind CSS Component Patterns" — Tailwind CSS Blog
 
 ### Herramientas
-- axe DevTools: extensión para auditoría de accesibilidad en el navegador.
-- Storybook: desarrollo y documentación aislada de componentes (Unidad 14).
-- Chromatic: testing visual y revisión de cambios en componentes UI.
-- Figma: diseño visual de componentes y definición de variantes.
+- **axe DevTools**: extensión para auditoría de accesibilidad en el navegador.
+- **Storybook**: desarrollo y documentación aislada de componentes (Unidad 14).
+- **Chromatic**: testing visual y revisión de cambios en componentes UI.
+- **Figma**: diseño visual de componentes y definición de variantes.
 
 ### Libros
 - "Atomic Design" — Brad Frost (metodología de composición de componentes).

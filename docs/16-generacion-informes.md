@@ -1,3 +1,7 @@
+---
+icon: lucide/file-down
+---
+
 # Generación de Informes y Documentos
 
 ## Objetivos de aprendizaje
@@ -35,17 +39,17 @@ Como RA secundario, se vincula al **RA 6** («Documenta aplicaciones seleccionan
 
 - CE e) Se ha confeccionado el manual de usuario y la guía de referencia (documentos generados como PDF).
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar con éxito esta unidad, el alumnado debe poseer los siguientes conocimientos previos, adquiridos en unidades anteriores del módulo y en otros módulos del ciclo formativo:
+    Para abordar con éxito esta unidad, el alumnado debe poseer los siguientes conocimientos previos, adquiridos en unidades anteriores del módulo y en otros módulos del ciclo formativo:
 
-- **Fundamentos de Angular**: creación de componentes standalone, uso de servicios con el patrón `inject()`, manejo de Signals para estado reactivo, comprensión del sistema de inyección de dependencias, uso de HttpClient para consumo de APIs REST, y conocimiento del ciclo de vida de los componentes (especialmente `ngOnInit` y `ngOnDestroy`).
-- **TypeScript avanzado**: definición de interfaces y tipos para modelar datos estructurados, uso de genéricos cuando sea necesario, comprensión de los tipos de unión e intersección, manejo de promesas y programación asíncrona con async/await, y conocimiento de los módulos de ES6 para importaciones y exportaciones.
-- **Maquetación web con CSS**: comprensión del modelo de caja, posicionamiento, diseño responsive, uso de medidas relativas y absolutas, y nociones de diseño visual (jerarquía, contraste, alineación) que serán trasladables al diseño de documentos PDF.
-- **Programación orientada a objetos**: comprensión de clases, interfaces, herencia y composición, principios SOLID aplicados a la arquitectura de servicios, y patrones de diseño básicos como el patrón estrategia (útil para estandarizar diferentes generadores de documentos).
-- **Conceptos de HTTP y APIs REST**: conocimiento de los verbos HTTP (GET, POST, PUT, DELETE), interpretación de códigos de estado, manejo de cabeceras HTTP (especialmente Content-Type y Content-Disposition para la descarga de archivos), y comprensión del formato JSON para el intercambio de datos.
-- **Sistema de archivos del sistema operativo**: comprensión de los formatos de archivo binarios y de texto, codificación de caracteres (UTF-8, ASCII, BOM), tipos MIME y su relación con la descarga de archivos desde el navegador, y conocimiento básico del objeto Blob y las URLs de objeto (URL.createObjectURL).
-- **Control de versiones con Git**: manejo básico de ramas, commits y gestión de dependencias con npm, ya que se instalarán y gestionarán varias librerías externas durante la unidad.
+    - **Fundamentos de Angular**: creación de componentes standalone, uso de servicios con el patrón `inject()`, manejo de Signals para estado reactivo, comprensión del sistema de inyección de dependencias, uso de HttpClient para consumo de APIs REST, y conocimiento del ciclo de vida de los componentes (especialmente `ngOnInit` y `ngOnDestroy`).
+    - **TypeScript avanzado**: definición de interfaces y tipos para modelar datos estructurados, uso de genéricos cuando sea necesario, comprensión de los tipos de unión e intersección, manejo de promesas y programación asíncrona con async/await, y conocimiento de los módulos de ES6 para importaciones y exportaciones.
+    - **Maquetación web con CSS**: comprensión del modelo de caja, posicionamiento, diseño responsive, uso de medidas relativas y absolutas, y nociones de diseño visual (jerarquía, contraste, alineación) que serán trasladables al diseño de documentos PDF.
+    - **Programación orientada a objetos**: comprensión de clases, interfaces, herencia y composición, principios **SOLID** aplicados a la arquitectura de servicios, y patrones de diseño básicos como el patrón estrategia (útil para estandarizar diferentes generadores de documentos).
+    - **Conceptos de HTTP y APIs REST**: conocimiento de los verbos HTTP (GET, POST, PUT, DELETE), interpretación de códigos de estado, manejo de cabeceras HTTP (especialmente Content-Type y Content-Disposition para la descarga de archivos), y comprensión del formato JSON para el intercambio de datos.
+    - **Sistema de archivos del sistema operativo**: comprensión de los formatos de archivo binarios y de texto, codificación de caracteres (UTF-8, ASCII, BOM), tipos MIME y su relación con la descarga de archivos desde el navegador, y conocimiento básico del objeto Blob y las URLs de objeto (URL.createObjectURL).
+    - **Control de versiones con Git**: manejo básico de ramas, commits y gestión de dependencias con npm, ya que se instalarán y gestionarán varias librerías externas durante la unidad.
 
 ## Contenidos
 
@@ -113,7 +117,7 @@ Para abordar con éxito esta unidad, el alumnado debe poseer los siguientes cono
 
 ### 1. La necesidad de generar documentos desde aplicaciones empresariales
 
-Toda aplicación empresarial, en algún momento de su ciclo de vida, necesita producir documentos que abandonen la pantalla y se materialicen en formatos que el usuario pueda almacenar, imprimir, enviar por correo electrónico o presentar ante terceros. Esta necesidad no es accesoria sino central en muchos sectores: una aplicación de facturación que no emite facturas en PDF es prácticamente inútil; un sistema de gestión académica que no expide certificados de notas no cumple su función; un ERP que no genera informes de ventas para la dirección no aporta valor estratégico.
+Toda aplicación empresarial, en algún momento de su ciclo de vida, necesita producir documentos que abandonen la pantalla y se materialicen en formatos que el usuario pueda almacenar, imprimir, enviar por correo electrónico o presentar ante terceros. Esta necesidad no es accesoria sino central en muchos sectores: una aplicación de facturación que no emite facturas en **PDF** es prácticamente inútil; un sistema de gestión académica que no expide certificados de notas no cumple su función; un ERP que no genera informes de ventas para la dirección no aporta valor estratégico.
 
 Los documentos generados por aplicaciones informáticas se caracterizan por tres propiedades fundamentales: son **estructurados** (siguen plantillas predefinidas con campos fijos y variables), son **reproducibles** (se generan bajo demanda tantas veces como sea necesario, a partir de datos almacenados en bases de datos) y son **portables** (se distribuyen en formatos estándar que cualquier sistema puede abrir, siendo PDF el formato rey por su fidelidad de representación independientemente del dispositivo).
 
@@ -125,7 +129,9 @@ Los tipos de documentos que una aplicación empresarial típica puede necesitar 
 - **Informes y reportes**: informes de ventas (diarios, semanales, mensuales, anuales), informes de inventario y stock, informes financieros (balance, cuenta de pérdidas y ganancias), informes de marketing (ROI de campañas, tasas de conversión), informes de calidad y auditoría, dashboards exportados a PDF.
 - **Documentos legales y administrativos**: contratos, acuerdos de confidencialidad (NDA), poderes notariales, escrituras, instancias y solicitudes administrativas.
 
-En el contexto normativo español y andaluz, la generación de documentos electrónicos está sujeta a requisitos legales específicos. Por ejemplo, la factura electrónica está regulada por el Real Decreto 1619/2012 (Reglamento de facturación), que establece los datos obligatorios que debe contener toda factura: número y serie, fecha de expedición, nombre y apellidos o razón social del expedidor y del destinatario, NIF, domicilio, descripción de las operaciones, tipo impositivo, cuota tributaria, fecha de prestación del servicio si es distinta a la de expedición. Además, la Ley 25/2013 impulsa el uso de la factura electrónica en las administraciones públicas. Cualquier aplicación que genere facturas debe, por tanto, asegurar la inclusión de todos estos campos obligatorios.
+!!! info "Normativa"
+
+    En el contexto normativo español y andaluz, la generación de documentos electrónicos está sujeta a requisitos legales específicos. Por ejemplo, la factura electrónica está regulada por el **Real Decreto 1619/2012** (Reglamento de facturación), que establece los datos obligatorios que debe contener toda factura: número y serie, fecha de expedición, nombre y apellidos o razón social del expedidor y del destinatario, NIF, domicilio, descripción de las operaciones, tipo impositivo, cuota tributaria, fecha de prestación del servicio si es distinta a la de expedición. Además, la **Ley 25/2013** impulsa el uso de la factura electrónica en las administraciones públicas. Cualquier aplicación que genere facturas debe, por tanto, asegurar la inclusión de todos estos campos obligatorios.
 
 El flujo típico de generación de un documento sigue estas etapas:
 
@@ -137,16 +143,16 @@ El flujo típico de generación de un documento sigue estas etapas:
 
 ### 2. Enfoques de generación: cliente vs servidor
 
-La decisión sobre dónde ejecutar la generación del documento —en el navegador del cliente o en el servidor— es una decisión arquitectónica con implicaciones significativas en el rendimiento, la seguridad, la experiencia de usuario y los costes de infraestructura.
+La decisión sobre dónde ejecutar la generación del documento —en el navegador del cliente o en el servidor— es una **decisión arquitectónica** con implicaciones significativas en el rendimiento, la seguridad, la experiencia de usuario y los costes de infraestructura.
 
 #### Generación en el lado del cliente (navegador)
 
-En este enfoque, la aplicación Angular que se ejecuta en el navegador del usuario es la responsable de construir el PDF completo utilizando librerías JavaScript como PDFMake o jsPDF. Los datos necesarios para el documento se obtienen previamente de la API y residen en memoria (en Signals, servicios o el estado del componente). La generación del PDF se realiza íntegramente en el hilo principal del navegador (o en un Web Worker si se desea evitar bloquear la interfaz de usuario durante documentos muy grandes).
+En este enfoque, la aplicación Angular que se ejecuta en el navegador del usuario es la responsable de construir el PDF completo utilizando librerías JavaScript como **PDFMake** o **jsPDF**. Los datos necesarios para el documento se obtienen previamente de la API y residen en memoria (en Signals, servicios o el estado del componente). La generación del PDF se realiza íntegramente en el hilo principal del navegador (o en un Web Worker si se desea evitar bloquear la interfaz de usuario durante documentos muy grandes).
 
 **Ventajas**:
 - **Sin carga en el servidor**: el servidor solo necesita servir los datos (normalmente en formato JSON), que es una operación mucho más ligera que renderizar un PDF completo. Esto permite escalar la aplicación a miles de usuarios concurrentes sin que la generación de documentos sea un cuello de botella.
 - **Respuesta inmediata**: al no existir latencia de red para la generación (los datos ya están en el cliente), el usuario percibe que el documento se genera instantáneamente al pulsar el botón de descarga.
-- **Funcionamiento offline**: si la aplicación es una PWA (Progressive Web Application), los documentos pueden generarse incluso sin conexión a internet, siempre que los datos estén cacheados localmente.
+- **Funcionamiento offline**: si la aplicación es una **PWA (Progressive Web Application)**, los documentos pueden generarse incluso sin conexión a internet, siempre que los datos estén cacheados localmente.
 - **Previsualización en tiempo real**: el usuario puede ver cómo cambia el documento a medida que modifica los datos en un formulario, ya que la regeneración del PDF es instantánea y no requiere llamadas al servidor.
 
 **Desventajas**:
@@ -162,7 +168,7 @@ En este enfoque, la aplicación Angular envía una petición HTTP al servidor (p
 
 **Ventajas**:
 - **Mayor potencia de procesamiento**: el servidor tiene acceso a toda la CPU y memoria de la máquina, permitiendo generar documentos extremadamente complejos (miles de páginas, cientos de imágenes de alta resolución, gráficos vectoriales intrincados) sin afectar a la experiencia del usuario.
-- **Acceso a librerías nativas**: los lenguajes de servidor tienen acceso a librerías de generación de PDFs mucho más potentes y maduras (iText en Java, ReportLab en Python, FPDF/TCPDF en PHP, Puppeteer/Playwright en Node.js para renderizar HTML a PDF con motores de navegador reales como Chromium), que permiten funcionalidades avanzadas como firmas digitales, cifrado, metadatos XMP, cumplimiento de estándares PDF/A para archivado a largo plazo, accesibilidad PDF/UA, relleno de formularios PDF, capas opcionales (OCG), etc.
+- **Acceso a librerías nativas**: los lenguajes de servidor tienen acceso a librerías de generación de PDFs mucho más potentes y maduras (iText en Java, ReportLab en Python, FPDF/TCPDF en PHP, Puppeteer/Playwright en Node.js para renderizar HTML a PDF con motores de navegador reales como Chromium), que permiten funcionalidades avanzadas como firmas digitales, cifrado, metadatos XMP, cumplimiento de estándares **PDF/A** para archivado a largo plazo, accesibilidad PDF/UA, relleno de formularios PDF, capas opcionales (OCG), etc.
 - **Seguridad**: los datos sensibles nunca abandonan el servidor; solo se envía el producto final. Esto es crucial para documentos que contienen información confidencial (datos bancarios, historiales médicos, secretos comerciales). Además, ciertos procesos de negocio requieren que los documentos se generen en un entorno controlado y auditado.
 - **Independencia del dispositivo cliente**: el usuario puede solicitar la generación de un documento desde un dispositivo de bajas prestaciones (móvil, tablet) y el servidor se encarga del trabajo pesado.
 
@@ -178,27 +184,27 @@ En este enfoque, la aplicación Angular envía una petición HTTP al servidor (p
 
 | Factor | Recomendación |
 |---|---|
-| Número de páginas < 50 | Cliente (PDFMake, jsPDF) |
-| Número de páginas > 100 | Servidor |
-| Alta concurrencia (>1000 usuarios simultáneos) | Cliente (descarga el servidor) |
-| Datos confidenciales (bancarios, médicos) | Servidor |
-| Requiere firma digital | Servidor (obligatorio) |
-| Funcionamiento offline necesario | Cliente |
-| Previsualización interactiva | Cliente |
-| Documentos en lote (miles) | Servidor |
-| Cumplimiento PDF/A | Servidor |
+| Número de páginas < 50 | **Cliente** (PDFMake, jsPDF) |
+| Número de páginas > 100 | **Servidor** |
+| Alta concurrencia (>1000 usuarios simultáneos) | **Cliente** (descarga el servidor) |
+| Datos confidenciales (bancarios, médicos) | **Servidor** |
+| Requiere firma digital | **Servidor** (obligatorio) |
+| Funcionamiento offline necesario | **Cliente** |
+| Previsualización interactiva | **Cliente** |
+| Documentos en lote (miles) | **Servidor** |
+| Cumplimiento PDF/A | **Servidor** |
 
 En el contexto de este módulo de Desarrollo de Interfaces, nos centraremos en el enfoque cliente por ser el que involucra directamente las tecnologías que estamos estudiando (Angular, TypeScript, librerías JavaScript del ecosistema npm). No obstante, el alumnado debe conocer ambas posibilidades y saber argumentar cuál es la más adecuada para cada escenario profesional.
 
 ### 3. Librerías de generación de PDF en el ecosistema JavaScript
 
-El ecosistema npm ofrece múltiples librerías para la generación de documentos PDF desde JavaScript/TypeScript. A continuación se presenta un análisis detallado de las tres principales, ordenadas de menor a mayor complejidad.
+El ecosistema **npm** ofrece múltiples librerías para la generación de documentos PDF desde JavaScript/TypeScript. A continuación se presenta un análisis detallado de las tres principales, ordenadas de menor a mayor complejidad.
 
 #### PDFMake (enfoque declarativo)
 
-PDFMake es una librería que adopta un enfoque declarativo: el desarrollador define un documento como un objeto JavaScript que describe qué elementos contiene el documento (textos, tablas, imágenes, columnas) y cómo deben verse (estilos). PDFMake se encarga internamente del layout, el posicionamiento, los saltos de página y el renderizado final. Esta filosofía declarativa la hace extremadamente productiva para la mayoría de los casos de uso empresarial, ya que el desarrollador no necesita preocuparse por las coordenadas exactas de cada elemento ni por la paginación.
+**PDFMake** es una librería que adopta un enfoque declarativo: el desarrollador define un documento como un objeto JavaScript que describe qué elementos contiene el documento (textos, tablas, imágenes, columnas) y cómo deben verse (estilos). PDFMake se encarga internamente del layout, el posicionamiento, los saltos de página y el renderizado final. Esta filosofía declarativa la hace extremadamente productiva para la mayoría de los casos de uso empresarial, ya que el desarrollador no necesita preocuparse por las coordenadas exactas de cada elemento ni por la paginación.
 
-PDFMake utiliza internamente pdfkit como motor de renderizado y se distribuye como un paquete npm con soporte nativo para TypeScript (los tipos están disponibles como `@types/pdfmake`, aunque en versiones recientes se incluyen en el propio paquete).
+PDFMake utiliza internamente **pdfkit** como motor de renderizado y se distribuye como un paquete npm con soporte nativo para TypeScript (los tipos están disponibles como `@types/pdfmake`, aunque en versiones recientes se incluyen en el propio paquete).
 
 **Instalación**:
 ```bash
@@ -241,7 +247,7 @@ Esta sencillez es la razón principal por la que PDFMake es la librería recomen
 
 #### jsPDF (enfoque imperativo)
 
-jsPDF adopta un enfoque imperativo: el desarrollador dibuja el PDF paso a paso, indicando explícitamente las coordenadas (x, y) donde se coloca cada elemento. Esto proporciona un control total sobre el posicionamiento, pero a costa de una mayor verbosidad y complejidad, especialmente en documentos con tablas y contenido dinámico que requiere paginación automática.
+**jsPDF** adopta un enfoque imperativo: el desarrollador dibuja el PDF paso a paso, indicando explícitamente las coordenadas (x, y) donde se coloca cada elemento. Esto proporciona un control total sobre el posicionamiento, pero a costa de una mayor verbosidad y complejidad, especialmente en documentos con tablas y contenido dinámico que requiere paginación automática.
 
 Para mitigar la complejidad de las tablas, jsPDF cuenta con un plugin llamado **jsPDF-AutoTable** que permite generar tablas con un enfoque más declarativo y con paginación automática.
 
@@ -274,7 +280,7 @@ doc.save('documento.pdf');
 
 #### PDF-LIB (manipulación de PDFs existentes)
 
-PDF-LIB ocupa un nicho diferente a las dos anteriores: no está pensada tanto para crear documentos desde cero, sino para **manipular PDFs ya existentes**. Sus casos de uso principales son:
+**PDF-LIB** ocupa un nicho diferente a las dos anteriores: no está pensada tanto para crear documentos desde cero, sino para **manipular PDFs ya existentes**. Sus casos de uso principales son:
 
 - Rellenar formularios PDF con campos de texto, checkboxes, botones de radio, etc.
 - Añadir, eliminar o reordenar páginas de un PDF existente.
@@ -313,7 +319,7 @@ PDF-LIB es la elección correcta cuando la aplicación necesita partir de planti
 
 ### 4. PDFMake en profundidad
 
-PDFMake es la librería que utilizaremos de forma principal en esta unidad debido a su equilibrio entre potencia, facilidad de uso y productividad. A continuación se detalla en profundidad cada aspecto de la librería con ejemplos de código TypeScript aplicables directamente en proyectos Angular.
+**PDFMake** es la librería que utilizaremos de forma principal en esta unidad debido a su equilibrio entre potencia, facilidad de uso y productividad. A continuación se detalla en profundidad cada aspecto de la librería con ejemplos de código TypeScript aplicables directamente en proyectos Angular.
 
 #### 4.1. Instalación y configuración en Angular
 
@@ -329,7 +335,7 @@ Los tipos TypeScript están incluidos en el paquete a partir de la versión 0.2.
 npm install --save-dev @types/pdfmake
 ```
 
-La configuración básica que debe realizarse antes de usar PDFMake es cargar las fuentes virtuales (vfs_fonts). PDFMake incluye un sistema de archivos virtual que contiene las fuentes necesarias para renderizar el texto. Las fuentes por defecto incluyen Roboto (la familia tipográfica por defecto de PDFMake) en sus variantes normal, negrita, cursiva y negrita-cursiva.
+La configuración básica que debe realizarse antes de usar PDFMake es cargar las fuentes virtuales (vfs_fonts). PDFMake incluye un sistema de archivos virtual que contiene las fuentes necesarias para renderizar el texto. Las fuentes por defecto incluyen **Roboto** (la familia tipográfica por defecto de PDFMake) en sus variantes normal, negrita, cursiva y negrita-cursiva.
 
 ```typescript
 import pdfMake from 'pdfmake/build/pdfmake';
@@ -338,7 +344,9 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.vfs;
 ```
 
-Es importante ejecutar esta configuración **una sola vez** durante el ciclo de vida de la aplicación. En Angular, el lugar ideal es en el constructor del servicio `PdfService`, que al ser un singleton proporcionado en `root` (`providedIn: 'root'`), se instanciará una única vez.
+!!! tip "Buenas prácticas"
+
+    Es importante ejecutar esta configuración **una sola vez** durante el ciclo de vida de la aplicación. En Angular, el lugar ideal es en el constructor del servicio `PdfService`, que al ser un **singleton** proporcionado en `root` (`providedIn: 'root'`), se instanciará una única vez.
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -701,7 +709,7 @@ PDFMake incluye por defecto la fuente Roboto en sus variantes normal, negrita, c
 
 El proceso para añadir una fuente personalizada es:
 
-1. Obtener los archivos de fuente en formato TrueType (.ttf) y codificarlos en base64.
+1. Obtener los archivos de fuente en formato **TrueType (.ttf)** y codificarlos en base64.
 2. Construir un objeto de definición de fuente para PDFMake.
 3. Asignar las fuentes al `vfs` y configurar PDFMake para usarlas.
 
@@ -733,7 +741,9 @@ const docDefinition = {
 };
 ```
 
-Es importante considerar que cada fuente añadida incrementa el tamaño del bundle de JavaScript y el tiempo de carga de la aplicación. Para aplicaciones Angular, se recomienda cargar las fuentes adicionales mediante lazy loading (import dinámico) solo cuando se va a generar un documento, no en la carga inicial de la aplicación.
+!!! tip "Rendimiento"
+
+    Es importante considerar que cada fuente añadida incrementa el tamaño del bundle de JavaScript y el tiempo de carga de la aplicación. Para aplicaciones Angular, se recomienda cargar las fuentes adicionales mediante **lazy loading** (import dinámico) solo cuando se va a generar un documento, no en la carga inicial de la aplicación.
 
 #### 4.7. Métodos de salida
 
@@ -753,16 +763,16 @@ Para el trabajo en Angular, los métodos más utilizados son `download()`, `open
 
 ### 5. jsPDF como alternativa
 
-Aunque PDFMake es la recomendación principal de esta unidad, es importante conocer jsPDF porque es ampliamente utilizado en la industria y puede ser la mejor opción para ciertos escenarios específicos.
+Aunque PDFMake es la recomendación principal de esta unidad, es importante conocer **jsPDF** porque es ampliamente utilizado en la industria y puede ser la mejor opción para ciertos escenarios específicos.
 
 jsPDF opera con un modelo de "lienzo": el desarrollador especifica coordenadas (x, y) para cada elemento, lo que proporciona un control absoluto sobre el posicionamiento. La contrapartida es que el manejo de saltos de página, tablas y contenido dinámico recae completamente sobre el desarrollador.
 
 **Ventajas de jsPDF sobre PDFMake**:
-- Control de coordenadas absolutas: ideal para replicar formularios oficiales donde cada campo debe estar en una posición exacta.
-- API de dibujo vectorial: `doc.setDrawColor()`, `doc.setFillColor()`, `doc.rect()`, `doc.circle()`, `doc.ellipse()`, `doc.triangle()`, `doc.lines()`, `doc.roundedRect()`.
-- Soporte para múltiples formatos de imagen (JPEG, PNG, WebP, BMP, TIFF, GIF).
+- **Control de coordenadas absolutas**: ideal para replicar formularios oficiales donde cada campo debe estar en una posición exacta.
+- **API de dibujo vectorial**: `doc.setDrawColor()`, `doc.setFillColor()`, `doc.rect()`, `doc.circle()`, `doc.ellipse()`, `doc.triangle()`, `doc.lines()`, `doc.roundedRect()`.
+- **Soporte para múltiples formatos de imagen** (JPEG, PNG, WebP, BMP, TIFF, GIF).
 - Posibilidad de añadir anotaciones, enlaces, y marcadores.
-- Integración con librerías de generación de gráficos (Chart.js → imagen base64 → jsPDF).
+- **Integración con librerías de generación de gráficos** (Chart.js → imagen base64 → jsPDF).
 
 **Ejemplo completo con jsPDF y AutoTable**:
 
@@ -822,7 +832,7 @@ function generateInvoicePDF(invoiceData: any): void {
 
 ### 6. PDF-LIB: manipulación avanzada de PDFs existentes
 
-PDF-LIB resuelve un problema diferente: no crear PDFs desde cero, sino manipular documentos ya existentes. Este enfoque es común en aplicaciones empresariales que necesitan trabajar con plantillas PDF proporcionadas por terceros.
+**PDF-LIB** resuelve un problema diferente: no crear PDFs desde cero, sino manipular documentos ya existentes. Este enfoque es común en aplicaciones empresariales que necesitan trabajar con plantillas PDF proporcionadas por terceros.
 
 **Ejemplo: rellenar un formulario PDF existente**:
 
@@ -876,7 +886,7 @@ async function mergePDFs(pdfUrls: string[]): Promise<Uint8Array> {
 
 ### 7. Caso práctico 1: Generación de una factura profesional
 
-A continuación se presenta el código completo en TypeScript para generar una factura profesional utilizando PDFMake en un servicio Angular. Este ejemplo integra todos los conceptos vistos hasta ahora: imágenes en base64, columnas, tablas con anchos personalizados, estilos corporativos, cabecera y pie de página repetidos en cada página, y formato de importes monetarios.
+A continuación se presenta el código completo en TypeScript para generar una factura profesional utilizando **PDFMake** en un servicio Angular. Este ejemplo integra todos los conceptos vistos hasta ahora: imágenes en base64, columnas, tablas con anchos personalizados, estilos corporativos, cabecera y pie de página repetidos en cada página, y formato de importes monetarios.
 
 ```typescript
 import { Injectable, inject } from '@angular/core';
@@ -1105,7 +1115,7 @@ export class PdfService {
 
 ### 8. Arquitectura recomendada para la generación de documentos
 
-Para proyectos Angular de cierta envergadura, se recomienda estructurar el código de generación de documentos siguiendo los principios SOLID y los patrones de diseño de Angular.
+Para proyectos Angular de cierta envergadura, se recomienda estructurar el código de generación de documentos siguiendo los principios **SOLID** y los patrones de diseño de Angular.
 
 **Estructura de carpetas propuesta**:
 
@@ -1171,7 +1181,9 @@ export class PdfService implements DocumentGenerator<InvoiceData> {
 
 #### 9.1. Exportación a CSV
 
-El formato CSV (Comma-Separated Values) es el más sencillo y universal para el intercambio de datos tabulares. Aunque no existe un estándar oficial (solo el RFC 4180 como recomendación), en la práctica se utiliza ampliamente por su simplicidad.
+!!! info "Definición"
+
+    El formato **CSV (Comma-Separated Values)** es el más sencillo y universal para el intercambio de datos tabulares. Aunque no existe un estándar oficial (solo el **RFC 4180** como recomendación), en la práctica se utiliza ampliamente por su simplicidad.
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -1229,7 +1241,7 @@ export class CsvExportService {
 
 #### 9.2. Exportación a Excel con SheetJS
 
-SheetJS es la librería de facto para trabajar con archivos Excel en JavaScript. Su instalación es sencilla:
+**SheetJS** es la librería de facto para trabajar con archivos Excel en JavaScript. Su instalación es sencilla:
 
 ```bash
 npm install xlsx
@@ -1395,7 +1407,7 @@ export class InvoiceDetailComponent {
 
 ### Ejemplo 2: Componente Angular con botón "Descargar factura" que usa el servicio
 
-**Objetivo**: Crear un componente con botón de descarga que utilice el sistema de Signals de Angular para reactividad.
+**Objetivo**: Crear un componente con botón de descarga que utilice el sistema de **Signals** de Angular para reactividad.
 
 ```typescript
 import { Component, inject, signal, computed } from '@angular/core';
@@ -1546,25 +1558,25 @@ export class ClientsTableComponent {
 }
 ```
 
-## Casos reales
+!!! example "Casos reales"
 
-### Caso 1: Sistema de facturación de una asesoría andaluza
+    ### Caso 1: Sistema de facturación de una asesoría andaluza
 
-Una asesoría fiscal en Sevilla necesita que su aplicación de gestión de clientes genere automáticamente facturas en PDF al cerrar cada servicio. Cada factura debe incluir el logo de la asesoría, los datos fiscales del cliente y de la asesoría, una tabla con los servicios prestados, el desglose de IVA (21% general y 10% reducido según el tipo de servicio), el total a pagar, los datos bancarios para la transferencia y un código QR con enlace de verificación de la factura en la sede electrónica. Además, al final de cada mes, la aplicación debe generar un archivo Excel con el listado de todas las facturas emitidas para el asesor contable.
+    Una asesoría fiscal en Sevilla necesita que su aplicación de gestión de clientes genere automáticamente facturas en **PDF** al cerrar cada servicio. Cada factura debe incluir el logo de la asesoría, los datos fiscales del cliente y de la asesoría, una tabla con los servicios prestados, el desglose de **IVA** (21% general y 10% reducido según el tipo de servicio), el total a pagar, los datos bancarios para la transferencia y un código QR con enlace de verificación de la factura en la sede electrónica. Además, al final de cada mes, la aplicación debe generar un archivo Excel con el listado de todas las facturas emitidas para el asesor contable.
 
-**Lecciones aprendidas**: La separación de la lógica de negocio (cálculo de impuestos) de la lógica de presentación (diseño del PDF) permite mantener el código mantenible. El servicio `PdfService` se amplió con un método `generateMonthlyReport()` que itera sobre todas las facturas del mes y genera un PDF resumen. Para los tipos de IVA variables, se implementó una función `getTaxRate(serviceType: string): number` que determina el tipo aplicable según el concepto.
+    **Lecciones aprendidas**: La separación de la lógica de negocio (cálculo de impuestos) de la lógica de presentación (diseño del PDF) permite mantener el código mantenible. El servicio `PdfService` se amplió con un método `generateMonthlyReport()` que itera sobre todas las facturas del mes y genera un PDF resumen. Para los tipos de IVA variables, se implementó una función `getTaxRate(serviceType: string): number` que determina el tipo aplicable según el concepto.
 
-### Caso 2: Plataforma de formación online en Granada
+    ### Caso 2: Plataforma de formación online en Granada
 
-Una academia de formación profesional en Granada necesita que su aplicación web genere diplomas y certificados de asistencia para los alumnos que completan cada curso. Cada diploma debe tener un diseño atractivo con los colores corporativos, el nombre del alumno, el nombre del curso, las horas de formación, la fecha de finalización y las firmas digitalizadas del director y del tutor. Además, cada diploma debe incluir un código de verificación único (QR) que enlace a una página pública donde cualquier persona pueda verificar la autenticidad del certificado.
+    Una academia de formación profesional en Granada necesita que su aplicación web genere diplomas y certificados de asistencia para los alumnos que completan cada curso. Cada diploma debe tener un diseño atractivo con los colores corporativos, el nombre del alumno, el nombre del curso, las horas de formación, la fecha de finalización y las firmas digitalizadas del director y del tutor. Además, cada diploma debe incluir un código de verificación único (**QR**) que enlace a una página pública donde cualquier persona pueda verificar la autenticidad del certificado.
 
-**Lecciones aprendidas**: Los diplomas se diseñaron como plantillas reutilizables en PDFMake, con el diseño artístico (bordes, colores de fondo, posición de las firmas) hardcodeado en la plantilla y los datos del alumno y del curso como parámetros variables. Se crearon 3 variantes de diseño de diploma para diferentes tipos de cursos (básico, avanzado y profesional). Las firmas de los profesores se almacenan como imágenes PNG con fondo transparente en base64. El código QR se genera con PDFMake usando la función `qr`.
+    **Lecciones aprendidas**: Los diplomas se diseñaron como plantillas reutilizables en **PDFMake**, con el diseño artístico (bordes, colores de fondo, posición de las firmas) hardcodeado en la plantilla y los datos del alumno y del curso como parámetros variables. Se crearon 3 variantes de diseño de diploma para diferentes tipos de cursos (básico, avanzado y profesional). Las firmas de los profesores se almacenan como imágenes PNG con fondo transparente en base64. El código QR se genera con PDFMake usando la función `qr`.
 
-### Caso 3: ERP de una distribuidora de productos ecológicos en Almería
+    ### Caso 3: ERP de una distribuidora de productos ecológicos en Almería
 
-Una empresa distribuidora de productos ecológicos necesita que su ERP genere albaranes de entrega en PDF que los transportistas puedan imprimir en una impresora portátil desde su tablet. Los albaranes deben ser compactos (media página A5), sin elementos superfluos, con letra grande para facilitar la lectura a los clientes, e incluir una tabla con los productos entregados, cantidades y un espacio en blanco para la firma de conformidad del cliente. La aplicación está construida con Angular y se ejecuta en tablets con Android mediante una PWA.
+    Una empresa distribuidora de productos ecológicos necesita que su ERP genere albaranes de entrega en PDF que los transportistas puedan imprimir en una impresora portátil desde su tablet. Los albaranes deben ser compactos (media página A5), sin elementos superfluos, con letra grande para facilitar la lectura a los clientes, e incluir una tabla con los productos entregados, cantidades y un espacio en blanco para la firma de conformidad del cliente. La aplicación está construida con Angular y se ejecuta en tablets con Android mediante una **PWA**.
 
-**Lecciones aprendidas**: Para albaranes en tablets, se configuró `pageSize: 'A5'` y márgenes reducidos. La tipografía se configuró con `fontSize: 12` para asegurar legibilidad. Se añadió un rectángulo vacío para la firma del cliente mediante el elemento `canvas`. La funcionalidad `print()` de PDFMake resultó especialmente útil, ya que los transportistas solo necesitan pulsar un botón para que el albarán se envíe directamente a la impresora Bluetooth/WiFi configurada en la tablet, sin necesidad de descargar un archivo intermedio.
+    **Lecciones aprendidas**: Para albaranes en tablets, se configuró `pageSize: 'A5'` y márgenes reducidos. La tipografía se configuró con `fontSize: 12` para asegurar legibilidad. Se añadió un rectángulo vacío para la firma del cliente mediante el elemento `canvas`. La funcionalidad `print()` de PDFMake resultó especialmente útil, ya que los transportistas solo necesitan pulsar un botón para que el albarán se envíe directamente a la impresora Bluetooth/WiFi configurada en la tablet, sin necesidad de descargar un archivo intermedio.
 
 ## Actividades guiadas
 
@@ -1579,7 +1591,7 @@ Una empresa distribuidora de productos ecológicos necesita que su ERP genere al
 **Instrucciones**:
 
 1. Clona el repositorio base proporcionado por el profesor, que contiene un proyecto Angular 18 standalone con Tailwind CSS configurado.
-2. Instala PDFMake: `npm install pdfmake`.
+2. Instala **PDFMake**: `npm install pdfmake`.
 3. Crea un servicio `FacturaService` en `src/app/shared/services/factura.service.ts` con el siguiente esqueleto:
 
 ```typescript
@@ -1635,7 +1647,7 @@ export class FacturaService {
    - Escapa correctamente los valores que contengan comillas o saltos de línea.
    - Crea un Blob con tipo MIME `text/csv;charset=utf-8;`.
    - Descarga el archivo usando `URL.createObjectURL` y un enlace temporal.
-5. Instala SheetJS: `npm install xlsx`. Implementa `exportarExcel`:
+5. Instala **SheetJS**: `npm install xlsx`. Implementa `exportarExcel`:
    - Crea un workbook con `XLSX.utils.book_new()`.
    - Convierte los datos a hoja con `XLSX.utils.json_to_sheet()`.
    - Añade la hoja al workbook con `XLSX.utils.book_append_sheet()`.
@@ -1696,7 +1708,7 @@ Desarrolla un componente Angular y un servicio PDF capaces de generar un informe
 
 1. Una portada con título, logotipo de la empresa, fecha y nombre del autor.
 2. Un índice de contenidos generado dinámicamente a partir de las secciones del informe.
-3. Al menos dos gráficos exportados desde Chart.js como imágenes base64 e incrustados en el PDF:
+3. Al menos dos gráficos exportados desde **Chart.js** como imágenes base64 e incrustados en el PDF:
    - Un gráfico de barras con las ventas de los 5 productos más vendidos del mes.
    - Un gráfico circular con la distribución de ventas por categoría de producto.
 4. Tablas de datos con al menos 20 filas, incluyendo formato condicional (resaltar productos con stock bajo en rojo, productos más vendidos en verde).
@@ -1741,7 +1753,7 @@ Investiga e implementa un caso de uso real con PDF-LIB:
 
 Crea un mini-dashboard en Angular que muestre indicadores de negocio y permita exportarlos:
 
-1. Diseña un dashboard con 4 tarjetas KPI (ingresos totales, número de pedidos, ticket medio, clientes nuevos) y 2 gráficos (líneas y barras) usando Chart.js.
+1. Diseña un dashboard con 4 tarjetas KPI (ingresos totales, número de pedidos, ticket medio, clientes nuevos) y 2 gráficos (líneas y barras) usando **Chart.js**.
 2. Implementa un botón "Exportar informe" que genere un PDF de 1 página conteniendo:
    - Las 4 tarjetas KPI en una fila de 4 columnas de igual ancho.
    - Los 2 gráficos exportados como imágenes (usa `chart.toBase64Image()`).
@@ -1750,108 +1762,108 @@ Crea un mini-dashboard en Angular que muestre indicadores de negocio y permita e
 4. Añade también botones para exportar solo los datos a CSV y Excel.
 5. Aplica un diseño visual coherente entre la versión web del dashboard y la versión PDF exportada.
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Sistema de plantillas dinámicas (Dificultad: Alta)
+    ### Actividad de ampliación 1: Sistema de plantillas dinámicas (Dificultad: Alta)
 
-Desarrolla un sistema que permita a los usuarios administradores de la aplicación definir y modificar plantillas de documentos PDF sin necesidad de tocar el código fuente. Investiga y diseña:
+    Desarrolla un sistema que permita a los usuarios administradores de la aplicación definir y modificar plantillas de documentos **PDF** sin necesidad de tocar el código fuente. Investiga y diseña:
 
-1. Una interfaz de administración donde el administrador pueda arrastrar y soltar elementos (cuadros de texto, imágenes, tablas, códigos QR) sobre un lienzo que representa una página A4.
-2. Un formato JSON para serializar/deserializar las plantillas (similar a la definición de documento de PDFMake pero más abstracto).
-3. Placeholders para datos dinámicos (`{{cliente.nombre}}`, `{{factura.total}}`) que se sustituyan en tiempo de generación.
-4. Una vista previa en tiempo real de la plantilla con datos de ejemplo.
-5. Almacenamiento de las plantillas en el backend (API REST con base de datos).
+    1. Una interfaz de administración donde el administrador pueda arrastrar y soltar elementos (cuadros de texto, imágenes, tablas, códigos QR) sobre un lienzo que representa una página A4.
+    2. Un formato JSON para serializar/deserializar las plantillas (similar a la definición de documento de PDFMake pero más abstracto).
+    3. Placeholders para datos dinámicos (`{{cliente.nombre}}`, `{{factura.total}}`) que se sustituyan en tiempo de generación.
+    4. Una vista previa en tiempo real de la plantilla con datos de ejemplo.
+    5. Almacenamiento de las plantillas en el backend (API REST con base de datos).
 
-### Actividad de ampliación 2: Firma digital de documentos PDF (Dificultad: Alta)
+    ### Actividad de ampliación 2: Firma digital de documentos PDF (Dificultad: Alta)
 
-Investiga los conceptos de firma digital y aplica un mecanismo básico de firma de documentos PDF:
+    Investiga los conceptos de firma digital y aplica un mecanismo básico de firma de documentos PDF:
 
-1. Estudia el concepto de firma digital, certificados digitales y PKI (Public Key Infrastructure).
-2. Investiga las limitaciones de las librerías JavaScript cliente para firmar digitalmente PDFs (las firmas digitales requieren acceso a claves privadas, lo cual es problemático en el navegador).
-3. Implementa una solución híbrida: el cliente genera el PDF con PDFMake/PDF-LIB, lo envía a un servidor Node.js que utiliza `node-signpdf` para firmarlo digitalmente con un certificado de prueba autofirmado, y devuelve el PDF firmado al cliente.
-4. Añade una marca visual de firma (un recuadro con nombre, fecha y sello) en el PDF, aunque la firma criptográfica se haga en el servidor.
-5. Documenta el flujo completo y las decisiones técnicas tomadas.
+    1. Estudia el concepto de firma digital, certificados digitales y **PKI (Public Key Infrastructure)**.
+    2. Investiga las limitaciones de las librerías JavaScript cliente para firmar digitalmente PDFs (las firmas digitales requieren acceso a claves privadas, lo cual es problemático en el navegador).
+    3. Implementa una solución híbrida: el cliente genera el PDF con PDFMake/PDF-LIB, lo envía a un servidor Node.js que utiliza `node-signpdf` para firmarlo digitalmente con un certificado de prueba autofirmado, y devuelve el PDF firmado al cliente.
+    4. Añade una marca visual de firma (un recuadro con nombre, fecha y sello) en el PDF, aunque la firma criptográfica se haga en el servidor.
+    5. Documenta el flujo completo y las decisiones técnicas tomadas.
 
-### Actividad de ampliación 3: Generación de documentos multilingües (Dificultad: Media)
+    ### Actividad de ampliación 3: Generación de documentos multilingües (Dificultad: Media)
 
-Extiende el `PdfService` para soportar generación de documentos en múltiples idiomas:
+    Extiende el `PdfService` para soportar generación de documentos en múltiples idiomas:
 
-1. Implementa un sistema de traducción para los textos estáticos de las plantillas (títulos, encabezados de tabla, pies de página, textos legales).
-2. Utiliza la API de internacionalización de Angular (i18n) o crea un sistema propio de diccionarios (`es.json`, `en.json`, `fr.json`, `de.json`).
-3. El idioma del documento se selecciona en un dropdown en la interfaz de usuario.
-4. Asegúrate de que los formatos de fecha, moneda y números se adaptan al idioma seleccionado (ej: `1,234.56` en inglés vs `1.234,56` en español).
-5. Prueba con al menos 3 idiomas (español, inglés y francés o alemán).
-6. Ten en cuenta la dirección del texto (LTR vs RTL) si se añadieran idiomas como árabe o hebreo.
+    1. Implementa un sistema de traducción para los textos estáticos de las plantillas (títulos, encabezados de tabla, pies de página, textos legales).
+    2. Utiliza la API de internacionalización de Angular (**i18n**) o crea un sistema propio de diccionarios (`es.json`, `en.json`, `fr.json`, `de.json`).
+    3. El idioma del documento se selecciona en un dropdown en la interfaz de usuario.
+    4. Asegúrate de que los formatos de fecha, moneda y números se adaptan al idioma seleccionado (ej: `1,234.56` en inglés vs `1.234,56` en español).
+    5. Prueba con al menos 3 idiomas (español, inglés y francés o alemán).
+    6. Ten en cuenta la dirección del texto (LTR vs RTL) si se añadieran idiomas como árabe o hebreo.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Separación de responsabilidades**: Mantén la lógica de negocio (cálculos, formateo de datos) separada de la lógica de presentación (definición del documento PDFMake). Las plantillas deben ser funciones puras que reciben datos y devuelven una definición de documento. Esto facilita el testing unitario y la reutilización.
+    1. **Separación de responsabilidades**: Mantén la lógica de negocio (cálculos, formateo de datos) separada de la lógica de presentación (definición del documento PDFMake). Las plantillas deben ser funciones puras que reciben datos y devuelven una definición de documento. Esto facilita el testing unitario y la reutilización.
 
-2. **Tipado estricto con TypeScript**: Define interfaces para todos los datos que alimentan los documentos. No uses `any` en las definiciones de PDFMake. Utiliza la interfaz `TDocumentDefinitions` proporcionada por pdfmake/interfaces para asegurar que la definición del documento es correcta.
+    2. **Tipado estricto con TypeScript**: Define interfaces para todos los datos que alimentan los documentos. No uses `any` en las definiciones de PDFMake. Utiliza la interfaz `TDocumentDefinitions` proporcionada por pdfmake/interfaces para asegurar que la definición del documento es correcta.
 
-3. **Carga lazy de librerías pesadas**: PDFMake, jsPDF y SheetJS son librerías que añaden un peso considerable al bundle de la aplicación. Configura la carga lazy (import dinámico) para que solo se carguen cuando el usuario realmente vaya a generar un documento, no en la carga inicial de la aplicación.
+    3. **Carga lazy de librerías pesadas**: PDFMake, jsPDF y SheetJS son librerías que añaden un peso considerable al bundle de la aplicación. Configura la carga lazy (import dinámico) para que solo se carguen cuando el usuario realmente vaya a generar un documento, no en la carga inicial de la aplicación.
 
-4. **Manejo de errores robusto**: Las operaciones de generación de documentos pueden fallar por múltiples razones: datos incorrectos, imágenes que no cargan, errores en las librerías, memoria insuficiente en el navegador. Envuelve siempre las llamadas a PDFMake en bloques try-catch y proporciona retroalimentación al usuario mediante toasts o alertas en caso de error.
+    4. **Manejo de errores robusto**: Las operaciones de generación de documentos pueden fallar por múltiples razones: datos incorrectos, imágenes que no cargan, errores en las librerías, memoria insuficiente en el navegador. Envuelve siempre las llamadas a PDFMake en bloques try-catch y proporciona retroalimentación al usuario mediante toasts o alertas en caso de error.
 
-5. **Previsualización antes de descargar**: Ofrece siempre la opción de vista previa (método `open()`) además de la descarga directa. Esto permite al usuario verificar el documento antes de guardarlo en su disco duro y reduce la frustración por errores en el documento.
+    5. **Previsualización antes de descargar**: Ofrece siempre la opción de vista previa (método `open()`) además de la descarga directa. Esto permite al usuario verificar el documento antes de guardarlo en su disco duro y reduce la frustración por errores en el documento.
 
-6. **Nombres de archivo significativos**: Genera nombres de archivo que incluyan información relevante para el usuario: `Factura_F2024-0001_20241115.pdf` en lugar de `documento.pdf`. Esto facilita la organización de archivos al usuario.
+    6. **Nombres de archivo significativos**: Genera nombres de archivo que incluyan información relevante para el usuario: `Factura_F2024-0001_20241115.pdf` en lugar de `documento.pdf`. Esto facilita la organización de archivos al usuario.
 
-7. **Formateo consistente de datos**: Centraliza el formateo de fechas, monedas y números en funciones auxiliares reutilizables. Utiliza la API `Intl` de JavaScript (`Intl.DateTimeFormat`, `Intl.NumberFormat`) para garantizar formatos localizados correctos.
+    7. **Formateo consistente de datos**: Centraliza el formateo de fechas, monedas y números en funciones auxiliares reutilizables. Utiliza la API `Intl` de JavaScript (`Intl.DateTimeFormat`, `Intl.NumberFormat`) para garantizar formatos localizados correctos.
 
-8. **Optimización de imágenes**: Antes de incrustar una imagen en un PDF, redimensiónala al tamaño necesario. Incrustar una imagen de 4000x3000 píxeles para mostrarla como un logo de 150x50 píxeles malgasta memoria y aumenta el tamaño del PDF innecesariamente.
+    8. **Optimización de imágenes**: Antes de incrustar una imagen en un PDF, redimensiónala al tamaño necesario. Incrustar una imagen de 4000x3000 píxeles para mostrarla como un logo de 150x50 píxeles malgasta memoria y aumenta el tamaño del PDF innecesariamente.
 
-9. **Accesibilidad en PDFs**: Aunque PDFMake no genera PDFs con metadatos de accesibilidad (PDF/UA), se pueden tomar medidas básicas: usar tamaños de fuente legibles (mínimo 8pt), suficiente contraste de color, y estructura lógica del documento con encabezados jerárquicos.
+    9. **Accesibilidad en PDFs**: Aunque PDFMake no genera PDFs con metadatos de accesibilidad (PDF/UA), se pueden tomar medidas básicas: usar tamaños de fuente legibles (mínimo 8pt), suficiente contraste de color, y estructura lógica del documento con encabezados jerárquicos.
 
-10. **Prueba en múltiples visores de PDF**: Los PDFs pueden visualizarse de forma ligeramente diferente según el visor utilizado (Adobe Acrobat, Chrome PDF Viewer, Firefox PDF.js, SumatraPDF, vista previa de macOS, visor de Android/iOS). Prueba los documentos generados en al menos 3 visores diferentes.
+    10. **Prueba en múltiples visores de PDF**: Los PDFs pueden visualizarse de forma ligeramente diferente según el visor utilizado (Adobe Acrobat, Chrome PDF Viewer, Firefox PDF.js, SumatraPDF, vista previa de macOS, visor de Android/iOS). Prueba los documentos generados en al menos 3 visores diferentes.
 
-11. **Versionado de plantillas**: Si las plantillas de documentos evolucionan con el tiempo (cambio de logo, de datos fiscales, de diseño), implementa un sistema de versionado para que los documentos antiguos puedan regenerarse con la plantilla correcta si es necesario.
+    11. **Versionado de plantillas**: Si las plantillas de documentos evolucionan con el tiempo (cambio de logo, de datos fiscales, de diseño), implementa un sistema de versionado para que los documentos antiguos puedan regenerarse con la plantilla correcta si es necesario.
 
-12. **Internacionalización de los PDFs**: Si la aplicación está disponible en varios idiomas, las plantillas de documentos también deben estarlo. Utiliza el mismo sistema de traducción que uses para la interfaz web, o crea plantillas específicas por idioma.
+    12. **Internacionalización de los PDFs**: Si la aplicación está disponible en varios idiomas, las plantillas de documentos también deben estarlo. Utiliza el mismo sistema de traducción que uses para la interfaz web, o crea plantillas específicas por idioma.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **No inicializar PDFMake correctamente**: Olvidar la línea `pdfMake.vfs = pdfFonts.vfs;` es el error más común. Sin esta inicialización, PDFMake lanzará errores de "fuente no encontrada" al intentar renderizar cualquier texto. La solución es ejecutar esta línea una sola vez en el constructor del servicio PDF.
+    1. **No inicializar PDFMake correctamente**: Olvidar la línea `pdfMake.vfs = pdfFonts.vfs;` es el error más común. Sin esta inicialización, PDFMake lanzará errores de "fuente no encontrada" al intentar renderizar cualquier texto. La solución es ejecutar esta línea una sola vez en el constructor del servicio PDF.
 
-2. **Problemas con caracteres especiales (tildes, eñes, caracteres acentuados)**: Las fuentes por defecto de PDFMake (Roboto) soportan perfectamente los caracteres del español y la mayoría de los idiomas europeos. Sin embargo, si se usan fuentes personalizadas, es necesario asegurarse de que incluyan los glifos necesarios. Si se ven cuadrados en lugar de tildes, la fuente no incluye esos caracteres.
+    2. **Problemas con caracteres especiales (tildes, eñes, caracteres acentuados)**: Las fuentes por defecto de PDFMake (Roboto) soportan perfectamente los caracteres del español y la mayoría de los idiomas europeos. Sin embargo, si se usan fuentes personalizadas, es necesario asegurarse de que incluyan los glifos necesarios. Si se ven cuadrados en lugar de tildes, la fuente no incluye esos caracteres.
 
-3. **Uso incorrecto de márgenes en tablas**: Los márgenes en las celdas de las tablas se controlan mediante el layout de la tabla, no mediante la propiedad `margin` de cada celda (que PDFMake ignora en tablas). Para cambiar el padding de las celdas, hay que configurar `paddingLeft`, `paddingRight`, `paddingTop` y `paddingBottom` en el layout de la tabla.
+    3. **Uso incorrecto de márgenes en tablas**: Los márgenes en las celdas de las tablas se controlan mediante el layout de la tabla, no mediante la propiedad `margin` de cada celda (que PDFMake ignora en tablas). Para cambiar el padding de las celdas, hay que configurar `paddingLeft`, `paddingRight`, `paddingTop` y `paddingBottom` en el layout de la tabla.
 
-4. **Imágenes que no se muestran**: Las imágenes en PDFMake deben estar en formato data URL (base64) o referenciadas en el diccionario `images`. Si se pasa una URL HTTP directamente, PDFMake no la cargará automáticamente. Es necesario precargar la imagen (con fetch), convertirla a base64 y luego usarla en el documento.
+    4. **Imágenes que no se muestran**: Las imágenes en PDFMake deben estar en formato data URL (base64) o referenciadas en el diccionario `images`. Si se pasa una URL HTTP directamente, PDFMake no la cargará automáticamente. Es necesario precargar la imagen (con fetch), convertirla a base64 y luego usarla en el documento.
 
-5. **Desbordamiento de tablas fuera de la página**: Si una tabla tiene columnas con anchos fijos que suman más que el ancho disponible de la página (A4 con márgenes de 40: ancho útil ≈ 515 puntos), el contenido se saldrá de la página. Utiliza siempre al menos una columna con ancho `'*'` para absorber las diferencias de dimensionamiento.
+    5. **Desbordamiento de tablas fuera de la página**: Si una tabla tiene columnas con anchos fijos que suman más que el ancho disponible de la página (A4 con márgenes de 40: ancho útil ≈ 515 puntos), el contenido se saldrá de la página. Utiliza siempre al menos una columna con ancho `'*'` para absorber las diferencias de dimensionamiento.
 
-6. **Ignorar el BOM en la exportación CSV**: Al exportar CSV sin el BOM (Byte Order Mark `\uFEFF`), Excel abrirá el archivo asumiendo codificación Windows-1252 y los caracteres UTF-8 (tildes, eñes) se mostrarán como caracteres extraños. Siempre inicia el contenido CSV con `\uFEFF`.
+    6. **Ignorar el BOM en la exportación CSV**: Al exportar CSV sin el BOM (Byte Order Mark `\uFEFF`), Excel abrirá el archivo asumiendo codificación Windows-1252 y los caracteres UTF-8 (tildes, eñes) se mostrarán como caracteres extraños. Siempre inicia el contenido CSV con `\uFEFF`.
 
-7. **No escapar correctamente los valores CSV**: Si un valor contiene el carácter separador (coma, punto y coma) o comillas dobles, debe encerrarse entre comillas dobles y las comillas dobles internas deben duplicarse. Ejemplo: `Juan "El Rápido" García, S.L.` → `"Juan ""El Rápido"" García, S.L."`.
+    7. **No escapar correctamente los valores CSV**: Si un valor contiene el carácter separador (coma, punto y coma) o comillas dobles, debe encerrarse entre comillas dobles y las comillas dobles internas deben duplicarse. Ejemplo: `Juan "El Rápido" García, S.L.` → `"Juan ""El Rápido"" García, S.L."`.
 
-8. **Crear múltiples instancias de servicios de exportación**: Los servicios de exportación (PdfService, CsvExportService, ExcelExportService) deben ser singletons proporcionados en `root`. Crear una instancia nueva en cada componente malgasta memoria y puede causar problemas con las fuentes de PDFMake (que se configuran en el constructor).
+    8. **Crear múltiples instancias de servicios de exportación**: Los servicios de exportación (PdfService, CsvExportService, ExcelExportService) deben ser singletons proporcionados en `root`. Crear una instancia nueva en cada componente malgasta memoria y puede causar problemas con las fuentes de PDFMake (que se configuran en el constructor).
 
-9. **Generar PDFs con datos no validados**: Si los datos que alimentan el PDF no están validados previamente (por ejemplo, un importe negativo, un texto vacío en un campo obligatorio, una fecha inválida), el PDF se generará con errores que el usuario solo descubrirá al abrirlo. Valida siempre los datos antes de pasarlos al generador de PDFs.
+    9. **Generar PDFs con datos no validados**: Si los datos que alimentan el PDF no están validados previamente (por ejemplo, un importe negativo, un texto vacío en un campo obligatorio, una fecha inválida), el PDF se generará con errores que el usuario solo descubrirá al abrirlo. Valida siempre los datos antes de pasarlos al generador de PDFs.
 
-10. **No destruir los Blob URLs**: Después de descargar un archivo mediante `URL.createObjectURL()` y un enlace temporal, es necesario llamar a `URL.revokeObjectURL(url)` para liberar la memoria. De lo contrario, cada descarga acumulará referencias en memoria y eventualmente degradará el rendimiento de la aplicación.
+    10. **No destruir los Blob URLs**: Después de descargar un archivo mediante `URL.createObjectURL()` y un enlace temporal, es necesario llamar a `URL.revokeObjectURL(url)` para liberar la memoria. De lo contrario, cada descarga acumulará referencias en memoria y eventualmente degradará el rendimiento de la aplicación.
 
-11. **Confundir `open()` y `download()`**: `open()` abre el PDF en una nueva pestaña del navegador (lo que permite al usuario revisarlo y luego decidir si guardarlo o no). `download()` fuerza la descarga inmediata sin previsualización. Usar `open()` para vista previa y `download()` para descarga directa, o mejor aún, ofrecer ambas opciones.
+    11. **Confundir `open()` y `download()`**: `open()` abre el PDF en una nueva pestaña del navegador (lo que permite al usuario revisarlo y luego decidir si guardarlo o no). `download()` fuerza la descarga inmediata sin previsualización. Usar `open()` para vista previa y `download()` para descarga directa, o mejor aún, ofrecer ambas opciones.
 
-12. **No considerar el tiempo de carga de imágenes remotas**: Si el documento incluye imágenes obtenidas de URLs remotas (logos, firmas, etc.), la generación del PDF debe esperar a que todas las imágenes se hayan cargado y convertido a base64. Utiliza `Promise.all()` para paralelizar la carga y muestra un indicador de carga mientras tanto.
+    12. **No considerar el tiempo de carga de imágenes remotas**: Si el documento incluye imágenes obtenidas de URLs remotas (logos, firmas, etc.), la generación del PDF debe esperar a que todas las imágenes se hayan cargado y convertido a base64. Utiliza `Promise.all()` para paralelizar la carga y muestra un indicador de carga mientras tanto.
 
-## Resumen
+!!! abstract "Resumen"
 
-La generación de informes y documentos es una capacidad esencial de cualquier aplicación empresarial moderna. Esta unidad ha cubierto de forma integral todos los aspectos necesarios para que el alumnado sea capaz de implementar esta funcionalidad en aplicaciones Angular.
+    La generación de informes y documentos es una capacidad esencial de cualquier aplicación empresarial moderna. Esta unidad ha cubierto de forma integral todos los aspectos necesarios para que el alumnado sea capaz de implementar esta funcionalidad en aplicaciones Angular.
 
-Hemos comenzado comprendiendo la necesidad de negocio que subyace a la generación de documentos —facturas, informes, certificados y más— y los requisitos legales que afectan a ciertos tipos de documentos en el contexto español. La decisión arquitectónica entre generar documentos en el cliente (navegador) o en el servidor es crucial y depende de factores como el volumen de páginas, la concurrencia de usuarios, los requisitos de seguridad y la necesidad de funcionamiento offline.
+    Hemos comenzado comprendiendo la necesidad de negocio que subyace a la generación de documentos —facturas, informes, certificados y más— y los requisitos legales que afectan a ciertos tipos de documentos en el contexto español. La decisión arquitectónica entre generar documentos en el **cliente** (navegador) o en el **servidor** es crucial y depende de factores como el volumen de páginas, la concurrencia de usuarios, los requisitos de seguridad y la necesidad de funcionamiento offline.
 
-La librería PDFMake se ha presentado como la herramienta principal para la generación de PDFs en Angular, gracias a su enfoque declarativo, su facilidad de uso y su potencia para la mayoría de los casos de uso empresarial. Se ha explorado en profundidad su API: estructura del documento, elementos de contenido (texto, columnas, tablas, imágenes, stacks, listas, saltos de página, líneas, códigos QR), sistema de estilos, personalización de fuentes y métodos de salida (download, open, print, getBlob).
+    La librería **PDFMake** se ha presentado como la herramienta principal para la generación de PDFs en Angular, gracias a su enfoque declarativo, su facilidad de uso y su potencia para la mayoría de los casos de uso empresarial. Se ha explorado en profundidad su API: estructura del documento, elementos de contenido (texto, columnas, tablas, imágenes, stacks, listas, saltos de página, líneas, códigos QR), sistema de estilos, personalización de fuentes y métodos de salida (download, open, print, getBlob).
 
-Como alternativas, se han presentado jsPDF (enfoque imperativo con control fino de coordenadas, ideal para formularios oficiales y gráficos vectoriales) y PDF-LIB (manipulación de PDFs existentes, relleno de formularios, fusión de documentos), con criterios claros para elegir entre ellas según el caso de uso.
+    Como alternativas, se han presentado **jsPDF** (enfoque imperativo con control fino de coordenadas, ideal para formularios oficiales y gráficos vectoriales) y **PDF-LIB** (manipulación de PDFs existentes, relleno de formularios, fusión de documentos), con criterios claros para elegir entre ellas según el caso de uso.
 
-Los tres casos prácticos completos —factura profesional, informe de ventas con gráficos, y certificado/diploma— constituyen el núcleo práctico de la unidad y demuestran cómo integrar todos los conceptos en código TypeScript real y funcional dentro de una arquitectura Angular limpia y mantenible.
+    Los tres casos prácticos completos —factura profesional, informe de ventas con gráficos, y certificado/diploma— constituyen el núcleo práctico de la unidad y demuestran cómo integrar todos los conceptos en código TypeScript real y funcional dentro de una arquitectura Angular limpia y mantenible.
 
-La arquitectura recomendada propone un `PdfService` centralizado, interfaces `DocumentGenerator` para estandarizar la generación de documentos, componentes opcionales de vista previa y plantillas tipadas como funciones puras, siguiendo los principios SOLID y facilitando el testing y la extensibilidad.
+    La arquitectura recomendada propone un `PdfService` centralizado, interfaces `DocumentGenerator` para estandarizar la generación de documentos, componentes opcionales de vista previa y plantillas tipadas como funciones puras, siguiendo los principios **SOLID** y facilitando el testing y la extensibilidad.
 
-La exportación de datos en formatos alternativos —CSV (con manejo de codificación UTF-8/BOM) y Excel (SheetJS/xlsx)— completa las capacidades de generación de documentos, permitiendo a los usuarios trabajar con los datos en las herramientas que prefieran.
+    La exportación de datos en formatos alternativos —**CSV** (con manejo de codificación UTF-8/BOM) y **Excel** (SheetJS/xlsx)— completa las capacidades de generación de documentos, permitiendo a los usuarios trabajar con los datos en las herramientas que prefieran.
 
-Finalmente, las buenas prácticas y los errores frecuentes recogidos al final de la unidad sintetizan la experiencia acumulada en proyectos reales y proporcionan al alumnado una guía práctica para evitar los tropiezos más comunes en la implementación de sistemas de generación de documentos.
+    Finalmente, las buenas prácticas y los errores frecuentes recogidos al final de la unidad sintetizan la experiencia acumulada en proyectos reales y proporcionan al alumnado una guía práctica para evitar los tropiezos más comunes en la implementación de sistemas de generación de documentos.
 
 ## Recursos complementarios
 

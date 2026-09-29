@@ -1,3 +1,7 @@
+---
+icon: lucide/hand
+---
+
 # Interfaces Naturales de Usuario (NUI)
 
 ## Objetivos de aprendizaje
@@ -24,14 +28,14 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 - CE e) Se han integrado elementos de detección de partes del cuerpo para implementar acciones en las interfaces naturales de usuario.
 - CE f) Se ha integrado la realidad aumentada en los interfaces de usuario.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar esta unidad con garantías, el alumnado debe dominar:
+    Para abordar esta unidad con garantías, el alumnado debe dominar:
 
-- Fundamentos de JavaScript/TypeScript y de eventos en el navegador (`addEventListener`, promesas y `async/await`).
-- Conceptos básicos de la API Web Media (acceso a cámara y micrófono) y de permisos del navegador.
-- Nociones de las unidades anteriores sobre componentes Angular, servicios e inyección de dependencias, para encapsular la lógica de reconocimiento en servicios reutilizables.
-- Comprensión de los principios de usabilidad y accesibilidad (Unidades 1 y 2), que resultan críticos en interfaces naturales dada su tasa de error.
+    - Fundamentos de JavaScript/TypeScript y de eventos en el navegador (`addEventListener`, promesas y `async/await`).
+    - Conceptos básicos de la API Web Media (acceso a cámara y micrófono) y de permisos del navegador.
+    - Nociones de las unidades anteriores sobre componentes Angular, servicios e inyección de dependencias, para encapsular la lógica de reconocimiento en servicios reutilizables.
+    - Comprensión de los principios de usabilidad y accesibilidad (Unidades 1 y 2), que resultan críticos en interfaces naturales dada su tasa de error.
 
 ## Contenidos
 
@@ -67,13 +71,13 @@ Para abordar esta unidad con garantías, el alumnado debe dominar:
 
 ### 1. ¿Por qué interfaces naturales?
 
-Una interfaz natural (NUI) es aquella en la que el usuario interactúa con el sistema mediante capacidades humanas «instintivas» —hablar, señalar, moverse— en lugar de operar dispositivos intermedios como ratón o teclado. El objetivo es acortar al máximo la distancia entre la intención del usuario y la acción del sistema, una tendencia ya analizada en la introducción del módulo (evolución de las interfaces).
+Una **interfaz natural (NUI)** es aquella en la que el usuario interactúa con el sistema mediante capacidades humanas «instintivas» —hablar, señalar, moverse— en lugar de operar dispositivos intermedios como ratón o teclado. El objetivo es acortar al máximo la distancia entre la intención del usuario y la acción del sistema, una tendencia ya analizada en la introducción del módulo (evolución de las interfaces).
 
 Las NUI no sustituyen a la GUI: la complementan. Un mando por voz es útil para tareas con las manos ocupadas o para usuarios con movilidad reducida, pero nunca debe ser el único canal. Por ello el principio rector es ofrecer **siempre una alternativa** (teclado/ratón) y tratar el reconocimiento como un acelerador, no como una dependencia crítica.
 
 ### 2. Reconocimiento de voz con la Web Speech API
 
-La Web Speech API expone dos capacidades: síntesis (`SpeechSynthesis`) y reconocimiento (`SpeechRecognition`, aún con prefijo en algunos navegadores). El patrón mínimo para escuchar un comando y actuar es el siguiente:
+La **Web Speech API** expone dos capacidades: síntesis (`SpeechSynthesis`) y reconocimiento (`SpeechRecognition`, aún con prefijo en algunos navegadores). El patrón mínimo para escuchar un comando y actuar es el siguiente:
 
 ```typescript
 // voice-command.service.ts (Angular)
@@ -149,7 +153,7 @@ Claves de robustez: aplicar **suavizado temporal** (media móvil de posiciones),
 
 ### 4. Realidad aumentada con WebXR + Three.js
 
-WebXR permite solicitar una sesión inmersiva (`navigator.xr.requestSession('immersive-ar')`) y renderizar contenido 3D anclado al mundo mediante hit-test. En Angular, el canvas de Three.js se gestiona en `ngAfterViewInit` y se destruye en `ngOnDestroy`. La RA es la modalidad con más limitaciones de dispositivo (requiere cámara compatible y soporte WebXR), por lo que debe plantearse como ampliación, no como requisito central.
+**WebXR** permite solicitar una sesión inmersiva (`navigator.xr.requestSession('immersive-ar')`) y renderizar contenido 3D anclado al mundo mediante hit-test. En Angular, el canvas de Three.js se gestiona en `ngAfterViewInit` y se destruye en `ngOnDestroy`. La RA es la modalidad con más limitaciones de dispositivo (requiere cámara compatible y soporte WebXR), por lo que debe plantearse como ampliación, no como requisito central.
 
 ### 5. Accesibilidad de las interfaces naturales
 
@@ -163,11 +167,11 @@ Partimos del dashboard de la unidad de dashboards. Añadimos `VoiceCommandServic
 ### Ejemplo 2: Pausa de vídeo con un gesto
 Con `GestureService` (MediaPipe Hand Landmarker) detectamos la palma abierta sostenida dos segundos para pausar/reanudar un reproductor. Se aplica suavizado y histeresis, y se muestra el gesto reconocido en pantalla como feedback.
 
-## Casos reales
+!!! example "Casos reales"
 
-- **Asistentes integrados:** los asistentes de voz de navegadores y SO (Siri, Alexa, asistente de Windows) son VUI a gran escala; sus patrones (confirmación, repetición, salida) son la referencia de diseño.
-- **Control por gestos en sanitarios e industria:** sistemas que usan cámaras y visión por computador para operar interfaces sin contacto, un caso directo de NUI corporal con fines de higiene y seguridad.
-- **RA comercial:** aplicaciones de probador de muebles (superponer objetos 3D en la sala) y de mantenimiento industrial (instrucciones superpuestas sobre la máquina) demuestran el valor de anclar información al contexto físico.
+    - **Asistentes integrados:** los asistentes de voz de navegadores y SO (Siri, Alexa, asistente de Windows) son VUI a gran escala; sus patrones (confirmación, repetición, salida) son la referencia de diseño.
+    - **Control por gestos en sanitarios e industria:** sistemas que usan cámaras y visión por computador para operar interfaces sin contacto, un caso directo de NUI corporal con fines de higiene y seguridad.
+    - **RA comercial:** aplicaciones de probador de muebles (superponer objetos 3D en la sala) y de mantenimiento industrial (instrucciones superpuestas sobre la máquina) demuestran el valor de anclar información al contexto físico.
 
 ## Actividades guiadas
 
@@ -181,31 +185,31 @@ Con `GestureService` (MediaPipe Hand Landmarker) detectamos la palma abierta sos
 - Implementa un gesto de dos manos (por ejemplo, «pinchar» con pulgar e índice de cada mano) para acercar/alejar el contenido de un visor.
 - Compara la tasa de error de tu VUI en comandos discretos frente a frases en lenguaje natural y propone mejoras.
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-- Integra una sesión WebXR `immersive-ar` con Three.js que ancle un objeto 3D a la mesa mediante hit-test.
-- Combina voz + gesto: el gesto selecciona un elemento y la voz lo renombra.
-- Documenta las limitaciones por navegador (soporte de `SpeechRecognition`, WebXR) y define la estrategia de degradación.
+    - Integra una sesión WebXR `immersive-ar` con Three.js que ancle un objeto 3D a la mesa mediante hit-test.
+    - Combina voz + gesto: el gesto selecciona un elemento y la voz lo renombra.
+    - Documenta las limitaciones por navegador (soporte de `SpeechRecognition`, WebXR) y define la estrategia de degradación.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-- Ofrece siempre una alternativa por teclado/ratón a cualquier acción disponible por voz o gesto.
-- Muestra feedback visible del estado del reconocimiento («escuchando», «no entendido»).
-- Usa comandos cortos, consistentes y confirmación para acciones destructivas.
-- Aplica suavizado temporal y histeresis en la detección de gestos.
-- Encapsula cada modalidad en un servicio Angular que emita eventos; los componentes solo reaccionan.
+    - Ofrece siempre una alternativa por teclado/ratón a cualquier acción disponible por voz o gesto.
+    - Muestra feedback visible del estado del reconocimiento («escuchando», «no entendido»).
+    - Usa comandos cortos, consistentes y confirmación para acciones destructivas.
+    - Aplica suavizado temporal y histeresis en la detección de gestos.
+    - Encapsula cada modalidad en un servicio Angular que emita eventos; los componentes solo reaccionan.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-- Hacer de la voz/gesto el **único** canal de interacción (excluye a usuarios con discapacidad).
-- No comprobar el soporte del navegador (`SpeechRecognition`, WebXR) antes de usarlo.
-- Disparar acciones con un solo fotograma o una sola palabra, sin suavizado ni umbral de confianza.
-- Olvidar `ngOnDestroy` para detener reconocimiento/cámara y liberar recursos.
-- Ignorar la transcripción visible, lo que impide depurar y hace la interfaz opaca.
+    - Hacer de la voz/gesto el **único** canal de interacción (excluye a usuarios con discapacidad).
+    - No comprobar el soporte del navegador (`SpeechRecognition`, WebXR) antes de usarlo.
+    - Disparar acciones con un solo fotograma o una sola palabra, sin suavizado ni umbral de confianza.
+    - Olvidar `ngOnDestroy` para detener reconocimiento/cámara y liberar recursos.
+    - Ignorar la transcripción visible, lo que impide depurar y hace la interfaz opaca.
 
-## Resumen
+!!! abstract "Resumen"
 
-Las interfaces naturales (RA 2) acercan la interacción a capacidades humanas instintivas: voz, gestos, movimiento corporal y realidad aumentada. En el navegador se implementan con la Web Speech API (voz), TensorFlow.js/MediaPipe (cuerpo) y WebXR + Three.js (RA). Se encapsulan en servicios Angular que emiten eventos, garantizando siempre una alternativa accesible por teclado y un feedback visible del estado. Son complementos potentes de la GUI, no sustitutos.
+    Las interfaces naturales (RA 2) acercan la interacción a capacidades humanas instintivas: voz, gestos, movimiento corporal y realidad aumentada. En el navegador se implementan con la Web Speech API (voz), TensorFlow.js/MediaPipe (cuerpo) y WebXR + Three.js (RA). Se encapsulan en servicios Angular que emiten eventos, garantizando siempre una alternativa accesible por teclado y un feedback visible del estado. Son complementos potentes de la GUI, no sustitutos.
 
 ## Recursos complementarios
 

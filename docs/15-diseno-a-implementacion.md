@@ -1,3 +1,7 @@
+---
+icon: lucide/arrow-right-left
+---
+
 # Unidad 15: Del Diseño a la Implementación
 
 ## Objetivos de aprendizaje
@@ -32,26 +36,26 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
 
 - CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Esta unidad integra y aplica todos los conocimientos adquiridos en las unidades anteriores. El alumnado debe dominar:
+    Esta unidad integra y aplica todos los conocimientos adquiridos en las unidades anteriores. El alumnado debe dominar:
 
-- **Unidad 1:** Conceptos de UX/UI, Diseño Centrado en el Usuario, tipos de interfaces, evolución de las GUI.
-- **Unidad 9:** Entorno de desarrollo completo configurado (Node.js, Angular CLI, Tailwind CSS 4, ESLint, Prettier, Storybook, Git). TypeScript (tipos, interfaces, genéricos, decoradores). Angular (standalone components, signals, control flow @if/@for, inputs/outputs, servicios, routing). Tailwind (clases utilitarias, configuración @theme, responsive prefixes, dark mode).
-- **Unidad 4:** Figma a nivel de diseño (Auto Layout, componentes, variantes, variables, Dev Mode, exportación de assets, handoff).
-- **Unidad 5:** Layouts modernos con Flexbox, CSS Grid y posicionamiento a través de Tailwind. Construcción de dashboards, layouts SaaS, ecommerce y aplicaciones de chat.
+    - **Unidad 1:** Conceptos de UX/UI, Diseño Centrado en el Usuario, tipos de interfaces, evolución de las GUI.
+    - **Unidad 9:** Entorno de desarrollo completo configurado (Node.js, Angular CLI, Tailwind CSS 4, ESLint, Prettier, Storybook, Git). TypeScript (tipos, interfaces, genéricos, decoradores). Angular (standalone components, signals, control flow @if/@for, inputs/outputs, servicios, routing). Tailwind (clases utilitarias, configuración @theme, responsive prefixes, dark mode).
+    - **Unidad 4:** Figma a nivel de diseño (Auto Layout, componentes, variantes, variables, Dev Mode, exportación de assets, handoff).
+    - **Unidad 5:** Layouts modernos con Flexbox, CSS Grid y posicionamiento a través de Tailwind. Construcción de dashboards, layouts SaaS, ecommerce y aplicaciones de chat.
 
-Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entorno funcional y su proyecto Angular + Tailwind + Storybook operativo (el configurado a lo largo de las Unidades 9 y 10). Quienes no lo tengan recibirán un proyecto base para no quedar rezagados.
+    Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entorno funcional y su proyecto Angular + Tailwind + Storybook operativo (el configurado a lo largo de las Unidades 9 y 10). Quienes no lo tengan recibirán un proyecto base para no quedar rezagados.
 
 ## Contenidos
 
 **FASE 1: Inspección de diseños en Figma**
-- Lectura sistemática de un diseño: metodología de capas (de fuera hacia dentro), jerarquía visual (tamaño, color, posición), espaciado, agrupación lógica.
-- Uso del Dev Mode para extraer información precisa: medidas, distancias, colores (hex/rgba), tipografías (familia, peso, tamaño, line-height, letter-spacing), bordes y sombras.
+- **Lectura sistemática de un diseño**: metodología de capas (de fuera hacia dentro), jerarquía visual (tamaño, color, posición), espaciado, agrupación lógica.
+- **Uso del Dev Mode** para extraer información precisa: medidas, distancias, colores (hex/rgba), tipografías (familia, peso, tamaño, line-height, letter-spacing), bordes y sombras.
 - Identificación de patrones de Auto Layout en el diseño y traducción a estructuras Flexbox/Grid.
-- Anotaciones y especificaciones en Figma: cómo leerlas y cómo crearlas.
-- Checklist de inspección: lista de verificación para no olvidar nada al analizar un diseño antes de implementar.
-- Comparación de versiones del diseño: identificación de cambios entre iteraciones del diseño y planificación de las modificaciones en código.
+- **Anotaciones y especificaciones en Figma**: cómo leerlas y cómo crearlas.
+- **Checklist de inspección**: lista de verificación para no olvidar nada al analizar un diseño antes de implementar.
+- **Comparación de versiones del diseño**: identificación de cambios entre iteraciones del diseño y planificación de las modificaciones en código.
 
 **FASE 2: Extracción del sistema de diseño (Design Tokens)**
 - Identificación de la paleta de colores completa en el diseño:
@@ -69,7 +73,7 @@ Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entor
   - Valores de la escala: 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96...
 - Identificación de border-radius (escala de redondeos: none, sm, md, lg, xl, 2xl, full).
 - Identificación de sombras (box-shadow) y otros efectos (blur, backdrop-filter).
-- Documentación en una tabla de Design Tokens: formato estructurado con nombre del token, valor, descripción, ejemplo de uso.
+- **Documentación en una tabla de Design Tokens**: formato estructurado con nombre del token, valor, descripción, ejemplo de uso.
 
 **FASE 3: Configuración de Tailwind @theme**
 - Traducción de los Design Tokens extraídos a la directiva `@theme` de Tailwind 4.
@@ -78,19 +82,19 @@ Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entor
   - Tipografías de Figma → `--font-{nombre}: {familia}`, `--text-{tamaño}: {valor}`, `--font-weight-{nombre}: {peso}`, `--leading-{nombre}: {interlineado}`.
   - Espaciados de Figma → `--spacing-{nombre}: {valor}`.
   - Border-radius de Figma → `--radius-{nombre}: {valor}`.
-- Configuración de modo oscuro: variables con valores diferentes según el selector `.dark` (estrategia `class` de Tailwind).
-- Configuración de fuentes: importación desde Google Fonts o archivos locales con `@font-face`.
+- **Configuración de modo oscuro**: variables con valores diferentes según el selector `.dark` (estrategia `class` de Tailwind).
+- **Configuración de fuentes**: importación desde Google Fonts o archivos locales con `@font-face`.
 - Configuración de estilos base (`@layer base`): estilos para `body`, headings (`h1`-`h6`), enlaces, scrollbar, selección de texto, antialiasing.
-- Verificación: crear un componente de prueba que use los nuevos tokens para confirmar que la configuración funciona.
+- **Verificación**: crear un componente de prueba que use los nuevos tokens para confirmar que la configuración funciona.
 
 **FASE 4: Organización de componentes Angular**
-- Aplicación de Atomic Design al análisis del diseño:
+- **Aplicación de Atomic Design** al análisis del diseño:
   - Átomos: elementos indivisibles (Button, Input, Icon, Badge, Avatar, Label, Checkbox, Radio, Toggle, Divider, Spinner).
   - Moléculas: combinaciones simples de átomos (InputField = Label + Input + Error message; SearchBar = Input + Icon + Button; ListItem = Avatar + Text + Badge).
   - Organismos: secciones complejas de la interfaz (Navbar, Sidebar, Card, Modal, Table, Form, DataGrid, Chart, Dashboard, UserMenu).
   - Templates: composiciones de organismos que definen la estructura de una página (DashboardTemplate, AuthTemplate, SettingsTemplate).
   - Pages: templates con contenido real (DashboardPage, LoginPage, SettingsPage).
-- Creación de la arquitectura de carpetas del proyecto Angular:
+- **Creación de la arquitectura de carpetas** del proyecto Angular:
 
 ```
 src/app/
@@ -132,7 +136,7 @@ src/app/
 └── app.component.ts           # Root component
 ```
 
-- Criterios de decisión: ¿qué va en shared/ui, shared/components, shared/layouts, features? Reglas: en shared/ui van los átomos puramente presentacionales; en shared/components van moléculas reutilizables; en shared/layouts van templates de layout; en features van páginas completas y componentes específicos de una funcionalidad.
+- **Criterios de decisión**: ¿qué va en shared/ui, shared/components, shared/layouts, features? Reglas: en shared/ui van los átomos puramente presentacionales; en shared/components van moléculas reutilizables; en shared/layouts van templates de layout; en features van páginas completas y componentes específicos de una funcionalidad.
 
 **FASE 5: Implementación de componentes**
 - Proceso iterativo para cada componente:
@@ -150,19 +154,19 @@ src/app/
 
 **FASE 6: Exportación y optimización de assets**
 - Iconos:
-  - Exportación desde Figma: seleccionar capa → Export → SVG.
+  - **Exportación desde Figma**: seleccionar capa → Export → SVG.
   - Alternativa mejor: usar una librería de iconos (Lucide, Heroicons, Iconify) que ya está optimizada.
-  - Optimización de SVGs: usar SVGO para eliminar metadata, comentarios y código innecesario.
-  - Estrategias: SVG inline (para iconos que necesitan cambiar de color dinámicamente) vs SVG como imagen (para iconos estáticos) vs SVG sprite (para rendimiento con muchos iconos).
+  - **Optimización de SVGs**: usar SVGO para eliminar metadata, comentarios y código innecesario.
+  - **Estrategias**: SVG inline (para iconos que necesitan cambiar de color dinámicamente) vs SVG como imagen (para iconos estáticos) vs SVG sprite (para rendimiento con muchos iconos).
 - Imágenes:
-  - Exportación desde Figma: PNG (rasterizado) o SVG (si es vectorial simple).
-  - Formatos web: PNG (con transparencia), JPEG (fotos sin transparencia), WebP (formato moderno, mejor compresión), AVIF (aún mejor compresión, soporte creciente).
-  - Optimización: usar herramientas como Squoosh, Sharp, ImageOptim, o plugins de build (vite-plugin-imagemin).
-  - Responsive images: atributo `srcset` y elemento `<picture>` para servir diferentes resoluciones según el dispositivo.
+  - **Exportación desde Figma**: PNG (rasterizado) o SVG (si es vectorial simple).
+  - **Formatos web**: PNG (con transparencia), JPEG (fotos sin transparencia), WebP (formato moderno, mejor compresión), AVIF (aún mejor compresión, soporte creciente).
+  - **Optimización**: usar herramientas como Squoosh, Sharp, ImageOptim, o plugins de build (vite-plugin-imagemin).
+  - **Responsive images**: atributo `srcset` y elemento `<picture>` para servir diferentes resoluciones según el dispositivo.
 - Fuentes:
   - Opción A: Google Fonts con `@import` en el CSS global (fácil, CDN rápida).
   - Opción B: Auto-hospedaje (las fuentes se descargan y se sirven desde el mismo dominio). Mejor para rendimiento y privacidad (no leak a Google).
-  - Configuración: `@font-face` en `@layer base` del CSS, con `font-display: swap` para evitar FOIT (Flash of Invisible Text).
+  - **Configuración**: `@font-face` en `@layer base` del CSS, con `font-display: swap` para evitar FOIT (Flash of Invisible Text).
 
 **FASE 7: Construcción de pantallas completas**
 - Composición de organismos y moléculas para construir páginas completas.
@@ -173,18 +177,18 @@ src/app/
 - Implementación de todos los estados de la página: ideal, loading (skeleton screens), empty (sin datos), error (fallo al cargar), edge cases (datos extremadamente largos, caracteres especiales, etc.).
 
 **FASE 8: Testing y aseguramiento de la calidad**
-- Testing unitario: tests para componentes individuales verificando renderización condicional basada en inputs.
-- Testing de integración: tests para organismos que componen múltiples átomos/moléculas.
-- Testing visual: comparación Storybook vs Figma (manual o automatizada con Chromatic).
-- Auditoría de accesibilidad: usar axe DevTools, WAVE, o el addon de Storybook para detectar problemas.
-- Auditoría de rendimiento: Lighthouse audit para verificar métricas de Core Web Vitals (LCP, FID/INP, CLS).
-- Revisión de código: eslint y prettier sin errores, código TypeScript tipado sin `any`, cobertura de tests adecuada.
+- **Testing unitario**: tests para componentes individuales verificando renderización condicional basada en inputs.
+- **Testing de integración**: tests para organismos que componen múltiples átomos/moléculas.
+- **Testing visual**: comparación Storybook vs Figma (manual o automatizada con Chromatic).
+- **Auditoría de accesibilidad**: usar axe DevTools, WAVE, o el addon de Storybook para detectar problemas.
+- **Auditoría de rendimiento**: Lighthouse audit para verificar métricas de Core Web Vitals (LCP, FID/INP, CLS).
+- **Revisión de código**: eslint y prettier sin errores, código TypeScript tipado sin `any`, cobertura de tests adecuada.
 
 ## Desarrollo teórico
 
 ### FASE 1: Inspección de diseños en Figma
 
-La inspección de un diseño es el primer paso crítico en el proceso de implementación. Un diseño mal inspeccionado conduce a una implementación incorrecta, retrabajo, frustración y, en última instancia, una interfaz que no coincide con la visión del diseñador. Lejos de ser una tarea mecánica, inspeccionar bien un diseño requiere método, atención al detalle y comprensión de los patrones de diseño.
+La inspección de un diseño es el primer paso crítico en el proceso de implementación. ==Un diseño mal inspeccionado conduce a una implementación incorrecta==, retrabajo, frustración y, en última instancia, una interfaz que no coincide con la visión del diseñador. Lejos de ser una tarea mecánica, inspeccionar bien un diseño requiere método, atención al detalle y comprensión de los patrones de diseño.
 
 **Metodología de inspección sistemática**
 
@@ -196,7 +200,7 @@ Cuando recibes un diseño en Figma, la tentación es empezar inmediatamente a pr
 
 **Paso 3: Descomposición por capas (de fuera hacia dentro).** Empieza por el frame más externo (la pantalla completa) y ve profundizando. Para cada nivel de la jerarquía, pregúntate: ¿Qué sistema de layout usa? (Auto Layout horizontal, Auto Layout vertical, Grid, posicionamiento libre). ¿Cuáles son sus dimensiones? ¿Qué espaciado (padding, gap) tiene?
 
-**Paso 4: Inspección detallada de cada elemento.** Para cada elemento significativo, utiliza el Dev Mode de Figma (atajo Shift+D) para extraer:
+**Paso 4: Inspección detallada de cada elemento.** Para cada elemento significativo, utiliza el **Dev Mode** de Figma (atajo Shift+D) para extraer:
 - Dimensiones exactas (width × height en px).
 - Distancias a elementos adyacentes y a los bordes del contenedor padre.
 - Colores: fills (relleno), strokes (borde). Anota el valor hex y, crucialmente, el NOMBRE de la variable de Figma si se utilizó una variable.
@@ -212,7 +216,9 @@ Cuando recibes un diseño en Figma, la tentación es empezar inmediatamente a pr
 - **Error:** ¿Cómo se muestra un error de red o de servidor? ¿Un toast? ¿Un mensaje inline? ¿Un estado de error en el componente afectado?
 - **Edge cases:** ¿Qué pasa si el nombre del usuario tiene 50 caracteres? ¿Si una celda de la tabla contiene una URL de 300 caracteres? ¿Si se cargan 10,000 items en la lista? (Aquí el desarrollador probablemente necesitará virtualización, pero el diseñador debe ser consciente de estos límites).
 
-Si el diseño no incluye estos estados, consulta con el diseñador antes de implementar. Implementar estados adivinando es una de las principales causas de inconsistencia visual en las aplicaciones.
+!!! warning "Trampa"
+
+    Si el diseño no incluye estos estados, consulta con el diseñador antes de implementar. Implementar estados adivinando es una de las principales causas de inconsistencia visual en las aplicaciones.
 
 **Paso 6: Documentación de la inspección.** Crea un documento (puede ser un Notion, un Google Doc, o incluso comentarios en el propio Figma) con:
 - Un checklist de elementos inspeccionados.
@@ -240,9 +246,9 @@ El Dev Mode es la herramienta principal para la inspección. Al activarlo (Shift
 Al inspeccionar un diseño antes de implementar, verifica que tienes respuesta para todo esto:
 
 - [ ] Dimensiones del viewport/pantalla (width × height).
-- [ ] Layout principal: ¿flex? ¿grid? ¿combinación?
-- [ ] Breakpoints responsive: ¿el diseño muestra versiones móvil/tablet/desktop?
-- [ ] Colores utilizados (con nombres de variables si las hay): primario, secundario, neutros (fondo, superficie, texto primario, texto secundario, borde), semánticos (success, warning, error, info).
+- [ ] **Layout principal**: ¿flex? ¿grid? ¿combinación?
+- [ ] **Breakpoints responsive**: ¿el diseño muestra versiones móvil/tablet/desktop?
+- [ ] **Colores utilizados** (con nombres de variables si las hay): primario, secundario, neutros (fondo, superficie, texto primario, texto secundario, borde), semánticos (success, warning, error, info).
 - [ ] Tipografías: familias, escala de tamaños, pesos, interlineados.
 - [ ] Espaciados: padding y gap en cada contenedor significativo.
 - [ ] Border-radius: valores para botones, tarjetas, inputs, modales, etc.
@@ -256,7 +262,7 @@ Al inspeccionar un diseño antes de implementar, verifica que tienes respuesta p
 
 ### FASE 2: Extracción del sistema de diseño (Design Tokens)
 
-Los design tokens son la "materia prima" del diseño. Extraerlos correctamente del archivo Figma es posiblemente la tarea más importante de todo el proceso: si los tokens son incorrectos o incompletos, cada componente que implementes será ligeramente inexacto, y corregirlo después requerirá tocar decenas de archivos.
+Los **design tokens** son la "materia prima" del diseño. Extraerlos correctamente del archivo Figma es posiblemente la tarea más importante de todo el proceso: si los tokens son incorrectos o incompletos, cada componente que implementes será ligeramente inexacto, y corregirlo después requerirá tocar decenas de archivos.
 
 **Proceso de extracción**
 
@@ -304,7 +310,9 @@ Define tokens para cada nivel tipográfico, no solo los valores crudos. Por ejem
 | `--text-3xl` | Inter | 1.875rem (30px) | 700 | 2.25rem (36px) | -0.025em | Headings principales |
 | `--text-4xl` | Inter | 2.25rem (36px) | 700 | 2.5rem (40px) | -0.025em | Hero headings |
 
-Nota: Tailwind 4 usa rem como unidad base (1rem = 16px por defecto). Es recomendable trabajar en rem en lugar de px para respetar las preferencias de tamaño de fuente del usuario.
+!!! info "Dato clave"
+
+    Nota: Tailwind 4 usa rem como unidad base (1rem = 16px por defecto). Es recomendable trabajar en rem en lugar de px para respetar las preferencias de tamaño de fuente del usuario.
 
 **Escala de espaciado**
 
@@ -555,11 +563,11 @@ Crea un componente de prueba simple que utilice los nuevos tokens para verificar
 </div>
 ```
 
-Si todo se renderiza correctamente (los colores coinciden con los del diseño de Figma, las sombras y los border-radius se ven como esperas), la configuración está lista. Este paso, aunque parezca administrativo, es la inversión más rentable del proceso: definir correctamente los tokens ahora evita discrepancias visuales en todos los componentes que implementaremos después.
+Si todo se renderiza correctamente (los colores coinciden con los del diseño de Figma, las sombras y los border-radius se ven como esperas), la configuración está lista. Este paso, aunque parezca administrativo, es la inversión más rentable del proceso: ==definir correctamente los tokens ahora evita discrepancias visuales en todos los componentes que implementaremos después==.
 
 ### FASE 4: Organización de componentes Angular
 
-Con los tokens configurados, volvemos al diseño de Figma para identificar los componentes que necesitamos implementar. Aplicamos la metodología Atomic Design (Brad Frost) que ya practicamos conceptualmente en la Unidad 1.
+Con los tokens configurados, volvemos al diseño de Figma para identificar los componentes que necesitamos implementar. Aplicamos la metodología **Atomic Design** (Brad Frost) que ya practicamos conceptualmente en la Unidad 1.
 
 **Proceso de identificación de componentes**
 
@@ -627,7 +635,7 @@ No implementes los componentes en orden alfabético ni en el orden de la lista. 
 4. Luego los templates (dependen de organismos).
 5. Finalmente las pages (dependen de templates).
 
-Dentro de los átomos, empieza por los más usados y los más simples: Button, Input, Icon, Badge. Deja para después los más complejos (Table, DataGrid, Chart).
+Dentro de los átomos, empieza por los más usados y los más simples: **Button, Input, Icon, Badge**. Deja para después los más complejos (Table, DataGrid, Chart).
 
 ### FASE 5: Implementación de componentes
 
@@ -741,7 +749,9 @@ export class InputFieldComponent {
 
 **Paso 5: Clases condicionales basadas en inputs**
 
-Observa que en lugar de concatenar strings manualmente, usamos `[class.clase]="condicion"` de Angular para activar/desactivar clases condicionalmente. Esta técnica es más limpia y mantenible que construir un string de clases con ternarios anidados.
+!!! tip "Consejo"
+
+    Observa que en lugar de concatenar strings manualmente, usamos `[class.clase]="condicion"` de Angular para activar/desactivar clases condicionalmente. Esta técnica es más limpia y mantenible que construir un string de clases con ternarios anidados.
 
 **Paso 6: Comparar visualmente con Figma**
 
@@ -926,7 +936,7 @@ La decisión más importante es **qué estrategia de iconos usar**:
 
 **Opción A: Librería de iconos (RECOMENDADA)**
 
-En lugar de exportar manualmente iconos SVG de Figma uno por uno, usa una librería de iconos profesional que:
+En lugar de exportar manualmente iconos SVG de Figma uno por uno, usa una **librería de iconos** profesional que:
 - Ya está optimizada (SVGs limpios, sin metadatos innecesarios).
 - Ofrece consistencia (todos los iconos tienen el mismo estilo visual, grosor, grid).
 - Proporciona el icono como componente Angular, no como archivo estático.
@@ -981,7 +991,7 @@ Para aplicaciones con docenas o cientos de iconos, genera un sprite SVG (un arch
 **Formatos y optimización:**
 - **WebP:** Soporta transparencia y ofrece un 25-35% mejor compresión que PNG/JPEG. Soporte universal en navegadores modernos (>96% en 2025).
 - **AVIF:** Aún mejor compresión que WebP (hasta 50% mejor que JPEG). Soporte creciente (>90% en navegadores modernos en 2025).
-- Estrategia: servir WebP como formato principal, con fallback a PNG/JPEG para navegadores antiguos (usando el elemento `<picture>` o la librería de build de Vite que genera automáticamente múltiples formatos).
+- **Estrategia**: servir WebP como formato principal, con fallback a PNG/JPEG para navegadores antiguos (usando el elemento `<picture>` o la librería de build de Vite que genera automáticamente múltiples formatos).
 
 **Responsive images:**
 ```html
@@ -995,13 +1005,17 @@ Para aplicaciones con docenas o cientos de iconos, genera un sprite SVG (un arch
 />
 ```
 
-El atributo `loading="lazy"` difiere la carga de imágenes que no están en el viewport inicial, mejorando el LCP (Largest Contentful Paint). El atributo `decoding="async"` permite al navegador decodificar la imagen de forma no bloqueante.
+!!! info "Definición"
+
+    El atributo `loading="lazy"` difiere la carga de imágenes que no están en el viewport inicial, mejorando el LCP (Largest Contentful Paint). El atributo `decoding="async"` permite al navegador decodificar la imagen de forma no bloqueante.
 
 **Fuentes**
 
 **Estrategia recomendada: auto-hospedaje con `@font-face`**
 
-Aunque Google Fonts es conveniente, auto-hospedar las fuentes en tu propio servidor ofrece mejor rendimiento (sin petición DNS a Google, sin round-trips adicionales) y mejor privacidad (no filtras datos de tus usuarios a Google).
+!!! tip "Consejo"
+
+    Aunque Google Fonts es conveniente, auto-hospedar las fuentes en tu propio servidor ofrece mejor rendimiento (sin petición DNS a Google, sin round-trips adicionales) y mejor privacidad (no filtras datos de tus usuarios a Google).
 
 ```css
 /* fonts.css */
@@ -1193,10 +1207,10 @@ interface Activity {
 
 Tests para verificar que los componentes renderizan correctamente según sus inputs:
 
-- Button: renderiza con cada variante (primary, secondary, outline, ghost), cada tamaño (sm, md, lg), estado disabled, estado loading.
-- InputField: renderiza label, input con placeholder, muestra error cuando se proporciona, deshabilita el input cuando disabled es true.
-- Card: renderiza contenido proyectado con `<ng-content>`, aplica padding y border-radius correctos.
-- Badge: renderiza con cada variante de color, cada tamaño.
+- **Button**: renderiza con cada variante (primary, secondary, outline, ghost), cada tamaño (sm, md, lg), estado disabled, estado loading.
+- **InputField**: renderiza label, input con placeholder, muestra error cuando se proporciona, deshabilita el input cuando disabled es true.
+- **Card**: renderiza contenido proyectado con `<ng-content>`, aplica padding y border-radius correctos.
+- **Badge**: renderiza con cada variante de color, cada tamaño.
 
 **Testing visual (Storybook + Chromatic o manual)**
 
@@ -1219,10 +1233,10 @@ Ejecutar en cada story y corregir todos los problemas detectados.
 **Auditoría de rendimiento**
 
 Ejecutar Lighthouse en la aplicación compilada en producción:
-- Performance: objetivo >= 90. Optimizar imágenes, diferir CSS/JS no crítico, usar lazy loading para componentes/rutas.
-- Accessibility: objetivo >= 95.
-- Best Practices: objetivo >= 90.
-- SEO: objetivo >= 90 (si la aplicación es pública).
+- **Performance**: objetivo >= 90. Optimizar imágenes, diferir CSS/JS no crítico, usar lazy loading para componentes/rutas.
+- **Accessibility**: objetivo >= 95.
+- **Best Practices**: objetivo >= 90.
+- **SEO**: objetivo >= 90 (si la aplicación es pública).
 
 ## Ejemplos guiados
 
@@ -1440,110 +1454,110 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 **Pistas:** Planifica las tareas en un kanban simple (GitHub Projects o similar). Empieza por los design tokens y la configuración del tema. Luego los átomos. Luego las moléculas y organismos. Luego las pantallas. No intentes implementar todo de golpe; avanza incrementalmente validando cada paso.
 **Criterios de evaluación:** Esta actividad puede usarse como proyecto de evaluación final del módulo. Se evaluará según una rúbrica que incluya todas las dimensiones: diseño (tokens, Figma), implementación (componentes, layouts, estado), calidad (tests, lint, tipado, accesibilidad), documentación (Storybook, README), y despliegue (app + Storybook accesibles públicamente).
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Sistema de plugins de temas para aplicaciones Angular empresariales
+    ### Actividad de ampliación 1: Sistema de plugins de temas para aplicaciones Angular empresariales
 
-Investiga e implementa un sistema de "plugins de temas" inspirado en cómo funcionan los temas de VS Code o los plugins de Figma. La idea es que un "tema" no sea solo un conjunto de colores, sino un módulo autocontenido (un archivo TypeScript/JSON) que exporta:
+    Investiga e implementa un sistema de "plugins de temas" inspirado en cómo funcionan los temas de VS Code o los plugins de Figma. La idea es que un "tema" no sea solo un conjunto de colores, sino un módulo autocontenido (un archivo TypeScript/JSON) que exporta:
 
-1. **Design tokens completos** en un formato estandarizado (JSON Schema validable).
-2. **Metadatos:** nombre, autor, versión, descripción, preview (imagen).
-3. **Reglas de transformación:** cómo derivar tokens semánticos a partir de tokens primitivos (funciones de transformación).
-4. **Assets opcionales:** fuentes, texturas de fondo, iconos personalizados.
+    1. **Design tokens completos** en un formato estandarizado (JSON Schema validable).
+    2. **Metadatos:** nombre, autor, versión, descripción, preview (imagen).
+    3. **Reglas de transformación:** cómo derivar tokens semánticos a partir de tokens primitivos (funciones de transformación).
+    4. **Assets opcionales:** fuentes, texturas de fondo, iconos personalizados.
 
-El sistema debe permitir:
-- Cargar temas desde archivos JSON locales o desde una URL (API).
-- Validar el schema del tema antes de aplicarlo.
-- Previsualizar el tema sin necesidad de aplicarlo completamente (aplicar solo a un frame/preview).
-- Componer temas (tema base + overrides del usuario).
-- Exportar el tema actual como archivo descargable.
+    El sistema debe permitir:
+    - Cargar temas desde archivos JSON locales o desde una URL (API).
+    - Validar el schema del tema antes de aplicarlo.
+    - Previsualizar el tema sin necesidad de aplicarlo completamente (aplicar solo a un frame/preview).
+    - Componer temas (tema base + overrides del usuario).
+    - Exportar el tema actual como archivo descargable.
 
-Implementa también un "Theme Editor" visual (página dentro de la app Angular) que permita editar y guardar temas sin tocar código. El editor usa color pickers, sliders para tipografía y espaciado, y previsualización en tiempo real.
+    Implementa también un "Theme Editor" visual (página dentro de la app Angular) que permita editar y guardar temas sin tocar código. El editor usa color pickers, sliders para tipografía y espaciado, y previsualización en tiempo real.
 
-Entrega: código fuente del sistema de temas + theme editor + documentación de arquitectura + al menos 3 temas de ejemplo (incluyendo uno de alto contraste para accesibilidad).
+    Entrega: código fuente del sistema de temas + theme editor + documentación de arquitectura + al menos 3 temas de ejemplo (incluyendo uno de alto contraste para accesibilidad).
 
-### Actividad de ampliación 2: Integración real Figma ↔ Storybook con Figma Plugin API
+    ### Actividad de ampliación 2: Integración real Figma ↔ Storybook con Figma Plugin API
 
-Desarrolla un flujo de trabajo automatizado que conecte Figma con Storybook usando las APIs de ambas plataformas:
+    Desarrolla un flujo de trabajo automatizado que conecte Figma con Storybook usando las APIs de ambas plataformas:
 
-1. **Plugin de Figma:** Crea un plugin que, al seleccionar un componente en Figma, haga una petición a la API de Storybook (o a un servicio intermedio) para verificar si ese componente ya está implementado y documentado. Si está implementado, muestra un embed del Storybook del componente dentro de Figma. Si no está implementado, muestra un checklist de lo que falta y permite crear un "issue" de implementación (en GitHub Issues, Linear, Jira, etc.).
+    1. **Plugin de Figma:** Crea un plugin que, al seleccionar un componente en Figma, haga una petición a la API de Storybook (o a un servicio intermedio) para verificar si ese componente ya está implementado y documentado. Si está implementado, muestra un embed del Storybook del componente dentro de Figma. Si no está implementado, muestra un checklist de lo que falta y permite crear un "issue" de implementación (en GitHub Issues, Linear, Jira, etc.).
 
-2. **GitHub Action:** Crea una acción de GitHub que, al modificar variables de Figma (exportadas a JSON mediante el plugin Design Tokens), genere automáticamente un PR en el repositorio Angular actualizando el archivo `styles.css` con los nuevos tokens.
+    2. **GitHub Action:** Crea una acción de GitHub que, al modificar variables de Figma (exportadas a JSON mediante el plugin Design Tokens), genere automáticamente un PR en el repositorio Angular actualizando el archivo `styles.css` con los nuevos tokens.
 
-3. **Sincronización de estados:** Sistema que compare los componentes documentados en Storybook con los componentes diseñados en Figma y genere un informe de cobertura: "85% de los componentes de Figma están implementados en Storybook. Faltan: DatePicker, FileUpload, RichTextEditor."
+    3. **Sincronización de estados:** Sistema que compare los componentes documentados en Storybook con los componentes diseñados en Figma y genere un informe de cobertura: "85% de los componentes de Figma están implementados en Storybook. Faltan: DatePicker, FileUpload, RichTextEditor."
 
-Entrega: código del plugin de Figma, GitHub Action, y README con diagramas del flujo de trabajo y la arquitectura.
+    Entrega: código del plugin de Figma, GitHub Action, y README con diagramas del flujo de trabajo y la arquitectura.
 
-### Actividad de ampliación 3: Accesibilidad avanzada y testing con usuarios reales
+    ### Actividad de ampliación 3: Accesibilidad avanzada y testing con usuarios reales
 
-Amplía la aplicación de gestión de proyectos de la Actividad 5 para alcanzar un nivel de accesibilidad WCAG 2.2 AAA (el más exigente). Esto implica:
+    Amplía la aplicación de gestión de proyectos de la Actividad 5 para alcanzar un nivel de accesibilidad WCAG 2.2 AAA (el más exigente). Esto implica:
 
-1. **Auditoría completa con herramientas especializadas:** axe-core, WAVE, Lighthouse, Accessibility Insights, ANDI.
-2. **Navegación completa solo con teclado:** Cada pantalla, cada componente, cada modal, cada dropdown debe ser completamente operable sin ratón ni pantalla táctil. Implementa atajos de teclado para acciones frecuentes.
-3. **Compatibilidad con lectores de pantalla:** Prueba con NVDA (Windows) o VoiceOver (macOS). Verifica que cada elemento tiene el rol correcto, nombre accesible, estado comunicado correctamente.
-4. **Redacción accesible:** Textos claros, lenguaje llano, sin jerga técnica innecesaria. Mensajes de error descriptivos que explican cómo solucionar el problema.
-5. **Motion y animaciones:** Respeta `prefers-reduced-motion`. Proporciona alternativas estáticas a las animaciones para usuarios con sensibilidad al movimiento.
-6. **Testing con usuarios reales:** Organiza una sesión de test de accesibilidad con al menos 2 personas que usen tecnologías de asistencia (lector de pantalla, magnificador, navegación por voz). Documenta los problemas encontrados y las soluciones implementadas.
+    1. **Auditoría completa con herramientas especializadas:** axe-core, WAVE, Lighthouse, Accessibility Insights, ANDI.
+    2. **Navegación completa solo con teclado:** Cada pantalla, cada componente, cada modal, cada dropdown debe ser completamente operable sin ratón ni pantalla táctil. Implementa atajos de teclado para acciones frecuentes.
+    3. **Compatibilidad con lectores de pantalla:** Prueba con NVDA (Windows) o VoiceOver (macOS). Verifica que cada elemento tiene el rol correcto, nombre accesible, estado comunicado correctamente.
+    4. **Redacción accesible:** Textos claros, lenguaje llano, sin jerga técnica innecesaria. Mensajes de error descriptivos que explican cómo solucionar el problema.
+    5. **Motion y animaciones:** Respeta `prefers-reduced-motion`. Proporciona alternativas estáticas a las animaciones para usuarios con sensibilidad al movimiento.
+    6. **Testing con usuarios reales:** Organiza una sesión de test de accesibilidad con al menos 2 personas que usen tecnologías de asistencia (lector de pantalla, magnificador, navegación por voz). Documenta los problemas encontrados y las soluciones implementadas.
 
-Entrega: informe de auditoría WCAG 2.2 AAA con evidencias (capturas, vídeos), lista de issues resueltos, y vídeo/write-up del test con usuarios reales.
+    Entrega: informe de auditoría WCAG 2.2 AAA con evidencias (capturas, vídeos), lista de issues resueltos, y vídeo/write-up del test con usuarios reales.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Implementa los átomos primero.** Cada hora invertida en definir correctamente los átomos (Button, Input, Icon, Badge...) se amortiza exponencialmente cuando construyes moléculas y organismos. Un átomo mal implementado propaga sus defectos a todo el sistema.
+    1. **Implementa los átomos primero.** Cada hora invertida en definir correctamente los átomos (Button, Input, Icon, Badge...) se amortiza exponencialmente cuando construyes moléculas y organismos. Un átomo mal implementado propaga sus defectos a todo el sistema.
 
-2. **Mantén el diseño de Figma abierto durante TODA la implementación.** No lo mires una vez al principio y luego "ya me acuerdo". Consulta Figma constantemente, compara lado a lado, verifica medidas. La memoria visual es traicionera.
+    2. **Mantén el diseño de Figma abierto durante TODA la implementación.** No lo mires una vez al principio y luego "ya me acuerdo". Consulta Figma constantemente, compara lado a lado, verifica medidas. La memoria visual es traicionera.
 
-3. **Un componente, una responsabilidad.** Si un componente hace demasiadas cosas, divídelo. Un Button no debería gestionar lógica de negocio. Un InputField no debería conocer la API. La lógica de negocio va en servicios; los componentes solo renderizan y emiten eventos.
+    3. **Un componente, una responsabilidad.** Si un componente hace demasiadas cosas, divídelo. Un Button no debería gestionar lógica de negocio. Un InputField no debería conocer la API. La lógica de negocio va en servicios; los componentes solo renderizan y emiten eventos.
 
-4. **Documenta mientras implementas, no después.** Escribir las stories y los tests DESPUÉS de implementar es tedioso y se procrastina. Hazlo como parte del flujo: implementas un estado, escribes su story, escribes su test. El componente se construye junto con su documentación y su cobertura de pruebas.
+    4. **Documenta mientras implementas, no después.** Escribir las stories y los tests DESPUÉS de implementar es tedioso y se procrastina. Hazlo como parte del flujo: implementas un estado, escribes su story, escribes su test. El componente se construye junto con su documentación y su cobertura de pruebas.
 
-5. **Usa los tokens semánticos del @theme, no valores hardcodeados.** `bg-primary` no `bg-blue-600`. Si mañana el color primario cambia de azul a verde, modificas una línea en `@theme` y toda la aplicación se actualiza. Si usaste `bg-blue-600` en 47 componentes, tienes que editar 47 archivos.
+    5. **Usa los tokens semánticos del @theme, no valores hardcodeados.** `bg-primary` no `bg-blue-600`. Si mañana el color primario cambia de azul a verde, modificas una línea en `@theme` y toda la aplicación se actualiza. Si usaste `bg-blue-600` en 47 componentes, tienes que editar 47 archivos.
 
-6. **No te cases con la precisión milimétrica.** Figma renderiza tipografías de forma diferente a los navegadores. Diferencias de 1-2px en espaciados o alineaciones son aceptables y no deben perseguirse obsesivamente. Lo importante es la consistencia visual global.
+    6. **No te cases con la precisión milimétrica.** Figma renderiza tipografías de forma diferente a los navegadores. Diferencias de 1-2px en espaciados o alineaciones son aceptables y no deben perseguirse obsesivamente. Lo importante es la consistencia visual global.
 
-7. **Optimiza los assets ANTES de usarlos, no como una tarea "pendiente" para el final.** Iconos sin optimizar, imágenes en PNG de 2MB, fuentes que bloquean el renderizado... estos problemas son fáciles de prevenir y costosos de corregir cuando la aplicación está terminada.
+    7. **Optimiza los assets ANTES de usarlos, no como una tarea "pendiente" para el final.** Iconos sin optimizar, imágenes en PNG de 2MB, fuentes que bloquean el renderizado... estos problemas son fáciles de prevenir y costosos de corregir cuando la aplicación está terminada.
 
-8. **Prioriza la accesibilidad como un requisito funcional, no como un "nice to have".** Un botón sin aria-label, una tabla sin headers, una imagen sin alt text... son bugs, igual que un botón que no funciona al hacer clic. Trata los problemas de accesibilidad como bugs en tu backlog, no como una lista de deseos para "cuando tengamos tiempo".
+    8. **Prioriza la accesibilidad como un requisito funcional, no como un "nice to have".** Un botón sin aria-label, una tabla sin headers, una imagen sin alt text... son bugs, igual que un botón que no funciona al hacer clic. Trata los problemas de accesibilidad como bugs en tu backlog, no como una lista de deseos para "cuando tengamos tiempo".
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Empezar por las pantallas en lugar de por los componentes.** Síndrome del "quiero ver algo funcionando ya". Construyes la pantalla de login con HTML + Tailwind directamente, sin componentes. Luego necesitas reutilizar ese input estilizado en el formulario de registro y acabas duplicando código. Implementa los componentes antes de las pantallas.
+    1. **Empezar por las pantallas en lugar de por los componentes.** Síndrome del "quiero ver algo funcionando ya". Construyes la pantalla de login con HTML + Tailwind directamente, sin componentes. Luego necesitas reutilizar ese input estilizado en el formulario de registro y acabas duplicando código. Implementa los componentes antes de las pantallas.
 
-2. **No definir los design tokens y usar colores hardcodeados.** "Total, #3B82F6 es fácil de recordar". Tres semanas después, tienes 15 tonalidades ligeramente diferentes de azul porque en algunos sitios pusiste #3b82f6, en otros #3B82F6 (no es lo mismo con opacidad), en otros #4a90d9 "porque me parecía que quedaba mejor"...
+    2. **No definir los design tokens y usar colores hardcodeados.** "Total, #3B82F6 es fácil de recordar". Tres semanas después, tienes 15 tonalidades ligeramente diferentes de azul porque en algunos sitios pusiste #3b82f6, en otros #3B82F6 (no es lo mismo con opacidad), en otros #4a90d9 "porque me parecía que quedaba mejor"...
 
-3. **Ignorar los estados (loading, empty, error, edge cases).** Implementas el "happy path" y pasas al siguiente componente. Cuando integras la pantalla con datos reales, todo se rompe: la tabla no tiene datos y muestra cabeceras huérfanas sin un mensaje empty, la API falla y la pantalla se queda en blanco, la imagen del avatar tarda 3 segundos en cargar y el layout baila.
+    3. **Ignorar los estados (loading, empty, error, edge cases).** Implementas el "happy path" y pasas al siguiente componente. Cuando integras la pantalla con datos reales, todo se rompe: la tabla no tiene datos y muestra cabeceras huérfanas sin un mensaje empty, la API falla y la pantalla se queda en blanco, la imagen del avatar tarda 3 segundos en cargar y el layout baila.
 
-4. **Copiar y pegar componentes en lugar de reutilizarlos con inputs.** Necesitas un botón rojo para "Eliminar". En lugar de añadir una variante `danger` a tu componente Button (5 minutos), creas un nuevo componente `DangerButton` copiando y pegando (30 segundos). Multiplica esto por 20 componentes y tienes un sistema de diseño que es una colección de copias ligeramente diferentes en lugar de un sistema coherente.
+    4. **Copiar y pegar componentes en lugar de reutilizarlos con inputs.** Necesitas un botón rojo para "Eliminar". En lugar de añadir una variante `danger` a tu componente Button (5 minutos), creas un nuevo componente `DangerButton` copiando y pegando (30 segundos). Multiplica esto por 20 componentes y tienes un sistema de diseño que es una colección de copias ligeramente diferentes en lugar de un sistema coherente.
 
-5. **No tipar correctamente los inputs de los componentes.** Usar `@Input() variant: string` en lugar de `variant = input<'primary' | 'secondary' | 'outline'>('primary')`. El primero acepta cualquier string ("primari", "secundario", "loquesea"). El segundo te da autocompletado, verificación en tiempo de compilación y documentación viva.
+    5. **No tipar correctamente los inputs de los componentes.** Usar `@Input() variant: string` en lugar de `variant = input<'primary' | 'secondary' | 'outline'>('primary')`. El primero acepta cualquier string ("primari", "secundario", "loquesea"). El segundo te da autocompletado, verificación en tiempo de compilación y documentación viva.
 
-6. **No verificar la implementación contra Figma durante el desarrollo.** Implementas "de memoria" y al final comparas con Figma. Hay 15 discrepancias. Modificar el padding de un componente desencadena ajustes en cascada en moléculas y organismos que lo usan, que ya habías dado por terminados. Compara constantemente.
+    6. **No verificar la implementación contra Figma durante el desarrollo.** Implementas "de memoria" y al final comparas con Figma. Hay 15 discrepancias. Modificar el padding de un componente desencadena ajustes en cascada en moléculas y organismos que lo usan, que ya habías dado por terminados. Compara constantemente.
 
-7. **No documentar los componentes en Storybook porque "no tengo tiempo".** Storybook es una inversión, no un coste. Los 15 minutos que "ahorras" no documentando un componente los pagarás con creces cuando en 3 semanas no recuerdes qué variantes tiene ese componente o cuando un nuevo miembro del equipo te pregunte "¿cómo se usa este componente?".
+    7. **No documentar los componentes en Storybook porque "no tengo tiempo".** Storybook es una inversión, no un coste. Los 15 minutos que "ahorras" no documentando un componente los pagarás con creces cuando en 3 semanas no recuerdes qué variantes tiene ese componente o cuando un nuevo miembro del equipo te pregunte "¿cómo se usa este componente?".
 
-8. **No gestionar correctamente el ciclo de vida del componente.** Dejar suscripciones a Observables abiertas (si usas RxJS), no limpiar event listeners, no destruir timers/intervals. Angular maneja la memoria bien, pero las fugas de memoria por suscripciones no cerradas son difíciles de depurar y degradan el rendimiento con el tiempo.
+    8. **No gestionar correctamente el ciclo de vida del componente.** Dejar suscripciones a Observables abiertas (si usas RxJS), no limpiar event listeners, no destruir timers/intervals. Angular maneja la memoria bien, pero las fugas de memoria por suscripciones no cerradas son difíciles de depurar y degradan el rendimiento con el tiempo.
 
-## Resumen
+!!! abstract "Resumen"
 
-Esta unidad ha sido la culminación del módulo de Desarrollo de Interfaces. Hemos recorrido el flujo profesional completo, desde la inspección de un diseño en Figma hasta la implementación de una aplicación funcional en Angular con componentes documentados en Storybook, pasando por todas las etapas intermedias: extracción de design tokens, configuración del tema de Tailwind, organización de componentes con Atomic Design, implementación iterativa, exportación de assets, y testing de calidad.
+    Esta unidad ha sido la culminación del módulo de Desarrollo de Interfaces. Hemos recorrido el flujo profesional completo, desde la inspección de un diseño en Figma hasta la implementación de una aplicación funcional en Angular con componentes documentados en Storybook, pasando por todas las etapas intermedias: extracción de design tokens, configuración del tema de Tailwind, organización de componentes con Atomic Design, implementación iterativa, exportación de assets, y testing de calidad.
 
-La FASE 1 nos enseñó a leer diseños de manera sistemática, utilizando el Dev Mode de Figma como nuestra herramienta principal de inspección. Aprendimos a no confiar en la memoria ni en el "a ojo", sino a extraer medidas precisas, identificar patrones y documentar todo antes de escribir una sola línea de código.
+    La FASE 1 nos enseñó a leer diseños de manera sistemática, utilizando el **Dev Mode** de Figma como nuestra herramienta principal de inspección. Aprendimos a no confiar en la memoria ni en el "a ojo", sino a extraer medidas precisas, identificar patrones y documentar todo antes de escribir una sola línea de código.
 
-La FASE 2 nos mostró cómo los diseños contienen un sistema de diseño implícito (o explícito, si se usaron variables de Figma) que podemos extraer en forma de design tokens: colores, tipografías, espaciados, bordes y sombras que constituyen la "materia prima" atómica de la interfaz.
+    La FASE 2 nos mostró cómo los diseños contienen un sistema de diseño implícito (o explícito, si se usaron variables de Figma) que podemos extraer en forma de design tokens: colores, tipografías, espaciados, bordes y sombras que constituyen la "materia prima" atómica de la interfaz.
 
-La FASE 3 convirtió esos design tokens en configuración de Tailwind 4, utilizando la directiva `@theme` para crear un puente directo entre los nombres de las variables en Figma y las clases utilitarias en Tailwind. Con soporte para tema oscuro a través de la estrategia `class` de Tailwind.
+    La FASE 3 convirtió esos design tokens en configuración de Tailwind 4, utilizando la directiva `@theme` para crear un puente directo entre los nombres de las variables en Figma y las clases utilitarias en Tailwind. Con soporte para tema oscuro a través de la estrategia `class` de Tailwind.
 
-La FASE 4 aplicó Atomic Design para organizar los componentes en una arquitectura de carpetas coherente: átomos (shared/ui), moléculas (shared/components), organismos, templates y páginas. Una estructura que escala desde proyectos pequeños hasta aplicaciones empresariales.
+    La FASE 4 aplicó **Atomic Design** para organizar los componentes en una arquitectura de carpetas coherente: átomos (shared/ui), moléculas (shared/components), organismos, templates y páginas. Una estructura que escala desde proyectos pequeños hasta aplicaciones empresariales.
 
-La FASE 5 nos sumergió en la implementación iterativa de componentes: un proceso de 10 pasos que, repetido disciplinadamente para cada componente, garantiza fidelidad al diseño, documentación y cobertura de tests. Implementamos InputField como caso de estudio detallado.
+    La FASE 5 nos sumergió en la implementación iterativa de componentes: un proceso de 10 pasos que, repetido disciplinadamente para cada componente, garantiza fidelidad al diseño, documentación y cobertura de tests. Implementamos InputField como caso de estudio detallado.
 
-La FASE 6 cubrió la exportación y optimización de assets: iconos (con librerías como Lucide), imágenes (formatos modernos WebP/AVIF, responsive images, lazy loading), y fuentes (auto-hospedaje con font-display swap para evitar FOIT).
+    La FASE 6 cubrió la exportación y optimización de assets: iconos (con librerías como Lucide), imágenes (formatos modernos WebP/AVIF, responsive images, lazy loading), y fuentes (auto-hospedaje con font-display swap para evitar FOIT).
 
-La FASE 7 compuso todos los componentes en pantallas completas funcionales, implementando todos los estados (loading, error, empty, ideal) y utilizando Angular Signals para una gestión de estado reactiva y predecible.
+    La FASE 7 compuso todos los componentes en pantallas completas funcionales, implementando todos los estados (loading, error, empty, ideal) y utilizando **Angular Signals** para una gestión de estado reactiva y predecible.
 
-La FASE 8 cerró con el aseguramiento de la calidad: testing unitario, testing visual con Storybook, auditoría de accesibilidad con axe, y auditoría de rendimiento con Lighthouse.
+    La FASE 8 cerró con el aseguramiento de la calidad: testing unitario, testing visual con Storybook, auditoría de accesibilidad con axe, y auditoría de rendimiento con Lighthouse.
 
-El viaje desde la Unidad 1 (conceptos fundamentales de interfaces) hasta esta Unidad 15 (implementación completa) ha sido largo y exigente, pero os ha equipado con las competencias necesarias para enfrentar el desarrollo profesional de interfaces web modernas: desde la comprensión del usuario y el diseño visual hasta la implementación técnica con las herramientas más demandadas en la industria (Angular, TypeScript, Tailwind CSS, Figma, Storybook).
+    El viaje desde la Unidad 1 (conceptos fundamentales de interfaces) hasta esta Unidad 15 (implementación completa) ha sido largo y exigente, pero os ha equipado con las competencias necesarias para enfrentar el desarrollo profesional de interfaces web modernas: desde la comprensión del usuario y el diseño visual hasta la implementación técnica con las herramientas más demandadas en la industria (Angular, TypeScript, Tailwind CSS, Figma, Storybook).
 
 ## Recursos complementarios
 

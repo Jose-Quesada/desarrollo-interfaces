@@ -1,16 +1,20 @@
+---
+icon: lucide/library
+---
+
 # Documentación de Componentes con Storybook
 
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
-- Instalar y configurar Storybook en un proyecto Angular con Standalone Components, TypeScript y Tailwind CSS 4.
-- Escribir stories completas utilizando el formato CSF3 (Component Story Format 3) para documentar todas las variantes y estados de un componente.
+- Instalar y configurar **Storybook** en un proyecto Angular con Standalone Components, TypeScript y Tailwind CSS 4.
+- Escribir stories completas utilizando el formato **CSF3 (Component Story Format 3)** para documentar todas las variantes y estados de un componente.
 - Utilizar los addons esenciales de Storybook: Controls, Actions, Viewport, Backgrounds, Accessibility, Interactions y Design (Figma).
-- Crear documentación narrativa con MDX que combine texto explicativo, ejemplos de código y stories interactivas.
+- Crear documentación narrativa con **MDX** que combine texto explicativo, ejemplos de código y stories interactivas.
 - Implementar testing de interacciones (play functions) y testing de accesibilidad automatizado en Storybook.
 - Integrar Storybook con Figma para mantener sincronizados el diseño visual y los componentes desarrollados.
 - Publicar un Storybook estático para compartir con el equipo de diseño y stakeholders.
-- Configurar Chromatic para visual testing y detección de regresiones visuales.
+- Configurar **Chromatic** para visual testing y detección de regresiones visuales.
 
 ## Resultado de aprendizaje asociado
 
@@ -26,15 +30,15 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 
 > Nota: la documentación de componentes con Storybook es también el vehículo técnico del **RA 6** («Documenta aplicaciones seleccionando y utilizando herramientas específicas»), en particular su CE e) «Se ha confeccionado el manual de usuario y la guía de referencia».
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
-- Angular: Standalone Components, Signals, @Input/@Output, proyección de contenido, ciclo de vida (Unidades 10, 11 y 12).
-- TypeScript: tipos avanzados, genéricos, const assertions, satisfies operator.
-- Tailwind CSS 4: clases utilitarias, personalización con @theme, variantes (Unidad 6).
-- Control de versiones con Git: commits, ramas, Pull Requests.
-- Nociones básicas de testing: unit tests con Jest o Karma, concepto de snapshot testing.
-- Markdown: sintaxis básica y avanzada (tablas, bloques de código, enlaces).
+    El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+    - **Angular**: Standalone Components, Signals, @Input/@Output, proyección de contenido, ciclo de vida (Unidades 10, 11 y 12).
+    - **TypeScript**: tipos avanzados, genéricos, const assertions, satisfies operator.
+    - **Tailwind CSS 4**: clases utilitarias, personalización con @theme, variantes (Unidad 6).
+    - **Control de versiones con Git**: commits, ramas, Pull Requests.
+    - **Nociones básicas de testing**: unit tests con Jest o Karma, concepto de snapshot testing.
+    - **Markdown**: sintaxis básica y avanzada (tablas, bloques de código, enlaces).
 
 ## Contenidos
 
@@ -51,13 +55,15 @@ El alumnado debe poseer los siguientes conocimientos antes de abordar esta unida
 
 ### SECCIÓN A — QUÉ ES STORYBOOK
 
-Storybook es una herramienta de desarrollo frontend que permite construir, documentar y testear componentes de interfaz de usuario de forma aislada, fuera del contexto de la aplicación completa. Funciona como un "taller" o "laboratorio" donde cada componente se presenta en un entorno controlado, con la capacidad de manipular sus propiedades (inputs) en tiempo real y observar su comportamiento en diferentes estados, tamaños de pantalla y condiciones visuales.
+!!! info "Definición"
+
+    **Storybook** es una herramienta de desarrollo frontend que permite construir, documentar y testear componentes de interfaz de usuario de forma aislada, fuera del contexto de la aplicación completa. Funciona como un "taller" o "laboratorio" donde cada componente se presenta en un entorno controlado, con la capacidad de manipular sus propiedades (inputs) en tiempo real y observar su comportamiento en diferentes estados, tamaños de pantalla y condiciones visuales.
 
 En el ecosistema profesional de desarrollo de interfaces, Storybook ocupa un lugar central por varias razones fundamentales:
 
 **Desarrollo aislado (Component-Driven Development):** Con Storybook, un desarrollador puede trabajar en un componente (por ejemplo, un Button) sin necesidad de arrancar la aplicación completa ni navegar hasta la página donde se utiliza ese componente. El componente se renderiza en un iframe aislado, con todas sus dependencias resueltas y sin interferencias del resto de la aplicación. Esto acelera el ciclo de desarrollo (cambiar código → ver resultado → iterar) y reduce la carga cognitiva al centrarse en una sola pieza.
 
-**Documentación viva:** A diferencia de la documentación estática (wikis, PDFs, READMEs) que inevitablemente queda desactualizada, las stories de Storybook son código que se ejecuta. Si un componente cambia su API (se añade un input, se elimina un output), la story asociada fallará al compilar, forzando su actualización. Esto garantiza que la documentación siempre refleja el estado real de los componentes. La documentación vive y respira junto al código.
+**Documentación viva:** A diferencia de la documentación estática (wikis, PDFs, READMEs) que inevitablemente queda desactualizada, ==las stories de Storybook son código que se ejecuta==. Si un componente cambia su API (se añade un input, se elimina un output), la story asociada fallará al compilar, forzando su actualización. Esto garantiza que la documentación siempre refleja el estado real de los componentes. La documentación vive y respira junto al código.
 
 **Catálogo de componentes para todo el equipo:** Storybook sirve como un catálogo centralizado donde diseñadores, product managers, QA y otros stakeholders pueden explorar todos los componentes disponibles, ver sus variantes y estados, copiar ejemplos de código y comprender cómo usarlos. Esto reduce la dependencia de los desarrolladores para responder preguntas como "¿tenemos un componente de tabla con ordenación?" o "¿cómo se ve el botón en estado disabled?".
 
@@ -169,11 +175,13 @@ const preview: Preview = {
 export default preview;
 ```
 
-La línea `import '!style-loader!css-loader!postcss-loader!../src/styles.css'` es crucial: le dice a Storybook que cargue los estilos globales de la aplicación incluyendo el CSS de Tailwind. Sin esta línea, los componentes aparecerían sin estilos en Storybook. En Tailwind 4, el archivo `styles.css` contiene la directiva `@import "tailwindcss"` que carga todo el framework.
+!!! warning "Atención"
+
+    La línea `import '!style-loader!css-loader!postcss-loader!../src/styles.css'` es crucial: le dice a Storybook que cargue los estilos globales de la aplicación incluyendo el CSS de Tailwind. Sin esta línea, los componentes aparecerían sin estilos en Storybook. En Tailwind 4, el archivo `styles.css` contiene la directiva `@import "tailwindcss"` que carga todo el framework.
 
 #### Integración con Tailwind 4
 
-Para que Storybook procese correctamente Tailwind 4, es necesario asegurarse de que:
+Para que Storybook procese correctamente **Tailwind 4**, es necesario asegurarse de que:
 1. El archivo `styles.css` importado en `preview.ts` contiene `@import "tailwindcss"`.
 2. El archivo de configuración de Storybook usa PostCSS (que ya viene configurado por defecto en proyectos Angular con Tailwind).
 3. Si se usan tokens personalizados con `@theme`, el archivo que los define debe estar importado en `styles.css` para que Storybook los tenga disponibles.
@@ -196,7 +204,7 @@ El comando `npx storybook@latest init` añade estos scripts a `package.json`:
 
 ### SECCIÓN C — ESCRITURA DE STORIES CON CSF3
 
-CSF3 (Component Story Format 3) es el formato más reciente para escribir stories en Storybook. Introduce mejoras significativas respecto a CSF2: menos boilerplate, mejor inferencia de tipos, soporte para `satisfies` de TypeScript, y una API más limpia.
+**CSF3** (Component Story Format 3) es el formato más reciente para escribir stories en Storybook. Introduce mejoras significativas respecto a CSF2: menos boilerplate, mejor inferencia de tipos, soporte para `satisfies` de TypeScript, y una API más limpia.
 
 #### Estructura de un archivo de stories
 
@@ -423,7 +431,9 @@ const meta: Meta<DashboardPageComponent> = {
 
 ### SECCIÓN D — DOCUMENTACIÓN CON MDX
 
-MDX es un formato de archivo que combina Markdown (para texto narrativo y documentación) con JSX (para insertar componentes React/Storybook interactivos). En Storybook, los archivos `.mdx` permiten crear páginas de documentación ricas que mezclan explicaciones, ejemplos de código, tablas de propiedades y stories interactivas.
+!!! info "Formato MDX"
+
+    **MDX** es un formato de archivo que combina Markdown (para texto narrativo y documentación) con JSX (para insertar componentes React/Storybook interactivos). En Storybook, los archivos `.mdx` permiten crear páginas de documentación ricas que mezclan explicaciones, ejemplos de código, tablas de propiedades y stories interactivas.
 
 #### Página de introducción del Design System con MDX
 
@@ -578,7 +588,7 @@ Este addon es un paquete que incluye múltiples addons fundamentales preconfigur
 
 #### @storybook/addon-a11y
 
-Este addon integra axe-core en Storybook y ejecuta automáticamente una auditoría de accesibilidad sobre cada story. Los resultados se muestran en un panel que lista las violaciones (violations), las buenas prácticas cumplidas (passes) y las revisiones manuales necesarias (incomplete).
+Este addon integra **axe-core** en Storybook y ejecuta automáticamente una auditoría de accesibilidad sobre cada story. Los resultados se muestran en un panel que lista las violaciones (violations), las buenas prácticas cumplidas (passes) y las revisiones manuales necesarias (incomplete).
 
 Configuración básica en `main.ts`:
 
@@ -757,7 +767,7 @@ module.exports = {
 
 #### Testing visual (Visual Testing)
 
-Chromatic es el servicio de testing visual de Storybook (creado por los mismos desarrolladores). Funciona de la siguiente manera:
+**Chromatic** es el servicio de testing visual de Storybook (creado por los mismos desarrolladores). Funciona de la siguiente manera:
 
 1. Por cada story, Chromatic captura una screenshot del componente renderizado.
 2. Cuando se hace un Pull Request, Chromatic vuelve a capturar screenshots de todas las stories y las compara píxel a píxel con la versión base (main branch).
@@ -810,7 +820,7 @@ module.exports = {
 
 ### SECCIÓN G — INTEGRACIÓN CON FIGMA
 
-La integración entre Storybook y Figma cierra la brecha entre diseño y desarrollo, permitiendo la trazabilidad bidireccional:
+La integración entre **Storybook** y **Figma** cierra la brecha entre diseño y desarrollo, permitiendo la trazabilidad bidireccional:
 
 #### Plugin Storybook Connect para Figma
 
@@ -819,7 +829,9 @@ Este plugin de Figma permite:
 2. Ver en Figma si un componente de diseño tiene una implementación correspondiente en Storybook.
 3. Navegar directamente desde Figma a la story de Storybook del componente.
 
-Flujo de trabajo: el diseñador selecciona un componente en Figma y lo vincula a la URL de su story en Storybook. A partir de ese momento, cualquiera que vea ese componente en Figma sabrá que está implementado y podrá verlo en acción.
+!!! info "Vinculación Figma ↔ Storybook"
+
+    Flujo de trabajo: el diseñador selecciona un componente en Figma y lo vincula a la URL de su story en Storybook. A partir de ese momento, cualquiera que vea ese componente en Figma sabrá que está implementado y podrá verlo en acción.
 
 #### Incrustar Figma en Storybook
 
@@ -1007,10 +1019,10 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Crear la página de introducción y las páginas de documentación para las categorías principales del Design System usando MDX.
 
 **Requisitos:**
-- Página de introducción (`Introduction.mdx`): bienvenida, principios, cómo usar, tokens.
-- Página de átomos (`Atoms.mdx`): resumen de todos los componentes atómicos con ejemplos.
-- Página de moléculas (`Molecules.mdx`): resumen de todos los componentes moleculares con ejemplos.
-- Página de organismos (`Organisms.mdx`): resumen de todos los organismos con ejemplos.
+- **Página de introducción** (`Introduction.mdx`): bienvenida, principios, cómo usar, tokens.
+- **Página de átomos** (`Atoms.mdx`): resumen de todos los componentes atómicos con ejemplos.
+- **Página de moléculas** (`Molecules.mdx`): resumen de todos los componentes moleculares con ejemplos.
+- **Página de organismos** (`Organisms.mdx`): resumen de todos los organismos con ejemplos.
 - Cada página debe tener: descripción, lista de componentes con enlaces a sus stories, ejemplos de código y buenas prácticas.
 
 **Entregable:** 4 archivos MDX de documentación.
@@ -1064,117 +1076,117 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 
 ---
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Crear un addon personalizado para Storybook
+    ### Actividad de ampliación 1: Crear un addon personalizado para Storybook
 
-**Duración:** 240 minutos.
+    **Duración:** 240 minutos.
 
-**Descripción:** Desarrollar un addon de Storybook personalizado que añada una pestaña con información específica del Design System (por ejemplo, un panel que muestre los Design Tokens aplicados al componente seleccionado).
+    **Descripción:** Desarrollar un addon de Storybook personalizado que añada una pestaña con información específica del Design System (por ejemplo, un panel que muestre los Design Tokens aplicados al componente seleccionado).
 
-**Requisitos:**
-- El addon debe aparecer como una pestaña adicional en el panel de addons.
-- Debe mostrar los tokens de diseño (colores, tipografía, espaciado) que el componente está utilizando.
-- Debe estar empaquetado como un paquete npm instalable.
-- Documentar el proceso de creación, instalación y uso del addon.
+    **Requisitos:**
+    - El addon debe aparecer como una pestaña adicional en el panel de addons.
+    - Debe mostrar los tokens de diseño (colores, tipografía, espaciado) que el componente está utilizando.
+    - Debe estar empaquetado como un paquete npm instalable.
+    - Documentar el proceso de creación, instalación y uso del addon.
 
-**Entregable:** Addon funcional + documentación.
+    **Entregable:** Addon funcional + documentación.
 
-### Actividad de ampliación 2: Configurar un portal de Design System con Storybook y Zeroheight
+    ### Actividad de ampliación 2: Configurar un portal de Design System con Storybook y Zeroheight
 
-**Duración:** 180 minutos.
+    **Duración:** 180 minutos.
 
-**Descripción:** Integrar Storybook con Zeroheight (plataforma de documentación de Design Systems) para crear un portal unificado que combine documentación de diseño (Figma) y desarrollo (Storybook).
+    **Descripción:** Integrar Storybook con Zeroheight (plataforma de documentación de Design Systems) para crear un portal unificado que combine documentación de diseño (Figma) y desarrollo (Storybook).
 
-**Requisitos:**
-- Crear una cuenta en Zeroheight (plan gratuito).
-- Integrar las stories de Storybook mediante embeds.
-- Sincronizar los design tokens y componentes entre Figma, Storybook y Zeroheight.
-- Crear páginas para cada categoría de componentes con diseño de Figma y código de Storybook lado a lado.
-- Compartir el enlace del portal para revisión.
+    **Requisitos:**
+    - Crear una cuenta en Zeroheight (plan gratuito).
+    - Integrar las stories de Storybook mediante embeds.
+    - Sincronizar los design tokens y componentes entre Figma, Storybook y Zeroheight.
+    - Crear páginas para cada categoría de componentes con diseño de Figma y código de Storybook lado a lado.
+    - Compartir el enlace del portal para revisión.
 
-**Entregable:** Portal de Design System en Zeroheight con integraciones funcionales.
+    **Entregable:** Portal de Design System en Zeroheight con integraciones funcionales.
 
-### Actividad de ampliación 3: Implementar visual testing con múltiples navegadores y temas
+    ### Actividad de ampliación 3: Implementar visual testing con múltiples navegadores y temas
 
-**Duración:** 150 minutos.
+    **Duración:** 150 minutos.
 
-**Descripción:** Configurar Chromatic u otra herramienta de visual testing para que capture screenshots de cada story en diferentes temas (claro, oscuro) y diferentes navegadores (Chrome, Firefox, Safari).
+    **Descripción:** Configurar Chromatic u otra herramienta de visual testing para que capture screenshots de cada story en diferentes temas (claro, oscuro) y diferentes navegadores (Chrome, Firefox, Safari).
 
-**Requisitos:**
-- Configurar Chromatic para capturar screenshots en los temas claro y oscuro (usando el background addon o el ThemeService).
-- Configurar Chromatic para ejecutarse en al menos dos navegadores.
-- Crear stories específicas para tema oscuro que activen la clase `.dark` en el contenedor.
-- Analizar los resultados y documentar las diferencias encontradas entre navegadores.
+    **Requisitos:**
+    - Configurar Chromatic para capturar screenshots en los temas claro y oscuro (usando el background addon o el ThemeService).
+    - Configurar Chromatic para ejecutarse en al menos dos navegadores.
+    - Crear stories específicas para tema oscuro que activen la clase `.dark` en el contenedor.
+    - Analizar los resultados y documentar las diferencias encontradas entre navegadores.
 
-**Entregable:** Configuración multi-tema y multi-navegador + informe de diferencias.
-
----
-
-## Buenas prácticas
-
-1. **Una story por estado, no una story monolítica.** Cada variante y estado significativo de un componente merece su propia story. "Primary", "Secondary", "Disabled", "Loading" como stories separadas es mucho más útil que una sola story "Button" con todos los controles.
-
-2. **Usar `tags: ['autodocs']` en todos los componentes.** Esto habilita la generación automática de documentación, incluyendo la tabla de argumentos inferida de los tipos TypeScript de los inputs y outputs.
-
-3. **Nombres de stories descriptivos y en CamelCase.** Los nombres de las stories exportadas deben ser descriptivos para que aparezcan correctamente en la barra lateral: `Primary`, `WithIcon`, `DisabledState`, `EmptyState`.
-
-4. **Jerarquía de títulos consistente.** Usar una convención de nomenclatura para los títulos de los metadatos: `Atoms/Button`, `Molecules/SearchBar`, `Organisms/Header`, `Pages/Dashboard`. Esto agrupa los componentes por nivel de Atomic Design en la barra lateral.
-
-5. **Añadir play functions para interacciones críticas.** Las play functions son tests de integración que se ejecutan en un navegador real. Priorizar escribir play functions para las interacciones más importantes: clicks que emiten outputs, navegación por teclado, cambios de estado.
-
-6. **Ejecutar el addon a11y en cada story y corregir todas las violaciones.** Un componente no está "done" hasta que pasa la auditoría de accesibilidad sin violaciones. Las violaciones de a11y deben tratarse con la misma seriedad que los bugs funcionales.
-
-7. **Documentar con MDX el "por qué" y el "cuándo", no solo el "qué".** La documentación generada automáticamente (Docs) cubre el "qué" (API del componente). El MDX debe cubrir el "por qué" (decisiones de diseño) y el "cuándo" (casos de uso apropiados e inapropiados).
-
-8. **Mantener las stories cerca de los componentes.** Los archivos `.stories.ts` deben residir en la misma carpeta que el componente que documentan (`button.component.ts` y `button.stories.ts` juntos), no en una carpeta centralizada de stories. Esto facilita encontrar y mantener la documentación.
-
-9. **Usar datos mock realistas.** Las stories deben mostrar datos que parezcan reales, no "Lorem ipsum" y "John Doe" genérico. Datos realistas ayudan a diseñadores y stakeholders a evaluar mejor los componentes.
-
-10. **Versionar las stories junto con los componentes.** Si un componente cambia su API, sus stories deben actualizarse en el mismo commit. Esto mantiene la documentación siempre sincronizada con el código.
-
-11. **No mockear servicios en stories de componentes presentacionales.** Los componentes presentacionales no deben inyectar servicios. Si una story necesita mockear un servicio, es una señal de que el componente es Smart y probablemente debería dividirse.
-
-12. **Publicar Storybook regularmente.** Un Storybook desplegado y accesible vía URL es infinitamente más valioso que uno que solo existe en local. Automatizar el despliegue para que siempre refleje la última versión de main.
+    **Entregable:** Configuración multi-tema y multi-navegador + informe de diferencias.
 
 ---
 
-## Errores frecuentes
+!!! tip "Buenas prácticas"
 
-1. **No importar Tailwind en `preview.ts`.** El error más común al configurar Storybook con Angular y Tailwind es olvidar importar los estilos globales en `preview.ts`. El resultado: todos los componentes aparecen sin estilos. La línea `import '!style-loader!css-loader!postcss-loader!../src/styles.css'` es obligatoria.
+    1. **Una story por estado, no una story monolítica.** ==Cada variante y estado significativo de un componente merece su propia story==. "Primary", "Secondary", "Disabled", "Loading" como stories separadas es mucho más útil que una sola story "Button" con todos los controles.
 
-2. **Stories que no reflejan el estado real del componente.** Si un componente añade un nuevo input requerido, las stories existentes deben actualizarse. No hacerlo resulta en stories que fallan al renderizar o, peor, que muestran un estado incorrecto (por ejemplo, un botón sin texto).
+    2. **Usar `tags: ['autodocs']` en todos los componentes.** Esto habilita la generación automática de documentación, incluyendo la tabla de argumentos inferida de los tipos TypeScript de los inputs y outputs.
 
-3. **No configurar los viewports.** Sin viewports configurados, Storybook solo muestra los componentes en el tamaño por defecto. Muchos bugs de diseño solo son visibles en móvil o tablet.
+    3. **Nombres de stories descriptivos y en CamelCase.** Los nombres de las stories exportadas deben ser descriptivos para que aparezcan correctamente en la barra lateral: `Primary`, `WithIcon`, `DisabledState`, `EmptyState`.
 
-4. **Ignorar las violaciones de a11y.** Acumular violaciones de accesibilidad en las stories es una mala práctica. Cada violación debe corregirse o, si es un falso positivo, configurarse como excepción justificada.
+    4. **Jerarquía de títulos consistente.** Usar una convención de nomenclatura para los títulos de los metadatos: `Atoms/Button`, `Molecules/SearchBar`, `Organisms/Header`, `Pages/Dashboard`. Esto agrupa los componentes por nivel de Atomic Design en la barra lateral.
 
-5. **Usar `any` en los argTypes.** Si un argType no está correctamente tipado, el panel de Controls no ofrecerá los controles adecuados (por ejemplo, un campo de texto en lugar de un select para una variante).
+    5. **Añadir play functions para interacciones críticas.** Las play functions son tests de integración que se ejecutan en un navegador real. Priorizar escribir play functions para las interacciones más importantes: clicks que emiten outputs, navegación por teclado, cambios de estado.
 
-6. **Crear stories demasiado complejas.** Una story con 15 argumentos modificables es difícil de entender. Es preferible tener 10 stories con 2-3 args cada una que una sola story con todos los args.
+    6. **Ejecutar el addon a11y en cada story y corregir todas las violaciones.** Un componente no está "done" hasta que pasa la auditoría de accesibilidad sin violaciones. Las violaciones de a11y deben tratarse con la misma seriedad que los bugs funcionales.
 
-7. **No añadir `autodocs` tag.** Sin este tag, Storybook no genera la documentación automática del componente, y los usuarios no pueden ver la tabla de argumentos ni la descripción.
+    7. **Documentar con MDX el "por qué" y el "cuándo", no solo el "qué".** La documentación generada automáticamente (Docs) cubre el "qué" (API del componente). El MDX debe cubrir el "por qué" (decisiones de diseño) y el "cuándo" (casos de uso apropiados e inapropiados).
 
-8. **Olvidar limpiar el estado entre play functions.** Si una play function modifica el estado del componente (por ejemplo, abre un modal) y no lo restaura, puede afectar a las play functions siguientes que se ejecuten en la misma story.
+    8. **Mantener las stories cerca de los componentes.** Los archivos `.stories.ts` deben residir en la misma carpeta que el componente que documentan (`button.component.ts` y `button.stories.ts` juntos), no en una carpeta centralizada de stories. Esto facilita encontrar y mantener la documentación.
 
-9. **No incluir el build de Storybook en CI.** Si Storybook no se construye en CI, los errores de compilación en las stories pueden pasar desapercibidos hasta que alguien intenta ejecutarlo localmente.
+    9. **Usar datos mock realistas.** Las stories deben mostrar datos que parezcan reales, no "Lorem ipsum" y "John Doe" genérico. Datos realistas ayudan a diseñadores y stakeholders a evaluar mejor los componentes.
 
-10. **Documentación desactualizada en MDX.** El MDX no se regenera automáticamente como las stories. Si un componente cambia, el texto explicativo en el MDX debe revisarse manualmente para asegurar que sigue siendo preciso.
+    10. **Versionar las stories junto con los componentes.** Si un componente cambia su API, sus stories deben actualizarse en el mismo commit. Esto mantiene la documentación siempre sincronizada con el código.
+
+    11. **No mockear servicios en stories de componentes presentacionales.** Los componentes presentacionales no deben inyectar servicios. Si una story necesita mockear un servicio, es una señal de que el componente es Smart y probablemente debería dividirse.
+
+    12. **Publicar Storybook regularmente.** Un Storybook desplegado y accesible vía URL es infinitamente más valioso que uno que solo existe en local. Automatizar el despliegue para que siempre refleje la última versión de main.
 
 ---
 
-## Resumen
+!!! warning "Errores frecuentes"
 
-Esta unidad ha abordado la documentación de componentes con Storybook en el contexto de Angular profesional:
+    1. **No importar Tailwind en `preview.ts`.** El error más común al configurar Storybook con Angular y Tailwind es olvidar importar los estilos globales en `preview.ts`. El resultado: todos los componentes aparecen sin estilos. La línea `import '!style-loader!css-loader!postcss-loader!../src/styles.css'` es obligatoria.
 
-- **Storybook** es una herramienta de desarrollo aislado que funciona como taller, documentación viva, catálogo de componentes y plataforma de testing visual.
-- La **instalación** se realiza con `npx storybook@latest init`, que configura automáticamente el proyecto Angular. La integración con Tailwind requiere importar los estilos globales en `preview.ts`.
-- El formato **CSF3** simplifica la escritura de stories con menos boilerplate y mejor inferencia de tipos, usando `Meta<>` y `StoryObj<>`.
-- **MDX** permite crear documentación narrativa que combina texto, código y stories interactivas en un solo archivo.
-- Los **addons esenciales** incluyen Controls (modificar inputs), Actions (ver outputs), Viewport (responsive), Backgrounds, a11y (auditoría de accesibilidad), Interactions (play functions) y Designs (incrustar Figma).
-- El **testing** en Storybook abarca tres niveles: interacciones (simular clicks/teclado), accesibilidad (axe-core) y visual (comparación píxel a píxel con Chromatic).
-- La **integración con Figma** permite vincular bidireccionalmente componentes de diseño con sus implementaciones en código.
-- La **publicación** del build estático puede realizarse en Chromatic, GitHub Pages, Netlify o Vercel, idealmente automatizada mediante CI/CD.
+    2. **Stories que no reflejan el estado real del componente.** Si un componente añade un nuevo input requerido, las stories existentes deben actualizarse. No hacerlo resulta en stories que fallan al renderizar o, peor, que muestran un estado incorrecto (por ejemplo, un botón sin texto).
+
+    3. **No configurar los viewports.** Sin viewports configurados, Storybook solo muestra los componentes en el tamaño por defecto. Muchos bugs de diseño solo son visibles en móvil o tablet.
+
+    4. **Ignorar las violaciones de a11y.** Acumular violaciones de accesibilidad en las stories es una mala práctica. Cada violación debe corregirse o, si es un falso positivo, configurarse como excepción justificada.
+
+    5. **Usar `any` en los argTypes.** Si un argType no está correctamente tipado, el panel de Controls no ofrecerá los controles adecuados (por ejemplo, un campo de texto en lugar de un select para una variante).
+
+    6. **Crear stories demasiado complejas.** Una story con 15 argumentos modificables es difícil de entender. Es preferible tener 10 stories con 2-3 args cada una que una sola story con todos los args.
+
+    7. **No añadir `autodocs` tag.** Sin este tag, Storybook no genera la documentación automática del componente, y los usuarios no pueden ver la tabla de argumentos ni la descripción.
+
+    8. **Olvidar limpiar el estado entre play functions.** Si una play function modifica el estado del componente (por ejemplo, abre un modal) y no lo restaura, puede afectar a las play functions siguientes que se ejecuten en la misma story.
+
+    9. **No incluir el build de Storybook en CI.** Si Storybook no se construye en CI, los errores de compilación en las stories pueden pasar desapercibidos hasta que alguien intenta ejecutarlo localmente.
+
+    10. **Documentación desactualizada en MDX.** El MDX no se regenera automáticamente como las stories. Si un componente cambia, el texto explicativo en el MDX debe revisarse manualmente para asegurar que sigue siendo preciso.
+
+---
+
+!!! abstract "Resumen"
+
+    Esta unidad ha abordado la documentación de componentes con Storybook en el contexto de Angular profesional:
+
+    - **Storybook** es una herramienta de desarrollo aislado que funciona como taller, documentación viva, catálogo de componentes y plataforma de testing visual.
+    - La **instalación** se realiza con `npx storybook@latest init`, que configura automáticamente el proyecto Angular. La integración con Tailwind requiere importar los estilos globales en `preview.ts`.
+    - El formato **CSF3** simplifica la escritura de stories con menos boilerplate y mejor inferencia de tipos, usando `Meta<>` y `StoryObj<>`.
+    - **MDX** permite crear documentación narrativa que combina texto, código y stories interactivas en un solo archivo.
+    - Los **addons esenciales** incluyen Controls (modificar inputs), Actions (ver outputs), Viewport (responsive), Backgrounds, a11y (auditoría de accesibilidad), Interactions (play functions) y Designs (incrustar Figma).
+    - El **testing** en Storybook abarca tres niveles: interacciones (simular clicks/teclado), accesibilidad (axe-core) y visual (comparación píxel a píxel con Chromatic).
+    - La **integración con Figma** permite vincular bidireccionalmente componentes de diseño con sus implementaciones en código.
+    - La **publicación** del build estático puede realizarse en Chromatic, GitHub Pages, Netlify o Vercel, idealmente automatizada mediante CI/CD.
 
 ---
 

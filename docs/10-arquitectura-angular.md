@@ -1,3 +1,7 @@
+---
+icon: lucide/workflow
+---
+
 # Arquitectura de Interfaces con Angular
 
 ## Objetivos de aprendizaje
@@ -5,10 +9,10 @@
 Al finalizar esta unidad, el alumnado será capaz de:
 - Diseñar y estructurar la arquitectura de una interfaz de aplicación Angular siguiendo patrones profesionales.
 - Diferenciar entre componentes Smart (contenedores) y Presentational (de presentación) y aplicarlos correctamente en el desarrollo de interfaces.
-- Configurar y utilizar Standalone Components con imports explícitos en el diseño de interfaces complejas.
-- Integrar clases de Tailwind CSS en plantillas Angular estableciendo un sistema de estilos robusto y mantenible.
+- Configurar y utilizar **Standalone Components** con imports explícitos en el diseño de interfaces complejas.
+- Integrar clases de **Tailwind CSS** en plantillas Angular estableciendo un sistema de estilos robusto y mantenible.
 - Dominar la comunicación entre componentes mediante @Input, @Output, Model Inputs y Signals para la gestión del estado de interfaz.
-- Manipular el DOM de forma reactiva mediante viewChild y contentChild en contextos de interfaz de usuario.
+- Manipular el DOM de forma reactiva mediante **viewChild y contentChild** en contextos de interfaz de usuario.
 - Organizar proyectos Angular con estructura profesional feature-based para interfaces escalables.
 - Aplicar el principio de responsabilidad única en el diseño de componentes orientados a interfaz de usuario.
 
@@ -30,15 +34,15 @@ Como RA secundario, se vincula al **RA 3** («Crea componentes visuales valorand
 - CE b) Se han creado componentes visuales.
 - CE d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
-- Fundamentos de Angular: uso de Angular CLI, estructura básica de un proyecto, comprensión del sistema de módulos y componentes.
-- TypeScript: tipos básicos, interfaces, genéricos, decoradores y programación orientada a objetos aplicada a Angular.
-- HTML semántico y CSS: comprensión de selectores, especificidad, modelo de caja, flexbox y grid.
-- Tailwind CSS: conocimiento de clases utilitarias básicas, sistema de espaciado, colores y tipografía en Tailwind.
-- Fundamentos de programación orientada a eventos: eventos del DOM, delegación de eventos, propagación.
-- Diseño de interfaces de usuario: principios básicos de composición visual, jerarquía y layout.
+    El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+    - **Fundamentos de Angular**: uso de Angular CLI, estructura básica de un proyecto, comprensión del sistema de módulos y componentes.
+    - **TypeScript**: tipos básicos, interfaces, genéricos, decoradores y programación orientada a objetos aplicada a Angular.
+    - **HTML semántico y CSS**: comprensión de selectores, especificidad, modelo de caja, flexbox y grid.
+    - **Tailwind CSS**: conocimiento de clases utilitarias básicas, sistema de espaciado, colores y tipografía en Tailwind.
+    - **Fundamentos de programación orientada a eventos**: eventos del DOM, delegación de eventos, propagación.
+    - **Diseño de interfaces de usuario**: principios básicos de composición visual, jerarquía y layout.
 
 ## Contenidos
 
@@ -54,7 +58,7 @@ El alumnado debe poseer los siguientes conocimientos antes de abordar esta unida
 
 #### Standalone Components orientados a interfaces
 
-Los Standalone Components representan la evolución del modelo de componentes en Angular desde la versión 15. En el contexto del diseño de interfaces, cada componente standalone es autónomo y declara explícitamente todas sus dependencias mediante la propiedad `imports` del decorador `@Component`. Esta independencia elimina la necesidad de NgModules para componentes de interfaz, simplificando drásticamente la estructura del proyecto y facilitando la reutilización.
+Los **Standalone Components** representan la evolución del modelo de componentes en Angular desde la versión 15. En el contexto del diseño de interfaces, cada componente standalone es autónomo y declara explícitamente todas sus dependencias mediante la propiedad `imports` del decorador `@Component`. Esta independencia elimina la necesidad de NgModules para componentes de interfaz, simplificando drásticamente la estructura del proyecto y facilitando la reutilización.
 
 Un componente standalone para interfaz se caracteriza por tres atributos fundamentales en el decorador: `selector`, que define el nombre de la etiqueta HTML personalizada que utilizará el componente en las plantillas; `template` o `templateUrl`, que contiene el marcado HTML del componente incluyendo las clases utilitarias de Tailwind; y `styles` o `styleUrls`, donde se definen los estilos específicos del componente. La propiedad `standalone: true` marca explícitamente el componente como autónomo, indicando al compilador de Angular que debe tratarlo como una unidad independiente sin necesidad de ser declarado en un NgModule.
 
@@ -98,7 +102,7 @@ La declaración explícita de imports es fundamental para mantener la transparen
 
 #### Templates con Tailwind CSS
 
-La integración de Tailwind CSS en plantillas Angular supone un cambio de paradigma respecto al CSS tradicional. En lugar de escribir hojas de estilo separadas con selectores de clase semánticos, aplicamos clases utilitarias directamente en los elementos HTML del template. Esta aproximación ofrece beneficios sustanciales para el desarrollo de interfaces: eliminación de la fricción por nombrar clases, consistencia garantizada por el sistema de diseño predefinido, y un flujo de desarrollo más rápido al no alternar constantemente entre archivos de template y de estilos.
+La integración de **Tailwind CSS** en plantillas Angular supone un cambio de paradigma respecto al CSS tradicional. En lugar de escribir hojas de estilo separadas con selectores de clase semánticos, aplicamos clases utilitarias directamente en los elementos HTML del template. Esta aproximación ofrece beneficios sustanciales para el desarrollo de interfaces: eliminación de la fricción por nombrar clases, consistencia garantizada por el sistema de diseño predefinido, y un flujo de desarrollo más rápido al no alternar constantemente entre archivos de template y de estilos.
 
 El template de un componente Angular con Tailwind se convierte en un documento denso en clases utilitarias que describen cada aspecto visual del elemento. Por ejemplo, un campo de formulario con estados de error se expresaría de la siguiente manera:
 
@@ -215,13 +219,15 @@ ngOnInit(): void {
 }
 ```
 
-Obsérvese el uso de `takeUntilDestroyed()` introducido en Angular 16, que simplifica la limpieza de suscripciones vinculando su ciclo de vida al del componente, eliminando la necesidad de gestionar manualmente `Subject` de destrucción.
+!!! info "Dato clave"
+
+    Obsérvese el uso de `takeUntilDestroyed()` introducido en Angular 16, que simplifica la limpieza de suscripciones vinculando su ciclo de vida al del componente, eliminando la necesidad de gestionar manualmente `Subject` de destrucción.
 
 `ngAfterViewInit` se ejecuta una vez que la vista del componente y las vistas de sus hijos han sido completamente inicializadas. En este punto, el DOM está disponible para ser manipulado. Es el hook adecuado para:
 - Inicializar librerías externas que requieren acceso al DOM, como bibliotecas de gráficos (Chart.js, D3.js, ApexCharts), editores de texto enriquecido (Quill, Monaco), o mapas (Leaflet, Mapbox).
 - Realizar mediciones del DOM (tamaños, posiciones) para cálculos de layout.
 - Implementar scroll programático a elementos específicos.
-- Configurar observadores de intersección (Intersection Observer) para animaciones basadas en scroll o lazy loading.
+- Configurar observadores de intersección (**Intersection Observer**) para animaciones basadas en scroll o lazy loading.
 
 Un ejemplo práctico de inicialización de un gráfico:
 
@@ -280,7 +286,7 @@ ngOnDestroy(): void {
 
 #### Estructura de carpetas profesional
 
-La organización de un proyecto Angular profesional destinado a interfaces de usuario debe seguir una estructura clara y predecible que facilite la navegación, el desarrollo en equipo y la escalabilidad. La disposición de carpetas recomendada, basada en una arquitectura feature-based, es la siguiente:
+La organización de un proyecto Angular profesional destinado a interfaces de usuario debe seguir una estructura clara y predecible que facilite la navegación, el desarrollo en equipo y la escalabilidad. La disposición de carpetas recomendada, basada en una arquitectura **feature-based**, es la siguiente:
 
 ```
 src/
@@ -347,7 +353,7 @@ La carpeta `design-system/` es el núcleo de la configuración visual de la apli
 
 #### Feature-based architecture vs layer-based
 
-La arquitectura feature-based organiza el código agrupando archivos por funcionalidad de negocio, mientras que la arquitectura layer-based agrupa por tipo técnico (todos los componentes juntos, todos los servicios juntos, todos los modelos juntos). Para proyectos de desarrollo de interfaces, la arquitectura feature-based es claramente superior por varias razones.
+La arquitectura **feature-based** organiza el código agrupando archivos por funcionalidad de negocio, mientras que la arquitectura **layer-based** agrupa por tipo técnico (todos los componentes juntos, todos los servicios juntos, todos los modelos juntos). Para proyectos de desarrollo de interfaces, la arquitectura feature-based es claramente superior por varias razones.
 
 En una arquitectura layer-based tradicional, la estructura sería similar a:
 
@@ -363,13 +369,19 @@ Este enfoque presenta problemas significativos cuando la aplicación crece: la c
 
 La arquitectura feature-based resuelve estos problemas encapsulando todo lo relacionado con una funcionalidad dentro de su propia carpeta. Cada feature contiene sus páginas, sus componentes específicos, sus servicios (si no son compartidos) y sus modelos locales. Esta co-localización reduce la carga cognitiva, facilita la incorporación de nuevos desarrolladores y permite trabajar en features de forma independiente sin riesgo de conflictos.
 
-El compromiso consiste en mantener `shared/` para componentes verdaderamente reutilizables y `core/` para servicios globales, evitando duplicar código común en cada feature. La regla práctica es: si un componente se utiliza en dos o más features, debe migrar a `shared/`; si un servicio gestiona estado que trasciende una feature individual, pertenece a `core/`.
+!!! tip "Regla práctica"
+
+    El compromiso consiste en mantener `shared/` para componentes verdaderamente reutilizables y `core/` para servicios globales, evitando duplicar código común en cada feature. La regla práctica es: si un componente se utiliza en dos o más features, debe migrar a `shared/`; si un servicio gestiona estado que trasciende una feature individual, pertenece a `core/`.
 
 #### Principio de responsabilidad única aplicado a componentes de interfaz
 
-El Principio de Responsabilidad Única (SRP), la "S" de SOLID, establece que un componente debe tener una, y solo una, razón para cambiar. Aplicado al desarrollo de interfaces, esto significa que cada componente debe tener un propósito claramente definido y acotado.
+!!! info "Definición"
 
-Un error común es crear "componentes página" que acumulan toda la lógica de negocio, la obtención de datos, las transformaciones, el estado de interfaz, los manejadores de eventos y el template completo en un solo archivo. Estos componentes monolíticos son difíciles de testear, imposibles de reutilizar, y propensos a errores cuando múltiples desarrolladores trabajan simultáneamente.
+    El **Principio de Responsabilidad Única (SRP)**, la "S" de SOLID, establece que un componente ==debe tener una, y solo una, razón para cambiar==. Aplicado al desarrollo de interfaces, esto significa que cada componente debe tener un propósito claramente definido y acotado.
+
+!!! warning "Error común"
+
+    Un error común es crear "componentes página" que acumulan toda la lógica de negocio, la obtención de datos, las transformaciones, el estado de interfaz, los manejadores de eventos y el template completo en un solo archivo. Estos componentes monolíticos son difíciles de testear, imposibles de reutilizar, y propensos a errores cuando múltiples desarrolladores trabajan simultáneamente.
 
 La aplicación del SRP conduce naturalmente a una descomposición en componentes más pequeños y especializados. Una página de dashboard, por ejemplo, no debería contener directamente el HTML de las tarjetas de estadísticas, los gráficos y las tablas de actividad reciente. En su lugar, debería delegar cada sección visual en un componente específico:
 
@@ -403,7 +415,7 @@ El `DashboardPage` (Smart Component) mantiene la responsabilidad de orquestar: o
 
 #### El patrón fundamental para interfaces
 
-La distinción entre Smart Components (contenedores inteligentes) y Presentational Components (componentes de presentación o "dumb") es uno de los patrones arquitectónicos más importantes en el desarrollo de interfaces con Angular. Originado en el ecosistema React y popularizado por Dan Abramov, este patrón se adapta perfectamente a Angular y proporciona una separación clara de responsabilidades que mejora la mantenibilidad, la testabilidad y la reutilización del código.
+La distinción entre **Smart Components** (contenedores inteligentes) y **Presentational Components** (componentes de presentación o "dumb") es uno de los patrones arquitectónicos más importantes en el desarrollo de interfaces con Angular. Originado en el ecosistema React y popularizado por Dan Abramov, este patrón se adapta perfectamente a Angular y proporciona una separación clara de responsabilidades que mejora la mantenibilidad, la testabilidad y la reutilización del código.
 
 Los **Smart Components** —también conocidos como Containers o Page Components— son los componentes que poseen la inteligencia de la aplicación. Sus responsabilidades incluyen:
 - Obtener y gestionar datos desde servicios (HTTP, estado global, almacenamiento local).
@@ -493,11 +505,11 @@ export class StatCardComponent {
 
 #### Cómo aplicarlo en una aplicación real
 
-En una aplicación Angular de tamaño medio o grande, la aplicación del patrón Smart/Presentational conduce a un árbol de componentes con una jerarquía clara. En la raíz se encuentra el `AppComponent`, que típicamente es un Smart Component ligero que renderiza el `LayoutComponent`. El `LayoutComponent` es un híbrido: contiene componentes estructurales como `Header`, `Sidebar` y `Footer`, y utiliza `<router-outlet>` para renderizar las páginas de features.
+En una aplicación Angular de tamaño medio o grande, la aplicación del patrón **Smart/Presentational** conduce a un árbol de componentes con una jerarquía clara. En la raíz se encuentra el `AppComponent`, que típicamente es un Smart Component ligero que renderiza el `LayoutComponent`. El `LayoutComponent` es un híbrido: contiene componentes estructurales como `Header`, `Sidebar` y `Footer`, y utiliza `<router-outlet>` para renderizar las páginas de features.
 
 Cada página de feature (DashboardPage, ProductsPage, UserProfilePage) es un Smart Component que orquesta los datos y los distribuye a componentes presentacionales específicos de esa feature. Estos componentes presentacionales específicos (como ProductCard, UserAvatar, InvoiceRow) pueden a su vez estar compuestos por componentes presentacionales genéricos de `shared/` (como Button, Card, Badge, Input).
 
-El flujo de datos es unidireccional descendente: los Smart Components obtienen datos de los servicios y los pasan hacia abajo a través de inputs. Los eventos fluyen hacia arriba: los Presentational Components emiten eventos que los Smart Components capturan y transforman en acciones de negocio (llamadas a servicios, navegación, actualizaciones de estado).
+==El flujo de datos es unidireccional descendente==: los Smart Components obtienen datos de los servicios y los pasan hacia abajo a través de inputs. Los eventos fluyen hacia arriba: los Presentational Components emiten eventos que los Smart Components capturan y transforman en acciones de negocio (llamadas a servicios, navegación, actualizaciones de estado).
 
 Este flujo unidireccional facilita enormemente la depuración y el razonamiento sobre la aplicación, ya que en cualquier momento dado el estado de la interfaz está determinado predeciblemente por los datos que fluyen desde los servicios a través de los Smart Components hacia los Presentational Components.
 
@@ -554,11 +566,13 @@ onItemSelected(item: MenuItem): void {
 }
 ```
 
-Es recomendable utilizar tipos genéricos con `EventEmitter<T>` para especificar el tipo de dato emitido, proporcionando seguridad de tipos tanto en la emisión como en la recepción del evento.
+!!! tip "Recomendación"
+
+    Es recomendable utilizar tipos genéricos con `EventEmitter<T>` para especificar el tipo de dato emitido, proporcionando seguridad de tipos tanto en la emisión como en la recepción del evento.
 
 #### Model Inputs: two-way binding entre componentes
 
-Los Model Inputs, introducidos en Angular 17.2, representan una evolución significativa en la comunicación entre componentes. Utilizando la función `model()`, un componente puede declarar una propiedad que actúa simultáneamente como input y como output para two-way data binding, emulando el comportamiento del `[(ngModel)]` pero aplicado a propiedades personalizadas.
+Los **Model Inputs**, introducidos en Angular 17.2, representan una evolución significativa en la comunicación entre componentes. Utilizando la función `model()`, un componente puede declarar una propiedad que actúa simultáneamente como input y como output para two-way data binding, emulando el comportamiento del `[(ngModel)]` pero aplicado a propiedades personalizadas.
 
 La sintaxis de un model input es notablemente concisa:
 
@@ -577,7 +591,7 @@ Los model inputs son particularmente útiles para componentes de formulario pers
 
 #### Signals para estado de interfaz
 
-Las Signals representan el nuevo sistema de reactividad de Angular y son especialmente adecuadas para gestionar el estado de interfaz de usuario. A diferencia de los Observables con RxJS, las Signals proporcionan una API síncrona y siempre tienen un valor actual, lo que las hace más intuitivas para el estado de UI.
+Las **Signals** representan el nuevo sistema de reactividad de Angular y son especialmente adecuadas para gestionar el estado de interfaz de usuario. A diferencia de los Observables con RxJS, las Signals proporcionan una API síncrona y siempre tienen un valor actual, lo que las hace más intuitivas para el estado de UI.
 
 El estado local de un componente se modela naturalmente con Signals:
 
@@ -587,7 +601,7 @@ isSidebarOpen = signal(true);
 selectedFilters = signal<Filter[]>([]);
 ```
 
-Los computed signals (`computed()`) son ideales para valores derivados de interfaz: clases CSS condicionales, visibilidad de elementos, textos dinámicos o cualquier propiedad de presentación que dependa de otras señales. Al ser lazy y memoizadas, los computed son eficientes y solo se recalculan cuando alguna de sus dependencias cambia:
+Los **computed signals** (`computed()`) son ideales para valores derivados de interfaz: clases CSS condicionales, visibilidad de elementos, textos dinámicos o cualquier propiedad de presentación que dependa de otras señales. Al ser lazy y memoizadas, los computed son eficientes y solo se recalculan cuando alguna de sus dependencias cambia:
 
 ```
 sidebarWidth = computed(() => this.isSidebarOpen() ? '16rem' : '4rem');
@@ -632,11 +646,11 @@ El uso de `asReadonly()` expone la señal de forma que los consumidores pueden l
 La función `viewChild` (y su versión basada en señales introducida en Angular 17) permite acceder a elementos del DOM o a instancias de componentes hijos dentro del template del propio componente. En el contexto del desarrollo de interfaces, `viewChild` es esencial para escenarios que requieren manipulación directa del DOM que no puede lograrse mediante binding declarativo.
 
 Los casos de uso más comunes incluyen:
-- Inicialización de gráficos y visualizaciones: acceder a un elemento `<canvas>` o `<div>` contenedor para pasar su contexto a una librería de gráficos.
-- Gestión del foco: enfocar automáticamente un campo de formulario cuando se abre un modal o se navega a una página.
-- Scroll programático: desplazar la vista a un elemento específico (primer error de formulario, nuevo elemento añadido a una lista).
-- Animaciones imperativas: controlar animaciones complejas que requieren la API Web Animations.
-- Medición del DOM: leer dimensiones y posiciones para cálculos de layout dinámico.
+- **Inicialización de gráficos y visualizaciones**: acceder a un elemento `<canvas>` o `<div>` contenedor para pasar su contexto a una librería de gráficos.
+- **Gestión del foco**: enfocar automáticamente un campo de formulario cuando se abre un modal o se navega a una página.
+- **Scroll programático**: desplazar la vista a un elemento específico (primer error de formulario, nuevo elemento añadido a una lista).
+- **Animaciones imperativas**: controlar animaciones complejas que requieren la API Web Animations.
+- **Medición del DOM**: leer dimensiones y posiciones para cálculos de layout dinámico.
 
 La sintaxis moderna con señales:
 
@@ -681,9 +695,9 @@ Es importante destacar que `viewChild` con señales permite un enfoque reactivo:
 Mientras `viewChild` accede a elementos que forman parte del template del componente, `contentChild` accede a elementos que han sido proyectados desde el componente padre mediante `<ng-content>`. Esta distinción es fundamental para construir componentes de interfaz compuestos que aceptan contenido externo.
 
 Los casos de uso típicos incluyen:
-- Componentes de panel/Tab/TabGroup: cada Tab proyecta su contenido, y el TabGroup necesita acceder a los tabs hijos proyectados para gestionar cuál está activo.
-- Acordeón: los items del acordeón se proyectan desde el padre, y el componente acordeón necesita coordinar cuál está expandido.
-- Wizard/Stepper: los pasos se proyectan como contenido, y el wizard accede a ellos para validar y navegar.
+- **Componentes de panel/Tab/TabGroup**: cada Tab proyecta su contenido, y el TabGroup necesita acceder a los tabs hijos proyectados para gestionar cuál está activo.
+- **Acordeón**: los items del acordeón se proyectan desde el padre, y el componente acordeón necesita coordinar cuál está expandido.
+- **Wizard/Stepper**: los pasos se proyectan como contenido, y el wizard accede a ellos para validar y navegar.
 
 Ejemplo de un componente Accordion que utiliza `contentChildren` (la versión plural) para acceder a todos los items proyectados:
 
@@ -785,7 +799,7 @@ ngOnDestroy(): void {
 
 ### Ejemplo 1: Construir un layout dashboard completo
 
-En este ejemplo guiado, construiremos paso a paso la arquitectura completa de un panel de control (dashboard) aplicando el patrón Smart/Presentational.
+En este ejemplo guiado, construiremos paso a paso la arquitectura completa de un panel de control (dashboard) aplicando el patrón **Smart/Presentational**.
 
 **Paso 1: Crear el Smart Component DashboardPage**
 
@@ -1101,53 +1115,53 @@ export class ThemeToggleComponent {
 
 ---
 
-## Casos reales
+!!! example "Casos reales"
 
-### Caso 1: Arquitectura de un clon de Spotify Web
+    ### Caso 1: Arquitectura de un clon de Spotify Web
 
-Analicemos la arquitectura de componentes de un clon de Spotify Web construido con Angular, un excelente ejemplo de aplicación intensiva en interfaz de usuario.
+    Analicemos la arquitectura de componentes de un clon de Spotify Web construido con Angular, un excelente ejemplo de aplicación intensiva en interfaz de usuario.
 
-La aplicación se organiza en las siguientes features:
-- `browse/`: página de exploración con géneros, listas de reproducción destacadas y nuevos lanzamientos.
-- `library/`: biblioteca del usuario con playlists, álbumes guardados, artistas seguidos y podcasts.
-- `search/`: búsqueda global con resultados en tiempo real categorizados por canciones, artistas, álbumes y playlists.
-- `playlist/`: vista detallada de una playlist con lista de canciones, controles de reproducción e información del creador.
-- `player/`: reproductor de música en la parte inferior con controles, barra de progreso, información de la pista actual y cola de reproducción.
+    La aplicación se organiza en las siguientes features:
+    - `browse/`: página de exploración con géneros, listas de reproducción destacadas y nuevos lanzamientos.
+    - `library/`: biblioteca del usuario con playlists, álbumes guardados, artistas seguidos y podcasts.
+    - `search/`: búsqueda global con resultados en tiempo real categorizados por canciones, artistas, álbumes y playlists.
+    - `playlist/`: vista detallada de una playlist con lista de canciones, controles de reproducción e información del creador.
+    - `player/`: reproductor de música en la parte inferior con controles, barra de progreso, información de la pista actual y cola de reproducción.
 
-Los Smart Components principales son `BrowsePage`, `LibraryPage`, `SearchPage`, `PlaylistDetailPage` y `PlayerBar`. Cada uno orquesta los datos desde `SpotifyService` (en `core/`) y los distribuye a componentes presentacionales.
+    Los **Smart Components** principales son `BrowsePage`, `LibraryPage`, `SearchPage`, `PlaylistDetailPage` y `PlayerBar`. Cada uno orquesta los datos desde `SpotifyService` (en `core/`) y los distribuye a componentes presentacionales.
 
-Los Presentational Components del catálogo incluyen:
-- `MediaCard`: tarjeta con imagen de portada, título, artista y botón de reproducir (hover).
-- `TrackRow`: fila de canción con número, título, artista, álbum, duración y botón de favorito.
-- `MediaGrid`: grid responsive de `MediaCard` con scroll infinito.
-- `SearchInput`: campo de búsqueda con debounce, historial de búsquedas y sugerencias.
-- `GenrePill`: pastilla de género musical coloreada.
-- `PlayButton`: botón circular verde con icono de play/pause, animación de escala al hacer hover.
+    Los **Presentational Components** del catálogo incluyen:
+    - `MediaCard`: tarjeta con imagen de portada, título, artista y botón de reproducir (hover).
+    - `TrackRow`: fila de canción con número, título, artista, álbum, duración y botón de favorito.
+    - `MediaGrid`: grid responsive de `MediaCard` con scroll infinito.
+    - `SearchInput`: campo de búsqueda con debounce, historial de búsquedas y sugerencias.
+    - `GenrePill`: pastilla de género musical coloreada.
+    - `PlayButton`: botón circular verde con icono de play/pause, animación de escala al hacer hover.
 
-El `LayoutComponent` contiene la estructura persistente: `Sidebar` (navegación principal, playlists del usuario), `TopBar` (botones de navegación hacia atrás/adelante, barra de búsqueda, avatar del usuario) y `PlayerBar` (reproductor siempre visible en la parte inferior).
+    El `LayoutComponent` contiene la estructura persistente: `Sidebar` (navegación principal, playlists del usuario), `TopBar` (botones de navegación hacia atrás/adelante, barra de búsqueda, avatar del usuario) y `PlayerBar` (reproductor siempre visible en la parte inferior).
 
-La comunicación sigue estrictamente el patrón Smart/Presentational. El estado de reproducción actual se gestiona en un `PlayerService` (core) que expone Signals: `currentTrack`, `isPlaying`, `progress`, `volume`. Cualquier componente puede inyectar este servicio y reaccionar a los cambios de estado de reproducción.
+    La comunicación sigue estrictamente el patrón **Smart/Presentational**. El estado de reproducción actual se gestiona en un `PlayerService` (core) que expone Signals: `currentTrack`, `isPlaying`, `progress`, `volume`. Cualquier componente puede inyectar este servicio y reaccionar a los cambios de estado de reproducción.
 
-### Caso 2: Dashboard de análisis de ventas empresarial
+    ### Caso 2: Dashboard de análisis de ventas empresarial
 
-Un dashboard de análisis de ventas para una empresa de comercio electrónico representa otro caso de uso paradigmático de la arquitectura de interfaces con Angular.
+    Un dashboard de análisis de ventas para una empresa de comercio electrónico representa otro caso de uso paradigmático de la arquitectura de interfaces con Angular.
 
-La estructura de features incluye:
-- `overview/`: dashboard principal con KPIs, gráficos de tendencia y mapa de ventas por región.
-- `products/`: análisis de productos con tabla clasificable, filtros avanzados y vista de detalle de producto.
-- `customers/`: segmentación de clientes, cohortes y valor de vida del cliente (LTV).
-- `reports/`: generación de informes personalizados con selector de período, métricas y formato de exportación.
+    La estructura de features incluye:
+    - `overview/`: dashboard principal con KPIs, gráficos de tendencia y mapa de ventas por región.
+    - `products/`: análisis de productos con tabla clasificable, filtros avanzados y vista de detalle de producto.
+    - `customers/`: segmentación de clientes, cohortes y valor de vida del cliente (LTV).
+    - `reports/`: generación de informes personalizados con selector de período, métricas y formato de exportación.
 
-El sistema de diseño se basa en un conjunto de tokens definidos en `design-system/` que incluyen una paleta de colores corporativa, una escala tipográfica con la fuente Inter para datos y tablas, y un sistema de espaciado de 4px.
+    El sistema de diseño se basa en un conjunto de tokens definidos en `design-system/` que incluyen una paleta de colores corporativa, una escala tipográfica con la fuente Inter para datos y tablas, y un sistema de espaciado de 4px.
 
-Los componentes presentacionales clave son:
-- `KpiCard`: tarjeta de indicador clave con valor principal, variación porcentual, minigráfico sparkline y tooltip con datos históricos.
-- `FilterBar`: barra horizontal con filtros de fecha (selector de rango con calendario), filtros de categoría (dropdown multiselección) y botón de aplicar.
-- `SortableTable`: tabla de datos con ordenación por columna (click en cabecera), redimensionamiento de columnas, selección de filas y paginación.
-- `ChartContainer`: envoltorio para gráficos de ApexCharts con estados de carga, error y vacío, botones de exportación (PNG, SVG, CSV) y selector de tipo de gráfico.
-- `DateRangePicker`: selector de rango de fechas con accesos rápidos (hoy, ayer, últimos 7 días, últimos 30 días, este mes, personalizado).
+    Los componentes presentacionales clave son:
+    - `KpiCard`: tarjeta de indicador clave con valor principal, variación porcentual, minigráfico sparkline y tooltip con datos históricos.
+    - `FilterBar`: barra horizontal con filtros de fecha (selector de rango con calendario), filtros de categoría (dropdown multiselección) y botón de aplicar.
+    - `SortableTable`: tabla de datos con ordenación por columna (click en cabecera), redimensionamiento de columnas, selección de filas y paginación.
+    - `ChartContainer`: envoltorio para gráficos de ApexCharts con estados de carga, error y vacío, botones de exportación (PNG, SVG, CSV) y selector de tipo de gráfico.
+    - `DateRangePicker`: selector de rango de fechas con accesos rápidos (hoy, ayer, últimos 7 días, últimos 30 días, este mes, personalizado).
 
-El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService` (core), gestiona el estado de filtros y período seleccionado, y orquesta las llamadas a la API para obtener los datos que alimentan a los componentes presentacionales. La detección de cambios OnPush en todos los componentes garantiza un rendimiento fluido incluso con grandes volúmenes de datos actualizándose en tiempo real.
+    El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService` (core), gestiona el estado de filtros y período seleccionado, y orquesta las llamadas a la API para obtener los datos que alimentan a los componentes presentacionales. La detección de cambios **OnPush** en todos los componentes garantiza un rendimiento fluido incluso con grandes volúmenes de datos actualizándose en tiempo real.
 
 ---
 
@@ -1301,121 +1315,121 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 
 ---
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Implementar virtual scrolling para listas de gran tamaño
+    ### Actividad de ampliación 1: Implementar virtual scrolling para listas de gran tamaño
 
-**Duración estimada:** 120 minutos.
+    **Duración estimada:** 120 minutos.
 
-**Descripción:** Investigar e implementar la API `@angular/cdk/scrolling` para crear una tabla de datos con scroll virtual que maneje eficientemente 10.000+ filas. El alumnado debe:
-1. Estudiar la documentación de Angular CDK Virtual Scrolling.
-2. Implementar una versión de `DataTable` que utilice `cdk-virtual-scroll-viewport` en lugar de renderizar todas las filas.
-3. Comparar el rendimiento (tiempo de renderizado, memoria) entre la versión normal y la versión con scroll virtual para 1.000, 5.000 y 10.000 filas.
-4. Presentar resultados en una tabla comparativa.
+    **Descripción:** Investigar e implementar la API `@angular/cdk/scrolling` para crear una tabla de datos con scroll virtual que maneje eficientemente 10.000+ filas. El alumnado debe:
+    1. Estudiar la documentación de Angular CDK Virtual Scrolling.
+    2. Implementar una versión de `DataTable` que utilice `cdk-virtual-scroll-viewport` en lugar de renderizar todas las filas.
+    3. Comparar el rendimiento (tiempo de renderizado, memoria) entre la versión normal y la versión con scroll virtual para 1.000, 5.000 y 10.000 filas.
+    4. Presentar resultados en una tabla comparativa.
 
-**Entregable:** Componente `VirtualDataTable`, benchmark de rendimiento y breve informe de conclusiones.
+    **Entregable:** Componente `VirtualDataTable`, benchmark de rendimiento y breve informe de conclusiones.
 
-### Actividad de ampliación 2: Crear una librería de componentes compartida con Angular CLI
+    ### Actividad de ampliación 2: Crear una librería de componentes compartida con Angular CLI
 
-**Duración estimada:** 150 minutos.
+    **Duración estimada:** 150 minutos.
 
-**Descripción:** Aprender a crear una librería Angular independiente que contenga los componentes reutilizables del proyecto, permitiendo su uso en múltiples aplicaciones. El alumnado debe:
-1. Generar un workspace Angular con una aplicación de prueba y una librería.
-2. Migrar los componentes de `shared/` a la librería.
-3. Configurar la librería para que exporte los componentes, modelos y servicios públicos.
-4. Consumir la librería desde la aplicación de prueba.
-5. Documentar el proceso de build, versionado y publicación (simulada) de la librería.
+    **Descripción:** Aprender a crear una librería Angular independiente que contenga los componentes reutilizables del proyecto, permitiendo su uso en múltiples aplicaciones. El alumnado debe:
+    1. Generar un workspace Angular con una aplicación de prueba y una librería.
+    2. Migrar los componentes de `shared/` a la librería.
+    3. Configurar la librería para que exporte los componentes, modelos y servicios públicos.
+    4. Consumir la librería desde la aplicación de prueba.
+    5. Documentar el proceso de build, versionado y publicación (simulada) de la librería.
 
-**Entregable:** Workspace Angular con aplicación + librería funcional y guía de uso.
+    **Entregable:** Workspace Angular con aplicación + librería funcional y guía de uso.
 
-### Actividad de ampliación 3: Implementar un sistema de plugins de UI con content projection dinámico
+    ### Actividad de ampliación 3: Implementar un sistema de plugins de UI con content projection dinámico
 
-**Duración estimada:** 180 minutos.
+    **Duración estimada:** 180 minutos.
 
-**Descripción:** Diseñar e implementar un sistema que permita a diferentes features de la aplicación registrar componentes en zonas predefinidas del layout (por ejemplo, añadir widgets al dashboard, acciones al menú contextual de tabla, o pestañas a la página de detalle de producto). El alumnado debe:
-1. Crear un servicio `UIPluginService` que gestione el registro de plugins por zona.
-2. Utilizar `ngComponentOutlet` para renderizar dinámicamente los plugins registrados.
-3. Implementar un sistema de prioridades para ordenar los plugins dentro de cada zona.
-4. Crear al menos tres zonas de plugins (dashboard widgets, table row actions, detail page tabs) y dos plugins para cada una.
-5. Demostrar que añadir un nuevo plugin no requiere modificar el componente anfitrión.
+    **Descripción:** Diseñar e implementar un sistema que permita a diferentes features de la aplicación registrar componentes en zonas predefinidas del layout (por ejemplo, añadir widgets al dashboard, acciones al menú contextual de tabla, o pestañas a la página de detalle de producto). El alumnado debe:
+    1. Crear un servicio `UIPluginService` que gestione el registro de plugins por zona.
+    2. Utilizar `ngComponentOutlet` para renderizar dinámicamente los plugins registrados.
+    3. Implementar un sistema de prioridades para ordenar los plugins dentro de cada zona.
+    4. Crear al menos tres zonas de plugins (dashboard widgets, table row actions, detail page tabs) y dos plugins para cada una.
+    5. Demostrar que añadir un nuevo plugin no requiere modificar el componente anfitrión.
 
-**Entregable:** Sistema de plugins completo con demostración funcional y documentación de la API.
-
----
-
-## Buenas prácticas
-
-1. **Nombrado consistente de archivos.** Utilizar sufijos descriptivos: `.component.ts`, `.service.ts`, `.page.ts` para Smart Components, `.model.ts` para interfaces, `.tokens.ts` para design tokens. Esto permite identificar el rol de cada archivo sin necesidad de abrirlo.
-
-2. **Un componente por archivo.** Cada componente debe residir en su propio archivo. En Angular, esta práctica es especialmente importante porque cada componente suele tener al menos dos archivos (TypeScript y template/estilos). Agruparlos en una carpeta con el nombre del componente mantiene la estructura ordenada.
-
-3. **Inputs requeridos siempre que sea posible.** Utilizar `@Input({ required: true })` para aquellos inputs sin los cuales el componente no puede funcionar correctamente. Esta práctica convierte errores de tiempo de ejecución en errores de compilación, mucho más fáciles de detectar y corregir.
-
-4. **OnPush como estrategia de detección de cambios por defecto.** `ChangeDetectionStrategy.OnPush` mejora significativamente el rendimiento de la interfaz al limitar la detección de cambios solo a cuando los inputs cambian por referencia o se emite un evento desde el componente. Combinado con Signals, OnPush produce aplicaciones extremadamente eficientes.
-
-5. **Inyección de dependencias con `inject()` en lugar de constructor.** La función `inject()` introducida en Angular 14 permite una inyección más limpia y funcional, elimina la necesidad de declarar propiedades en el constructor y facilita la composición de lógica reutilizable mediante funciones.
-
-6. **Evitar lógica compleja en templates.** Los templates de Angular deben limitarse a bindings simples y directivas estructurales. Cualquier transformación de datos, filtrado o cálculo debe realizarse en la clase del componente y exponerse como una propiedad o Signal.
-
-7. **Utilizar la nueva sintaxis de control de flujo.** La sintaxis `@if`, `@for`, `@switch` introducida en Angular 17 reemplaza a las directivas `*ngIf`, `*ngFor`, `*ngSwitch` y ofrece mejor rendimiento, soporte para tipado estricto en el template y una sintaxis más legible.
-
-8. **Componentes pequeños y enfocados.** Un componente no debería superar las 200-300 líneas de código TypeScript (excluyendo imports). Si un componente crece más, es señal de que debería dividirse en subcomponentes más pequeños.
-
-9. **Documentar inputs y outputs con JSDoc.** Añadir comentarios JSDoc a las propiedades decoradas con `@Input` y `@Output` proporciona documentación inline que los editores muestran como tooltips y que herramientas como Compodoc pueden extraer para generar documentación automática.
-
-10. **Centralizar la lógica de estilos condicionales.** Cuando un componente tiene muchas clases condicionales en el template, extraer la lógica a un `computed` signal que devuelva un objeto de clases mantiene el template limpio y la lógica testeable.
-
-11. **Utilizar `takeUntilDestroyed()` para limpieza automática.** Esta función, disponible desde Angular 16, vincula automáticamente la vida de una suscripción al ciclo de vida del componente o servicio, eliminando la necesidad de gestionar manualmente Subjects de destrucción.
-
-12. **Separar estrictamente responsabilidades Smart/Presentational.** Esta separación no es opcional ni cosmética: es la base de una arquitectura mantenible. Un componente que inyecta `HttpClient` no debería contener clases de Tailwind en su template.
+    **Entregable:** Sistema de plugins completo con demostración funcional y documentación de la API.
 
 ---
 
-## Errores frecuentes
+!!! tip "Buenas prácticas"
 
-1. **Mezclar lógica de negocio y presentación en el mismo componente.** Es el error más común: un componente que obtiene datos del servidor Y además tiene un template complejo con estilos condicionales. Este antipatrón produce componentes difíciles de testear, imposibles de reutilizar y propensos a conflictos en trabajo en equipo.
+    1. **Nombrado consistente de archivos.** Utilizar sufijos descriptivos: `.component.ts`, `.service.ts`, `.page.ts` para Smart Components, `.model.ts` para interfaces, `.tokens.ts` para design tokens. Esto permite identificar el rol de cada archivo sin necesidad de abrirlo.
 
-2. **Usar `any` en inputs y outputs.** Tipificar correctamente los inputs y outputs con interfaces específicas es fundamental para la seguridad de tipos y la experiencia de desarrollo. El uso de `any` anula las ventajas de TypeScript y puede causar errores sutiles en tiempo de ejecución.
+    2. **Un componente por archivo.** Cada componente debe residir en su propio archivo. En Angular, esta práctica es especialmente importante porque cada componente suele tener al menos dos archivos (TypeScript y template/estilos). Agruparlos en una carpeta con el nombre del componente mantiene la estructura ordenada.
 
-3. **No limpiar suscripciones en `ngOnDestroy`.** Las suscripciones a Observables que no utilizan `takeUntilDestroyed()` deben cancelarse manualmente. Olvidar esta limpieza causa memory leaks y comportamientos impredecibles, especialmente en aplicaciones con navegación intensiva donde los componentes se crean y destruyen frecuentemente.
+    3. **Inputs requeridos siempre que sea posible.** Utilizar `@Input({ required: true })` para aquellos inputs sin los cuales el componente no puede funcionar correctamente. Esta práctica convierte errores de tiempo de ejecución en errores de compilación, mucho más fáciles de detectar y corregir.
 
-4. **Usar `::ng-deep` sin necesidad.** Muchos desarrolladores recurren a `::ng-deep` por comodidad cuando otras soluciones son más adecuadas: variables CSS, inputs de estilo, o reestructuración para que el estilo se defina en el componente correcto. `::ng-deep` crea acoplamiento entre componentes y dificulta el mantenimiento.
+    4. **OnPush como estrategia de detección de cambios por defecto.** `ChangeDetectionStrategy.OnPush` mejora significativamente el rendimiento de la interfaz al limitar la detección de cambios solo a cuando los inputs cambian por referencia o se emite un evento desde el componente. Combinado con Signals, OnPush produce aplicaciones extremadamente eficientes.
 
-5. **Inicializar librerías externas en `ngOnInit` en lugar de `ngAfterViewInit`.** Intentar acceder a elementos del DOM en `ngOnInit` resultará en `undefined` porque la vista aún no se ha renderizado. Las librerías que requieren un elemento DOM deben inicializarse en `ngAfterViewInit`.
+    5. **Inyección de dependencias con `inject()` en lugar de constructor.** La función `inject()` introducida en Angular 14 permite una inyección más limpia y funcional, elimina la necesidad de declarar propiedades en el constructor y facilita la composición de lógica reutilizable mediante funciones.
 
-6. **No utilizar `trackBy` en `@for` con listas mutables.** Sin una función `trackBy`, Angular destruye y recrea todos los elementos del DOM cuando la lista cambia, incluso si solo se modificó un elemento. Esto causa pérdida de rendimiento y pérdida de estado de interfaz (foco, scroll, animaciones en curso).
+    6. **Evitar lógica compleja en templates.** Los templates de Angular deben limitarse a bindings simples y directivas estructurales. Cualquier transformación de datos, filtrado o cálculo debe realizarse en la clase del componente y exponerse como una propiedad o Signal.
 
-7. **Exponer Signals mutables desde servicios sin `asReadonly()`.** Permitir que cualquier consumidor de un servicio modifique directamente una Signal rompe la encapsulación y hace imposible razonar sobre el flujo de estado. Los servicios deben exponer versiones de solo lectura de sus Signals.
+    7. **Utilizar la nueva sintaxis de control de flujo.** La sintaxis `@if`, `@for`, `@switch` introducida en Angular 17 reemplaza a las directivas `*ngIf`, `*ngFor`, `*ngSwitch` y ofrece mejor rendimiento, soporte para tipado estricto en el template y una sintaxis más legible.
 
-8. **Abusar de `EventEmitter` para comunicación entre componentes hermanos.** `EventEmitter` está diseñado para comunicación padre → hijo (input) e hijo → padre (output). Para comunicación entre hermanos, la solución correcta es un servicio compartido con Signals o un patrón de estado global.
+    8. **Componentes pequeños y enfocados.** Un componente no debería superar las 200-300 líneas de código TypeScript (excluyendo imports). Si un componente crece más, es señal de que debería dividirse en subcomponentes más pequeños.
 
-9. **Ignorar la accesibilidad en la arquitectura de componentes.** Los roles ARIA, la navegación por teclado y la gestión del foco no son añadidos posteriores; deben ser parte integral del diseño del componente desde el principio.
+    9. **Documentar inputs y outputs con JSDoc.** Añadir comentarios JSDoc a las propiedades decoradas con `@Input` y `@Output` proporciona documentación inline que los editores muestran como tooltips y que herramientas como Compodoc pueden extraer para generar documentación automática.
 
-10. **Anidar demasiados niveles de componentes sin necesidad.** Una jerarquía de componentes con 6 o 7 niveles de profundidad es difícil de razonar y depurar. Antes de crear un nuevo componente, evaluar si realmente aporta reutilización o simplificación.
+    10. **Centralizar la lógica de estilos condicionales.** Cuando un componente tiene muchas clases condicionales en el template, extraer la lógica a un `computed` signal que devuelva un objeto de clases mantiene el template limpio y la lógica testeable.
 
-11. **Utilizar el constructor para lógica de inicialización compleja.** El constructor debe limitarse a la inyección de dependencias. Cualquier lógica de inicialización que dependa de inputs o que realice efectos secundarios debe ir en `ngOnInit`.
+    11. **Utilizar `takeUntilDestroyed()` para limpieza automática.** Esta función, disponible desde Angular 16, vincula automáticamente la vida de una suscripción al ciclo de vida del componente o servicio, eliminando la necesidad de gestionar manualmente Subjects de destrucción.
 
-12. **No configurar correctamente `content` en `tailwind.config` para proyectos Angular.** Si los paths de `content` no incluyen los archivos `.ts` y `.html` de los componentes, Tailwind no generará las clases utilitarias necesarias y la interfaz aparecerá sin estilos.
+    12. **Separar estrictamente responsabilidades Smart/Presentational.** Esta separación no es opcional ni cosmética: es la base de una arquitectura mantenible. Un componente que inyecta `HttpClient` no debería contener clases de Tailwind en su template.
 
 ---
 
-## Resumen
+!!! warning "Errores frecuentes"
 
-Esta unidad ha abordado la arquitectura de interfaces con Angular desde una perspectiva profesional y orientada a la práctica. Los puntos clave son:
+    1. **Mezclar lógica de negocio y presentación en el mismo componente.** Es el error más común: un componente que obtiene datos del servidor Y además tiene un template complejo con estilos condicionales. Este antipatrón produce componentes difíciles de testear, imposibles de reutilizar y propensos a conflictos en trabajo en equipo.
 
-- Los **Standalone Components** simplifican la estructura del proyecto eliminando la necesidad de NgModules y haciendo explícitas las dependencias de cada componente de interfaz mediante imports declarados.
+    2. **Usar `any` en inputs y outputs.** Tipificar correctamente los inputs y outputs con interfaces específicas es fundamental para la seguridad de tipos y la experiencia de desarrollo. El uso de `any` anula las ventajas de TypeScript y puede causar errores sutiles en tiempo de ejecución.
 
-- La integración de **Tailwind CSS** en plantillas Angular permite un desarrollo de interfaces más rápido y consistente, con clases utilitarias aplicadas directamente en el HTML y variantes arbitrarias para reaccionar a estados dinámicos de Angular.
+    3. **No limpiar suscripciones en `ngOnDestroy`.** Las suscripciones a Observables que no utilizan `takeUntilDestroyed()` deben cancelarse manualmente. Olvidar esta limpieza causa memory leaks y comportamientos impredecibles, especialmente en aplicaciones con navegación intensiva donde los componentes se crean y destruyen frecuentemente.
 
-- Los hooks del ciclo de vida más relevantes para interfaces son `ngOnInit` (inicialización de datos y estado), `ngAfterViewInit` (manipulación del DOM e inicialización de librerías externas) y `ngOnDestroy` (limpieza de recursos).
+    4. **Usar `::ng-deep` sin necesidad.** Muchos desarrolladores recurren a `::ng-deep` por comodidad cuando otras soluciones son más adecuadas: variables CSS, inputs de estilo, o reestructuración para que el estilo se defina en el componente correcto. `::ng-deep` crea acoplamiento entre componentes y dificulta el mantenimiento.
 
-- La **arquitectura feature-based** organiza el proyecto por funcionalidades de negocio (`features/`), con componentes reutilizables en `shared/`, servicios globales en `core/` y el shell estructural en `layout/`, superando en escalabilidad a la arquitectura tradicional layer-based.
+    5. **Inicializar librerías externas en `ngOnInit` en lugar de `ngAfterViewInit`.** Intentar acceder a elementos del DOM en `ngOnInit` resultará en `undefined` porque la vista aún no se ha renderizado. Las librerías que requieren un elemento DOM deben inicializarse en `ngAfterViewInit`.
 
-- El patrón **Smart vs Presentational Components** es la piedra angular de una arquitectura de interfaz mantenible: los Smart Components contienen lógica y orquestan; los Presentational Components reciben datos y emiten eventos.
+    6. **No utilizar `trackBy` en `@for` con listas mutables.** Sin una función `trackBy`, Angular destruye y recrea todos los elementos del DOM cuando la lista cambia, incluso si solo se modificó un elemento. Esto causa pérdida de rendimiento y pérdida de estado de interfaz (foco, scroll, animaciones en curso).
 
-- La comunicación entre componentes se articula mediante `@Input` (con soporte para required y transform), `@Output` (EventEmitter), `model()` para two-way binding y **Signals** para estado reactivo local y compartido.
+    7. **Exponer Signals mutables desde servicios sin `asReadonly()`.** Permitir que cualquier consumidor de un servicio modifique directamente una Signal rompe la encapsulación y hace imposible razonar sobre el flujo de estado. Los servicios deben exponer versiones de solo lectura de sus Signals.
 
-- `viewChild` y `contentChild` permiten acceder al DOM propio y al contenido proyectado respectivamente, habilitando patrones de interfaz como foco automático, inicialización de gráficos y coordinación de componentes compuestos.
+    8. **Abusar de `EventEmitter` para comunicación entre componentes hermanos.** `EventEmitter` está diseñado para comunicación padre → hijo (input) e hijo → padre (output). Para comunicación entre hermanos, la solución correcta es un servicio compartido con Signals o un patrón de estado global.
+
+    9. **Ignorar la accesibilidad en la arquitectura de componentes.** Los roles ARIA, la navegación por teclado y la gestión del foco no son añadidos posteriores; deben ser parte integral del diseño del componente desde el principio.
+
+    10. **Anidar demasiados niveles de componentes sin necesidad.** Una jerarquía de componentes con 6 o 7 niveles de profundidad es difícil de razonar y depurar. Antes de crear un nuevo componente, evaluar si realmente aporta reutilización o simplificación.
+
+    11. **Utilizar el constructor para lógica de inicialización compleja.** El constructor debe limitarse a la inyección de dependencias. Cualquier lógica de inicialización que dependa de inputs o que realice efectos secundarios debe ir en `ngOnInit`.
+
+    12. **No configurar correctamente `content` en `tailwind.config` para proyectos Angular.** Si los paths de `content` no incluyen los archivos `.ts` y `.html` de los componentes, Tailwind no generará las clases utilitarias necesarias y la interfaz aparecerá sin estilos.
+
+---
+
+!!! abstract "Resumen"
+
+    Esta unidad ha abordado la arquitectura de interfaces con Angular desde una perspectiva profesional y orientada a la práctica. Los puntos clave son:
+
+    - Los **Standalone Components** simplifican la estructura del proyecto eliminando la necesidad de NgModules y haciendo explícitas las dependencias de cada componente de interfaz mediante imports declarados.
+
+    - La integración de **Tailwind CSS** en plantillas Angular permite un desarrollo de interfaces más rápido y consistente, con clases utilitarias aplicadas directamente en el HTML y variantes arbitrarias para reaccionar a estados dinámicos de Angular.
+
+    - Los hooks del ciclo de vida más relevantes para interfaces son `ngOnInit` (inicialización de datos y estado), `ngAfterViewInit` (manipulación del DOM e inicialización de librerías externas) y `ngOnDestroy` (limpieza de recursos).
+
+    - La **arquitectura feature-based** organiza el proyecto por funcionalidades de negocio (`features/`), con componentes reutilizables en `shared/`, servicios globales en `core/` y el shell estructural en `layout/`, superando en escalabilidad a la arquitectura tradicional layer-based.
+
+    - El patrón **Smart vs Presentational Components** es la piedra angular de una arquitectura de interfaz mantenible: los Smart Components contienen lógica y orquestan; los Presentational Components reciben datos y emiten eventos.
+
+    - La comunicación entre componentes se articula mediante `@Input` (con soporte para required y transform), `@Output` (EventEmitter), `model()` para two-way binding y **Signals** para estado reactivo local y compartido.
+
+    - `viewChild` y `contentChild` permiten acceder al DOM propio y al contenido proyectado respectivamente, habilitando patrones de interfaz como foco automático, inicialización de gráficos y coordinación de componentes compuestos.
 
 ---
 

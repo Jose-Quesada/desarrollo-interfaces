@@ -1,15 +1,19 @@
+---
+icon: lucide/layout-grid
+---
+
 # Unidad 5: Layouts Modernos para Interfaces Web
 
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
 
-1. Construir layouts complejos de aplicaciones web utilizando Flexbox y CSS Grid a través de las clases utilitarias de Tailwind CSS, seleccionando el sistema de layout más adecuado para cada contexto.
+1. Construir layouts complejos de aplicaciones web utilizando **Flexbox** y **CSS Grid** a través de las clases utilitarias de Tailwind CSS, seleccionando el sistema de layout más adecuado para cada contexto.
 2. Traducir layouts de aplicaciones de escritorio clásicas (VBox, HBox, GridPane, StackPane) a sus equivalentes en Tailwind CSS, comprendiendo las equivalencias conceptuales entre ambos paradigmas.
 3. Diseñar dashboards administrativos, paneles SaaS, catálogos de ecommerce y aplicaciones de mensajería combinando Grid para la estructura principal y Flexbox para los componentes internos.
 4. Aplicar técnicas de posicionamiento (relative, absolute, fixed, sticky) para implementar elementos superpuestos como tooltips, dropdowns, modales y cabeceras fijas.
 5. Implementar layouts responsivos utilizando los breakpoints de Tailwind CSS con estrategia mobile-first, asegurando que las interfaces se adapten fluidamente a dispositivos móviles, tablets y escritorio.
-6. Utilizar técnicas avanzadas de layout como container queries, layouts fluidos con funciones CSS modernas (minmax, auto-fit, clamp) y sistemas de espaciado consistente.
+6. Utilizar técnicas avanzadas de layout como **container queries**, layouts fluidos con funciones CSS modernas (minmax, auto-fit, clamp) y sistemas de espaciado consistente.
 7. Evaluar y depurar problemas de layout utilizando las herramientas de desarrollo del navegador (DevTools), identificando colapsos de márgenes, desbordamientos y problemas de especificidad.
 8. Construir desde cero cuatro layouts profesionales completos (Dashboard, SaaS, Ecommerce, Chat) que servirán como base para aplicaciones reales.
 
@@ -19,35 +23,37 @@ Esta unidad contribuye al **RA 4** del módulo profesional 0488 *Desarrollo de i
 
 > **RA 4.** Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
 
-Criterios de evaluación oficiales que se trabajan en esta unidad:
+!!! info "Criterios de evaluación"
 
-- CE e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
-- CE f) Se ha utilizado el tipo de control más apropiado en cada caso.
-- CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+    Criterios de evaluación oficiales que se trabajan en esta unidad:
+
+    - CE e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
+    - CE f) Se ha utilizado el tipo de control más apropiado en cada caso.
+    - CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
 
 > Nota: la maquetación con Flexbox, CSS Grid y utilidades de Tailwind es el vehículo técnico con el que se materializan estos criterios de distribución, jerarquía visual y legibilidad.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar con éxito esta unidad, el alumnado debe dominar los siguientes contenidos:
+    Para abordar con éxito esta unidad, el alumnado debe dominar los siguientes contenidos:
 
-- Fundamentos de HTML5: estructura semántica de documentos, elementos de bloque vs elementos en línea, anidamiento correcto de elementos, uso de atributos de clase e id.
-- CSS3 básico-intermedio: modelo de caja (content, padding, border, margin), display (block, inline, inline-block, none), posicionamiento básico (static, relative), unidades de medida (px, rem, em, %, vw, vh).
-- Familiaridad básica con Tailwind CSS (se introduce en la Unidad 6): comprensión del enfoque utility-first, capacidad de aplicar clases de Tailwind en templates HTML, familiaridad con el sistema de colores, tipografías y espaciado.
-- Angular nivel básico (se trabaja en la Unidad 10): capacidad de crear componentes standalone con Angular CLI, comprensión de la estructura de un componente (template, clase TypeScript, estilos), manejo de inputs y control flow (@if, @for).
-- Diseño en Figma (Unidad 4): capacidad de interpretar un diseño en Figma y extraer medidas, colores, tipografías y estructuras de layout (Auto Layout → Flexbox).
+    - **Fundamentos de HTML5**: estructura semántica de documentos, elementos de bloque vs elementos en línea, anidamiento correcto de elementos, uso de atributos de clase e id.
+    - **CSS3 básico-intermedio**: modelo de caja (content, padding, border, margin), display (block, inline, inline-block, none), posicionamiento básico (static, relative), unidades de medida (px, rem, em, %, vw, vh).
+    - **Familiaridad básica con Tailwind CSS** (se introduce en la Unidad 6): comprensión del enfoque utility-first, capacidad de aplicar clases de Tailwind en templates HTML, familiaridad con el sistema de colores, tipografías y espaciado.
+    - **Angular nivel básico** (se trabaja en la Unidad 10): capacidad de crear componentes standalone con Angular CLI, comprensión de la estructura de un componente (template, clase TypeScript, estilos), manejo de inputs y control flow (@if, @for).
+    - **Diseño en Figma** (Unidad 4): capacidad de interpretar un diseño en Figma y extraer medidas, colores, tipografías y estructuras de layout (Auto Layout → Flexbox).
 
-Se realizará una evaluación diagnóstica al inicio de la unidad consistente en un ejercicio práctico de maquetación de una tarjeta simple con Flexbox y Tailwind. El resultado permitirá al docente ajustar el ritmo y ofrecer recursos de refuerzo a quienes lo necesiten.
+    Se realizará una **evaluación diagnóstica** al inicio de la unidad consistente en un ejercicio práctico de maquetación de una tarjeta simple con Flexbox y Tailwind. El resultado permitirá al docente ajustar el ritmo y ofrecer recursos de refuerzo a quienes lo necesiten.
 
 ## Contenidos
 
 **Bloque A - Flexbox con Tailwind (nivel profesional, orientado a interfaces de aplicación)**
 
 - Repaso rápido de conceptos clave:
-  - Main axis (eje principal) y cross axis (eje perpendicular). Determinados por `flex-direction`.
-  - Contenedor flex (elemento padre con `display: flex`) y elementos flex (hijos directos).
-  - Propiedades del contenedor: `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap` (row-gap y column-gap).
-  - Propiedades de los elementos flex: `flex-grow`, `flex-shrink`, `flex-basis`, `flex` (shorthand), `align-self`, `order`.
+  - **Main axis** (eje principal) y **cross axis** (eje perpendicular). Determinados por `flex-direction`.
+  - **Contenedor flex** (elemento padre con `display: flex`) y **elementos flex** (hijos directos).
+  - **Propiedades del contenedor**: `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap` (row-gap y column-gap).
+  - **Propiedades de los elementos flex**: `flex-grow`, `flex-shrink`, `flex-basis`, `flex` (shorthand), `align-self`, `order`.
 
 - Traducción completa a clases Tailwind:
   - `flex`, `inline-flex` → activan el contexto flex.
@@ -79,12 +85,12 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
 **Bloque B - CSS Grid con Tailwind (orientado a dashboards y aplicaciones)**
 
 - Repaso de conceptos:
-  - Contenedor grid y grid items (hijos directos).
-  - Definición de columnas: `grid-template-columns` (tamaños fijos, fracciones `fr`, `repeat()`, `minmax()`).
-  - Definición de filas: `grid-template-rows`.
-  - Posicionamiento de items: `grid-column-start/end`, `grid-row-start/end`, `grid-area`.
-  - Alineación: `justify-items`, `align-items`, `justify-content`, `align-content` (contenedor), `justify-self`, `align-self` (items).
-  - Gap: `gap`, `column-gap`, `row-gap`.
+  - **Contenedor grid** y **grid items** (hijos directos).
+  - **Definición de columnas**: `grid-template-columns` (tamaños fijos, fracciones `fr`, `repeat()`, `minmax()`).
+  - **Definición de filas**: `grid-template-rows`.
+  - **Posicionamiento de items**: `grid-column-start/end`, `grid-row-start/end`, `grid-area`.
+  - **Alineación**: `justify-items`, `align-items`, `justify-content`, `align-content` (contenedor), `justify-self`, `align-self` (items).
+  - **Gap**: `gap`, `column-gap`, `row-gap`.
 
 - Traducción completa a clases Tailwind:
   - `grid`, `inline-grid` → activan el contexto grid.
@@ -141,9 +147,9 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
 
 - Traducción a clases Tailwind:
   - `static`, `relative`, `absolute`, `fixed`, `sticky`.
-  - Coordenadas: `top-0`, `top-{n}`, `-top-{n}`, `top-full`, `top-1/2` (50%)... y equivalentes para right, bottom, left.
+  - **Coordenadas**: `top-0`, `top-{n}`, `-top-{n}`, `top-full`, `top-1/2` (50%)... y equivalentes para right, bottom, left.
   - `inset-0`, `inset-x-0`, `inset-y-0` → atajo para todas las coordenadas (útil para superposiciones a pantalla completa).
-  - z-index: `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto`.
+  - **z-index**: `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto`.
 
 - Casos de uso prácticos:
   - **Tooltip:** Contenedor `relative` (padre), tooltip `absolute` posicionado arriba/derecha/abajo/izquierda del padre, con `z-10`.
@@ -157,7 +163,7 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
 **Bloque D - Técnicas avanzadas de layout**
 
 - **Combinación de Grid + Flexbox:**
-  Regla práctica: Grid para la estructura macro (layout de página), Flexbox para los componentes y subcomponentes (layout interno de tarjetas, barras de herramientas, formularios, etc.). Grid es bidimensional (filas y columnas simultáneamente); Flexbox es ideal para layouts unidimensionales (una fila O una columna).
+  ==Regla práctica: Grid para la estructura macro (layout de página), Flexbox para los componentes y subcomponentes== (layout interno de tarjetas, barras de herramientas, formularios, etc.). Grid es bidimensional (filas y columnas simultáneamente); Flexbox es ideal para layouts unidimensionales (una fila O una columna).
 
   Ejemplo de patrón: Página con grid de 3 columnas (sidebar, contenido, panel lateral). Dentro del panel de contenido, las tarjetas de estadísticas se disponen con Flexbox wrap. Dentro de cada tarjeta, el layout interno (icono + label + valor) usa Flexbox vertical.
 
@@ -212,13 +218,13 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
   - 12 (3rem = 48px): espaciado muy grande (entre secciones principales).
   - 16 (4rem = 64px): macro-espaciado (márgenes de secciones hero).
 
-  La clave es la consistencia: no mezclar `p-3` (12px) con `p-[14px]` (arbitrario). Todo debe pertenecer a la escala.
+  ==La clave es la consistencia==: no mezclar `p-3` (12px) con `p-[14px]` (arbitrario). Todo debe pertenecer a la escala.
 
 ## Desarrollo teórico
 
 ### Sección A: Flexbox con Tailwind
 
-Flexbox (Flexible Box Layout Module) fue introducido en CSS3 en 2009 y alcanzó soporte universal alrededor de 2015. Diseñado específicamente para layouts unidimensionales (una fila O una columna, no ambas simultáneamente), Flexbox resuelve problemas que durante décadas atormentaron a los desarrolladores web: centrar elementos verticalmente (imposible sin hacks hasta Flexbox), distribuir espacio equitativamente entre elementos, alinear elementos de diferentes alturas al mismo borde, y crear layouts que se adapten al contenido sin necesidad de cálculos de ancho manuales.
+**Flexbox** (Flexible Box Layout Module) fue introducido en CSS3 en 2009 y alcanzó soporte universal alrededor de 2015. Diseñado específicamente para layouts unidimensionales (una fila O una columna, no ambas simultáneamente), Flexbox resuelve problemas que durante décadas atormentaron a los desarrolladores web: centrar elementos verticalmente (imposible sin hacks hasta Flexbox), distribuir espacio equitativamente entre elementos, alinear elementos de diferentes alturas al mismo borde, y crear layouts que se adapten al contenido sin necesidad de cálculos de ancho manuales.
 
 Aunque lleva más de una década entre nosotros, muchos desarrolladores no aprovechan todo el potencial de Flexbox porque aprendieron lo básico y se quedaron ahí. Esta sección busca un dominio profesional, orientado específicamente a la construcción de interfaces de aplicación con Tailwind.
 
@@ -409,7 +415,7 @@ Este patrón es preferible a `justify-between` cuando no quieres separar todos l
 
 ### Sección B: CSS Grid con Tailwind
 
-Si Flexbox es la herramienta para layouts unidimensionales, CSS Grid es la herramienta para layouts bidimensionales: cuando necesitas controlar simultáneamente filas y columnas. Grid fue introducido en CSS en 2017 y representa un salto generacional en la capacidad de maquetación web.
+Si Flexbox es la herramienta para layouts unidimensionales, **CSS Grid** es la herramienta para layouts bidimensionales: cuando necesitas controlar simultáneamente filas y columnas. Grid fue introducido en CSS en 2017 y representa un salto generacional en la capacidad de maquetación web.
 
 #### Conceptos fundamentales
 
@@ -449,7 +455,9 @@ Al aplicar `display: grid` (o la clase `grid` de Tailwind) a un contenedor:
 </div>
 ```
 
-La sintaxis `grid-cols-[250px_1fr_200px]` es una de las características más potentes de Tailwind: permite definir tracks con unidades mixtas directamente en el HTML. La unidad `fr` (fracción) es la unidad mágica de Grid: distribuye el espacio disponible proporcionalmente después de restar los tracks de tamaño fijo.
+!!! info "Dato clave"
+
+    La sintaxis `grid-cols-[250px_1fr_200px]` es una de las características más potentes de Tailwind: permite definir tracks con unidades mixtas directamente en el HTML. La unidad `fr` (fracción) es la **unidad mágica de Grid**: distribuye el espacio disponible proporcionalmente después de restar los tracks de tamaño fijo.
 
 #### Posicionamiento de items
 
@@ -545,7 +553,7 @@ Tailwind soporta `col-span-{1-12}`, `col-start-{1-13}`, `col-end-{1-13}`, y los 
 </div>
 ```
 
-En este layout, Grid maneja la estructura bidimensional (KPI cards en fila, main chart + activity, tabla full-width) mientras que Flexbox maneja los layouts internos (contenido de cada tarjeta, lista de actividad, filas de la tabla).
+En este layout, **Grid** maneja la estructura bidimensional (KPI cards en fila, main chart + activity, tabla full-width) mientras que **Flexbox** maneja los layouts internos (contenido de cada tarjeta, lista de actividad, filas de la tabla).
 
 **Layout de ecommerce (catálogo de productos)**
 
@@ -664,11 +672,11 @@ En este layout, Grid maneja la estructura bidimensional (KPI cards en fila, main
 </div>
 ```
 
-Este layout es un compendio de técnicas: Grid para el catálogo de productos (responsivo con media queries de Tailwind), Flexbox para la estructura general (header + contenido), Flexbox para el sidebar de filtros, y Grid para las tallas. La decisión de usar Grid para los productos (en lugar de Flexbox con wrap) se debe a que Grid proporciona un control más predecible: todas las tarjetas mantendrán exactamente el mismo ancho, alineadas en filas y columnas perfectas.
+Este layout es un compendio de técnicas: **Grid** para el catálogo de productos (responsivo con media queries de Tailwind), **Flexbox** para la estructura general (header + contenido), Flexbox para el sidebar de filtros, y Grid para las tallas. La decisión de usar Grid para los productos (en lugar de Flexbox con wrap) se debe a que Grid proporciona un control más predecible: todas las tarjetas mantendrán exactamente el mismo ancho, alineadas en filas y columnas perfectas.
 
 ### Sección C: Posicionamiento
 
-Aunque Flexbox y Grid cubren el 95% de las necesidades de layout, hay situaciones que requieren posicionamiento explícito: elementos que deben salirse del flujo normal para superponerse a otros, fijarse al viewport, o posicionarse respecto a un ancestro.
+Aunque Flexbox y Grid cubren el 95% de las necesidades de layout, hay situaciones que requieren **posicionamiento explícito**: elementos que deben salirse del flujo normal para superponerse a otros, fijarse al viewport, o posicionarse respecto a un ancestro.
 
 #### Relative + Absolute: el dúo dinámico de los overlays
 
@@ -722,7 +730,9 @@ Los elementos `fixed` son ideales para navegación persistente, modales y overla
 </div>
 ```
 
-La técnica `top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2` centra el modal perfectamente en el viewport. Es una combinación que todo desarrollador frontend debería conocer de memoria.
+!!! tip "Memoriza esta combinación"
+
+    La técnica `top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2` centra el modal perfectamente en el viewport. Es una combinación que todo desarrollador frontend debería conocer de memoria.
 
 #### Sticky: lo mejor de relative y fixed
 
@@ -749,7 +759,9 @@ La técnica `top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2` centra el modal
 </div>
 ```
 
-Nota importante sobre sticky: necesita que el contenedor padre tenga altura suficiente. Si el padre no tiene scroll, sticky no tiene efecto. Además, no funciona si algún ancestro tiene `overflow: hidden`.
+!!! warning "Trampa con sticky"
+
+    Nota importante sobre sticky: necesita que el contenedor padre tenga altura suficiente. Si el padre no tiene scroll, sticky no tiene efecto. Además, no funciona si algún ancestro tiene `overflow: hidden`.
 
 ### Sección D: Técnicas avanzadas
 
@@ -760,8 +772,8 @@ La práctica profesional ha consolidado una regla empírica que resuelve la duda
 > **Grid para la estructura de página (macro-layout), Flexbox para los componentes (micro-layout).**
 
 Esta regla se basa en las fortalezas naturales de cada sistema:
-- Grid es bidimensional: ideal para layouts que necesitan alinear elementos en filas Y columnas simultáneamente.
-- Flexbox es unidimensional: ideal para distribuir elementos en una fila O una columna, con control fino sobre alineación y distribución de espacio.
+- **Grid** es bidimensional: ideal para layouts que necesitan alinear elementos en filas Y columnas simultáneamente.
+- **Flexbox** es unidimensional: ideal para distribuir elementos en una fila O una columna, con control fino sobre alineación y distribución de espacio.
 
 Ejemplo de aplicación de esta regla:
 
@@ -798,7 +810,7 @@ Ejemplo de aplicación de esta regla:
 
 #### Container queries: el futuro es ahora
 
-Las container queries resuelven una limitación fundamental de las media queries: con media queries, los estilos dependen del viewport (tamaño de la ventana del navegador), pero los componentes reutilizables viven dentro de contenedores cuyos tamaños varían independientemente del viewport.
+Las **container queries** resuelven una limitación fundamental de las **media queries**: con media queries, los estilos dependen del viewport (tamaño de la ventana del navegador), pero los componentes reutilizables viven dentro de contenedores cuyos tamaños varían independientemente del viewport.
 
 Un componente de card grid que debe mostrar 4 columnas en una página de escritorio (1200px) pero 2 columnas en el sidebar de un dashboard (300px): con media queries, ambos contextos comparten los mismos breakpoints (definidos por el viewport, no por el contenedor). Con container queries, el componente consulta el ancho de su contenedor inmediato.
 
@@ -821,7 +833,7 @@ Los prefijos `@sm:`, `@md:`, `@lg:`, `@xl:`, `@2xl:` funcionan como las media qu
 
 #### Layouts fluidos sin media queries
 
-Una de las técnicas más elegantes de CSS moderno es crear layouts que se adaptan fluidamente sin necesidad de breakpoints explícitos, utilizando las funciones `min()`, `max()`, `clamp()` y, en Grid, `minmax()` y `auto-fit`/`auto-fill`:
+Una de las técnicas más elegantes de CSS moderno es ==crear layouts que se adaptan fluidamente sin necesidad de breakpoints explícitos==, utilizando las funciones `min()`, `max()`, `clamp()` y, en Grid, `minmax()` y `auto-fit`/`auto-fill`:
 
 ```html
 <!-- Grid de tarjetas que se adapta automáticamente SIN media queries -->
@@ -845,7 +857,7 @@ Para anchos fluidos de contenido (por ejemplo, limitar el ancho de lectura):
 
 #### Overflows y scroll
 
-El control del overflow es uno de los aspectos más olvidados y más importantes del desarrollo de interfaces. Una interfaz puede ser visualmente perfecta pero frustrante si aparecen scrolls inesperados o si los elementos se desbordan.
+El control del **overflow** es uno de los aspectos más olvidados y más importantes del desarrollo de interfaces. Una interfaz puede ser visualmente perfecta pero frustrante si aparecen scrolls inesperados o si los elementos se desbordan.
 
 **Scroll vertical en áreas de contenido:**
 
@@ -859,7 +871,9 @@ El control del overflow es uno de los aspectos más olvidados y más importantes
 </div>
 ```
 
-La clave: `flex-1 overflow-y-auto` en el área de contenido. `flex-1` hace que ocupe todo el espacio disponible, y `overflow-y-auto` añade scroll vertical cuando el contenido excede.
+!!! tip "Consejo práctico"
+
+    La clave: `flex-1 overflow-y-auto` en el área de contenido. `flex-1` hace que ocupe todo el espacio disponible, y `overflow-y-auto` añade scroll vertical cuando el contenido excede.
 
 **Scroll horizontal en tablas anchas:**
 
@@ -1122,7 +1136,7 @@ Aspectos a destacar en este layout:
 </div>
 ```
 
-Este layout de chat es un excelente ejemplo de composición de Flexbox: tres paneles en `flex` horizontal, cada panel estructurado con `flex-col`, áreas de scroll con `overflow-y-auto`, y cajas de input con `flex-shrink-0`.
+Este layout de chat es un excelente ejemplo de composición de **Flexbox**: tres paneles en `flex` horizontal, cada panel estructurado con `flex-col`, áreas de scroll con `overflow-y-auto`, y cajas de input con `flex-shrink-0`.
 
 ## Actividades guiadas
 
@@ -1154,7 +1168,7 @@ Errores comunes a incluir:
 2. En tablet (640px - 1024px): sidebar se mantiene visible pero más estrecho (`w-48 sm:w-56 lg:w-64`), KPI cards en 2 columnas (`col-span-full sm:col-span-3`), main chart y activity se apilan.
 3. En escritorio (> 1024px): layout completo con sidebar ancho, 4 KPI cards en fila, main chart + activity en layout de 2/3 + 1/3.
 
-El docente enfatiza la filosofía mobile-first de Tailwind: las clases base definen el layout móvil, y las clases con prefijo (`sm:`, `lg:`) añaden modificaciones para pantallas más grandes.
+El docente enfatiza la filosofía **mobile-first** de Tailwind: las clases base definen el layout móvil, y las clases con prefijo (`sm:`, `lg:`) añaden modificaciones para pantallas más grandes.
 
 ### Actividad guiada 3: Conversión de diseño Figma a layout
 
@@ -1278,107 +1292,107 @@ Además, el dashboard debe tener:
 **Pistas:** Angular CDK tiene un módulo `DragDropModule` (standalone desde Angular 15+) que proporciona las directivas `cdkDrag`, `cdkDropList`, `cdkDragHandle`. Para el resize, puedes usar `cdkDrag` en los handles de las esquinas y actualizar las dimensiones en la signal. Para el snap a grid, calcula la celda más cercana al soltar.
 **Criterios de evaluación:** (1) Correcto funcionamiento del drag-and-drop. (2) Estructura de datos del layout (modelos tipados). (3) Persistencia en localStorage. (4) Componentización (cada tipo de widget es un componente independiente). (5) Experiencia de usuario pulida (animaciones de transición, feedback visual al arrastrar).
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Implementación de un sistema de layout con Container Queries
+    ### Actividad de ampliación 1: Implementación de un sistema de layout con Container Queries
 
-Investiga a fondo las container queries y su soporte en Tailwind CSS 4. Crea una aplicación de demostración que muestre las diferencias entre media queries y container queries. La demo debe incluir:
+    Investiga a fondo las container queries y su soporte en Tailwind CSS 4. Crea una aplicación de demostración que muestre las diferencias entre media queries y container queries. La demo debe incluir:
 
-1. **Un componente "CardGrid"** que se renderiza en dos contextos diferentes en la misma página: dentro de un contenedor estrecho (300px, simulando un sidebar) y dentro de un contenedor ancho (900px, simulando un área de contenido principal).
+    1. **Un componente "CardGrid"** que se renderiza en dos contextos diferentes en la misma página: dentro de un contenedor estrecho (300px, simulando un sidebar) y dentro de un contenedor ancho (900px, simulando un área de contenido principal).
 
-2. **Primera versión (media queries):** El CardGrid usa `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`. Muestra que en el sidebar estrecho, las media queries no pueden detectar el espacio reducido y las cartas se desbordan o se ven incorrectas.
+    2. **Primera versión (media queries):** El CardGrid usa `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`. Muestra que en el sidebar estrecho, las media queries no pueden detectar el espacio reducido y las cartas se desbordan o se ven incorrectas.
 
-3. **Segunda versión (container queries):** El CardGrid usa `@container` y `@sm:grid-cols-1 @md:grid-cols-2 @lg:grid-cols-3`. Muestra cómo el mismo componente se adapta correctamente al ancho de su contenedor en ambos contextos.
+    3. **Segunda versión (container queries):** El CardGrid usa `@container` y `@sm:grid-cols-1 @md:grid-cols-2 @lg:grid-cols-3`. Muestra cómo el mismo componente se adapta correctamente al ancho de su contenedor en ambos contextos.
 
-4. **Visualización side-by-side** con etiquetas que indiquen qué técnica se está usando y por qué una funciona y la otra no.
+    4. **Visualización side-by-side** con etiquetas que indiquen qué técnica se está usando y por qué una funciona y la otra no.
 
-Entrega: repositorio GitHub con la demo funcional y un README que explique el concepto de container queries y cuándo usarlas.
+    Entrega: repositorio GitHub con la demo funcional y un README que explique el concepto de container queries y cuándo usarlas.
 
-### Actividad de ampliación 2: Testing visual de layouts con Storybook y Chromatic
+    ### Actividad de ampliación 2: Testing visual de layouts con Storybook y Chromatic
 
-Configura un proyecto Angular con Storybook y Chromatic (o Percy como alternativa gratuita) para realizar testing visual automatizado de layouts. Debes:
+    Configura un proyecto Angular con Storybook y Chromatic (o Percy como alternativa gratuita) para realizar testing visual automatizado de layouts. Debes:
 
-1. Crear stories para los 4 layouts principales del módulo (Dashboard, SaaS, Ecommerce, Chat). Cada story debe mostrar el layout completo.
+    1. Crear stories para los 4 layouts principales del módulo (Dashboard, SaaS, Ecommerce, Chat). Cada story debe mostrar el layout completo.
 
-2. Configurar Chromatic para que capture screenshots de cada story en diferentes viewports (móvil: 375px, tablet: 768px, escritorio: 1440px).
+    2. Configurar Chromatic para que capture screenshots de cada story en diferentes viewports (móvil: 375px, tablet: 768px, escritorio: 1440px).
 
-3. Crear 3 variaciones de cada layout (ej: sidebar colapsado, modal abierto, tema oscuro) y asegurar que cada variación tiene su propia story.
+    3. Crear 3 variaciones de cada layout (ej: sidebar colapsado, modal abierto, tema oscuro) y asegurar que cada variación tiene su propia story.
 
-4. Configurar el pipeline CI/CD (GitHub Actions) para que ejecute Chromatic en cada PR y bloquee el merge si hay cambios visuales no aprobados.
+    4. Configurar el pipeline CI/CD (GitHub Actions) para que ejecute Chromatic en cada PR y bloquee el merge si hay cambios visuales no aprobados.
 
-5. Documentar el flujo completo: cómo desarrollar un layout, cómo escribir sus stories, cómo ejecutar Chromatic localmente para previsualizar, cómo funciona el proceso de revisión en PR.
+    5. Documentar el flujo completo: cómo desarrollar un layout, cómo escribir sus stories, cómo ejecutar Chromatic localmente para previsualizar, cómo funciona el proceso de revisión en PR.
 
-Entrega: repositorio configurado + informe documentando el proceso y las lecciones aprendidas sobre testing visual.
+    Entrega: repositorio configurado + informe documentando el proceso y las lecciones aprendidas sobre testing visual.
 
-### Actividad de ampliación 3: Layout engine personalizado para aplicaciones de datos
+    ### Actividad de ampliación 3: Layout engine personalizado para aplicaciones de datos
 
-Diseña e implementa un "layout engine" para paneles de datos que se adapte automáticamente al tipo de datos que recibe. El motor debe:
+    Diseña e implementa un "layout engine" para paneles de datos que se adapte automáticamente al tipo de datos que recibe. El motor debe:
 
-1. Recibir un array de "paneles" donde cada panel tiene: tipo de visualización (kpi, chart, table, list, text), datos (genéricos, tipados), y prioridad (high, medium, low).
+    1. Recibir un array de "paneles" donde cada panel tiene: tipo de visualización (kpi, chart, table, list, text), datos (genéricos, tipados), y prioridad (high, medium, low).
 
-2. Analizar los paneles y decidir automáticamente el layout más adecuado:
-   - Si hay 1-2 KPIs: se muestran grandes y centrados.
-   - Si hay 3-4 KPIs: grid de 2×2.
-   - Si hay un chart y KPIs: el chart ocupa 2/3, los KPIs 1/3.
-   - Los paneles de baja prioridad se muestran más pequeños o colapsados al final de la página.
+    2. Analizar los paneles y decidir automáticamente el layout más adecuado:
+       - Si hay 1-2 KPIs: se muestran grandes y centrados.
+       - Si hay 3-4 KPIs: grid de 2×2.
+       - Si hay un chart y KPIs: el chart ocupa 2/3, los KPIs 1/3.
+       - Los paneles de baja prioridad se muestran más pequeños o colapsados al final de la página.
 
-3. El layout debe ser responsive: adaptarse a diferentes tamaños de pantalla sin perder la jerarquía de prioridad.
+    3. El layout debe ser responsive: adaptarse a diferentes tamaños de pantalla sin perder la jerarquía de prioridad.
 
-4. Utilizar CSS Grid con `grid-template-areas` (traducido a clases Tailwind mediante valores arbitrarios) para definir áreas nombradas y asignar paneles a dichas áreas según el análisis.
+    4. Utilizar CSS Grid con `grid-template-areas` (traducido a clases Tailwind mediante valores arbitrarios) para definir áreas nombradas y asignar paneles a dichas áreas según el análisis.
 
-5. Implementar animaciones de transición cuando los paneles se reordenan (usando FLIP animation technique o la API View Transitions si está disponible).
+    5. Implementar animaciones de transición cuando los paneles se reordenan (usando FLIP animation technique o la API View Transitions si está disponible).
 
-Entrega: componente Angular standalone + documentación del algoritmo de decisión de layout.
+    Entrega: componente Angular standalone + documentación del algoritmo de decisión de layout.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Empieza siempre con el layout más pequeño (móvil) y ve ampliando con breakpoints.** El enfoque mobile-first de Tailwind (clases base para móvil, prefijos `sm:`, `md:`, etc. para pantallas más grandes) es más mantenible y produce menos código que el enfoque desktop-first. Además, te obliga a priorizar el contenido esencial.
+    1. **Empieza siempre con el layout más pequeño (móvil) y ve ampliando con breakpoints.** El enfoque mobile-first de Tailwind (clases base para móvil, prefijos `sm:`, `md:`, etc. para pantallas más grandes) es más mantenible y produce menos código que el enfoque desktop-first. Además, te obliga a priorizar el contenido esencial.
 
-2. **Grid para estructura macro, Flexbox para componentes micro.** Esta regla cubre el 95% de las decisiones de layout. Si tienes dudas, pregúntate: ¿necesito controlar filas Y columnas simultáneamente? Grid. ¿Necesito distribuir elementos en UNA dirección? Flexbox.
+    2. **Grid para estructura macro, Flexbox para componentes micro.** Esta regla cubre el 95% de las decisiones de layout. Si tienes dudas, pregúntate: ¿necesito controlar filas Y columnas simultáneamente? Grid. ¿Necesito distribuir elementos en UNA dirección? Flexbox.
 
-3. **Nunca olvides `min-w-0` en elementos flex que contienen texto largo o elementos con overflow.** Sin `min-w-0`, el comportamiento por defecto de los flex items (`min-width: auto`) impide que se encojan por debajo del ancho de su contenido, causando desbordamientos misteriosos que son difíciles de depurar si no conoces esta peculiaridad.
+    3. **Nunca olvides `min-w-0` en elementos flex que contienen texto largo o elementos con overflow.** Sin `min-w-0`, el comportamiento por defecto de los flex items (`min-width: auto`) impide que se encojan por debajo del ancho de su contenido, causando desbordamientos misteriosos que son difíciles de depurar si no conoces esta peculiaridad.
 
-4. **Usa `gap` en lugar de márgenes para espaciar elementos en flex y grid.** `gap` es más semántico (el espaciado pertenece al layout del contenedor, no a los hijos), más mantenible (un solo valor que cambiar) y evita problemas de márgenes sobrantes en el primer/último elemento.
+    4. **Usa `gap` en lugar de márgenes para espaciar elementos en flex y grid.** `gap` es más semántico (el espaciado pertenece al layout del contenedor, no a los hijos), más mantenible (un solo valor que cambiar) y evita problemas de márgenes sobrantes en el primer/último elemento.
 
-5. **Establece una escala de espaciado y respétala religiosamente.** Usa siempre la escala de Tailwind (múltiplos de 4px). La consistencia en el espaciado es lo que separa una interfaz que se siente "bien" de una que se siente "rara". Nunca uses valores arbitrarios para padding, margin o gap a menos que sea absolutamente necesario.
+    5. **Establece una escala de espaciado y respétala religiosamente.** Usa siempre la escala de Tailwind (múltiplos de 4px). La consistencia en el espaciado es lo que separa una interfaz que se siente "bien" de una que se siente "rara". Nunca uses valores arbitrarios para padding, margin o gap a menos que sea absolutamente necesario.
 
-6. **Prueba tus layouts en múltiples viewports y navegadores.** Chrome en un MacBook Pro con pantalla retina no es representativo de tus usuarios reales. Prueba en: móvil (375px), tablet (768px), laptop pequeño (1024px), escritorio grande (1440px+). Verifica que no aparecen scrolls horizontales no deseados.
+    6. **Prueba tus layouts en múltiples viewports y navegadores.** Chrome en un MacBook Pro con pantalla retina no es representativo de tus usuarios reales. Prueba en: móvil (375px), tablet (768px), laptop pequeño (1024px), escritorio grande (1440px+). Verifica que no aparecen scrolls horizontales no deseados.
 
-7. **Usa las DevTools de layout (Flexbox overlay, Grid overlay) para depurar.** Chrome y Firefox ofrecen visualizaciones excelentes de Flexbox y Grid. Actívalas en el panel Layout de las DevTools. Verás líneas de colores que muestran ejes, gaps, áreas del grid y alineación. Son mucho más informativas que intentar deducirlo visualmente.
+    7. **Usa las DevTools de layout (Flexbox overlay, Grid overlay) para depurar.** Chrome y Firefox ofrecen visualizaciones excelentes de Flexbox y Grid. Actívalas en el panel Layout de las DevTools. Verás líneas de colores que muestran ejes, gaps, áreas del grid y alineación. Son mucho más informativas que intentar deducirlo visualmente.
 
-8. **Semántica HTML y accesibilidad en la estructura de layout.** Usa elementos semánticos (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`) para las secciones principales del layout. Esto proporciona landmarks ARIA implícitos que los lectores de pantalla utilizan para navegar. No uses solo `<div>` para todo.
+    8. **Semántica HTML y accesibilidad en la estructura de layout.** Usa elementos semánticos (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`) para las secciones principales del layout. Esto proporciona landmarks ARIA implícitos que los lectores de pantalla utilizan para navegar. No uses solo `<div>` para todo.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Olvidar `flex-col` en contenedores que deben apilar elementos verticalmente.** Por defecto, `flex` es `flex-row`. Si quieres una columna vertical y solo pones `flex`, los elementos se alinearán horizontalmente. Siempre usa `flex flex-col` explícitamente para layouts verticales.
+    1. **Olvidar `flex-col` en contenedores que deben apilar elementos verticalmente.** Por defecto, `flex` es `flex-row`. Si quieres una columna vertical y solo pones `flex`, los elementos se alinearán horizontalmente. Siempre usa `flex flex-col` explícitamente para layouts verticales.
 
-2. **Usar `justify-between` cuando quieres `space-between` con más espacio.** `justify-between` distribuye el espacio entre elementos sin espacio en los extremos. Si quieres que los elementos tengan espacio alrededor, usa `justify-around` o `justify-evenly`. Son comportamientos diferentes que a menudo se confunden.
+    2. **Usar `justify-between` cuando quieres `space-between` con más espacio.** `justify-between` distribuye el espacio entre elementos sin espacio en los extremos. Si quieres que los elementos tengan espacio alrededor, usa `justify-around` o `justify-evenly`. Son comportamientos diferentes que a menudo se confunden.
 
-3. **Anidar `absolute` sin `relative` en el ancestro.** Un elemento con `position: absolute` se posiciona respecto al ancestro posicionado más cercano. Si ningún ancestro tiene `relative`, `absolute`, `fixed` o `sticky`, el elemento se posicionará respecto al `<body>`, lo que casi nunca es lo deseado. Siempre pon `relative` en el contenedor padre.
+    3. **Anidar `absolute` sin `relative` en el ancestro.** Un elemento con `position: absolute` se posiciona respecto al ancestro posicionado más cercano. Si ningún ancestro tiene `relative`, `absolute`, `fixed` o `sticky`, el elemento se posicionará respecto al `<body>`, lo que casi nunca es lo deseado. Siempre pon `relative` en el contenedor padre.
 
-4. **Aplicar propiedades de flex item a un elemento que no es hijo directo de un flex container.** Solo los hijos directos de un elemento con `display: flex` se convierten en flex items. Si tienes una jerarquía anidada y aplicas `flex-1` a un nieto, no funcionará a menos que haya un flex container intermedio.
+    4. **Aplicar propiedades de flex item a un elemento que no es hijo directo de un flex container.** Solo los hijos directos de un elemento con `display: flex` se convierten en flex items. Si tienes una jerarquía anidada y aplicas `flex-1` a un nieto, no funcionará a menos que haya un flex container intermedio.
 
-5. **`col-span-` que no suma 12 (o el número de columnas del grid).** Si tienes `grid-cols-4` y un elemento con `col-span-3` y otro sin especificar (ocupa 1 por defecto), la suma es 4. Correcto. Si tienes `grid-cols-3` y pones `col-span-3` + `col-span-2`, la suma es 5 y se desborda a la siguiente fila, lo que probablemente no es lo deseado.
+    5. **`col-span-` que no suma 12 (o el número de columnas del grid).** Si tienes `grid-cols-4` y un elemento con `col-span-3` y otro sin especificar (ocupa 1 por defecto), la suma es 4. Correcto. Si tienes `grid-cols-3` y pones `col-span-3` + `col-span-2`, la suma es 5 y se desborda a la siguiente fila, lo que probablemente no es lo deseado.
 
-6. **No manejar el overflow en áreas de contenido.** Creas un layout con un sidebar y una zona de contenido. El contenido se sale del viewport y aparece un scroll en el body. La solución es: contenedor `h-screen` (altura fija = viewport), sidebar `h-full`, zona de contenido `overflow-y-auto`. Sin `h-screen`, elayout crece con el contenido y nunca aparecerá el scroll donde quieres.
+    6. **No manejar el overflow en áreas de contenido.** Creas un layout con un sidebar y una zona de contenido. El contenido se sale del viewport y aparece un scroll en el body. La solución es: contenedor `h-screen` (altura fija = viewport), sidebar `h-full`, zona de contenido `overflow-y-auto`. Sin `h-screen`, elayout crece con el contenido y nunca aparecerá el scroll donde quieres.
 
-7. **Usar `sticky` en un contexto donde no funciona.** `position: sticky` requiere: (a) que el elemento tenga un valor de `top`, `bottom`, `left` o `right` definido (ej: `top-0`), (b) que ningún ancestro entre el elemento sticky y el viewport tenga `overflow: hidden` (esto rompe sticky), y (c) que el contenedor padre tenga altura suficiente para que haya scroll. Si sticky "no funciona", comprueba estas tres condiciones.
+    7. **Usar `sticky` en un contexto donde no funciona.** `position: sticky` requiere: (a) que el elemento tenga un valor de `top`, `bottom`, `left` o `right` definido (ej: `top-0`), (b) que ningún ancestro entre el elemento sticky y el viewport tenga `overflow: hidden` (esto rompe sticky), y (c) que el contenedor padre tenga altura suficiente para que haya scroll. Si sticky "no funciona", comprueba estas tres condiciones.
 
-8. **Abusar de valores arbitrarios.** Tailwind permite valores arbitrarios como `w-[327px]` o `p-[7px]`. Son útiles en casos puntuales (valores que realmente no están en la escala), pero abusar de ellos destruye la consistencia del sistema de diseño. Si te encuentras usando el mismo valor arbitrario 3 veces, defínelo como un token en `@theme`.
+    8. **Abusar de valores arbitrarios.** Tailwind permite valores arbitrarios como `w-[327px]` o `p-[7px]`. Son útiles en casos puntuales (valores que realmente no están en la escala), pero abusar de ellos destruye la consistencia del sistema de diseño. Si te encuentras usando el mismo valor arbitrario 3 veces, defínelo como un token en `@theme`.
 
-## Resumen
+!!! abstract "Resumen"
 
-Esta unidad ha sido un recorrido exhaustivo por las técnicas modernas de layout para interfaces web, siempre con el foco en la práctica profesional con Tailwind CSS y la implementación en Angular. Hemos partido de Flexbox, el sistema de layout unidimensional, y lo hemos desglosado hasta sus aspectos más avanzados: el modelo de ejes (main y cross), la diferencia crucial entre `flex-1` y `flex-auto`, la técnica de auto-márgenes, y el siempre olvidado `min-w-0`. Hemos traducido patrones clásicos de escritorio (VBox, HBox, StackPane) a sus equivalentes en Flexbox y Tailwind, y hemos construido layouts profesionales como sidebars, barras de herramientas y listas de elementos.
+    Esta unidad ha sido un recorrido exhaustivo por las técnicas modernas de layout para interfaces web, siempre con el foco en la práctica profesional con Tailwind CSS y la implementación en Angular. Hemos partido de **Flexbox**, el sistema de layout unidimensional, y lo hemos desglosado hasta sus aspectos más avanzados: el modelo de ejes (main y cross), la diferencia crucial entre `flex-1` y `flex-auto`, la técnica de auto-márgenes, y el siempre olvidado `min-w-0`. Hemos traducido patrones clásicos de escritorio (VBox, HBox, StackPane) a sus equivalentes en Flexbox y Tailwind, y hemos construido layouts profesionales como sidebars, barras de herramientas y listas de elementos.
 
-CSS Grid nos ha proporcionado la herramienta bidimensional que complementa a Flexbox. Hemos aprendido a definir columnas y filas, posicionar elementos con span y start/end, y crear layouts que antes requerían frameworks CSS completos: dashboards con 12 columnas, layouts de ecommerce con sidebars de filtros, y patrones de 3 columnas para aplicaciones SaaS. La regla de oro ("Grid para estructura macro, Flexbox para componentes micro") se ha consolidado como criterio de decisión práctica.
+    **CSS Grid** nos ha proporcionado la herramienta bidimensional que complementa a Flexbox. Hemos aprendido a definir columnas y filas, posicionar elementos con span y start/end, y crear layouts que antes requerían frameworks CSS completos: dashboards con 12 columnas, layouts de ecommerce con sidebars de filtros, y patrones de 3 columnas para aplicaciones SaaS. La regla de oro ("Grid para estructura macro, Flexbox para componentes micro") se ha consolidado como criterio de decisión práctica.
 
-El posicionamiento (relative, absolute, fixed, sticky) ha cubierto los casos que Flexbox y Grid no pueden manejar: tooltips, dropdowns, modales, cabeceras fijas y elementos sticky. Cada patrón tiene su receta concreta: `relative` en el padre + `absolute` en el hijo para overlays, `fixed inset-0` para modales a pantalla completa, `sticky top-0` para cabeceras pegajosas.
+    El posicionamiento (relative, absolute, fixed, sticky) ha cubierto los casos que Flexbox y Grid no pueden manejar: tooltips, dropdowns, modales, cabeceras fijas y elementos sticky. Cada patrón tiene su receta concreta: `relative` en el padre + `absolute` en el hijo para overlays, `fixed inset-0` para modales a pantalla completa, `sticky top-0` para cabeceras pegajosas.
 
-Las técnicas avanzadas —container queries, layouts fluidos con `auto-fit` y `minmax`, funciones `clamp()`, y la combinación juiciosa de Grid con Flexbox— nos han equipado para resolver prácticamente cualquier desafío de layout que podamos encontrar en el desarrollo profesional.
+    Las técnicas avanzadas —**container queries**, layouts fluidos con `auto-fit` y `minmax`, funciones `clamp()`, y la combinación juiciosa de Grid con Flexbox— nos han equipado para resolver prácticamente cualquier desafío de layout que podamos encontrar en el desarrollo profesional.
 
-Los cuatro layouts completos (Dashboard, SaaS, Ecommerce, Chat) han servido como demostración práctica de que estas técnicas no son teoría abstracta, sino herramientas para construir interfaces reales, complejas y adaptables.
+    Los cuatro layouts completos (Dashboard, SaaS, Ecommerce, Chat) han servido como demostración práctica de que estas técnicas no son teoría abstracta, sino herramientas para construir interfaces reales, complejas y adaptables.
 
-En la Unidad 15 (del diseño a la implementación) cerraremos el ciclo completo: tomaremos diseños de Figma, extraeremos sus design tokens, configuraremos nuestro tema de Tailwind, implementaremos los componentes en Angular, los documentaremos en Storybook, y construiremos pantallas completas. Todo lo aprendido en Flexbox, Grid y posicionamiento será la base sobre la que se asentarán esas implementaciones.
+    En la Unidad 15 (del diseño a la implementación) cerraremos el ciclo completo: tomaremos diseños de Figma, extraeremos sus design tokens, configuraremos nuestro tema de Tailwind, implementaremos los componentes en Angular, los documentaremos en Storybook, y construiremos pantallas completas. Todo lo aprendido en Flexbox, Grid y posicionamiento será la base sobre la que se asentarán esas implementaciones.
 
 ## Recursos complementarios
 

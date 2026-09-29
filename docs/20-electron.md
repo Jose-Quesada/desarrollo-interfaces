@@ -1,3 +1,7 @@
+---
+icon: lucide/app-window
+---
+
 # Aplicaciones de Escritorio con Electron
 
 ## Objetivos de aprendizaje
@@ -5,7 +9,7 @@
 Al finalizar esta unidad, el alumnado será capaz de:
 
 1. Comprender qué es Electron, cómo funciona internamente combinando Chromium y Node.js, y por qué esta arquitectura ha revolucionado el desarrollo de aplicaciones de escritorio, permitiendo usar tecnologías web (HTML, CSS, JavaScript/TypeScript) para construir aplicaciones nativas multiplataforma.
-2. Analizar en profundidad la arquitectura de procesos de Electron: el proceso principal (Main Process) con acceso completo a Node.js y APIs del sistema operativo, el proceso renderizador (Renderer Process) que ejecuta la interfaz web en Chromium de forma aislada, el script de precarga (Preload Script) como puente seguro entre ambos mundos, y el sistema de comunicación entre procesos (IPC: Inter-Process Communication) mediante `ipcMain` e `ipcRenderer`.
+2. Analizar en profundidad la arquitectura de procesos de Electron: el **proceso principal (Main Process)** con acceso completo a Node.js y APIs del sistema operativo, el **proceso renderizador (Renderer Process)** que ejecuta la interfaz web en Chromium de forma aislada, el script de precarga (Preload Script) como puente seguro entre ambos mundos, y el sistema de comunicación entre procesos (IPC: Inter-Process Communication) mediante `ipcMain` e `ipcRenderer`.
 3. Estudiar casos reales de aplicaciones construidas con Electron, analizando su arquitectura, decisiones técnicas y lecciones aprendidas: Visual Studio Code (el caso canónico de excelente rendimiento en una aplicación enorme), Discord (chat en tiempo real con WebRTC), Slack (mensajería empresarial), Figma Desktop (renderizado GPU con WebGL), Postman (cliente HTTP), Obsidian (editor de notas con ecosistema de plugins), WhatsApp Desktop y Spotify Desktop.
 4. Integrar Angular con Electron siguiendo un enfoque profesional: proyecto Angular standalone que se ejecuta tanto en navegador web como en ventana nativa de Electron, configuración del proceso principal (main.js), script de precarga (preload.js) con `contextBridge` para exponer APIs seguras, scripts de desarrollo y producción en package.json, y uso de librerías facilitadoras como electron-builder y ngx-electron.
 5. Dominar las APIs nativas clave de Electron que diferencian una aplicación de escritorio de una aplicación web: sistema de archivos (`fs`), diálogos nativos (`dialog.showOpenDialog`, `showSaveDialog`, `showMessageBox`), notificaciones nativas del sistema operativo (`Notification`), menú nativo (`Menu`, `MenuItem`), bandeja del sistema (`Tray`), atajos de teclado globales (`globalShortcut`), gestión de ventanas (`BrowserWindow` con opciones como fullscreen, alwaysOnTop, transparent, frame), y sistema de auto-actualización (`autoUpdater`).
@@ -17,7 +21,9 @@ Al finalizar esta unidad, el alumnado será capaz de:
 
 ## Resultado de aprendizaje asociado
 
-Esta unidad contribuye, como RA principal, al **RA 1** del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
+!!! info "Normativa"
+
+    Esta unidad contribuye, como RA principal, al **RA 1** del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
 
 > **RA 1.** Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado.
 
@@ -33,27 +39,27 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
 
 > Nota: la arquitectura de procesos (Main Process y Renderer Process), el IPC, la integración de APIs nativas del sistema operativo y las medidas de seguridad específicas de escritorio son los mecanismos técnicos con los que se genera y prepara esta aplicación multiplataforma.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-- **Angular avanzado**: dominio de componentes standalone, servicios con `inject()`, Signals, HttpClient, Reactive Forms, routing con lazy loading, y comprensión profunda del sistema de inyección de dependencias y el ciclo de vida de los componentes.
-- **Node.js y npm**: comprensión del ecosistema Node.js, gestión de paquetes con npm, scripts de package.json, conocimiento de las APIs básicas de Node.js (`fs`, `path`, `os`, `process`), y comprensión del sistema de módulos CommonJS y ES Modules.
-- **TypeScript avanzado**: interfaces, tipos genéricos, tipos de unión, aserciones de tipo, manejo de promesas y programación asíncrona con async/await, comprensión de los tipos de Node.js (`@types/node`).
-- **JavaScript moderno (ES6+)**: arrow functions, destructuring, spread/rest operators, template literals, módulos ES6, y comprensión del event loop de JavaScript (fundamental para entender la arquitectura de procesos de Electron).
-- **HTML y CSS avanzado**: maquetación responsive, Flexbox, Grid, animaciones CSS, variables CSS (custom properties), y comprensión del modelo de caja y el posicionamiento.
-- **Principios básicos de sistemas operativos**: comprensión de la estructura de archivos y directorios, diferencia entre aplicaciones nativas y aplicaciones web, concepto de permisos de usuario, y familiaridad con los 3 sistemas operativos principales (Windows, macOS, Linux) a nivel de usuario avanzado.
-- **Protocolo HTTP y arquitectura cliente-servidor**: aunque Electron no es cliente-servidor en sentido tradicional, la comunicación entre Main Process y Renderer Process sigue patrones similares.
-- **Control de versiones con Git**: manejo de .gitignore para excluir binarios de Electron, node_modules y directorios de build.
+    - **Angular avanzado**: dominio de componentes standalone, servicios con `inject()`, Signals, HttpClient, Reactive Forms, routing con lazy loading, y comprensión profunda del sistema de inyección de dependencias y el ciclo de vida de los componentes.
+    - **Node.js y npm**: comprensión del ecosistema Node.js, gestión de paquetes con npm, scripts de package.json, conocimiento de las APIs básicas de Node.js (`fs`, `path`, `os`, `process`), y comprensión del sistema de módulos CommonJS y ES Modules.
+    - **TypeScript avanzado**: interfaces, tipos genéricos, tipos de unión, aserciones de tipo, manejo de promesas y programación asíncrona con async/await, comprensión de los tipos de Node.js (`@types/node`).
+    - **JavaScript moderno (ES6+)**: arrow functions, destructuring, spread/rest operators, template literals, módulos ES6, y comprensión del event loop de JavaScript (fundamental para entender la arquitectura de procesos de Electron).
+    - **HTML y CSS avanzado**: maquetación responsive, Flexbox, Grid, animaciones CSS, variables CSS (custom properties), y comprensión del modelo de caja y el posicionamiento.
+    - **Principios básicos de sistemas operativos**: comprensión de la estructura de archivos y directorios, diferencia entre aplicaciones nativas y aplicaciones web, concepto de permisos de usuario, y familiaridad con los 3 sistemas operativos principales (Windows, macOS, Linux) a nivel de usuario avanzado.
+    - **Protocolo HTTP y arquitectura cliente-servidor**: aunque Electron no es cliente-servidor en sentido tradicional, la comunicación entre Main Process y Renderer Process sigue patrones similares.
+    - **Control de versiones con Git**: manejo de .gitignore para excluir binarios de Electron, node_modules y directorios de build.
 
 ## Contenidos
 
 1. **¿Qué es Electron y cómo funciona?**
-   - 1.1. Definición y propósito: framework open source (GitHub, 2013) para construir aplicaciones de escritorio multiplataforma utilizando tecnologías web estándar (HTML, CSS, JavaScript/TypeScript).
+   - 1.1. Definición y propósito: **framework open source** (GitHub, 2013) para construir aplicaciones de escritorio multiplataforma utilizando tecnologías web estándar (HTML, CSS, JavaScript/TypeScript).
    - 1.2. ¿Cómo funciona internamente?: Electron combina dos componentes principales en un único ejecutable:
      - **Chromium**: el motor de renderizado de código abierto que impulsa Google Chrome. Se encarga de mostrar la interfaz de usuario (HTML + CSS) y ejecutar el JavaScript del lado del cliente.
      - **Node.js**: el entorno de ejecución de JavaScript en el servidor. Se encarga de interactuar con el sistema operativo: leer/escribir archivos, acceder a la red, ejecutar procesos hijos, interactuar con hardware, etc.
-   - 1.3. La "magia" de Electron: en lugar de ejecutarse en un servidor remoto y mostrarse en un navegador, la aplicación web se ejecuta localmente dentro de una ventana nativa (sin barra de direcciones ni botones de navegador), y tiene acceso directo a las capacidades del sistema operativo a través de Node.js.
-   - 1.4. Ventajas de Electron frente al desarrollo nativo tradicional (C++, C#, JavaFX, Qt): un solo código base para 3 plataformas (Windows, macOS, Linux), uso de tecnologías web que todo desarrollador frontend ya conoce, ecosistema npm con cientos de miles de paquetes, desarrollo más rápido, iteración más ágil, hot reload en desarrollo.
-   - 1.5. Desventajas y críticas a Electron: consumo de memoria RAM elevado (cada aplicación Electron incluye su propia instancia de Chromium, lo que significa al menos 50-100 MB de RAM base incluso para una app "Hola Mundo"), tamaño del instalador grande (mínimo 50-80 MB comprimido), rendimiento inferior al nativo en operaciones intensivas de CPU, no es adecuado para aplicaciones que requieren acceso a hardware de muy bajo nivel o latencia mínima (audio profesional, videojuegos AAA).
+   - 1.3. La "magia" de Electron: en lugar de ejecutarse en un servidor remoto y mostrarse en un navegador, la aplicación web se ejecuta localmente dentro de una **ventana nativa** (sin barra de direcciones ni botones de navegador), y tiene acceso directo a las capacidades del sistema operativo a través de Node.js.
+   - 1.4. Ventajas de Electron frente al desarrollo nativo tradicional (C++, C#, JavaFX, Qt): un solo código base para 3 plataformas (Windows, macOS, Linux), uso de tecnologías web que todo desarrollador frontend ya conoce, **ecosistema npm** con cientos de miles de paquetes, desarrollo más rápido, iteración más ágil, hot reload en desarrollo.
+   - 1.5. Desventajas y críticas a Electron: **consumo de memoria RAM elevado** (cada aplicación Electron incluye su propia instancia de Chromium, lo que significa al menos 50-100 MB de RAM base incluso para una app "Hola Mundo"), tamaño del instalador grande (mínimo 50-80 MB comprimido), rendimiento inferior al nativo en operaciones intensivas de CPU, no es adecuado para aplicaciones que requieren acceso a hardware de muy bajo nivel o latencia mínima (audio profesional, videojuegos AAA).
 
 2. **Arquitectura de procesos en Electron**
    - 2.1. **Proceso Principal (Main Process)**:
@@ -62,7 +68,7 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
      - Tiene acceso completo a Node.js y a todas sus APIs (`fs`, `path`, `os`, `child_process`, `net`, `http`, `crypto`, etc.).
      - Es el responsable de gestionar el ciclo de vida de la aplicación: crear ventanas (`BrowserWindow`), gestionar menús nativos (`Menu`), registrar atajos de teclado globales, mostrar diálogos nativos, gestionar la bandeja del sistema (`Tray`), manejar eventos de la aplicación (`app.on('ready')`, `app.on('window-all-closed')`, `app.on('activate')`), y gestionar actualizaciones automáticas.
      - No tiene acceso directo al DOM ni a las APIs del navegador (`window`, `document`, `localStorage`), ya que no hay ventana renderizada en este proceso.
-     - Se comunica con los procesos renderizadores mediante IPC (Inter-Process Communication).
+     - Se comunica con los procesos renderizadores mediante **IPC** (Inter-Process Communication).
    - 2.2. **Proceso Renderizador (Renderer Process)**:
      - Cada ventana (`BrowserWindow`) que se abre tiene su propio proceso renderizador independiente.
      - Ejecuta la interfaz de usuario: HTML, CSS y JavaScript (Angular en nuestro caso).
@@ -107,7 +113,7 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
      npm install --save-dev electron
      ```
 
-     La versión de Electron se instala como dependencia de desarrollo. Electron es un binario de ~60 MB que contiene Chromium + Node.js para la plataforma actual.
+     La versión de Electron se instala como **dependencia de desarrollo**. Electron es un binario de ~60 MB que contiene Chromium + Node.js para la plataforma actual.
 
      **Paso 3: Crear el punto de entrada del proceso principal (`main.js`)**
 
@@ -368,7 +374,7 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
 
 5. **APIs nativas clave de Electron**
 
-   - 5.1. **Sistema de archivos (fs)**: A diferencia del File API del navegador (limitado, basado en selección de archivo por el usuario y sandbox), en Electron se tiene acceso completo al sistema de archivos del usuario mediante el módulo `fs` de Node.js. Esto permite leer y escribir archivos en cualquier ubicación del disco (con los permisos del usuario), crear directorios, listar archivos, vigilar cambios en archivos (`fs.watch`), y trabajar con streams para archivos grandes.
+   - 5.1. **Sistema de archivos (fs)**: A diferencia del **File API del navegador** (limitado, basado en selección de archivo por el usuario y sandbox), en Electron se tiene acceso completo al sistema de archivos del usuario mediante el módulo `fs` de Node.js. Esto permite leer y escribir archivos en cualquier ubicación del disco (con los permisos del usuario), crear directorios, listar archivos, vigilar cambios en archivos (`fs.watch`), y trabajar con streams para archivos grandes.
 
    - 5.2. **Diálogos nativos (dialog)**: `dialog.showOpenDialog(win, options)` muestra el diálogo nativo de apertura de archivos del sistema operativo (no un componente HTML simulado). `dialog.showSaveDialog(win, options)` muestra el diálogo de guardar. `dialog.showMessageBox(win, options)` muestra un cuadro de diálogo con mensaje y botones personalizables. `dialog.showErrorBox(title, content)` muestra un cuadro de error simple.
 
@@ -378,7 +384,7 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
 
    - 5.5. **Notificaciones nativas (Notification)**: `new Notification({ title, body, icon, silent })` muestra una notificación del sistema. En Windows 10/11, aparecen en el Centro de actividades. En macOS, en el Centro de notificaciones. En Linux, dependen del entorno de escritorio (soporte nativo en GNOME, KDE). El evento `click` permite enfocar la ventana de la aplicación cuando el usuario hace clic en la notificación.
 
-   - 5.6. **Atajos de teclado globales (globalShortcut)**: A diferencia de los atajos de teclado locales (que solo funcionan cuando la app tiene el foco), los atajos globales funcionan incluso cuando la aplicación está en segundo plano. `globalShortcut.register('CommandOrControl+Shift+Space', callback)`. Usar con moderación y siempre permitir al usuario configurarlos o desactivarlos.
+   - 5.6. **Atajos de teclado globales (globalShortcut)**: A diferencia de los atajos de teclado locales (que solo funcionan cuando la app tiene el foco), los **atajos globales** funcionan incluso cuando la aplicación está en segundo plano. `globalShortcut.register('CommandOrControl+Shift+Space', callback)`. Usar con moderación y siempre permitir al usuario configurarlos o desactivarlos.
 
    - 5.7. **Ventanas (BrowserWindow)**: Las opciones de configuración de `BrowserWindow` son muy extensas:
      - `width`, `height`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`: dimensiones.
@@ -400,7 +406,7 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
 
 6. **Seguridad en Electron**
 
-   La seguridad es el aspecto más crítico del desarrollo con Electron. Una aplicación Electron mal configurada puede permitir que código malicioso ejecutado en el proceso renderizador (por ejemplo, a través de un ataque XSS) obtenga acceso completo al sistema operativo del usuario a través de Node.js. Esto es órdenes de magnitud más grave que un XSS en una aplicación web tradicional.
+   ==La seguridad es el aspecto más crítico del desarrollo con Electron.== Una aplicación Electron mal configurada puede permitir que código malicioso ejecutado en el proceso renderizador (por ejemplo, a través de un **ataque XSS**) obtenga acceso completo al sistema operativo del usuario a través de Node.js. Esto es órdenes de magnitud más grave que un XSS en una aplicación web tradicional.
 
    **Reglas de seguridad obligatorias (checklist del equipo oficial de Electron)**:
 
@@ -431,10 +437,10 @@ Como RA secundario, esta unidad prepara el **RA 7** («Prepara aplicaciones para
    **Requisitos funcionales**:
    - Crear, abrir, editar y guardar notas de texto.
    - Las notas se almacenan como archivos `.md` (Markdown) en el sistema de archivos local.
-   - Menú nativo: Archivo (Nuevo Ctrl+N, Abrir Ctrl+O, Guardar Ctrl+S, Guardar como... Ctrl+Shift+S, Salir Ctrl+Q), Edición (Deshacer Ctrl+Z, Rehacer Ctrl+Y, Cortar Ctrl+X, Copiar Ctrl+C, Pegar Ctrl+V), Ver (Modo oscuro, Pantalla completa F11), Ayuda (Acerca de, Documentación).
-   - Bandeja del sistema: icono con menú contextual para restaurar la ventana o salir.
+   - **Menú nativo**: Archivo (Nuevo Ctrl+N, Abrir Ctrl+O, Guardar Ctrl+S, Guardar como... Ctrl+Shift+S, Salir Ctrl+Q), Edición (Deshacer Ctrl+Z, Rehacer Ctrl+Y, Cortar Ctrl+X, Copiar Ctrl+C, Pegar Ctrl+V), Ver (Modo oscuro, Pantalla completa F11), Ayuda (Acerca de, Documentación).
+   - **Bandeja del sistema**: icono con menú contextual para restaurar la ventana o salir.
    - Atajos de teclado para todas las operaciones comunes.
-   - Indicador de cambios no guardados (punto en la barra de título, diálogo de confirmación al cerrar).
+   - **Indicador de cambios no guardados** (punto en la barra de título, diálogo de confirmación al cerrar).
    - Título de la ventana actualizado con el nombre del archivo actual.
 
    **Estructura de archivos del proyecto**:
@@ -919,97 +925,97 @@ Desarrolla una aplicación de escritorio para conversión y procesamiento de im�
 6. Añade una barra de progreso para procesamiento por lotes.
 7. Guarda la configuración de la última sesión (formato, calidad, dimensiones) en `userData`.
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Integración con hardware del sistema (Dificultad: Alta)
+    ### Actividad de ampliación 1: Integración con hardware del sistema (Dificultad: Alta)
 
-Investiga y utiliza las APIs de Electron para interactuar con hardware específico del sistema:
+    Investiga y utiliza las APIs de Electron para interactuar con hardware específico del sistema:
 
-1. Utiliza `powerMonitor` para detectar cambios en el estado de energía del sistema (conexión/desconexión de corriente, suspensión, reanudación) y adaptar el comportamiento de la aplicación (por ejemplo, pausar el autoguardado cuando el equipo entra en suspensión).
-2. Utiliza `screen` para detectar las pantallas conectadas y sus dimensiones, y adaptar el tamaño y posición de las ventanas (por ejemplo, abrir la app en la pantalla secundaria si está disponible).
-3. Utiliza `desktopCapturer` para capturar la pantalla o ventanas específicas (útil para herramientas de screenshot o grabación).
-4. Documenta los permisos del sistema operativo necesarios para cada API (macOS requiere permisos explícitos de accesibilidad y grabación de pantalla).
+    1. Utiliza `powerMonitor` para detectar cambios en el estado de energía del sistema (conexión/desconexión de corriente, suspensión, reanudación) y adaptar el comportamiento de la aplicación (por ejemplo, pausar el autoguardado cuando el equipo entra en suspensión).
+    2. Utiliza `screen` para detectar las pantallas conectadas y sus dimensiones, y adaptar el tamaño y posición de las ventanas (por ejemplo, abrir la app en la pantalla secundaria si está disponible).
+    3. Utiliza `desktopCapturer` para capturar la pantalla o ventanas específicas (útil para herramientas de screenshot o grabación).
+    4. Documenta los permisos del sistema operativo necesarios para cada API (macOS requiere permisos explícitos de accesibilidad y grabación de pantalla).
 
-### Actividad de ampliación 2: Comunicación entre múltiples ventanas (Dificultad: Media-Alta)
+    ### Actividad de ampliación 2: Comunicación entre múltiples ventanas (Dificultad: Media-Alta)
 
-Diseña una aplicación Electron que gestione múltiples ventanas comunicándose entre sí:
+    Diseña una aplicación Electron que gestione múltiples ventanas comunicándose entre sí:
 
-1. Una ventana principal y múltiples ventanas secundarias (por ejemplo, ventanas de detalle que se abren al hacer clic en un elemento de la lista).
-2. Implementa un sistema de mensajería entre ventanas utilizando `ipcMain` como broker central.
-3. Las ventanas secundarias deben poder enviar datos de vuelta a la ventana principal (por ejemplo, editar un elemento en una ventana secundaria y que la lista en la ventana principal se actualice automáticamente).
-4. Sincroniza el tema (oscuro/claro) entre todas las ventanas.
-5. Asegura que al cerrar la ventana principal se cierren todas las ventanas secundarias.
+    1. Una ventana principal y múltiples ventanas secundarias (por ejemplo, ventanas de detalle que se abren al hacer clic en un elemento de la lista).
+    2. Implementa un sistema de mensajería entre ventanas utilizando `ipcMain` como broker central.
+    3. Las ventanas secundarias deben poder enviar datos de vuelta a la ventana principal (por ejemplo, editar un elemento en una ventana secundaria y que la lista en la ventana principal se actualice automáticamente).
+    4. Sincroniza el tema (oscuro/claro) entre todas las ventanas.
+    5. Asegura que al cerrar la ventana principal se cierren todas las ventanas secundarias.
 
-### Actividad de ampliación 3: Migración de PWA a Electron (Dificultad: Alta)
+    ### Actividad de ampliación 3: Migración de PWA a Electron (Dificultad: Alta)
 
-Partiendo de una aplicación Angular que funcione como PWA (Progressive Web Application con Service Worker, funcionamiento offline, instalable), migra la aplicación a Electron preservando las capacidades offline y añadiendo funcionalidades nativas:
+    Partiendo de una aplicación Angular que funcione como PWA (Progressive Web Application con Service Worker, funcionamiento offline, instalable), migra la aplicación a Electron preservando las capacidades offline y añadiendo funcionalidades nativas:
 
-1. Analiza qué funcionalidades de la PWA pueden ser reemplazadas o mejoradas con APIs nativas de Electron (cache offline con Service Worker vs almacenamiento en sistema de archivos, notificaciones push vs notificaciones nativas, instalación como PWA vs instalador nativo).
-2. Implementa la funcionalidad dual: la misma aplicación debe funcionar como PWA en navegador y como app nativa en Electron, detectando el entorno y utilizando las APIs apropiadas en cada caso.
-3. Sincroniza datos entre la versión Electron y la versión web utilizando un backend común (por ejemplo, Firebase Firestore).
-4. Añade funcionalidades exclusivas de la versión de escritorio: acceso al sistema de archivos, menú nativo, bandeja del sistema.
+    1. Analiza qué funcionalidades de la PWA pueden ser reemplazadas o mejoradas con APIs nativas de Electron (cache offline con Service Worker vs almacenamiento en sistema de archivos, notificaciones push vs notificaciones nativas, instalación como PWA vs instalador nativo).
+    2. Implementa la funcionalidad dual: la misma aplicación debe funcionar como PWA en navegador y como app nativa en Electron, detectando el entorno y utilizando las APIs apropiadas en cada caso.
+    3. Sincroniza datos entre la versión Electron y la versión web utilizando un backend común (por ejemplo, Firebase Firestore).
+    4. Añade funcionalidades exclusivas de la versión de escritorio: acceso al sistema de archivos, menú nativo, bandeja del sistema.
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Seguridad primero**: `nodeIntegration: false`, `contextIsolation: true`, usar siempre `contextBridge` en el preload. Estas tres configuraciones no son negociables en un entorno de producción. Revisa periódicamente el Security Checklist oficial de Electron: https://www.electronjs.org/docs/latest/tutorial/security
+    1. **Seguridad primero**: `nodeIntegration: false`, `contextIsolation: true`, usar siempre `contextBridge` en el preload. Estas tres configuraciones no son negociables en un entorno de producción. Revisa periódicamente el Security Checklist oficial de Electron: https://www.electronjs.org/docs/latest/tutorial/security
 
-2. **Mantén el proceso principal ligero**: El proceso principal debe ser un orquestador, no un procesador pesado. Las tareas intensivas de CPU deben delegarse a Web Workers (en el renderizador) o a procesos hijo (`child_process.fork()`). Un proceso principal bloqueado impide que la aplicación responda a eventos del sistema.
+    2. **Mantén el proceso principal ligero**: El proceso principal debe ser un orquestador, no un procesador pesado. Las tareas intensivas de CPU deben delegarse a Web Workers (en el renderizador) o a procesos hijo (`child_process.fork()`). Un proceso principal bloqueado impide que la aplicación responda a eventos del sistema.
 
-3. **Valida todos los datos que llegan por IPC**: El proceso principal nunca debe confiar en los datos que recibe del renderizador. Implementa validación de tipos, rangos y formatos antes de ejecutar cualquier operación con esos datos (especialmente rutas de archivo, comandos del sistema y consultas a bases de datos).
+    3. **Valida todos los datos que llegan por IPC**: El proceso principal nunca debe confiar en los datos que recibe del renderizador. Implementa validación de tipos, rangos y formatos antes de ejecutar cualquier operación con esos datos (especialmente rutas de archivo, comandos del sistema y consultas a bases de datos).
 
-4. **Diseña para funcionamiento offline**: Una de las grandes ventajas de Electron es que la aplicación puede funcionar sin conexión a internet. Aprovecha esto: almacena datos localmente (`userData`), cachea recursos, y sincroniza cuando haya conexión.
+    4. **Diseña para funcionamiento offline**: Una de las grandes ventajas de Electron es que la aplicación puede funcionar sin conexión a internet. Aprovecha esto: almacena datos localmente (`userData`), cachea recursos, y sincroniza cuando haya conexión.
 
-5. **Gestiona correctamente el ciclo de vida de las ventanas**: En macOS, las aplicaciones no se cierran cuando se cierran todas las ventanas (permanecen en el Dock). En Windows y Linux, sí. Respeta las convenciones de cada plataforma.
+    5. **Gestiona correctamente el ciclo de vida de las ventanas**: En macOS, las aplicaciones no se cierran cuando se cierran todas las ventanas (permanecen en el Dock). En Windows y Linux, sí. Respeta las convenciones de cada plataforma.
 
-6. **Usa los menús nativos de cada plataforma**: macOS y Windows tienen convenciones de menú diferentes (en macOS, el menú "Acerca de" va en el menú de la aplicación, no en "Ayuda"; en Windows, "Salir" va en "Archivo"). Usa `process.platform` para adaptar los menús.
+    6. **Usa los menús nativos de cada plataforma**: macOS y Windows tienen convenciones de menú diferentes (en macOS, el menú "Acerca de" va en el menú de la aplicación, no en "Ayuda"; en Windows, "Salir" va en "Archivo"). Usa `process.platform` para adaptar los menús.
 
-7. **No abuses de las notificaciones**: Las notificaciones nativas son intrusivas. Úsalas solo para información que realmente requiere atención inmediata. Permite al usuario configurar qué notificaciones quiere recibir.
+    7. **No abuses de las notificaciones**: Las notificaciones nativas son intrusivas. Úsalas solo para información que realmente requiere atención inmediata. Permite al usuario configurar qué notificaciones quiere recibir.
 
-8. **Implementa auto-actualización desde el primer día**: Las aplicaciones de escritorio no se actualizan automáticamente como las webs. Implementar `electron-updater` desde el principio evita tener que pedir a los usuarios que descarguen nuevas versiones manualmente.
+    8. **Implementa auto-actualización desde el primer día**: Las aplicaciones de escritorio no se actualizan automáticamente como las webs. Implementar `electron-updater` desde el principio evita tener que pedir a los usuarios que descarguen nuevas versiones manualmente.
 
-9. **Optimiza el tamaño del instalador**: Revisa qué archivos se incluyen en el empaquetado. Excluye archivos fuente, tests, dependencias de desarrollo, y archivos no utilizados. Cada megabyte extra en el instalador aumenta la tasa de abandono en la descarga.
+    9. **Optimiza el tamaño del instalador**: Revisa qué archivos se incluyen en el empaquetado. Excluye archivos fuente, tests, dependencias de desarrollo, y archivos no utilizados. Cada megabyte extra en el instalador aumenta la tasa de abandono en la descarga.
 
-10. **Prueba en las 3 plataformas**: Un mismo código Electron puede comportarse de forma diferente en Windows, macOS y Linux. Comportamiento de diálogos, atajos de teclado (Cmd vs Ctrl), renderizado de fuentes, rutas de archivo (backslash vs forward slash), APIs disponibles (algunas APIs son específicas de plataforma). Si no puedes probar en las 3, usa CI con GitHub Actions (runners de Windows, macOS y Linux).
+    10. **Prueba en las 3 plataformas**: Un mismo código Electron puede comportarse de forma diferente en Windows, macOS y Linux. Comportamiento de diálogos, atajos de teclado (Cmd vs Ctrl), renderizado de fuentes, rutas de archivo (backslash vs forward slash), APIs disponibles (algunas APIs son específicas de plataforma). Si no puedes probar en las 3, usa CI con GitHub Actions (runners de Windows, macOS y Linux).
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Habilitar `nodeIntegration: true`**: Es el error de seguridad más grave en Electron. Permite que cualquier script en el renderizador (incluyendo scripts de terceros, anuncios, o código XSS inyectado) ejecute código Node.js arbitrario con los privilegios del usuario. **Nunca hagas esto en producción.**
+    1. **Habilitar `nodeIntegration: true`**: Es el error de seguridad más grave en Electron. Permite que cualquier script en el renderizador (incluyendo scripts de terceros, anuncios, o código XSS inyectado) ejecute código Node.js arbitrario con los privilegios del usuario. **Nunca hagas esto en producción.**
 
-2. **No usar `contextIsolation: true`**: Sin aislamiento de contexto, el código del renderizador puede acceder a las variables del preload script, incluyendo `require` y los módulos de Node.js. Esto anula cualquier protección que pudiera ofrecer `nodeIntegration: false`.
+    2. **No usar `contextIsolation: true`**: Sin aislamiento de contexto, el código del renderizador puede acceder a las variables del preload script, incluyendo `require` y los módulos de Node.js. Esto anula cualquier protección que pudiera ofrecer `nodeIntegration: false`.
 
-3. **Exponer `ipcRenderer` directamente en lugar de usar `contextBridge`**: Exponer `ipcRenderer` da al renderizador acceso a todos los canales IPC, incluyendo los del sistema. En su lugar, exponer solo funciones específicas que envuelvan las llamadas IPC necesarias.
+    3. **Exponer `ipcRenderer` directamente en lugar de usar `contextBridge`**: Exponer `ipcRenderer` da al renderizador acceso a todos los canales IPC, incluyendo los del sistema. En su lugar, exponer solo funciones específicas que envuelvan las llamadas IPC necesarias.
 
-4. **Cargar contenido remoto sin CSP**: Si la aplicación carga URLs remotas (incluso de confianza), una CSP laxa puede permitir ataques XSS que comprometan toda la aplicación y el sistema del usuario. Configura siempre una CSP restrictiva.
+    4. **Cargar contenido remoto sin CSP**: Si la aplicación carga URLs remotas (incluso de confianza), una CSP laxa puede permitir ataques XSS que comprometan toda la aplicación y el sistema del usuario. Configura siempre una CSP restrictiva.
 
-5. **No manejar el evento `window-all-closed` correctamente en macOS**: En macOS, `app.quit()` no debe llamarse automáticamente al cerrar todas las ventanas, porque las aplicaciones macOS permanecen activas sin ventanas (el usuario espera que la app siga abierta en el Dock).
+    5. **No manejar el evento `window-all-closed` correctamente en macOS**: En macOS, `app.quit()` no debe llamarse automáticamente al cerrar todas las ventanas, porque las aplicaciones macOS permanecen activas sin ventanas (el usuario espera que la app siga abierta en el Dock).
 
-6. **Usar `fs.readFileSync` en el proceso principal para archivos grandes**: Las funciones síncronas bloquean el proceso principal, congelando toda la aplicación hasta que la operación termina. Usa las versiones asíncronas (`fs.readFile`, `fs.promises.readFile`) para archivos de más de unos pocos kilobytes.
+    6. **Usar `fs.readFileSync` en el proceso principal para archivos grandes**: Las funciones síncronas bloquean el proceso principal, congelando toda la aplicación hasta que la operación termina. Usa las versiones asíncronas (`fs.readFile`, `fs.promises.readFile`) para archivos de más de unos pocos kilobytes.
 
-7. **No gestionar la destrucción de listeners IPC**: Cada vez que se recarga una página en el renderizador (por ejemplo, en desarrollo con hot reload), se crean nuevos listeners IPC sin eliminar los anteriores. Esto causa fugas de memoria y comportamientos impredecibles (callbacks ejecutándose múltiples veces). Limpia los listeners con `ipcRenderer.removeAllListeners(channel)`.
+    7. **No gestionar la destrucción de listeners IPC**: Cada vez que se recarga una página en el renderizador (por ejemplo, en desarrollo con hot reload), se crean nuevos listeners IPC sin eliminar los anteriores. Esto causa fugas de memoria y comportamientos impredecibles (callbacks ejecutándose múltiples veces). Limpia los listeners con `ipcRenderer.removeAllListeners(channel)`.
 
-8. **Ignorar las diferencias de rutas de archivo entre plataformas**: Windows usa `\` como separador, macOS y Linux usan `/`. Node.js maneja esto bien internamente, pero al construir rutas manualmente con concatenación de strings pueden surgir problemas. Usa `path.join()` para construir rutas.
+    8. **Ignorar las diferencias de rutas de archivo entre plataformas**: Windows usa `\` como separador, macOS y Linux usan `/`. Node.js maneja esto bien internamente, pero al construir rutas manualmente con concatenación de strings pueden surgir problemas. Usa `path.join()` para construir rutas.
 
-9. **No configurar el icono de la aplicación**: Electron usa un icono por defecto (genérico) si no se configura uno. Esto da una apariencia poco profesional. Configura íconos en formato `.ico` (Windows), `.icns` (macOS) y `.png` (Linux).
+    9. **No configurar el icono de la aplicación**: Electron usa un icono por defecto (genérico) si no se configura uno. Esto da una apariencia poco profesional. Configura íconos en formato `.ico` (Windows), `.icns` (macOS) y `.png` (Linux).
 
-10. **Usar `alert()` y `confirm()` en Electron**: En producción, estas funciones muestran cuadros de diálogo con el aspecto del navegador (no nativos). Usa `dialog.showMessageBox()` para cuadros de diálogo con aspecto nativo.
+    10. **Usar `alert()` y `confirm()` en Electron**: En producción, estas funciones muestran cuadros de diálogo con el aspecto del navegador (no nativos). Usa `dialog.showMessageBox()` para cuadros de diálogo con aspecto nativo.
 
-## Resumen
+!!! abstract "Resumen"
 
-Electron representa un cambio de paradigma en el desarrollo de aplicaciones de escritorio, permitiendo a desarrolladores web construir aplicaciones nativas multiplataforma utilizando las mismas tecnologías (HTML, CSS, JavaScript/TypeScript) que ya dominan. Esta unidad ha proporcionado una formación completa y profunda en el desarrollo de aplicaciones de escritorio con Electron integrado en el ecosistema Angular.
+    Electron representa un **cambio de paradigma** en el desarrollo de aplicaciones de escritorio, permitiendo a desarrolladores web construir aplicaciones nativas multiplataforma utilizando las mismas tecnologías (HTML, CSS, JavaScript/TypeScript) que ya dominan. Esta unidad ha proporcionado una formación completa y profunda en el desarrollo de aplicaciones de escritorio con Electron integrado en el ecosistema Angular.
 
-La unidad comenzó explicando los fundamentos de Electron: su arquitectura basada en Chromium + Node.js, la separación en procesos (Main Process con acceso al sistema operativo, Renderer Process con la interfaz web aislada por seguridad) y la comunicación entre ellos mediante IPC. Comprender esta arquitectura es esencial para desarrollar aplicaciones seguras y eficientes.
+    La unidad comenzó explicando los fundamentos de Electron: su arquitectura basada en **Chromium + Node.js**, la separación en procesos (Main Process con acceso al sistema operativo, Renderer Process con la interfaz web aislada por seguridad) y la comunicación entre ellos mediante IPC. Comprender esta arquitectura es esencial para desarrollar aplicaciones seguras y eficientes.
 
-El análisis de casos reales —VS Code, Discord, Slack, Figma, Postman, Obsidian, WhatsApp y Spotify— ha proporcionado al alumnado referentes concretos de cómo las grandes empresas utilizan Electron en producción, las lecciones aprendidas y los patrones arquitectónicos que funcionan a escala.
+    El análisis de casos reales —VS Code, Discord, Slack, Figma, Postman, Obsidian, WhatsApp y Spotify— ha proporcionado al alumnado referentes concretos de cómo las grandes empresas utilizan Electron en producción, las lecciones aprendidas y los patrones arquitectónicos que funcionan a escala.
 
-La integración de Angular con Electron se ha detallado paso a paso: configuración del proceso principal (`main.js`), script de precarga (`preload.js`), implementación de manejadores IPC en ambos lados, scripts de desarrollo y producción, y creación de un `ElectronService` en Angular que abstrae la detección del entorno y proporciona una API unificada para funcionalidades nativas.
+    La integración de Angular con Electron se ha detallado paso a paso: configuración del proceso principal (`main.js`), script de precarga (`preload.js`), implementación de manejadores IPC en ambos lados, scripts de desarrollo y producción, y creación de un `ElectronService` en Angular que abstrae la detección del entorno y proporciona una API unificada para funcionalidades nativas.
 
-Las APIs nativas clave de Electron —sistema de archivos, diálogos nativos, menús, bandeja del sistema, notificaciones, atajos globales, portapapeles, shell— se han presentado con ejemplos prácticos, demostrando cómo estas capacidades diferencian una aplicación de escritorio de una aplicación web y aportan valor real al usuario.
+    Las APIs nativas clave de Electron —sistema de archivos, diálogos nativos, menús, bandeja del sistema, notificaciones, atajos globales, portapapeles, shell— se han presentado con ejemplos prácticos, demostrando cómo estas capacidades diferencian una aplicación de escritorio de una aplicación web y aportan valor real al usuario.
 
-La seguridad ha ocupado un lugar central en la unidad. Se ha hecho hincapié en las reglas no negociables (`nodeIntegration: false`, `contextIsolation: true`, uso de `contextBridge`, CSP restrictiva) y se ha explicado el porqué de cada una, contextualizando las graves consecuencias de una configuración insegura.
+    ==La seguridad ha ocupado un lugar central en la unidad.== Se ha hecho hincapié en las **reglas no negociables** (`nodeIntegration: false`, `contextIsolation: true`, uso de `contextBridge`, CSP restrictiva) y se ha explicado el porqué de cada una, contextualizando las graves consecuencias de una configuración insegura.
 
-La aplicación de ejemplo "Gestor de Notas" ha servido como hilo conductor práctico para integrar todos los conceptos: desde la configuración inicial hasta un menú nativo completo con atajos de teclado, pasando por la lectura/escritura de archivos, los diálogos nativos y la bandeja del sistema.
+    La aplicación de ejemplo "Gestor de Notas" ha servido como hilo conductor práctico para integrar todos los conceptos: desde la configuración inicial hasta un menú nativo completo con atajos de teclado, pasando por la lectura/escritura de archivos, los diálogos nativos y la bandeja del sistema.
 
-Finalmente, las buenas prácticas y los errores frecuentes recogen la experiencia de la comunidad Electron, proporcionando al alumnado una guía para evitar los tropiezos más comunes y costosos en el desarrollo de aplicaciones de escritorio.
+    Finalmente, las buenas prácticas y los errores frecuentes recogen la experiencia de la comunidad Electron, proporcionando al alumnado una guía para evitar los tropiezos más comunes y costosos en el desarrollo de aplicaciones de escritorio.
 
 ## Recursos complementarios
 

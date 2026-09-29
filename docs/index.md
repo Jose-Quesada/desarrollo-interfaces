@@ -1,3 +1,7 @@
+---
+icon: lucide/book-open
+---
+
 # Introducción al Desarrollo de Interfaces
 
 ## Objetivos de aprendizaje
@@ -41,84 +45,86 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 
 > Nota: los contenidos sobre interfaces por voz, gestos, cuerpo e IA conversacional (VUI/NUI) que se presentan en esta introducción corresponden al **RA 2** y se desarrollan en profundidad en la Unidad 3.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Para abordar con éxito esta unidad, el alumnado debe poseer los siguientes conocimientos:
+    Para abordar con éxito esta unidad, el alumnado debe poseer los siguientes conocimientos:
 
-- Fundamentos de programación estructurada y orientada a objetos, adquiridos en el módulo de Programación del primer curso.
-- Conocimientos básicos de HTML5 y CSS3, incluyendo la estructura del DOM, selectores CSS, modelo de caja y propiedades fundamentales de estilo.
-- Manejo elemental de entornos de desarrollo integrados (IDE), preferentemente Visual Studio Code.
-- Comprensión de la arquitectura cliente-servidor y del funcionamiento básico del protocolo HTTP.
-- Experiencia en el uso de navegadores web y sus herramientas de desarrollo integradas (DevTools).
-- Capacidad para trabajar con sistemas de control de versiones, específicamente Git y GitHub.
+    - Fundamentos de programación estructurada y orientada a objetos, adquiridos en el módulo de Programación del primer curso.
+    - Conocimientos básicos de **HTML5 y CSS3**, incluyendo la estructura del DOM, selectores CSS, modelo de caja y propiedades fundamentales de estilo.
+    - Manejo elemental de entornos de desarrollo integrados (IDE), preferentemente **Visual Studio Code**.
+    - Comprensión de la arquitectura cliente-servidor y del funcionamiento básico del protocolo **HTTP**.
+    - Experiencia en el uso de navegadores web y sus herramientas de desarrollo integradas (**DevTools**).
+    - Capacidad para trabajar con sistemas de control de versiones, específicamente **Git y GitHub**.
 
-Estos conocimientos previos se consideran prerrequisitos fundamentales. Se recomienda realizar una evaluación diagnóstica al inicio de la unidad para detectar posibles carencias y establecer medidas de refuerzo individualizadas.
+    Estos conocimientos previos se consideran prerrequisitos fundamentales. Se recomienda realizar una **evaluación diagnóstica** al inicio de la unidad para detectar posibles carencias y establecer medidas de refuerzo individualizadas.
 
 ## Contenidos
 
 **Bloque 1: Fundamentos de las interfaces de usuario**
-- Definición de interfaz de usuario: concepto, función y relevancia en sistemas software.
-- Tipologías de interfaces: GUI (Graphical User Interface), CLI (Command Line Interface), VUI (Voice User Interface), NUI (Natural User Interface), TUI (Tangible User Interface).
-- Características técnicas de cada tipo de interfaz: dispositivos de entrada/salida asociados, tecnologías subyacentes, casos de uso representativos.
+- **Definición de interfaz de usuario**: concepto, función y relevancia en sistemas software.
+- **Tipologías de interfaces**: GUI (Graphical User Interface), CLI (Command Line Interface), VUI (Voice User Interface), NUI (Natural User Interface), TUI (Tangible User Interface).
+- **Características técnicas de cada tipo de interfaz**: dispositivos de entrada/salida asociados, tecnologías subyacentes, casos de uso representativos.
 
 **Bloque 2: Evolución histórica de las interfaces**
-- De la línea de comandos a las ventanas: Xerox Alto, Apple Lisa, Windows 1.0.
-- La era web: del HTML estático a las aplicaciones de una sola página (SPA).
-- La revolución móvil: interfaces táctiles, gestos, diseño responsive.
-- Realidad aumentada, realidad virtual e interfaces espaciales.
-- Interfaces conversacionales e inteligencia artificial generativa.
+- **De la línea de comandos a las ventanas**: Xerox Alto, Apple Lisa, Windows 1.0.
+- **La era web**: del HTML estático a las aplicaciones de una sola página (SPA).
+- **La revolución móvil**: interfaces táctiles, gestos, diseño responsive.
+- **Realidad aumentada, realidad virtual e interfaces espaciales**.
+- **Interfaces conversacionales e inteligencia artificial generativa**.
 
 **Bloque 3: UX vs UI**
-- Definición precisa de User Experience (UX): arquitectura de la información, investigación de usuarios, flujos de navegación, prototipado, usabilidad.
-- Definición precisa de User Interface (UI): tipografía, color, espaciado, iconografía, sistemas de diseño, microinteracciones.
-- Comparativa y sinergias entre ambos ámbitos: por qué son disciplinas complementarias pero diferenciadas.
+- **Definición precisa de User Experience (UX)**: arquitectura de la información, investigación de usuarios, flujos de navegación, prototipado, usabilidad.
+- **Definición precisa de User Interface (UI)**: tipografía, color, espaciado, iconografía, sistemas de diseño, microinteracciones.
+- **Comparativa y sinergias entre ambos ámbitos**: por qué son disciplinas complementarias pero diferenciadas.
 
 **Bloque 4: Interfaces web y multiplataforma**
-- Web apps tradicionales: características, ventajas, limitaciones.
-- Progressive Web Apps (PWA): service workers, manifiesto, instalabilidad, funcionalidad offline.
-- Aplicaciones híbridas: Apache Cordova, Ionic, Capacitor.
-- Aplicaciones nativas vs aplicaciones web: rendimiento, acceso al hardware, distribución, costes.
-- Electron: arquitectura, proceso principal y procesos renderizadores, casos de uso emblemáticos (VS Code, Discord, Figma, Slack, Postman, Notion).
+- **Web apps tradicionales**: características, ventajas, limitaciones.
+- **Progressive Web Apps (PWA)**: service workers, manifiesto, instalabilidad, funcionalidad offline.
+- **Aplicaciones híbridas**: Apache Cordova, Ionic, Capacitor.
+- **Aplicaciones nativas vs aplicaciones web**: rendimiento, acceso al hardware, distribución, costes.
+- **Electron**: arquitectura, proceso principal y procesos renderizadores, casos de uso emblemáticos (VS Code, Discord, Figma, Slack, Postman, Notion).
 
 **Bloque 5: Tendencias actuales en diseño de interfaces**
-- Neumorfismo: fundamentos estéticos, implementación técnica, cuándo usarlo y cuándo evitarlo.
-- Glassmorphism: efecto vidrio esmerilado, backdrop-filter, jerarquía visual.
-- Minimalismo y brutalismo: reducción a lo esencial.
-- Dark Mode: beneficios de accesibilidad y ahorro energético, implementación con variables CSS.
-- Microinteracciones: definición, propósito, ejemplos (animaciones de feedback, transiciones de estado).
-- Motion Design: principios de animación aplicados a interfaces (timing, easing, choreography).
-- Diseño inclusivo: más allá de la accesibilidad, diseño para la diversidad humana.
-- IA en interfaces: generación de layouts, personalización adaptativa, asistentes integrados.
+- **Neumorfismo**: fundamentos estéticos, implementación técnica, cuándo usarlo y cuándo evitarlo.
+- **Glassmorphism**: efecto vidrio esmerilado, backdrop-filter, jerarquía visual.
+- **Minimalismo y brutalismo**: reducción a lo esencial.
+- **Dark Mode**: beneficios de accesibilidad y ahorro energético, implementación con variables CSS.
+- **Microinteracciones**: definición, propósito, ejemplos (animaciones de feedback, transiciones de estado).
+- **Motion Design**: principios de animación aplicados a interfaces (timing, easing, choreography).
+- **Diseño inclusivo**: más allá de la accesibilidad, diseño para la diversidad humana.
+- **IA en interfaces**: generación de layouts, personalización adaptativa, asistentes integrados.
 
 **Bloque 6: El ecosistema Angular en el desarrollo de interfaces**
-- Angular como framework para aplicaciones empresariales: filosofía, ecosistema, gobernanza.
-- Single Page Applications (SPA): concepto y arquitectura.
-- Modelo de componentes: encapsulación, reutilización, composición.
-- Enrutamiento: navegación entre vistas sin recarga de página.
-- Servicios e inyección de dependencias: separación de lógica de negocio.
-- Angular Material y CDK: componentes accesibles y utilidades de interacción.
-- Angular Signals: reactividad moderna y granular.
+- **Angular como framework para aplicaciones empresariales**: filosofía, ecosistema, gobernanza.
+- **Single Page Applications (SPA)**: concepto y arquitectura.
+- **Modelo de componentes**: encapsulación, reutilización, composición.
+- **Enrutamiento**: navegación entre vistas sin recarga de página.
+- **Servicios e inyección de dependencias**: separación de lógica de negocio.
+- **Angular Material y CDK**: componentes accesibles y utilidades de interacción.
+- **Angular Signals**: reactividad moderna y granular.
 
 **Bloque 7: Diseño Centrado en el Usuario (UCD)**
-- Proceso UCD según ISO 9241-210: investigación, especificación, diseño, evaluación.
-- Técnicas de investigación: entrevistas, encuestas, observación contextual, análisis competitivo.
-- Personas y escenarios de uso: definición, construcción y aplicación.
-- Mapas de empatía y customer journey maps.
-- Prototipado de baja y alta fidelidad.
-- Test de usabilidad: planificación, ejecución, análisis de resultados.
-- Iteración: el ciclo construir-medir-aprender.
+- **Proceso UCD según ISO 9241-210**: investigación, especificación, diseño, evaluación.
+- **Técnicas de investigación**: entrevistas, encuestas, observación contextual, análisis competitivo.
+- **Personas y escenarios de uso**: definición, construcción y aplicación.
+- **Mapas de empatía y customer journey maps**.
+- **Prototipado de baja y alta fidelidad**.
+- **Test de usabilidad**: planificación, ejecución, análisis de resultados.
+- **Iteración**: el ciclo construir-medir-aprender.
 
 **Bloque 8: El rol profesional del desarrollador de interfaces**
-- Competencias técnicas requeridas: HTML, CSS, JavaScript/TypeScript, frameworks, control de versiones, testing.
-- Competencias transversales: comunicación, trabajo en equipo, resolución de problemas.
-- Colaboración multidisciplinar: relación con diseñadores UX/UI, product managers, desarrolladores backend, DevOps.
-- El módulo de Desarrollo de Interfaces en el currículo DAM: relación con Lenguajes de marcas y sistemas de gestión de información, Entornos de desarrollo, Programación, Acceso a datos y Programación multimedia y dispositivos móviles (PMDM).
+- **Competencias técnicas requeridas**: HTML, CSS, JavaScript/TypeScript, frameworks, control de versiones, testing.
+- **Competencias transversales**: comunicación, trabajo en equipo, resolución de problemas.
+- **Colaboración multidisciplinar**: relación con diseñadores UX/UI, product managers, desarrolladores backend, DevOps.
+- **El módulo de Desarrollo de Interfaces en el currículo DAM**: relación con Lenguajes de marcas y sistemas de gestión de información, Entornos de desarrollo, Programación, Acceso a datos y Programación multimedia y dispositivos móviles (PMDM).
 
 ## Desarrollo teórico
 
 ### 1. Qué es una interfaz de usuario
 
-Una interfaz de usuario (UI, por sus siglas en inglés) constituye el punto de encuentro entre un ser humano y un sistema informático. Es el conjunto de elementos, mecanismos y canales a través de los cuales una persona interactúa con una máquina para proporcionarle instrucciones, recibir información y completar tareas. La interfaz actúa como traductora entre el mundo conceptual humano y el mundo binario de la computadora.
+!!! info "Definición"
+
+    Una **interfaz de usuario** (UI, por sus siglas en inglés) constituye el punto de encuentro entre un ser humano y un sistema informático. Es el conjunto de elementos, mecanismos y canales a través de los cuales una persona interactúa con una máquina para proporcionarle instrucciones, recibir información y completar tareas. La interfaz actúa como traductora entre el mundo conceptual humano y el mundo binario de la computadora.
 
 La importancia de la interfaz de usuario no puede subestimarse: para el usuario final, la interfaz **es** el producto. No importa cuán sofisticado sea el algoritmo de recomendación de una plataforma de streaming si el usuario no encuentra el botón de reproducción. No importa la potencia de un motor de base de datos si la pantalla de inicio de sesión resulta confusa. La interfaz condiciona completamente la percepción de calidad, la satisfacción y, en última instancia, la adopción o el abandono de un producto digital.
 
@@ -146,7 +152,7 @@ Existen diversos tipos de interfaces de usuario, cada una con sus característic
 
 - **Conversacional:** Lo que define a una interfaz conversacional es la capacidad de mantener un diálogo fluido, con memoria y contexto. No importa si el usuario usa la voz, un teclado o botones; lo importante es la inteligencia de la charla. Se basan en IA avanzada y lenguaje natural puro. Estas interfaces entienden instrucciones ambiguas, recuerdan lo que se ha dicho hace un rato y adaptan sus respuestas dinámicamente sin depender de comandos exactos.
 
-En el contexto de este módulo, nos centraremos fundamentalmente en las interfaces gráficas de usuario (GUI), y más concretamente en las interfaces gráficas desarrolladas con tecnologías web, que constituyen la plataforma más extendida para aplicaciones de escritorio, web y, cada vez más, aplicaciones móviles.
+En el contexto de este módulo, nos centraremos fundamentalmente en las interfaces gráficas de usuario (GUI), y más concretamente en las interfaces gráficas desarrolladas con **tecnologías web**, que constituyen la plataforma más extendida para aplicaciones de escritorio, web y, cada vez más, aplicaciones móviles.
 
 ### 2. Evolución de las interfaces gráficas
 
@@ -160,33 +166,33 @@ Antes de la GUI, la interacción con ordenadores se realizaba exclusivamente med
 
 En 1973, Xerox PARC desarrolló el Xerox Alto, el primer ordenador con interfaz gráfica de ventanas, escritorio metafórico y ratón. Aunque nunca se comercializó masivamente, inspiró a Steve Jobs para crear el Apple Lisa (1983) y, sobre todo, el Macintosh (1984). Microsoft lanzó Windows 1.0 en 1985, iniciando una competencia que definiría la informática personal durante décadas.
 
-El paradigma WIMP (Windows, Icons, Menus, Pointer) se consolidó como estándar y sigue siendo la base de las interfaces gráficas contemporáneas. La metáfora del escritorio (carpetas, archivos, papelera) permitió que personas sin formación técnica pudieran utilizar ordenadores.
+El paradigma **WIMP** (Windows, Icons, Menus, Pointer) se consolidó como estándar y sigue siendo la base de las interfaces gráficas contemporáneas. La **metáfora del escritorio** (carpetas, archivos, papelera) permitió que personas sin formación técnica pudieran utilizar ordenadores.
 
 **Fase 3: La web (1995-2010)**
 
-Con la popularización de Internet, el navegador web se convirtió en la nueva plataforma de aplicaciones. HTML, CSS y JavaScript reemplazaron progresivamente a las aplicaciones de escritorio tradicionales. La web 2.0 introdujo la interactividad asíncrona (AJAX), permitiendo aplicaciones tan fluidas como las nativas. Servicios como Gmail (2004) demostraron que la web podía competir con el escritorio.
+Con la popularización de Internet, el navegador web se convirtió en la nueva plataforma de aplicaciones. HTML, CSS y JavaScript reemplazaron progresivamente a las aplicaciones de escritorio tradicionales. La web 2.0 introdujo la **interactividad asíncrona (AJAX)**, permitiendo aplicaciones tan fluidas como las nativas. Servicios como Gmail (2004) demostraron que la web podía competir con el escritorio.
 
 **Fase 4: La revolución móvil (2007-presente)**
 
-El lanzamiento del iPhone en 2007 con su pantalla táctil capacitiva y su interfaz basada en gestos naturales supuso un punto de inflexión comparable al Macintosh de 1984. El diseño responsive, popularizado por Ethan Marcotte en 2010, permitió que una misma interfaz se adaptara fluidamente a diferentes tamaños de pantalla. Las aplicaciones móviles nativas añadieron capacidades inexistentes en la web: GPS, acelerómetro, cámara, notificaciones push y acceso sin conexión.
+El lanzamiento del iPhone en 2007 con su pantalla táctil capacitiva y su interfaz basada en gestos naturales supuso un punto de inflexión comparable al Macintosh de 1984. El **diseño responsive**, popularizado por Ethan Marcotte en 2010, permitió que una misma interfaz se adaptara fluidamente a diferentes tamaños de pantalla. Las aplicaciones móviles nativas añadieron capacidades inexistentes en la web: GPS, acelerómetro, cámara, notificaciones push y acceso sin conexión.
 
 **Fase 5: Realidad extendida y espacios (2015-presente)**
 
-La realidad aumentada (RA), que superpone información digital sobre el mundo real, y la realidad virtual (RV), que sumerge al usuario en entornos completamente virtuales, han abierto nuevas dimensiones para las interfaces. Aplicaciones como Pokémon GO demostraron el potencial masivo de la RA, mientras que dispositivos como Oculus Quest han llevado la RV al consumo doméstico. Las interfaces espaciales presentan desafíos únicos de diseño: interacción en 360 grados, profundidad, prevención de fatiga y cinetosis.
+La **realidad aumentada (RA)**, que superpone información digital sobre el mundo real, y la **realidad virtual (RV)**, que sumerge al usuario en entornos completamente virtuales, han abierto nuevas dimensiones para las interfaces. Aplicaciones como Pokémon GO demostraron el potencial masivo de la RA, mientras que dispositivos como Oculus Quest han llevado la RV al consumo doméstico. Las interfaces espaciales presentan desafíos únicos de diseño: interacción en 360 grados, profundidad, prevención de fatiga y cinetosis.
 
 **Fase 6: IA conversacional y generativa (2022-presente)**
 
-La aparición de modelos de lenguaje de gran escala (LLMs) como GPT ha inaugurado la era de las interfaces conversacionales avanzadas. Los usuarios pueden expresar sus intenciones en lenguaje natural y obtener respuestas, código o acciones del sistema. La interfaz se diluye: ya no se trata de manipular controles sino de mantener un diálogo. Herramientas como ChatGPT, Copilot o Gemini están redefiniendo lo que significa "usar" una aplicación.
+La aparición de **modelos de lenguaje de gran escala (LLMs)** como GPT ha inaugurado la era de las interfaces conversacionales avanzadas. Los usuarios pueden expresar sus intenciones en lenguaje natural y obtener respuestas, código o acciones del sistema. La interfaz se diluye: ya no se trata de manipular controles sino de mantener un diálogo. Herramientas como ChatGPT, Copilot o Gemini están redefiniendo lo que significa "usar" una aplicación.
 
 **Lecciones de la evolución**
 
-La tendencia histórica es clara: cada nueva generación de interfaces reduce la distancia entre la intención del usuario y la acción del sistema. De memorizar comandos a señalar con un clic, de hacer clic a deslizar con el dedo, de deslizar a hablar, de hablar a pensar. El desarrollo de interfaces consiste, en esencia, en acortar esa distancia.
+La tendencia histórica es clara: ==cada nueva generación de interfaces reduce la distancia entre la intención del usuario y la acción del sistema==. De memorizar comandos a señalar con un clic, de hacer clic a deslizar con el dedo, de deslizar a hablar, de hablar a pensar. El desarrollo de interfaces consiste, en esencia, en acortar esa distancia.
 
 Otra tendencia es la abstracción creciente: los detalles técnicos que antes debía conocer el usuario (comandos, rutas de archivos, configuraciones) quedan ocultos bajo capas de diseño y automatización. El rol del desarrollador de interfaces es, precisamente, construir esas capas de abstracción que hacen la tecnología accesible y placentera.
 
 ### 3. UX vs UI: dos caras de una misma moneda
 
-La confusión entre UX (User Experience) y UI (User Interface) es una de las más persistentes en el sector tecnológico. Aunque están íntimamente relacionadas, son disciplinas distintas que responden a preguntas diferentes y requieren habilidades y metodologías diferentes.
+La confusión entre **UX (User Experience)** y **UI (User Interface)** es una de las más persistentes en el sector tecnológico. Aunque están íntimamente relacionadas, son disciplinas distintas que responden a preguntas diferentes y requieren habilidades y metodologías diferentes.
 
 **User Experience (UX)** responde a las preguntas: ¿Es útil este producto? ¿Resuelve un problema real? ¿Es fácil de usar? ¿Resulta satisfactorio? La UX abarca el recorrido completo del usuario desde que descubre la existencia del producto hasta que completa su objetivo y más allá. Incluye disciplinas como:
 
@@ -220,11 +226,13 @@ La metáfora más efectiva para distinguir UX y UI es la de un automóvil: la UX
 
 En la práctica profesional, no debe existir rivalidad sino colaboración. La UX define *qué* debe hacer la interfaz y en *qué orden*, mientras que la UI define *cómo* se presenta visualmente y *cómo* se siente cada interacción. Un diseñador UX que no tiene sensibilidad visual produce wireframes funcionales pero difíciles de interpretar. Un diseñador UI que no comprende usabilidad produce interfaces bellas pero frustrantes.
 
-Para el alumnado de Desarrollo de Interfaces, es crucial comprender ambas disciplinas. Vuestro perfil profesional tiende al desarrollo frontend (más técnico), pero debéis ser capaces de leer y comprender las decisiones de diseño que os llegan desde UX/UI, y de colaborar activamente con estos perfiles durante el desarrollo.
+!!! tip "Consejo práctico"
+
+    Para el alumnado de Desarrollo de Interfaces, es crucial comprender ambas disciplinas. Vuestro perfil profesional tiende al desarrollo frontend (más técnico), pero debéis ser capaces de leer y comprender las decisiones de diseño que os llegan desde UX/UI, y de colaborar activamente con estos perfiles durante el desarrollo.
 
 ### 4. Interfaces web y multiplataforma
 
-El desarrollo de interfaces se enfrenta hoy a un problema fundamental: la fragmentación de plataformas. Una aplicación debe funcionar en navegadores de escritorio, navegadores móviles, potencialmente como aplicación nativa en iOS y Android, y quizás como aplicación de escritorio en Windows, macOS y Linux. Desarrollar y mantener versiones nativas separadas para cada plataforma es económicamente inviable para la mayoría de organizaciones.
+El desarrollo de interfaces se enfrenta hoy a un problema fundamental: la **fragmentación de plataformas**. Una aplicación debe funcionar en navegadores de escritorio, navegadores móviles, potencialmente como aplicación nativa en iOS y Android, y quizás como aplicación de escritorio en Windows, macOS y Linux. Desarrollar y mantener versiones nativas separadas para cada plataforma es económicamente inviable para la mayoría de organizaciones.
 
 **Aplicaciones web tradicionales**
 
@@ -278,7 +286,7 @@ El diseño de interfaces no es estático: evoluciona influenciado por las capaci
 
 **Neumorfismo (Neumorphism)**
 
-Es una evolución del skeuomorfismo (imitación de texturas reales) que combina elementos del diseño plano con sombras suaves para crear la ilusión de que los elementos emergen o se hunden en el fondo. Se consigue mediante dos sombras: una clara en la parte superior izquierda y una oscura en la parte inferior derecha, sobre un fondo del mismo color. El efecto es plástico, táctil y suave. Sin embargo, presenta serios problemas de accesibilidad debido al bajo contraste, por lo que debe usarse con moderación y siempre complementado con indicadores visuales adicionales. Es adecuado para interfaces simples (calculadoras, reproductores de música), nunca para formularios complejos o dashboards con mucha información.
+Es una evolución del **skeuomorfismo** (imitación de texturas reales) que combina elementos del diseño plano con sombras suaves para crear la ilusión de que los elementos emergen o se hunden en el fondo. Se consigue mediante dos sombras: una clara en la parte superior izquierda y una oscura en la parte inferior derecha, sobre un fondo del mismo color. El efecto es plástico, táctil y suave. Sin embargo, presenta serios problemas de accesibilidad debido al bajo contraste, por lo que debe usarse con moderación y siempre complementado con indicadores visuales adicionales. Es adecuado para interfaces simples (calculadoras, reproductores de música), nunca para formularios complejos o dashboards con mucha información.
 
 ![Neumorfismo](./img/00/Neumorfismo.png)
 
@@ -313,13 +321,13 @@ Son momentos de interacción pequeños pero significativos que realizan tres fun
 
 **Motion Design**
 
-El movimiento en las interfaces debe tener propósito: guiar la atención, comunicar relaciones espaciales, proporcionar feedback y añadir personalidad. Los principios de Disney adaptados a interfaces (squash and stretch, anticipation, staging, follow-through) ayudan a crear animaciones naturales y fluidas. A nivel técnico, CSS ofrece `transition` para cambios entre estados, `animation` con `@keyframes` para secuencias más complejas, y las modernas `view-timeline` y `scroll-driven-animations` para animaciones vinculadas al scroll. En Angular, las animaciones se definen en los metadatos del componente mediante las funciones del paquete `@angular/animations`.
+El movimiento en las interfaces debe tener propósito: guiar la atención, comunicar relaciones espaciales, proporcionar feedback y añadir personalidad. Los **principios de Disney** adaptados a interfaces (squash and stretch, anticipation, staging, follow-through) ayudan a crear animaciones naturales y fluidas. A nivel técnico, CSS ofrece `transition` para cambios entre estados, `animation` con `@keyframes` para secuencias más complejas, y las modernas `view-timeline` y `scroll-driven-animations` para animaciones vinculadas al scroll. En Angular, las animaciones se definen en los metadatos del componente mediante las funciones del paquete `@angular/animations`.
 
 ![Motion Design](./img/00/MotionDesign.gif)
 
 **Diseño inclusivo**
 
-Va más allá de la accesibilidad técnica (WCAG). El diseño inclusivo busca crear productos que funcionen para la mayor diversidad posible de personas, independientemente de su edad, género, cultura, capacidad, idioma o contexto. Implica considerar situaciones como: uso con una sola mano, visión reducida por luz solar, daltonismo, dislexia, conexiones lentas, dispositivos antiguos, bajo alfabetismo digital, diferencias culturales en el significado de colores e iconos, etc. Microsoft ha sido pionera en esta filosofía con su Inclusive Design Toolkit.
+Va más allá de la accesibilidad técnica (**WCAG**). El diseño inclusivo busca crear productos que funcionen para la mayor diversidad posible de personas, independientemente de su edad, género, cultura, capacidad, idioma o contexto. Implica considerar situaciones como: uso con una sola mano, visión reducida por luz solar, daltonismo, dislexia, conexiones lentas, dispositivos antiguos, bajo alfabetismo digital, diferencias culturales en el significado de colores e iconos, etc. Microsoft ha sido pionera en esta filosofía con su Inclusive Design Toolkit.
 
 ![Diseño Inclusivo](./img/00/DiseñoInclusivo.png)
 
@@ -329,7 +337,7 @@ La inteligencia artificial está transformando el desarrollo de interfaces en m�
 
 ### 6. Ecosistema Angular
 
-Angular es un framework de desarrollo de aplicaciones web de código abierto mantenido por Google y una amplia comunidad. A diferencia de bibliotecas como React (que se centra exclusivamente en la capa de vista), Angular es un framework completo (*batteries included*) que proporciona soluciones integradas para casi todas las necesidades del desarrollo frontend moderno: renderizado de vistas, enrutamiento, gestión de estado, comunicación HTTP, validación de formularios, internacionalización (i18n), animaciones y testing.
+Angular es un framework de desarrollo de aplicaciones web de código abierto mantenido por Google y una amplia comunidad. A diferencia de bibliotecas como React (que se centra exclusivamente en la capa de vista), Angular es un **framework completo** (*batteries included*) que proporciona soluciones integradas para casi todas las necesidades del desarrollo frontend moderno: renderizado de vistas, enrutamiento, gestión de estado, comunicación HTTP, validación de formularios, internacionalización (i18n), animaciones y testing.
 
 **Filosofía y posicionamiento**
 
@@ -343,7 +351,7 @@ Un componente en Angular es una clase TypeScript decorada con `@Component` que e
 - Lógica de presentación (propiedades, métodos, manejadores de eventos).
 - Metadatos (selector CSS, animaciones, proveedores de servicios).
 
-Los componentes se organizan en módulos (NgModules) o, desde Angular 14, pueden ser Standalone Components (componentes autónomos que no requieren un módulo padre). Esta última opción, que utilizaremos en este módulo, simplifica la estructura del proyecto y lo acerca a la experiencia de React o Vue.
+Los componentes se organizan en módulos (NgModules) o, desde Angular 14, pueden ser **Standalone Components** (componentes autónomos que no requieren un módulo padre). Esta última opción, que utilizaremos en este módulo, simplifica la estructura del proyecto y lo acerca a la experiencia de React o Vue.
 
 
 ```typescript
@@ -366,7 +374,7 @@ export class CardComponent {
 
 **Enrutamiento**
 
-Angular proporciona un sistema de enrutamiento integrado que permite la navegación entre vistas sin recarga completa de página, con soporte para carga perezosa (lazy loading) de módulos, guards que protegen rutas según condiciones (autenticación, roles), resolvers que precargan datos antes de activar una ruta, y paso de parámetros por URL, query string o estado de navegación.
+Angular proporciona un sistema de enrutamiento integrado que permite la navegación entre vistas sin recarga completa de página, con soporte para carga perezosa (lazy loading) de módulos, **guards** que protegen rutas según condiciones (autenticación, roles), **resolvers** que precargan datos antes de activar una ruta, y paso de parámetros por URL, query string o estado de navegación.
 
 **Servicios e inyección de dependencias**
 
@@ -374,15 +382,15 @@ La lógica de negocio, la comunicación con APIs, la gestión de estado comparti
 
 **Angular Signals**
 
-Introducidos en Angular 16 y estabilizados en versiones posteriores, los Signals representan un nuevo modelo de reactividad en Angular. Un Signal es un envoltorio alrededor de un valor que notifica a los consumidores cuando cambia. A diferencia de RxJS (que sigue siendo compatible y recomendado para flujos asíncronos complejos), los Signals ofrecen una reactividad más simple y granular, con detección de cambios más eficiente. Se crean con `signal(valorInicial)`, se leen como función (`miSignal()`) y se actualizan con `set`, `update` o `mutate`. Los Signals son la dirección futura de Angular y deben dominarse.
+Introducidos en Angular 16 y estabilizados en versiones posteriores, los **Signals** representan un nuevo modelo de reactividad en Angular. Un Signal es un envoltorio alrededor de un valor que notifica a los consumidores cuando cambia. A diferencia de RxJS (que sigue siendo compatible y recomendado para flujos asíncronos complejos), los Signals ofrecen una reactividad más simple y granular, con detección de cambios más eficiente. Se crean con `signal(valorInicial)`, se leen como función (`miSignal()`) y se actualizan con `set`, `update` o `mutate`. Los Signals son la dirección futura de Angular y deben dominarse.
 
 **Angular Material y CDK**
 
-Angular Material es la implementación oficial de Material Design de Google para Angular. Proporciona componentes de interfaz de alta calidad, accesibles y probados en batalla: botones, tarjetas, diálogos, tablas, menús, formularios y más. El Component Dev Kit (CDK), por su parte, proporciona primitivas de comportamiento (arrastrar y soltar, overlay, scrolling virtual, clipboard, etc.) sin imponer un estilo visual, permitiendo crear componentes personalizados con interacciones complejas. Usaremos Angular Material en la segunda mitad del módulo, una vez dominemos la construcción de componentes desde cero con Tailwind CSS.
+**Angular Material** es la implementación oficial de Material Design de Google para Angular. Proporciona componentes de interfaz de alta calidad, accesibles y probados en batalla: botones, tarjetas, diálogos, tablas, menús, formularios y más. El **Component Dev Kit (CDK)**, por su parte, proporciona primitivas de comportamiento (arrastrar y soltar, overlay, scrolling virtual, clipboard, etc.) sin imponer un estilo visual, permitiendo crear componentes personalizados con interacciones complejas. Usaremos Angular Material en la segunda mitad del módulo, una vez dominemos la construcción de componentes desde cero con Tailwind CSS.
 
 ### 7. Diseño Centrado en el Usuario (UCD)
 
-El Diseño Centrado en el Usuario (User-Centered Design, UCD) es una filosofía y un proceso de diseño que sitúa al usuario en el centro de todas las decisiones. No se trata de preguntarle al usuario qué quiere (Henry Ford dijo: "si hubiera preguntado a la gente qué querían, habrían dicho caballos más rápidos"), sino de comprender profundamente sus necesidades, comportamientos, contextos y limitaciones para diseñar soluciones que realmente funcionen para ellos. La ISO 9241-210 define el estándar internacional para el UCD.
+El **Diseño Centrado en el Usuario (User-Centered Design, UCD)** es una filosofía y un proceso de diseño que sitúa al usuario en el centro de todas las decisiones. No se trata de preguntarle al usuario qué quiere (Henry Ford dijo: "si hubiera preguntado a la gente qué querían, habrían dicho caballos más rápidos"), sino de comprender profundamente sus necesidades, comportamientos, contextos y limitaciones para diseñar soluciones que realmente funcionen para ellos. La **ISO 9241-210** define el estándar internacional para el UCD.
 
 **Fases del proceso UCD**
 
@@ -406,29 +414,31 @@ El Diseño Centrado en el Usuario (User-Centered Design, UCD) es una filosofía 
 
 - **Customer Journey Maps:** Visualizaciones del recorrido completo del usuario desde que descubre el producto hasta que alcanza su objetivo (y más allá), incluyendo todos los puntos de contacto, emociones, puntos de dolor y oportunidades de mejora en cada etapa.
 
-El UCD no es un añadido opcional ni un lujo. Los estudios demuestran consistentemente que la corrección de un problema de usabilidad detectado durante el desarrollo cuesta 10 veces más que si se detecta durante el diseño, y 100 veces más que si se detecta después del lanzamiento. Invertir en UCD es una de las decisiones más rentables en desarrollo de software.
+!!! info "Dato clave"
+
+    El UCD no es un añadido opcional ni un lujo. Los estudios demuestran consistentemente que la corrección de un problema de usabilidad detectado durante el desarrollo cuesta **10 veces** más que si se detecta durante el diseño, y **100 veces** más que si se detecta después del lanzamiento. ==Invertir en UCD es una de las decisiones más rentables en desarrollo de software.==
 
 ### 8. El rol del desarrollador de interfaces en equipos modernos
 
-El desarrollador de interfaces (o frontend developer) ocupa una posición estratégica en los equipos de desarrollo de productos digitales. Es el profesional responsable de implementar la capa de presentación, aquella con la que los usuarios interactúan directamente. Su trabajo conecta el diseño (UX/UI) con la ingeniería (backend, infraestructura), y debe dominar tanto los aspectos técnicos como tener sensibilidad para el diseño y la experiencia de usuario.
+El **desarrollador de interfaces** (o **frontend developer**) ocupa una posición estratégica en los equipos de desarrollo de productos digitales. Es el profesional responsable de implementar la capa de presentación, aquella con la que los usuarios interactúan directamente. Su trabajo conecta el diseño (UX/UI) con la ingeniería (backend, infraestructura), y debe dominar tanto los aspectos técnicos como tener sensibilidad para el diseño y la experiencia de usuario.
 
 **Competencias técnicas esenciales**
 
-- HTML5 semántico y accesible (ARIA, landmarks, roles).
-- CSS3 avanzado: Flexbox, Grid, animaciones, variables, responsive design con media queries y container queries.
-- JavaScript y TypeScript (tipos, interfaces, genéricos, programación funcional y reactiva).
+- **HTML5 semántico** y accesible (ARIA, landmarks, roles).
+- **CSS3 avanzado**: Flexbox, Grid, animaciones, variables, responsive design con media queries y container queries.
+- **JavaScript y TypeScript** (tipos, interfaces, genéricos, programación funcional y reactiva).
 - Al menos un framework/librería principal (Angular en nuestro caso, pero también React, Vue, Svelte).
-- Control de versiones con Git y plataformas como GitHub o GitLab.
-- Testing: unitario (Karma/Jasmine en Angular), de componentes (Testing Library), de integración, end-to-end (Cypress, Playwright).
-- Herramientas de build: Webpack, Vite, esbuild.
-- Principios de rendimiento: lazy loading, code splitting, optimización de imágenes, métricas Core Web Vitals.
+- **Control de versiones** con Git y plataformas como GitHub o GitLab.
+- **Testing**: unitario (Karma/Jasmine en Angular), de componentes (Testing Library), de integración, end-to-end (Cypress, Playwright).
+- **Herramientas de build**: Webpack, Vite, esbuild.
+- **Principios de rendimiento**: lazy loading, code splitting, optimización de imágenes, métricas Core Web Vitals.
 
 **Competencias transversales**
 
-- Comunicación efectiva: explicar decisiones técnicas a diseñadores, traducir requisitos de diseño en especificaciones técnicas, argumentar sobre viabilidad.
-- Colaboración multidisciplinar: trabajar en equipo con diseñadores, product managers, desarrolladores backend, especialistas en QA y DevOps.
-- Resolución de problemas y pensamiento crítico: capacidad para analizar problemas, descomponerlos y diseñar soluciones.
-- Aprendizaje continuo: la tecnología frontend evoluciona más rápido que cualquier otra área del desarrollo. La capacidad de aprender de forma autónoma no es negociable.
+- **Comunicación efectiva**: explicar decisiones técnicas a diseñadores, traducir requisitos de diseño en especificaciones técnicas, argumentar sobre viabilidad.
+- **Colaboración multidisciplinar**: trabajar en equipo con diseñadores, product managers, desarrolladores backend, especialistas en QA y DevOps.
+- **Resolución de problemas y pensamiento crítico**: capacidad para analizar problemas, descomponerlos y diseñar soluciones.
+- **Aprendizaje continuo**: la tecnología frontend evoluciona más rápido que cualquier otra área del desarrollo. La capacidad de aprender de forma autónoma no es negociable.
 
 **Colaboración con otros perfiles**
 
@@ -449,25 +459,25 @@ El módulo de Desarrollo de Interfaces se imparte en el segundo curso del Ciclo 
 - **Acceso a Datos:** Proporciona las APIs REST y GraphQL que consumiremos desde nuestras interfaces Angular.
 - **Sistemas de Gestión Empresarial (SGE):** Las interfaces que desarrollemos deben integrarse en sistemas empresariales completos.
 
-## Casos reales
+!!! example "Casos reales"
 
-### Caso 1: La transformación digital de Genially
+    ### Caso 1: La transformación digital de Genially
 
-Genially, empresa cordobesa fundada en 2015, desarrolla una plataforma web para crear contenidos interactivos y presentaciones. Con más de 30 millones de usuarios en 190 países, es uno de los casos de éxito más notables del ecosistema tecnológico andaluz. Su stack tecnológico ha evolucionado desde una aplicación PHP + jQuery hasta una arquitectura moderna basada en React + TypeScript, con un sistema de diseño propio documentado en Storybook y diseños gestionados en Figma.
+    **Genially**, empresa cordobesa fundada en 2015, desarrolla una plataforma web para crear contenidos interactivos y presentaciones. Con más de 30 millones de usuarios en 190 países, es uno de los casos de éxito más notables del ecosistema tecnológico andaluz. Su stack tecnológico ha evolucionado desde una aplicación PHP + jQuery hasta una arquitectura moderna basada en React + TypeScript, con un sistema de diseño propio documentado en **Storybook** y diseños gestionados en Figma.
 
-Para un desarrollador de interfaces, Genially ejemplifica los desafíos de escalar una interfaz web: miles de plantillas con editores drag-and-drop, renderizado en tiempo real de animaciones complejas, exportación a múltiples formatos (HTML, PDF, SCORM), colaboración en tiempo real entre múltiples usuarios (similar a Figma o Google Docs). Su equipo de frontend aplica rigurosos principios de accesibilidad WCAG 2.1 AA y performance (LCP < 2.5s, TBT < 300ms en dispositivos de gama media).
+    Para un desarrollador de interfaces, Genially ejemplifica los desafíos de escalar una interfaz web: miles de plantillas con editores drag-and-drop, renderizado en tiempo real de animaciones complejas, exportación a múltiples formatos (HTML, PDF, SCORM), colaboración en tiempo real entre múltiples usuarios (similar a Figma o Google Docs). Su equipo de frontend aplica rigurosos principios de accesibilidad **WCAG 2.1 AA** y performance (LCP < 2.5s, TBT < 300ms en dispositivos de gama media).
 
-### Caso 2: La interfaz de administración de una cooperativa agrícola
+    ### Caso 2: La interfaz de administración de una cooperativa agrícola
 
-Imaginemos una cooperativa de aceite de oliva en Jaén que necesita digitalizar su gestión. Requieren una interfaz para control de producción (entrada de aceituna, rendimiento, trazabilidad), gestión de almacén, facturación y relaciones con agricultores. Los usuarios tienen entre 40 y 65 años, con baja alfabetización digital, y trabajarán con tablets en entornos con polvo, poca luz y conexión intermitente (zonas rurales de sierra).
+    Imaginemos una cooperativa de aceite de oliva en Jaén que necesita digitalizar su gestión. Requieren una interfaz para control de producción (entrada de aceituna, rendimiento, trazabilidad), gestión de almacén, facturación y relaciones con agricultores. Los usuarios tienen entre 40 y 65 años, con baja alfabetización digital, y trabajarán con tablets en entornos con polvo, poca luz y conexión intermitente (zonas rurales de sierra).
 
-Este caso ilustra la aplicación de los principios vistos en la unidad:
+    Este caso ilustra la aplicación de los principios vistos en la unidad:
 
-- **UCD:** Realizamos entrevistas con los agricultores en sus almazaras, observamos su jornada laboral para entender sus flujos reales.
+    - **UCD:** Realizamos entrevistas con los agricultores en sus almazaras, observamos su jornada laboral para entender sus flujos reales.
 
-- **Diseño inclusivo:** Tipografía legible a 1.5-2 metros, targets táctiles de mínimo 48x48px, alto contraste, modo offline (PWA con service workers), interfaces simplificadas con solo las opciones esenciales, lenguaje en español llano sin tecnicismos.
+    - **Diseño inclusivo:** Tipografía legible a 1.5-2 metros, targets táctiles de mínimo 48x48px, alto contraste, modo offline (PWA con service workers), interfaces simplificadas con solo las opciones esenciales, lenguaje en español llano sin tecnicismos.
 
-- **Elección tecnológica:** Aplicación web (accesible desde cualquier dispositivo sin instalación) pero con funcionalidad PWA para offline. Angular proporciona la estructura robusta que una aplicación de gestión necesita. Tailwind garantiza consistencia visual. Electron permite distribuir una versión de escritorio para los ordenadores de oficina.
+    - **Elección tecnológica:** Aplicación web (accesible desde cualquier dispositivo sin instalación) pero con funcionalidad PWA para offline. Angular proporciona la estructura robusta que una aplicación de gestión necesita. Tailwind garantiza consistencia visual. Electron permite distribuir una versión de escritorio para los ordenadores de oficina.
 
 ## Ejemplos guiados
 
@@ -692,69 +702,69 @@ Cada grupo presenta su persona y escenario. El resto valora si los datos de inve
 
 **Criterios de evaluación:** (1) Rigor en la aplicación de las técnicas UCD. (2) Calidad de las personas (basadas en datos, no en suposiciones). (3) Pertinencia y creatividad de las soluciones propuestas. -->
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Actividad de ampliación 1: Análisis de interfaces de videojuegos
+    ### Actividad de ampliación 1: Análisis de interfaces de videojuegos
 
-<!-- Los videojuegos representan un laboratorio de interfaces de usuario extremadamente rico y diverso. Elige un videojuego que conozcas bien y analiza su interfaz siguiendo este esquema: (1) Tipos de interfaz que combina (GUI para el HUD, NUI para los controles, posiblemente VUI en juegos con comandos de voz). (2) Elementos del HUD: analiza cada elemento (barra de vida, minimapa, inventario, indicadores de misión) explicando qué información comunica y por qué es necesaria para la experiencia de juego. (3) Diegética vs no diegética: clasifica los elementos de interfaz según estén dentro del mundo del juego (diegéticos, como la interfaz del traje en Dead Space) o fuera de él (no diegéticos, como la barra de vida en pantalla). (4) Microinteracciones y feedback: analiza cómo el juego comunica acciones al jugador (animaciones de daño, sonidos de recogida de objetos, vibración del mando). (5) Accesibilidad: investiga las opciones de accesibilidad del juego y relaciónalas con los principios WCAG adaptados a videojuegos. Entrega un informe en formato presentación (PDF) de 10-15 diapositivas con abundantes capturas. -->
+    <!-- Los videojuegos representan un laboratorio de interfaces de usuario extremadamente rico y diverso. Elige un videojuego que conozcas bien y analiza su interfaz siguiendo este esquema: (1) Tipos de interfaz que combina (GUI para el HUD, NUI para los controles, posiblemente VUI en juegos con comandos de voz). (2) Elementos del HUD: analiza cada elemento (barra de vida, minimapa, inventario, indicadores de misión) explicando qué información comunica y por qué es necesaria para la experiencia de juego. (3) Diegética vs no diegética: clasifica los elementos de interfaz según estén dentro del mundo del juego (diegéticos, como la interfaz del traje en Dead Space) o fuera de él (no diegéticos, como la barra de vida en pantalla). (4) Microinteracciones y feedback: analiza cómo el juego comunica acciones al jugador (animaciones de daño, sonidos de recogida de objetos, vibración del mando). (5) Accesibilidad: investiga las opciones de accesibilidad del juego y relaciónalas con los principios WCAG adaptados a videojuegos. Entrega un informe en formato presentación (PDF) de 10-15 diapositivas con abundantes capturas. -->
 
-### Actividad de ampliación 2: Mini-investigación sobre TUI en el Internet of Things
+    ### Actividad de ampliación 2: Mini-investigación sobre TUI en el Internet of Things
 
-<!-- El Internet of Things (IoT) y las interfaces tangibles (TUI) están transformando la forma de interactuar con objetos cotidianos. Realiza una investigación documental sobre aplicaciones reales de TUI en IoT. Identifica y describe en detalle 3 productos o prototipos que utilicen TUI en contextos de IoT (por ejemplo: termostatos inteligentes con diales físicos que modifican parámetros digitales, lámparas inteligentes que cambian de color al girarlas físicamente, altavoces inteligentes con paneles táctiles, etc.). Para cada uno: describe la interacción, explica qué tecnologías la hacen posible (sensores, actuadores, protocolos de comunicación), e identifica ventajas de la TUI frente a una GUI tradicional para ese contexto. Concluye reflexionando sobre el futuro de las TUI en el hogar inteligente. Formato: artículo de blog de 1200-1500 palabras con imágenes y referencias. -->
+    <!-- El Internet of Things (IoT) y las interfaces tangibles (TUI) están transformando la forma de interactuar con objetos cotidianos. Realiza una investigación documental sobre aplicaciones reales de TUI en IoT. Identifica y describe en detalle 3 productos o prototipos que utilicen TUI en contextos de IoT (por ejemplo: termostatos inteligentes con diales físicos que modifican parámetros digitales, lámparas inteligentes que cambian de color al girarlas físicamente, altavoces inteligentes con paneles táctiles, etc.). Para cada uno: describe la interacción, explica qué tecnologías la hacen posible (sensores, actuadores, protocolos de comunicación), e identifica ventajas de la TUI frente a una GUI tradicional para ese contexto. Concluye reflexionando sobre el futuro de las TUI en el hogar inteligente. Formato: artículo de blog de 1200-1500 palabras con imágenes y referencias. -->
 
-### Actividad de ampliación 3: Debate sobre el impacto de la IA en el desarrollo de interfaces
+    ### Actividad de ampliación 3: Debate sobre el impacto de la IA en el desarrollo de interfaces
 
-<!-- La inteligencia artificial generativa (ChatGPT, GitHub Copilot, v0.dev, Midjourney) está transformando el desarrollo de software y el diseño de interfaces. Algunos expertos predicen que los desarrolladores frontend y diseñadores UI serán reemplazados por IA en los próximos 5-10 años. Otros argumentan que la IA será una herramienta que aumentará la productividad pero no reemplazará a los profesionales humanos. Investiga argumentos de ambos lados (al menos 5 fuentes contrastadas, incluyendo artículos académicos, informes de la industria y opiniones de expertos reconocidos) y escribe un ensayo argumentativo de 1500-2000 palabras donde expongas el estado de la cuestión, los argumentos a favor y en contra, y finalmente tu posición personal razonada sobre cómo crees que evolucionará la profesión de desarrollador de interfaces en los próximos 10 años. Incluye una sección específica sobre las competencias que consideras que serán más valiosas en ese futuro escenario y cómo te estás preparando (o deberías prepararte) para ello. -->
+    <!-- La inteligencia artificial generativa (ChatGPT, GitHub Copilot, v0.dev, Midjourney) está transformando el desarrollo de software y el diseño de interfaces. Algunos expertos predicen que los desarrolladores frontend y diseñadores UI serán reemplazados por IA en los próximos 5-10 años. Otros argumentan que la IA será una herramienta que aumentará la productividad pero no reemplazará a los profesionales humanos. Investiga argumentos de ambos lados (al menos 5 fuentes contrastadas, incluyendo artículos académicos, informes de la industria y opiniones de expertos reconocidos) y escribe un ensayo argumentativo de 1500-2000 palabras donde expongas el estado de la cuestión, los argumentos a favor y en contra, y finalmente tu posición personal razonada sobre cómo crees que evolucionará la profesión de desarrollador de interfaces en los próximos 10 años. Incluye una sección específica sobre las competencias que consideras que serán más valiosas en ese futuro escenario y cómo te estás preparando (o deberías prepararte) para ello. -->
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Diseña para el usuario, no para ti mismo.** El desarrollador de interfaces no es el usuario. Tus preferencias estéticas, tu familiaridad con la tecnología y tu contexto de uso son radicalmente diferentes a los de la mayoría de usuarios. Valida siempre con usuarios reales.
+    1. **Diseña para el usuario, no para ti mismo.** El desarrollador de interfaces no es el usuario. Tus preferencias estéticas, tu familiaridad con la tecnología y tu contexto de uso son radicalmente diferentes a los de la mayoría de usuarios. Valida siempre con usuarios reales.
 
-2. **Comienza siempre con un análisis, nunca con el código.** Antes de abrir VS Code, debes tener claro: ¿quién usará esto? ¿qué tarea necesita completar? ¿en qué contexto? ¿qué dispositivos usará? Documenta estas respuestas, aunque sean breves, antes de implementar.
+    2. **Comienza siempre con un análisis, nunca con el código.** Antes de abrir VS Code, debes tener claro: ¿quién usará esto? ¿qué tarea necesita completar? ¿en qué contexto? ¿qué dispositivos usará? Documenta estas respuestas, aunque sean breves, antes de implementar.
 
-3. **Mantén la consistencia como principio fundamental.** Cada decisión de diseño (color, tipografía, espaciado, nomenclatura, interacción) debe ser consistente a lo largo de toda la aplicación. Las inconsistencias generan confusión, aumentan la carga cognitiva y transmiten falta de profesionalidad.
+    3. **Mantén la consistencia como principio fundamental.** Cada decisión de diseño (color, tipografía, espaciado, nomenclatura, interacción) debe ser consistente a lo largo de toda la aplicación. Las inconsistencias generan confusión, aumentan la carga cognitiva y transmiten falta de profesionalidad.
 
-4. **No confundas tendencia con buena práctica.** Que algo esté de moda (neumorfismo, animaciones excesivas, scroll hijacking) no significa que sea beneficioso para el usuario. Evalúa cada tendencia críticamente: ¿mejora la usabilidad? ¿Reduce la carga cognitiva? ¿Funciona para todos los usuarios?
+    4. **No confundas tendencia con buena práctica.** Que algo esté de moda (neumorfismo, animaciones excesivas, scroll hijacking) no significa que sea beneficioso para el usuario. Evalúa cada tendencia críticamente: ¿mejora la usabilidad? ¿Reduce la carga cognitiva? ¿Funciona para todos los usuarios?
 
-5. **Involucra a los usuarios durante todo el proceso.** El UCD no consiste en preguntar al inicio y olvidarse. Cada iteración de diseño debe validarse con usuarios. Cuanto antes detectes un problema, más barato será solucionarlo.
+    5. **Involucra a los usuarios durante todo el proceso.** El UCD no consiste en preguntar al inicio y olvidarse. Cada iteración de diseño debe validarse con usuarios. Cuanto antes detectes un problema, más barato será solucionarlo.
 
-6. **Piensa en accesibilidad desde el minuto cero.** La accesibilidad no es un checklist que se revisa al final del proyecto. Integrarla desde el diseño evita costosos rediseños y amplía tu base de usuarios (el 15% de la población mundial tiene alguna discapacidad). Además, muchas mejoras de accesibilidad benefician a todos los usuarios (subtítulos en entornos ruidosos, alto contraste bajo luz solar, navegación por teclado cuando falla el ratón).
+    6. **Piensa en accesibilidad desde el minuto cero.** La accesibilidad no es un checklist que se revisa al final del proyecto. Integrarla desde el diseño evita costosos rediseños y amplía tu base de usuarios (el 15% de la población mundial tiene alguna discapacidad). Además, muchas mejoras de accesibilidad benefician a todos los usuarios (subtítulos en entornos ruidosos, alto contraste bajo luz solar, navegación por teclado cuando falla el ratón).
 
-7. **Documenta tus decisiones de diseño.** Las decisiones de UX/UI no deben ser arbitrarias. Mantén un registro (puede ser un simple documento o un archivo Figma) donde expliques por qué elegiste ciertos colores, por qué estructuraste la navegación de esa manera, por qué priorizaste ciertas funcionalidades. Esto facilita la incorporación de nuevos miembros al equipo y la toma de decisiones futuras.
+    7. **Documenta tus decisiones de diseño.** Las decisiones de UX/UI no deben ser arbitrarias. Mantén un registro (puede ser un simple documento o un archivo Figma) donde expliques por qué elegiste ciertos colores, por qué estructuraste la navegación de esa manera, por qué priorizaste ciertas funcionalidades. Esto facilita la incorporación de nuevos miembros al equipo y la toma de decisiones futuras.
 
-8. **Aprende a leer código ajeno y a trabajar con código heredado.** En tu carrera profesional, pasarás mucho más tiempo leyendo, modificando y manteniendo código existente que escribiendo código desde cero. Acostúmbrate a analizar interfaces existentes y a entender por qué se implementaron de cierta manera, incluso si hoy harías algo diferente.
+    8. **Aprende a leer código ajeno y a trabajar con código heredado.** En tu carrera profesional, pasarás mucho más tiempo leyendo, modificando y manteniendo código existente que escribiendo código desde cero. Acostúmbrate a analizar interfaces existentes y a entender por qué se implementaron de cierta manera, incluso si hoy harías algo diferente.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Creer que UX y UI son lo mismo.** Es el error conceptual más común entre principiantes. UX es investigación, arquitectura y flujos; UI es color, tipografía y pixel-perfect. Ambas son necesarias, pero no son lo mismo. Si estás haciendo un diseño bonito en Figma, estás haciendo UI, no UX.
+    1. **Creer que UX y UI son lo mismo.** Es el error conceptual más común entre principiantes. UX es investigación, arquitectura y flujos; UI es color, tipografía y pixel-perfect. Ambas son necesarias, pero no son lo mismo. Si estás haciendo un diseño bonito en Figma, estás haciendo UI, no UX.
 
-2. **Ignorar al usuario y diseñar para uno mismo.** "A mí me parece intuitivo" es una frase peligrosa. Tú conoces el sistema porque lo has diseñado; el usuario llega sin ese conocimiento previo. Lo que es obvio para ti puede ser completamente opaco para un usuario real.
+    2. **Ignorar al usuario y diseñar para uno mismo.** "A mí me parece intuitivo" es una frase peligrosa. Tú conoces el sistema porque lo has diseñado; el usuario llega sin ese conocimiento previo. Lo que es obvio para ti puede ser completamente opaco para un usuario real.
 
-3. **Empezar a programar sin tener un diseño (ni siquiera un boceto).** Síndrome del "ya iré viendo sobre la marcha". Resultado: interfaces inconsistentes, decisiones de diseño tomadas sobre la marcha sin criterio, pérdida de tiempo refactorizando, insatisfacción del usuario.
+    3. **Empezar a programar sin tener un diseño (ni siquiera un boceto).** Síndrome del "ya iré viendo sobre la marcha". Resultado: interfaces inconsistentes, decisiones de diseño tomadas sobre la marcha sin criterio, pérdida de tiempo refactorizando, insatisfacción del usuario.
 
-4. **Subestimar las interfaces de línea de comandos como "cosa del pasado".** Las CLI son más rápidas, más automatizables y más eficientes en muchos contextos profesionales. Un desarrollador competente debe sentirse cómodo en la terminal.
+    4. **Subestimar las interfaces de línea de comandos como "cosa del pasado".** Las CLI son más rápidas, más automatizables y más eficientes en muchos contextos profesionales. Un desarrollador competente debe sentirse cómodo en la terminal.
 
-5. **Aplicar tendencias de diseño sin criterio.** El neumorfismo es bonito pero inaccesible. El glassmorphism es elegante pero puede afectar al rendimiento (backdrop-filter es costoso). No uses una tendencia porque sí; úsala cuando resuelva un problema concreto de tu interfaz.
+    5. **Aplicar tendencias de diseño sin criterio.** El neumorfismo es bonito pero inaccesible. El glassmorphism es elegante pero puede afectar al rendimiento (backdrop-filter es costoso). No uses una tendencia porque sí; úsala cuando resuelva un problema concreto de tu interfaz.
 
-6. **No diferenciar entre aplicaciones nativas, web apps y PWA.** Elegir la tecnología incorrecta para el contexto de uso puede condenar un proyecto: una aplicación que necesita funcionar en zonas sin cobertura no puede ser una web app tradicional; una aplicación que necesita acceso a Bluetooth no puede ser una PWA básica.
+    6. **No diferenciar entre aplicaciones nativas, web apps y PWA.** Elegir la tecnología incorrecta para el contexto de uso puede condenar un proyecto: una aplicación que necesita funcionar en zonas sin cobertura no puede ser una web app tradicional; una aplicación que necesita acceso a Bluetooth no puede ser una PWA básica.
 
-7. **Confundir "minimalismo" con "eliminar funcionalidades útiles".** El minimalismo bien entendido elimina elementos visuales superfluos, no funcionalidades necesarias. Ocultar funciones en menús de hamburguesa o gestos secretos para mantener una interfaz "limpia" suele perjudicar la usabilidad (lo que Jakob Nielsen llamó "minimalismo extremo").
+    7. **Confundir "minimalismo" con "eliminar funcionalidades útiles".** El minimalismo bien entendido elimina elementos visuales superfluos, no funcionalidades necesarias. Ocultar funciones en menús de hamburguesa o gestos secretos para mantener una interfaz "limpia" suele perjudicar la usabilidad (lo que Jakob Nielsen llamó "minimalismo extremo").
 
-8. **Olvidar que las interfaces las usan personas reales con contextos reales.** Es fácil diseñar en un monitor 4K de 27 pulgadas, con fibra óptica simétrica y en una habitación silenciosa. Pero tu usuario puede estar consultando tu aplicación en un móvil de gama media, con luz solar directa sobre la pantalla, conectado por 4G con una cobertura justa y con una mano mientras sujeta una bolsa de la compra con la otra. Diseña para ese usuario, no para tu setup de desarrollo.
+    8. **Olvidar que las interfaces las usan personas reales con contextos reales.** Es fácil diseñar en un monitor 4K de 27 pulgadas, con fibra óptica simétrica y en una habitación silenciosa. Pero tu usuario puede estar consultando tu aplicación en un móvil de gama media, con luz solar directa sobre la pantalla, conectado por 4G con una cobertura justa y con una mano mientras sujeta una bolsa de la compra con la otra. Diseña para ese usuario, no para tu setup de desarrollo.
 
-## Resumen
+!!! abstract "Resumen"
 
-Esta unidad ha establecido los cimientos conceptuales sobre los que construiremos todo el módulo. Hemos definido qué es una interfaz de usuario y clasificado sus tipos (GUI, CLI, VUI, NUI, TUI), recorrido la fascinante evolución de las interfaces desde la línea de comandos hasta la IA conversacional, y delimitado claramente las disciplinas de UX y UI, que a menudo se confunden pero responden a preguntas fundamentalmente diferentes.
+    Esta unidad ha establecido los cimientos conceptuales sobre los que construiremos todo el módulo. Hemos definido qué es una interfaz de usuario y clasificado sus tipos (GUI, CLI, VUI, NUI, TUI), recorrido la fascinante evolución de las interfaces desde la línea de comandos hasta la IA conversacional, y delimitado claramente las disciplinas de UX y UI, que a menudo se confunden pero responden a preguntas fundamentalmente diferentes.
 
-Hemos explorado el panorama de las interfaces web y multiplataforma, con especial atención a las PWA como puente entre web y nativo, y a Electron como tecnología clave para llevar nuestras habilidades web al escritorio. Las tendencias actuales —neumorfismo, glassmorphism, modo oscuro, microinteracciones, diseño inclusivo— nos proporcionan un vocabulario visual amplio, pero deben aplicarse con criterio, situando siempre las necesidades del usuario por encima de la moda.
+    Hemos explorado el panorama de las interfaces web y multiplataforma, con especial atención a las **PWA** como puente entre web y nativo, y a **Electron** como tecnología clave para llevar nuestras habilidades web al escritorio. Las tendencias actuales —neumorfismo, glassmorphism, modo oscuro, microinteracciones, diseño inclusivo— nos proporcionan un vocabulario visual amplio, pero deben aplicarse con criterio, situando siempre las necesidades del usuario por encima de la moda.
 
-Hemos situado a Angular en el ecosistema de desarrollo de interfaces: un framework completo, enterprise-grade, que nos acompañará durante todo el módulo como herramienta principal de implementación. Su modelo de componentes, su sistema de enrutamiento, sus servicios inyectables y sus Signals conformarán nuestro arsenal técnico.
+    Hemos situado a Angular en el ecosistema de desarrollo de interfaces: un **framework completo**, enterprise-grade, que nos acompañará durante todo el módulo como herramienta principal de implementación. Su modelo de componentes, su sistema de enrutamiento, sus servicios inyectables y sus Signals conformarán nuestro arsenal técnico.
 
-El Diseño Centrado en el Usuario nos ha proporcionado un marco metodológico riguroso para no perder nunca de vista al destinatario final de nuestro trabajo: investigar, diseñar, prototipar, testear e iterar. Personas, escenarios, mapas de empatía y tests de usabilidad son herramientas concretas para aplicar este enfoque.
+    El Diseño Centrado en el Usuario nos ha proporcionado un marco metodológico riguroso para no perder nunca de vista al destinatario final de nuestro trabajo: investigar, diseñar, prototipar, testear e iterar. Personas, escenarios, mapas de empatía y tests de usabilidad son herramientas concretas para aplicar este enfoque.
 
-Finalmente, hemos reflexionado sobre nuestro futuro rol profesional como desarrolladores de interfaces, identificando las competencias técnicas y transversales necesarias y cómo este módulo se integra con el resto del currículo DAM.
+    Finalmente, hemos reflexionado sobre nuestro futuro rol profesional como desarrolladores de interfaces, identificando las competencias técnicas y transversales necesarias y cómo este módulo se integra con el resto del currículo DAM.
 
-En las siguientes unidades pasaremos de la teoría a la práctica: configuraremos nuestro entorno de desarrollo, dominaremos Figma para el diseño de interfaces, construiremos layouts profesionales con Tailwind CSS y CSS Grid, y recorreremos el camino completo desde un diseño en Figma hasta una aplicación funcional en Angular.
+    En las siguientes unidades pasaremos de la teoría a la práctica: configuraremos nuestro entorno de desarrollo, dominaremos Figma para el diseño de interfaces, construiremos layouts profesionales con Tailwind CSS y CSS Grid, y recorreremos el camino completo desde un diseño en Figma hasta una aplicación funcional en Angular.
 
 ## Recursos complementarios
 

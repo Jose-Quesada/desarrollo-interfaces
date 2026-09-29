@@ -11,7 +11,7 @@
 # The site_name is shown in the page header and the browser window title
 #
 # Read more: https://zensical.org/docs/setup/basics/#site_name
-site_name = "Curso de Angular"
+site_name = "Desarrollo de Interfaces - DAM"
 
 # The site_description is included in the HTML head and should contain a
 # meaningful description of the site content for use by search engines.
@@ -46,27 +46,29 @@ Copyright &copy; 2026 The authors
 # Read more: https://zensical.org/docs/setup/navigation/
 # Añade el menú aquí, con este nuevo formato:
 nav = [
-  { "00.Introduccion" = "index.md"},
+  { "00.Introducción" = "index.md"},
   { "01.UX" = "01-ux.md"},
   { "02.Accesibilidad" = "02-accesibilidad.md"},
-#  { "03.Interfaces Naturales" = "03-interfaces-naturales.md"},
-#  { "02-crear-proyecto-instalaciones" = "02-ecosistema-frontend.md"},
-
-#  { "04-plantillas-tailwind" = "04-layouts-modernos.md"},
-#  { "05-diseño-a-implementacion-figma-tailwind-angular" = "05-diseno-a-implementacion.md"},
-#  { "06-arquitectura-angular" = "06-arquitectura-angular.md"},
-#  { "07-componentes-reutilizables-angular" = "07-componentes-reutilizables.md"},
-#  { "08-formularios-interaccion-angular" = "08-formularios-interaccion.md"},
-#  { "09-design-systems-aplicado-angular" = "09-design-systems.md"},
-#  { "10-storybook-angular" = "10-storybook.md"},
-#  { "13-tailwindcss4" = "13-tailwindcss4.md"},
-#  { "14-componentes-tailwind" = "14-componentes-tailwind.md"},
-#  { "15-responsive-design-tailwind" = "15-responsive-design.md"},
-#  { "16-generacion-informes" = "16-generacion-informes.md"},
-#  { "17-dashboards-exportacion-datos" = "17-dashboards-exportacion-datos.md"},
-#  { "18-electron" = "18-electron.md"},
-#  { "19-empaquetado-distribucion" = "19-empaquetado-distribucion.md"},
-# { "20-proyecto-final" = "20-proyecto-final.md"},
+  { "03.Interfaces Naturales" = "03-interfaces-naturales.md"},
+#  { "04.Figma" = "04-figma.md"},
+#  { "05.Layouts Modernos" = "05-layouts-modernos.md"},
+#  { "06.Tailwind CSS 4" = "06-tailwindcss4.md"},
+#  { "07.Componentes Tailwind" = "07-componentes-tailwind.md"},
+#  { "08.Responsive Design" = "08-responsive-design.md"},
+#  { "09.Ecosistema Frontend" = "09-ecosistema-frontend.md"},
+#  { "10.Arquitectura Angular" = "10-arquitectura-angular.md"},
+#  { "11.Componentes Reutilizables" = "11-componentes-reutilizables.md"},
+#  { "12.Formularios e Interacción" = "12-formularios-interaccion.md"},
+#  { "13.Design Systems" = "13-design-systems.md"},
+#  { "14.Storybook" = "14-storybook.md"},
+#  { "15.Diseño a Implementación" = "15-diseno-a-implementacion.md"},
+#  { "16.Generación de Informes" = "16-generacion-informes.md"},
+#  { "17.Dashboards y Datos" = "17-dashboards-exportacion-datos.md"},
+#  { "18.Documentación de Aplicaciones" = "18-documentacion-aplicaciones.md"},
+#  { "19.Pruebas de Software" = "19-pruebas-de-software.md"},
+#  { "20.Electron" = "20-electron.md"},
+#  { "21.Empaquetado y Distribución" = "21-empaquetado-distribucion.md"},
+# { "22.Proyecto Final" = "22-proyecto-final.md"},
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize

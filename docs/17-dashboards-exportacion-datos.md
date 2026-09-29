@@ -1,17 +1,21 @@
+---
+icon: lucide/layout-dashboard
+---
+
 # Dashboards y Visualización de Datos
 
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
 
-1. Comprender qué es un dashboard empresarial, su propósito como panel de control para la toma de decisiones basada en datos, y los principios fundamentales de diseño que lo diferencian de una simple colección de gráficos.
-2. Dominar la librería Chart.js como herramienta principal para la creación de gráficos interactivos en aplicaciones Angular, incluyendo todos los tipos de gráficos disponibles, su configuración detallada y los criterios para elegir el tipo de gráfico adecuado según los datos a visualizar y la historia que se quiere contar.
-3. Conocer y utilizar ApexCharts como alternativa moderna a Chart.js, valorando sus ventajas en cuanto a interactividad, estética por defecto, tipos de gráficos adicionales (radialBar, heatmap, treemap) y soporte nativo para modo oscuro.
-4. Integrar gráficos en componentes Angular de forma reactiva utilizando Signals, gestionando correctamente el ciclo de vida de las instancias de Chart.js (inicialización en ngAfterViewInit, actualización reactiva con chart.update(), destrucción en ngOnDestroy).
-5. Diseñar dashboards completos en Angular con layouts profesionales utilizando CSS Grid y Tailwind CSS, combinando diferentes tipos de widgets (tarjetas KPI, gráficos de diferentes tipos, tablas de datos, filtros temporales).
-6. Implementar componentes reutilizables para dashboards: StatCard (icono, valor numérico, tendencia porcentual), ChartWidget (gráfico genérico configurable mediante inputs) y DataTable (tabla con ordenación y paginación).
-7. Integrar la exportación de datos y gráficos desde el dashboard a formatos portables (CSV, Excel, PDF), incluyendo la captura de gráficos Chart.js como imágenes base64 para incrustar en PDFs generados con PDFMake.
-8. Aplicar principios de experiencia de usuario (UX) y accesibilidad en el diseño de dashboards, garantizando que la información es comprensible, la navegación es intuitiva y los gráficos son accesibles para usuarios con discapacidad visual (descripciones textuales alternativas, contraste de colores suficiente, no depender exclusivamente del color para transmitir información).
+1. Comprender qué es un **dashboard empresarial**, su propósito como panel de control para la toma de decisiones basada en datos, y los principios fundamentales de diseño que lo diferencian de una simple colección de gráficos.
+2. Dominar la librería **Chart.js** como herramienta principal para la creación de gráficos interactivos en aplicaciones Angular, incluyendo todos los tipos de gráficos disponibles, su configuración detallada y los criterios para elegir el tipo de gráfico adecuado según los datos a visualizar y la historia que se quiere contar.
+3. Conocer y utilizar **ApexCharts** como alternativa moderna a Chart.js, valorando sus ventajas en cuanto a interactividad, estética por defecto, tipos de gráficos adicionales (radialBar, heatmap, treemap) y soporte nativo para modo oscuro.
+4. Integrar gráficos en componentes Angular de forma reactiva utilizando **Signals**, gestionando correctamente el ciclo de vida de las instancias de Chart.js (inicialización en ngAfterViewInit, actualización reactiva con chart.update(), destrucción en ngOnDestroy).
+5. Diseñar dashboards completos en Angular con layouts profesionales utilizando **CSS Grid** y Tailwind CSS, combinando diferentes tipos de widgets (tarjetas KPI, gráficos de diferentes tipos, tablas de datos, filtros temporales).
+6. Implementar componentes reutilizables para dashboards: **StatCard** (icono, valor numérico, tendencia porcentual), **ChartWidget** (gráfico genérico configurable mediante inputs) y **DataTable** (tabla con ordenación y paginación).
+7. Integrar la exportación de datos y gráficos desde el dashboard a formatos portables (**CSV, Excel, PDF**), incluyendo la captura de gráficos Chart.js como imágenes base64 para incrustar en PDFs generados con **PDFMake**.
+8. Aplicar principios de experiencia de usuario (**UX**) y accesibilidad en el diseño de dashboards, garantizando que la información es comprensible, la navegación es intuitiva y los gráficos son accesibles para usuarios con discapacidad visual (descripciones textuales alternativas, contraste de colores suficiente, no depender exclusivamente del color para transmitir información).
 
 ## Resultado de aprendizaje asociado
 
@@ -21,25 +25,25 @@ Esta unidad contribuye, como RA principal, al **RA 5** del módulo profesional 0
 
 Criterios de evaluación oficiales que se trabajan en esta unidad:
 
-- CE b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
-- CE d) Se han incluido valores calculados, recuentos y totales.
-- CE e) Se han incluidos gráficos generados a partir de los datos.
+- **CE b)** Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+- **CE d)** Se han incluido valores calculados, recuentos y totales.
+- **CE e)** Se han incluidos gráficos generados a partir de los datos.
 
 Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad»):
 
-- CE g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
-- CE i) Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
+- **CE g)** Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+- **CE i)** Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
 
 > Nota: los dashboards y paneles de KPI son una forma de informe gráfico interactivo. Las librerías de visualización (Chart.js, ApexCharts, D3.js), la actualización reactiva de datos y la exportación (CSV/Excel/PDF) son las herramientas con las que se materializan estos criterios.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-- **Fundamentos de Angular**: componentes standalone, sistema de inyección de dependencias con `inject()`, ciclo de vida de los componentes (especialmente `ngOnInit`, `ngAfterViewInit` y `ngOnDestroy`), manejo de Signals para estado reactivo, directivas estructurales (`@for`, `@if`), pipes para formateo de datos.
-- **TypeScript avanzado**: interfaces para tipado de datos de gráficos, tipos genéricos para componentes reutilizables, tipos de unión para estados de carga/datos/error, funciones de transformación de datos tipadas.
-- **Maquetación avanzada con CSS**: dominio de CSS Grid para layouts de dashboard complejos, Flexbox para alineación y distribución, diseño responsive con media queries y enfoque Mobile First, uso de Tailwind CSS como framework de utilidades (clases `grid`, `grid-cols`, `col-span`, `gap`, `responsive:`).
-- **Manejo de datos asíncronos**: consumo de APIs REST con HttpClient, transformación de datos de API al formato requerido por las librerías de gráficos, manejo de estados de carga (loading), error y datos vacíos, RxJS básico (Observables, suscripciones y operadores como map, filter, switchMap).
-- **Principios básicos de estadística y visualización de datos**: comprensión de medidas de tendencia central (media, mediana, moda), medidas de dispersión (rango, desviación estándar), tipos de datos (categóricos, numéricos, temporales), relación entre tipo de dato y tipo de gráfico adecuado.
-- **Control de versiones con Git**: manejo de ramas, commits, gestión de dependencias externas con npm.
+    - **Fundamentos de Angular**: componentes standalone, sistema de inyección de dependencias con `inject()`, ciclo de vida de los componentes (especialmente `ngOnInit`, `ngAfterViewInit` y `ngOnDestroy`), manejo de Signals para estado reactivo, directivas estructurales (`@for`, `@if`), pipes para formateo de datos.
+    - **TypeScript avanzado**: interfaces para tipado de datos de gráficos, tipos genéricos para componentes reutilizables, tipos de unión para estados de carga/datos/error, funciones de transformación de datos tipadas.
+    - **Maquetación avanzada con CSS**: dominio de CSS Grid para layouts de dashboard complejos, Flexbox para alineación y distribución, diseño responsive con media queries y enfoque Mobile First, uso de Tailwind CSS como framework de utilidades (clases `grid`, `grid-cols`, `col-span`, `gap`, `responsive:`).
+    - **Manejo de datos asíncronos**: consumo de APIs REST con HttpClient, transformación de datos de API al formato requerido por las librerías de gráficos, manejo de estados de carga (loading), error y datos vacíos, RxJS básico (Observables, suscripciones y operadores como map, filter, switchMap).
+    - **Principios básicos de estadística y visualización de datos**: comprensión de medidas de tendencia central (media, mediana, moda), medidas de dispersión (rango, desviación estándar), tipos de datos (categóricos, numéricos, temporales), relación entre tipo de dato y tipo de gráfico adecuado.
+    - **Control de versiones con Git**: manejo de ramas, commits, gestión de dependencias externas con npm.
 
 ## Contenidos
 
@@ -149,7 +153,9 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
 
 ### 1. Introducción a los dashboards empresariales
 
-Un dashboard es mucho más que una colección de gráficos bonitos en una pantalla. En el contexto empresarial, un dashboard es una herramienta de apoyo a la toma de decisiones que presenta, de forma visual y consolidada, los indicadores clave de rendimiento (KPIs) y las métricas más relevantes para un rol específico dentro de la organización.
+!!! info "Definición"
+
+    Un **dashboard** es mucho más que una colección de gráficos bonitos en una pantalla. En el contexto empresarial, un dashboard es una herramienta de apoyo a la toma de decisiones que presenta, de forma visual y consolidada, los indicadores clave de rendimiento (**KPIs**) y las métricas más relevantes para un rol específico dentro de la organización.
 
 La diferencia fundamental entre un dashboard y un informe tradicional es la **inmediatez** y la **accionabilidad**. Un informe de 50 páginas en PDF puede contener información valiosísima, pero un directivo que necesita tomar una decisión en los próximos 5 minutos no tiene tiempo de leerlo. Un buen dashboard le da esa información de un vistazo, destacando lo anómalo (lo que requiere atención inmediata) y contextualizando lo normal (para que no despiste).
 
@@ -177,15 +183,15 @@ La clasificación más aceptada distingue tres tipos de dashboards según su pro
 
 #### 1.2. Principios de diseño de dashboards efectivos
 
-Edward Tufte, profesor emérito de la Universidad de Yale y pionero en el campo de la visualización de datos, estableció principios fundamentales que siguen siendo la base del diseño de dashboards modernos:
+**Edward Tufte**, profesor emérito de la Universidad de Yale y pionero en el campo de la visualización de datos, estableció principios fundamentales que siguen siendo la base del diseño de dashboards modernos:
 
 **Maximizar la proporción datos-tinta (data-ink ratio)**: De toda la "tinta" (píxeles en pantalla) utilizada para dibujar un gráfico, la mayor parte posible debe dedicarse a representar los datos, y la menor parte posible a elementos decorativos no informativos. En la práctica: eliminar fondos con gradientes, líneas de cuadrícula gruesas, bordes decorativos, sombras innecesarias, efectos 3D (que además distorsionan la percepción de las magnitudes), y cualquier elemento que no aporte información.
 
 **Eliminar el chartjunk**: Tufte acuñó este término para referirse a toda decoración superflua en gráficos que no comunica información pero distrae al espectador. Ejemplos clásicos: ilustraciones de fondo en gráficos, iconos repetitivos, texturas y patrones innecesarios, animaciones excesivas, gráficos en 3D (un gráfico de tarta en 3D distorsiona las proporciones porque la perspectiva hace que las porciones del frente parezcan más grandes).
 
-**Mostrar los datos, no presumir de diseño**: Un dashboard no es una obra de arte ni una demostración de habilidades con CSS. Su propósito es comunicar información de forma clara y eficiente. Si un elemento de diseño no ayuda a entender los datos, sobra.
+**Mostrar los datos, no presumir de diseño**: Un dashboard no es una obra de arte ni una demostración de habilidades con CSS. Su propósito es comunicar información de forma clara y eficiente. ==Si un elemento de diseño no ayuda a entender los datos, sobra.==
 
-Stephen Few, consultor especializado en visualización de datos y autor de "Information Dashboard Design", añade principios complementarios:
+**Stephen Few**, consultor especializado en visualización de datos y autor de "Information Dashboard Design", añade principios complementarios:
 
 **Información de un vistazo (at-a-glance)**: Un dashboard debe poder leerse en menos de 5 segundos. El ojo humano escanea en forma de "F" o "Z" (dependiendo de la cultura). La información más importante debe estar en la esquina superior izquierda. Los KPIs principales deben destacar visualmente (tamaño, color, posición).
 
@@ -233,7 +239,7 @@ Aunque cada dashboard se adapta a las necesidades específicas del negocio, exis
 
 ### 2. Chart.js en profundidad
 
-Chart.js es, con diferencia, la librería de gráficos más popular del ecosistema JavaScript, con más de 60.000 estrellas en GitHub y una comunidad extremadamente activa. Su versión 4 (la actual) es un rediseño significativo respecto a la versión 3, con mejor soporte de TypeScript, tree shaking, rendimiento mejorado y una API más consistente.
+**Chart.js** es, con diferencia, la librería de gráficos más popular del ecosistema JavaScript, con más de 60.000 estrellas en GitHub y una comunidad extremadamente activa. Su versión 4 (la actual) es un rediseño significativo respecto a la versión 3, con mejor soporte de TypeScript, tree shaking, rendimiento mejorado y una API más consistente.
 
 #### 2.1. Instalación y primera configuración
 
@@ -243,7 +249,7 @@ En un proyecto Angular standalone, la instalación es trivial:
 npm install chart.js
 ```
 
-Chart.js se importa como un módulo ES6. Para aprovechar el tree shaking y reducir el tamaño del bundle, se recomienda importar y registrar solo los componentes que se vayan a utilizar:
+Chart.js se importa como un módulo ES6. Para aprovechar el **tree shaking** y reducir el tamaño del bundle, se recomienda importar y registrar solo los componentes que se vayan a utilizar:
 
 ```typescript
 import {
@@ -279,7 +285,9 @@ Si se prefiere la simplicidad sobre la optimización del bundle, se puede import
 import Chart from 'chart.js/auto';
 ```
 
-La diferencia de tamaño es notable: la importación con `chart.js/auto` añade aproximadamente 250 KB al bundle, mientras que el registro manual de solo los componentes necesarios puede reducir esta cifra a 100-150 KB.
+!!! info "Dato clave"
+
+    La diferencia de tamaño es notable: la importación con `chart.js/auto` añade aproximadamente 250 KB al bundle, mientras que el registro manual de solo los componentes necesarios puede reducir esta cifra a 100-150 KB.
 
 #### 2.2. Estructura de la configuración de un gráfico
 
@@ -339,23 +347,25 @@ datasets: [
 
 #### 2.3. Elección del tipo de gráfico adecuado
 
-La elección del tipo de gráfico no es una cuestión estética, sino funcional. Cada tipo de gráfico está diseñado para responder a un tipo específico de pregunta sobre los datos. Usar el gráfico equivocado puede llevar a interpretaciones erróneas o, en el mejor de los casos, a que la información no se entienda.
+!!! warning "Trampa común"
+
+    La elección del tipo de gráfico no es una cuestión estética, sino funcional. Cada tipo de gráfico está diseñado para responder a un tipo específico de pregunta sobre los datos. Usar el gráfico equivocado puede llevar a interpretaciones erróneas o, en el mejor de los casos, a que la información no se entienda.
 
 **Guía de selección de tipo de gráfico:**
 
 | Pregunta que quiero responder | Tipo de gráfico recomendado | Ejemplo de uso |
 |---|---|---|
-| ¿Cómo ha evolucionado X a lo largo del tiempo? | Líneas (line) | Ingresos mensuales de los últimos 12 meses |
-| ¿Cuál es la diferencia entre varias categorías? | Barras (bar) | Ventas por región geográfica |
-| ¿Cuál es el ranking de elementos? | Barras horizontales (bar + indexAxis: 'y') | Top 10 productos más vendidos |
-| ¿Cómo se distribuye el total entre sus partes? | Doughnut (anillo) | Distribución de ingresos por canal de venta |
-| ¿Qué relación hay entre dos variables numéricas? | Dispersión (scatter) | Relación entre inversión en publicidad e ingresos |
-| ¿Cómo se compara un perfil multivariable? | Radar | Evaluación de competencias de un empleado (5 dimensiones) |
-| ¿Cómo se distribuye un conjunto de datos? | Histograma (bar + binned data) | Distribución de importes de pedidos |
-| ¿Cómo se comparan 3 dimensiones? | Burbujas (bubble) | Productos: x=crecimiento, y=margen, radio=ingresos |
-| ¿Cómo ha evolucionado una acción en bolsa? | Velas (candlestick) | Precio de una acción: apertura, cierre, máximo, mínimo |
+| ¿Cómo ha evolucionado X a lo largo del tiempo? | **Líneas (line)** | Ingresos mensuales de los últimos 12 meses |
+| ¿Cuál es la diferencia entre varias categorías? | **Barras (bar)** | Ventas por región geográfica |
+| ¿Cuál es el ranking de elementos? | **Barras horizontales (bar + indexAxis: 'y')** | Top 10 productos más vendidos |
+| ¿Cómo se distribuye el total entre sus partes? | **Doughnut (anillo)** | Distribución de ingresos por canal de venta |
+| ¿Qué relación hay entre dos variables numéricas? | **Dispersión (scatter)** | Relación entre inversión en publicidad e ingresos |
+| ¿Cómo se compara un perfil multivariable? | **Radar** | Evaluación de competencias de un empleado (5 dimensiones) |
+| ¿Cómo se distribuye un conjunto de datos? | **Histograma (bar + binned data)** | Distribución de importes de pedidos |
+| ¿Cómo se comparan 3 dimensiones? | **Burbujas (bubble)** | Productos: x=crecimiento, y=margen, radio=ingresos |
+| ¿Cómo ha evolucionado una acción en bolsa? | **Velas (candlestick)** | Precio de una acción: apertura, cierre, máximo, mínimo |
 
-**Regla de oro**: Si tienes datos de evolución temporal, usa líneas. Si tienes datos de comparación entre categorías, usa barras. Si tienes datos de composición (partes de un todo), usa doughnut (NO uses pie: es más difícil comparar ángulos que longitudes de arco en un anillo). Si tienes más de 5 categorías en un gráfico circular, reconsidera: probablemente un gráfico de barras sea más legible.
+**Regla de oro**: ==Si tienes datos de evolución temporal, usa líneas. Si tienes datos de comparación entre categorías, usa barras.== Si tienes datos de composición (partes de un todo), usa doughnut (NO uses pie: es más difícil comparar ángulos que longitudes de arco en un anillo). Si tienes más de 5 categorías en un gráfico circular, reconsidera: probablemente un gráfico de barras sea más legible.
 
 #### 2.4. Configuración de opciones en profundidad
 
@@ -459,12 +469,14 @@ animation: {
 
 La elección de colores es uno de los aspectos más críticos y a menudo más descuidados en los dashboards. Algunas recomendaciones:
 
-**Para gráficos de una sola serie** (líneas, barras): usar el color primario de la marca o un azul corporativo. No es necesario un arcoíris de colores cuando solo hay una serie.
+!!! tip "Paleta de colores"
 
-**Para gráficos de múltiples series** (varias líneas, barras agrupadas): usar una paleta de colores cualitativos (para categorías) o secuenciales (para valores ordinales). Recursos recomendados:
-- **Coolors.co**: generador de paletas de colores.
-- **ColorBrewer2.org**: paletas optimizadas para visualización de datos, con opciones para daltonismo.
-- **Tailwind CSS color palette**: consistente con el design system de la aplicación.
+    **Para gráficos de una sola serie** (líneas, barras): usar el color primario de la marca o un azul corporativo. No es necesario un arcoíris de colores cuando solo hay una serie.
+
+    **Para gráficos de múltiples series** (varias líneas, barras agrupadas): usar una paleta de colores cualitativos (para categorías) o secuenciales (para valores ordinales). Recursos recomendados:
+    - **Coolors.co**: generador de paletas de colores.
+    - **ColorBrewer2.org**: paletas optimizadas para visualización de datos, con opciones para daltonismo.
+    - **Tailwind CSS color palette**: consistente con el design system de la aplicación.
 
 **Ejemplo de paleta corporativa para gráficos**:
 ```typescript
@@ -480,11 +492,13 @@ const CHART_COLORS = {
 };
 ```
 
-**Consideraciones de accesibilidad**: Aproximadamente el 8% de los hombres y el 0,5% de las mujeres tienen algún tipo de daltonismo (deuteranopía: confusión rojo-verde es la más común). Para hacer los gráficos accesibles: no depender exclusivamente del color para transmitir información (usar también patrones, texturas o etiquetas), evitar combinaciones rojo-verde para elementos que deban diferenciarse, y usar paletas diseñadas específicamente para daltonismo (ColorBrewer2 ofrece esta opción).
+!!! info "Dato clave"
+
+    **Consideraciones de accesibilidad**: Aproximadamente el 8% de los hombres y el 0,5% de las mujeres tienen algún tipo de **daltonismo** (deuteranopía: confusión rojo-verde es la más común). Para hacer los gráficos accesibles: no depender exclusivamente del color para transmitir información (usar también patrones, texturas o etiquetas), evitar combinaciones rojo-verde para elementos que deban diferenciarse, y usar paletas diseñadas específicamente para daltonismo (ColorBrewer2 ofrece esta opción).
 
 ### 3. Integración de Chart.js en Angular
 
-La integración de Chart.js en Angular requiere atención especial al ciclo de vida de los componentes y a la gestión de la memoria. A continuación se presenta la implementación canónica de un componente gráfico reusable en Angular standalone.
+La integración de Chart.js en Angular requiere atención especial al **ciclo de vida** de los componentes y a la gestión de la memoria. A continuación se presenta la implementación canónica de un componente gráfico reusable en Angular standalone.
 
 #### 3.1. Componente ChartWidget reutilizable
 
@@ -601,7 +615,7 @@ export class ChartWidgetComponent implements OnInit, OnDestroy, OnChanges {
 
 #### 3.2. Integración con Signals
 
-La combinación de Chart.js con el sistema de Signals de Angular permite una reactividad elegante y eficiente. En lugar de usar `ngOnChanges` con múltiples inputs, se puede utilizar un `effect()` que reaccione a los cambios en las señales:
+La combinación de Chart.js con el sistema de **Signals** de Angular permite una reactividad elegante y eficiente. En lugar de usar `ngOnChanges` con múltiples inputs, se puede utilizar un `effect()` que reaccione a los cambios en las señales:
 
 ```typescript
 import { Component, effect, ElementRef, ViewChild, signal } from '@angular/core';
@@ -658,7 +672,7 @@ export class ReactiveChartComponent {
 
 ### 4. ApexCharts: la alternativa moderna
 
-ApexCharts ha ganado rápidamente popularidad como alternativa a Chart.js, especialmente en proyectos que requieren dashboards con un alto nivel de pulido visual y tipos de gráficos no disponibles en Chart.js.
+**ApexCharts** ha ganado rápidamente popularidad como alternativa a Chart.js, especialmente en proyectos que requieren dashboards con un alto nivel de pulido visual y tipos de gráficos no disponibles en Chart.js.
 
 **Instalación**:
 ```bash
@@ -833,7 +847,7 @@ export class DashboardLayoutComponent {
 
 ### 6. Exportación de datos desde el dashboard
 
-La exportación de datos completa el ciclo de valor del dashboard: no solo se visualizan los datos, sino que se permite al usuario llevárselos para trabajar con ellos en otras herramientas (Excel para análisis adicional, PDF para presentaciones, CSV para importar en otros sistemas).
+La **exportación de datos** completa el ciclo de valor del dashboard: no solo se visualizan los datos, sino que se permite al usuario llevárselos para trabajar con ellos en otras herramientas (Excel para análisis adicional, PDF para presentaciones, CSV para importar en otros sistemas).
 
 **Exportación de gráficos como imágenes para PDF**:
 ```typescript
@@ -993,69 +1007,69 @@ export class SalesGoalGaugeComponent implements OnChanges {
 
 (Se incluirían 5 actividades propuestas de dificultad variada.)
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-(Se incluirían 3 actividades de ampliación.)
+    (Se incluirían 3 actividades de ampliación.)
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Usa el tipo de gráfico correcto para cada tipo de dato**: No uses un gráfico circular para mostrar evolución temporal, ni un gráfico de líneas para comparar 3 categorías. Dedica tiempo a pensar qué pregunta quieres responder y elige el gráfico que mejor responda a esa pregunta.
+    1. **Usa el tipo de gráfico correcto para cada tipo de dato**: No uses un gráfico circular para mostrar evolución temporal, ni un gráfico de líneas para comparar 3 categorías. Dedica tiempo a pensar qué pregunta quieres responder y elige el gráfico que mejor responda a esa pregunta.
 
-2. **Empieza el eje Y desde cero**: En gráficos de barras, comenzar el eje Y en un valor distinto de cero distorsiona visualmente las diferencias entre categorías. La única excepción justificada son los gráficos de líneas con variaciones muy pequeñas.
+    2. **Empieza el eje Y desde cero**: En gráficos de barras, comenzar el eje Y en un valor distinto de cero distorsiona visualmente las diferencias entre categorías. La única excepción justificada son los gráficos de líneas con variaciones muy pequeñas.
 
-3. **No uses gráficos 3D ni efectos innecesarios**: Los gráficos en 3D distorsionan la percepción de las magnitudes y violan el principio de data-ink ratio. Chart.js, afortunadamente, no soporta gráficos 3D de forma nativa.
+    3. **No uses gráficos 3D ni efectos innecesarios**: Los gráficos en 3D distorsionan la percepción de las magnitudes y violan el principio de data-ink ratio. Chart.js, afortunadamente, no soporta gráficos 3D de forma nativa.
 
-4. **Mantén un máximo de 5-7 colores en gráficos circulares**: Si tienes más de 7 categorías en un gráfico circular, agrupa las menos relevantes en una categoría "Otros" y usa un gráfico de barras para el detalle.
+    4. **Mantén un máximo de 5-7 colores en gráficos circulares**: Si tienes más de 7 categorías en un gráfico circular, agrupa las menos relevantes en una categoría "Otros" y usa un gráfico de barras para el detalle.
 
-5. **Proporciona siempre contexto en las KPI cards**: Un número aislado no informa. Añade comparación con el período anterior, con el objetivo o con el benchmark del sector. Usa flechas y colores verde/rojo para la dirección de la tendencia.
+    5. **Proporciona siempre contexto en las KPI cards**: Un número aislado no informa. Añade comparación con el período anterior, con el objetivo o con el benchmark del sector. Usa flechas y colores verde/rojo para la dirección de la tendencia.
 
-6. **No satures el dashboard**: 4-6 KPIs, 2-3 gráficos y 1 tabla es una configuración que funciona bien para la mayoría de los casos. Si necesitas más indicadores, crea pestañas o dashboards separados por área funcional.
+    6. **No satures el dashboard**: 4-6 KPIs, 2-3 gráficos y 1 tabla es una configuración que funciona bien para la mayoría de los casos. Si necesitas más indicadores, crea pestañas o dashboards separados por área funcional.
 
-7. **Implementa estados de carga, vacío y error**: Cada widget del dashboard debe manejar estos tres estados. Los skeleton loaders (Placeholder UI) mejoran la percepción de velocidad.
+    7. **Implementa estados de carga, vacío y error**: Cada widget del dashboard debe manejar estos tres estados. Los skeleton loaders (Placeholder UI) mejoran la percepción de velocidad.
 
-8. **Destruye siempre las instancias de Chart.js**: Llama a `chart.destroy()` en `ngOnDestroy()`. Las instancias de Chart.js retienen referencias a elementos del DOM y event listeners que causan fugas de memoria si no se limpian.
+    8. **Destruye siempre las instancias de Chart.js**: Llama a `chart.destroy()` en `ngOnDestroy()`. Las instancias de Chart.js retienen referencias a elementos del DOM y event listeners que causan fugas de memoria si no se limpian.
 
-9. **Usa `maintainAspectRatio: false` para controlar la altura con CSS**: Chart.js por defecto mantiene una relación de aspecto 2:1. Para dashboards con alturas fijas, desactiva esta opción y controla la altura del contenedor con CSS.
+    9. **Usa `maintainAspectRatio: false` para controlar la altura con CSS**: Chart.js por defecto mantiene una relación de aspecto 2:1. Para dashboards con alturas fijas, desactiva esta opción y controla la altura del contenedor con CSS.
 
-10. **Prueba el dashboard en diferentes tamaños de pantalla**: Un dashboard que se ve bien en un monitor 4K puede ser ilegible en un portátil de 13 pulgadas. El diseño responsive con Tailwind (grid-cols-1 md:grid-cols-2 xl:grid-cols-4) es tu aliado.
+    10. **Prueba el dashboard en diferentes tamaños de pantalla**: Un dashboard que se ve bien en un monitor 4K puede ser ilegible en un portátil de 13 pulgadas. El diseño responsive con Tailwind (grid-cols-1 md:grid-cols-2 xl:grid-cols-4) es tu aliado.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Crear la instancia de Chart.js en `ngOnInit` en lugar de `ngAfterViewInit`**: El canvas no está disponible en el DOM durante `ngOnInit` a menos que se use `{ static: true }` en `@ViewChild`. Si se usa `{ static: false }`, la creación debe hacerse en `ngAfterViewInit`.
+    1. **Crear la instancia de Chart.js en `ngOnInit` en lugar de `ngAfterViewInit`**: El canvas no está disponible en el DOM durante `ngOnInit` a menos que se use `{ static: true }` en `@ViewChild`. Si se usa `{ static: false }`, la creación debe hacerse en `ngAfterViewInit`.
 
-2. **No destruir la instancia de Chart al salir del componente**: Olvidar `chart.destroy()` en `ngOnDestroy` causa fugas de memoria. Si el usuario navega repetidamente al dashboard, cada vez se crea una nueva instancia sin destruir la anterior, acumulando consumo de memoria.
+    2. **No destruir la instancia de Chart al salir del componente**: Olvidar `chart.destroy()` en `ngOnDestroy` causa fugas de memoria. Si el usuario navega repetidamente al dashboard, cada vez se crea una nueva instancia sin destruir la anterior, acumulando consumo de memoria.
 
-3. **Modificar los datos sin llamar a `chart.update()`**: Cambiar `chart.data.labels` o `chart.data.datasets` sin llamar posteriormente a `chart.update()` no tendrá efecto visual en el gráfico.
+    3. **Modificar los datos sin llamar a `chart.update()`**: Cambiar `chart.data.labels` o `chart.data.datasets` sin llamar posteriormente a `chart.update()` no tendrá efecto visual en el gráfico.
 
-4. **Usar `ngOnChanges` para detectar cambios en objetos anidados**: `ngOnChanges` solo detecta cambios en referencias de objetos (shallow comparison). Si los datos del gráfico son un objeto anidado, los cambios internos no activarán `ngOnChanges`. Solución: usar Signals con `effect()` o crear nuevas referencias de objetos.
+    4. **Usar `ngOnChanges` para detectar cambios en objetos anidados**: `ngOnChanges` solo detecta cambios en referencias de objetos (shallow comparison). Si los datos del gráfico son un objeto anidado, los cambios internos no activarán `ngOnChanges`. Solución: usar Signals con `effect()` o crear nuevas referencias de objetos.
 
-5. **No considerar la accesibilidad**: Los gráficos son inherentemente visuales, lo que los hace inaccesibles para usuarios con discapacidad visual. Proporciona siempre una tabla de datos alternativa (visible u oculta con `sr-only`) y descripciones textuales.
+    5. **No considerar la accesibilidad**: Los gráficos son inherentemente visuales, lo que los hace inaccesibles para usuarios con discapacidad visual. Proporciona siempre una tabla de datos alternativa (visible u oculta con `sr-only`) y descripciones textuales.
 
-6. **Sobrecarga de datos en gráficos de líneas**: Mostrar más de 5-6 series en un mismo gráfico de líneas lo convierte en un "plato de espaguetis" ilegible. Agrupa, filtra o usa small multiples (múltiples gráficos pequeños en lugar de uno grande).
+    6. **Sobrecarga de datos en gráficos de líneas**: Mostrar más de 5-6 series en un mismo gráfico de líneas lo convierte en un "plato de espaguetis" ilegible. Agrupa, filtra o usa small multiples (múltiples gráficos pequeños en lugar de uno grande).
 
-7. **No formatear los números en tooltips y ejes**: Mostrar `1234567.890123` en lugar de `1.234.567,89 €` es un error de usabilidad grave. Usa `Intl.NumberFormat` en los callbacks.
+    7. **No formatear los números en tooltips y ejes**: Mostrar `1234567.890123` en lugar de `1.234.567,89 €` es un error de usabilidad grave. Usa `Intl.NumberFormat` en los callbacks.
 
-8. **Olvidar configurar `responsive: true`**: Sin esta opción, los gráficos no se redimensionarán cuando el usuario cambie el tamaño de la ventana o rote el dispositivo.
+    8. **Olvidar configurar `responsive: true`**: Sin esta opción, los gráficos no se redimensionarán cuando el usuario cambie el tamaño de la ventana o rote el dispositivo.
 
-9. **Usar demasiados colores en gráficos de una sola serie**: Cada barra de un color diferente en un gráfico de barras de una sola categoría es innecesario y distrae. Usa un solo color o, si quieres resaltar una barra, usa una variación sutil.
+    9. **Usar demasiados colores en gráficos de una sola serie**: Cada barra de un color diferente en un gráfico de barras de una sola categoría es innecesario y distrae. Usa un solo color o, si quieres resaltar una barra, usa una variación sutil.
 
-10. **No probar con datos extremos**: ¿Qué pasa si todos los valores son cero? ¿Y si un valor es 1000 veces mayor que los demás? ¿Y si faltan datos (null, undefined)? El dashboard debe manejar estos casos sin romperse.
+    10. **No probar con datos extremos**: ¿Qué pasa si todos los valores son cero? ¿Y si un valor es 1000 veces mayor que los demás? ¿Y si faltan datos (null, undefined)? El dashboard debe manejar estos casos sin romperse.
 
-## Resumen
+!!! abstract "Resumen"
 
-Los dashboards y la visualización de datos son componentes esenciales de las aplicaciones empresariales modernas. Esta unidad ha proporcionado al alumnado los conocimientos teóricos y prácticos necesarios para diseñar e implementar dashboards efectivos en aplicaciones Angular.
+    Los dashboards y la visualización de datos son componentes esenciales de las aplicaciones empresariales modernas. Esta unidad ha proporcionado al alumnado los conocimientos teóricos y prácticos necesarios para diseñar e implementar dashboards efectivos en aplicaciones Angular.
 
-Se ha comenzado estableciendo los fundamentos conceptuales: qué es un dashboard, qué lo diferencia de un informe, qué tipos existen (operacional, táctico, estratégico) y cuáles son los principios de diseño que separan un buen dashboard de uno malo, basados en el trabajo de referentes como Edward Tufte y Stephen Few. La comprensión de estos principios es lo que permite tomar decisiones informadas sobre qué información mostrar, cómo organizarla visualmente y qué tipo de gráfico utilizar en cada caso.
+    Se ha comenzado estableciendo los fundamentos conceptuales: qué es un dashboard, qué lo diferencia de un informe, qué tipos existen (operacional, táctico, estratégico) y cuáles son los principios de diseño que separan un buen dashboard de uno malo, basados en el trabajo de referentes como **Edward Tufte** y **Stephen Few**. La comprensión de estos principios es lo que permite tomar decisiones informadas sobre qué información mostrar, cómo organizarla visualmente y qué tipo de gráfico utilizar en cada caso.
 
-La librería Chart.js se ha presentado como la herramienta principal para la creación de gráficos, analizando en profundidad su API: tipos de gráficos disponibles y criterios de selección, estructura de la configuración (data, datasets, options), personalización de escalas, plugins (leyenda, tooltip, título, zoom, anotaciones) y gestión de colores con consideraciones de accesibilidad para daltonismo.
+    La librería **Chart.js** se ha presentado como la herramienta principal para la creación de gráficos, analizando en profundidad su API: tipos de gráficos disponibles y criterios de selección, estructura de la configuración (data, datasets, options), personalización de escalas, plugins (leyenda, tooltip, título, zoom, anotaciones) y gestión de colores con consideraciones de accesibilidad para daltonismo.
 
-La integración de Chart.js en Angular se ha abordado con especial atención al ciclo de vida de los componentes: creación de instancias en `ngAfterViewInit`, actualización reactiva mediante Signals con `effect()` y `computed()`, destrucción en `ngOnDestroy` para prevenir fugas de memoria, y encapsulación en componentes reutilizables `ChartWidget` que abstraen la complejidad de la librería.
+    La integración de Chart.js en Angular se ha abordado con especial atención al ciclo de vida de los componentes: creación de instancias en `ngAfterViewInit`, actualización reactiva mediante **Signals** con `effect()` y `computed()`, destrucción en `ngOnDestroy` para prevenir fugas de memoria, y encapsulación en componentes reutilizables `ChartWidget` que abstraen la complejidad de la librería.
 
-ApexCharts se ha presentado como alternativa con ventajas en interactividad, estética por defecto, modo oscuro y tipos de gráficos exclusivos (RadialBar, Heatmap, Treemap), permitiendo al alumnado elegir la herramienta más adecuada para cada proyecto.
+    **ApexCharts** se ha presentado como alternativa con ventajas en interactividad, estética por defecto, modo oscuro y tipos de gráficos exclusivos (RadialBar, Heatmap, Treemap), permitiendo al alumnado elegir la herramienta más adecuada para cada proyecto.
 
-El diseño de dashboards en Angular con Tailwind CSS se ha concretado en layouts con CSS Grid adaptativos, componentes widget reutilizables (StatCard, ChartWidget, DataTable, FilterBar) y manejo de estados (carga, vacío, error, datos).
+    El diseño de dashboards en Angular con Tailwind CSS se ha concretado en layouts con **CSS Grid** adaptativos, componentes widget reutilizables (StatCard, ChartWidget, DataTable, FilterBar) y manejo de estados (carga, vacío, error, datos).
 
-Finalmente, la exportación de datos y gráficos cierra el círculo de valor del dashboard, permitiendo que la información trascienda la pantalla y llegue a otras herramientas y formatos.
+    Finalmente, la exportación de datos y gráficos cierra el círculo de valor del dashboard, permitiendo que la información trascienda la pantalla y llegue a otras herramientas y formatos.
 
 ## Recursos complementarios
 

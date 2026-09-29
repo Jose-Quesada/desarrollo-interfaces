@@ -1,3 +1,7 @@
+---
+icon: lucide/text-cursor-input
+---
+
 # Formularios e Interacción
 
 ## Objetivos de aprendizaje
@@ -28,16 +32,16 @@ Como RA secundario, se vincula al **RA 3** («Crea componentes visuales valorand
 - CE b) Se han creado componentes visuales (componentes de formulario reutilizables).
 - CE d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
-- Angular Reactive Forms: FormControl, FormGroup, FormBuilder, valueChanges, statusChanges.
-- TypeScript: tipos avanzados, funciones como parámetros y retorno, genéricos, utility types.
-- Tailwind CSS 4: clases utilitarias, animaciones, transiciones, personalización con @theme.
-- RxJS básico: Observables, operadores (debounceTime, distinctUntilChanged, filter, switchMap, catchError).
-- Angular Signals: signal, computed, effect, toObservable.
-- HTML5: validación nativa de formularios, atributos de accesibilidad web (aria-required, aria-invalid, aria-describedby).
-- UX: principios de diseño de formularios, ley de Fitts, carga cognitiva, jerarquía visual.
+    El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+    - **Angular Reactive Forms**: FormControl, FormGroup, FormBuilder, valueChanges, statusChanges.
+    - **TypeScript**: tipos avanzados, funciones como parámetros y retorno, genéricos, utility types.
+    - **Tailwind CSS 4**: clases utilitarias, animaciones, transiciones, personalización con @theme.
+    - **RxJS básico**: Observables, operadores (debounceTime, distinctUntilChanged, filter, switchMap, catchError).
+    - **Angular Signals**: signal, computed, effect, toObservable.
+    - **HTML5**: validación nativa de formularios, atributos de accesibilidad web (aria-required, aria-invalid, aria-describedby).
+    - **UX**: principios de diseño de formularios, ley de Fitts, carga cognitiva, jerarquía visual.
 
 ## Contenidos
 
@@ -53,15 +57,17 @@ El alumnado debe poseer los siguientes conocimientos antes de abordar esta unida
 
 #### FormControl, FormGroup y FormArray con enfoque en UI
 
-Angular Reactive Forms proporciona un modelo de programación reactivo para gestionar formularios. A diferencia de Template-Driven Forms, donde la lógica reside en el template HTML, Reactive Forms sitúan el control y la validación en la clase del componente TypeScript, ofreciendo mayor control, testabilidad y previsibilidad. En el contexto del desarrollo de interfaces, esta separación es crucial porque permite que la lógica de validación y el estado del formulario estén disponibles programáticamente para generar feedback visual rico y contextual.
+!!! info "Definición"
+
+    **Angular Reactive Forms** proporciona un modelo de programación reactivo para gestionar formularios. A diferencia de **Template-Driven Forms**, donde la lógica reside en el template HTML, Reactive Forms sitúan el control y la validación en la clase del componente TypeScript, ofreciendo mayor control, testabilidad y previsibilidad. En el contexto del desarrollo de interfaces, esta separación es crucial porque permite que la lógica de validación y el estado del formulario estén disponibles programáticamente para generar feedback visual rico y contextual.
 
 El `FormControl` es la unidad atómica de un formulario reactivo: representa un único campo de entrada y encapsula su valor, estado de validación, si ha sido tocado (touched), si está sucio (dirty) y si está pendiente de validación asíncrona (pending). Cada uno de estos estados se traduce en feedback visual para el usuario.
 
-El `FormGroup` agrupa un conjunto de FormControls, representando una sección coherente de un formulario o el formulario completo. Proporciona acceso a los valores agregados, al estado de validación global y permite la validación cross-field (entre campos del grupo).
+El `FormGroup` agrupa un conjunto de FormControls, representando una sección coherente de un formulario o el formulario completo. Proporciona acceso a los valores agregados, al estado de validación global y permite la validación **cross-field** (entre campos del grupo).
 
 El `FormArray` gestiona una colección dinámica de FormControls, FormGroups o incluso otros FormArrays, permitiendo al usuario añadir y eliminar elementos repetibles como líneas de factura, direcciones o miembros de un equipo.
 
-Ejemplo de estructura de formulario complejo usando FormBuilder:
+Ejemplo de estructura de formulario complejo usando **FormBuilder**:
 
 ```
 this.invoiceForm = this.fb.group({
@@ -86,11 +92,11 @@ this.invoiceForm = this.fb.group({
 
 #### Estados del control y su traducción a feedback visual
 
-Cada `FormControl` y `FormGroup` expone propiedades que describen su estado actual y que son fundamentales para proporcionar feedback visual al usuario. La correcta interpretación de estos estados es lo que distingue un formulario profesional de uno amateur.
+Cada `FormControl` y `FormGroup` expone propiedades que describen su estado actual y que son fundamentales para proporcionar **feedback visual** al usuario. La correcta interpretación de estos estados es lo que distingue un formulario profesional de uno amateur.
 
-**touched / untouched:** Un control se considera `touched` cuando el usuario ha interactuado con él y luego ha salido (ha perdido el foco). La propiedad `untouched` es el estado inicial. Esta distinción es crucial para la UX: no debemos mostrar errores de validación en campos que el usuario ni siquiera ha visto aún. Mostrar un formulario lleno de mensajes de error rojos antes de que el usuario haya escrito nada es una experiencia pésima.
+**touched / untouched:** Un control se considera `touched` cuando el usuario ha interactuado con él y luego ha salido (ha perdido el foco). La propiedad `untouched` es el estado inicial. Esta distinción es crucial para la UX: ==no debemos mostrar errores de validación en campos que el usuario ni siquiera ha visto aún==. Mostrar un formulario lleno de mensajes de error rojos antes de que el usuario haya escrito nada es una experiencia pésima.
 
-Regla de oro para mostrar errores:
+**Regla de oro para mostrar errores:**
 ```
 // Mal: mostrar error siempre
 if (control.invalid) { ... }
@@ -158,7 +164,7 @@ export class LoginFormComponent {
 }
 ```
 
-La clave del patron es el mapeo de estados:
+==La clave del patron es el mapeo de estados==:
 - **Pristine**: borde gris neutro, sin indicacion de correccion o error.
 - **Valid + touched**: borde verde, senal silenciosa de "esto esta bien".
 - **Invalid + touched**: borde rojo, mensaje de error descriptivo.
@@ -170,7 +176,7 @@ La clave del patron es el mapeo de estados:
 
 #### Validadores integrados y su aplicacion practica
 
-Angular proporciona un conjunto de validadores sincronos en la clase `Validators` que cubren los casos mas comunes:
+Angular proporciona un conjunto de **validadores sincronos** en la clase `Validators` que cubren los casos mas comunes:
 
 ```
 import { Validators } from '@angular/forms';
@@ -192,11 +198,11 @@ const ageControl = new FormControl(null, [
 ]);
 ```
 
-Cada validador devuelve un objeto de error especifico cuando falla. Por ejemplo, `Validators.required` devuelve `{ required: true }`, `Validators.minLength(3)` devuelve `{ minlength: { requiredLength: 3, actualLength: 1 } }`. Estos objetos de error son la base para construir mensajes de error personalizados y contextualizados.
+Cada validador devuelve un **objeto de error especifico** cuando falla. Por ejemplo, `Validators.required` devuelve `{ required: true }`, `Validators.minLength(3)` devuelve `{ minlength: { requiredLength: 3, actualLength: 1 } }`. Estos objetos de error son la base para construir mensajes de error personalizados y contextualizados.
 
 #### Validadores personalizados (ValidatorFn)
 
-Cuando los validadores integrados no son suficientes, Angular permite crear validadores personalizados mediante funciones que implementan la interfaz `ValidatorFn`. Un validador personalizado recibe un `AbstractControl` y devuelve `null` si el valor es valido, o un objeto de error si no lo es.
+Cuando los validadores integrados no son suficientes, Angular permite crear **validadores personalizados** mediante funciones que implementan la interfaz `ValidatorFn`. Un validador personalizado recibe un `AbstractControl` y devuelve `null` si el valor es valido, o un objeto de error si no lo es.
 
 **Validador de DNI espanol:**
 
@@ -273,7 +279,7 @@ export function postalCodeValidator(): ValidatorFn {
 
 #### Validacion cross-field
 
-La validacion cross-field verifica la coherencia entre dos o mas campos del formulario. El caso mas comun es la confirmacion de contrasena. Los validadores cross-field se aplican al `FormGroup` que contiene los campos a comparar, no a los FormControls individuales:
+La **validacion cross-field** verifica la coherencia entre dos o mas campos del formulario. El caso mas comun es la confirmacion de contrasena. Los validadores cross-field se aplican al `FormGroup` que contiene los campos a comparar, no a los FormControls individuales:
 
 ```
 export function passwordMatchValidator(
@@ -323,7 +329,7 @@ export function dateRangeValidator(startKey: string, endKey: string): ValidatorF
 
 #### Validacion asincrona (AsyncValidator)
 
-La validacion asincrona es necesaria cuando la validez de un campo depende de una comprobacion externa, tipicamente una llamada a una API. El caso de uso mas frecuente es verificar la unicidad de un nombre de usuario o correo electronico contra la base de datos:
+La **validacion asincrona** es necesaria cuando la validez de un campo depende de una comprobacion externa, tipicamente una llamada a una API. El caso de uso mas frecuente es verificar la unicidad de un nombre de usuario o correo electronico contra la base de datos:
 
 ```
 private emailExistsValidator(): AsyncValidatorFn {
@@ -352,12 +358,14 @@ El uso de `debounceTime(500)` es esencial para no saturar el servidor con una pe
 
 #### Opcion updateOn: cuando validar
 
-La opcion `updateOn` controla en que momento se ejecutan los validadores y se actualizan los valores del control:
-- `'change'` (por defecto): en cada pulsacion de tecla o cambio.
-- `'blur'`: cuando el control pierde el foco.
-- `'submit'`: solo cuando el formulario se envia.
+!!! tip "Opcion updateOn"
 
-La eleccion tiene un impacto directo en la UX. `'change'` proporciona el feedback mas inmediato pero puede generar demasiadas peticiones en validaciones asincronas. `'blur'` retrasa la validacion hasta que el usuario termina con el campo y pasa al siguiente, siendo mas respetuoso con el usuario y mas eficiente. `'submit'` concentra toda la validacion en el momento del envio; puede ser frustrante para formularios largos pero apropiado para formularios cortos. La opcion recomendada para la mayoria de formularios es `'blur'`.
+    La opcion `updateOn` controla en que momento se ejecutan los validadores y se actualizan los valores del control:
+    - `'change'` (por defecto): en cada pulsacion de tecla o cambio.
+    - `'blur'`: cuando el control pierde el foco.
+    - `'submit'`: solo cuando el formulario se envia.
+
+    La eleccion tiene un impacto directo en la **UX**. `'change'` proporciona el feedback mas inmediato pero puede generar demasiadas peticiones en validaciones asincronas. `'blur'` retrasa la validacion hasta que el usuario termina con el campo y pasa al siguiente, siendo mas respetuoso con el usuario y mas eficiente. `'submit'` concentra toda la validacion en el momento del envio; puede ser frustrante para formularios largos pero apropiado para formularios cortos. La opcion recomendada para la mayoria de formularios es `'blur'`.
 
 ---
 
@@ -365,7 +373,7 @@ La eleccion tiene un impacto directo en la UX. `'change'` proporciona el feedbac
 
 #### Sistema de mensajes de error personalizados
 
-Un sistema profesional de mensajes de error debe ser capaz de mostrar el mensaje adecuado para cada tipo de error de validacion, en el idioma del usuario, y en el momento oportuno. La implementacion tipica consiste en una funcion que mapea los errores de validacion a mensajes de texto:
+Un sistema profesional de **mensajes de error** debe ser capaz de mostrar el mensaje adecuado para cada tipo de error de validacion, en el idioma del usuario, y en el momento oportuno. La implementacion tipica consiste en una funcion que mapea los errores de validacion a mensajes de texto:
 
 ```
 getErrorMessage(control: AbstractControl, fieldName: string): string | null {
@@ -451,40 +459,42 @@ export class FormErrorComponent implements OnInit, OnDestroy {
 
 #### UX de validacion: reglas de oro
 
-1. **No mostrar errores antes de la interaccion.** Un formulario recien cargado debe verse limpio, sin campos en rojo ni mensajes de error. Los errores solo deben aparecer despues de que el usuario haya tocado el campo (touched && invalid) o tras un intento de envio.
+!!! tip "Reglas de oro"
 
-2. **Validar en el momento adecuado.** Para campos con restricciones de formato (email, telefono, DNI), validar en `blur` es generalmente la mejor opcion.
+    1. **No mostrar errores antes de la interaccion.** Un formulario recien cargado debe verse limpio, sin campos en rojo ni mensajes de error. Los errores solo deben aparecer despues de que el usuario haya tocado el campo (touched && invalid) o tras un intento de envio.
 
-3. **Limpieza de errores al corregir.** Tan pronto como el usuario corrige un campo y este se vuelve valido, el mensaje de error debe desaparecer y el borde del campo debe cambiar a un color neutro o de confirmacion (verde).
+    2. **Validar en el momento adecuado.** Para campos con restricciones de formato (email, telefono, DNI), validar en `blur` es generalmente la mejor opcion.
 
-4. **Resumen de errores en el envio.** Si el usuario intenta enviar un formulario con multiples campos invalidos, es buena practica mostrar un resumen en la parte superior, marcar todos los campos invalidos como `touched` y hacer scroll automatico al primer error:
+    3. **Limpieza de errores al corregir.** Tan pronto como el usuario corrige un campo y este se vuelve valido, el mensaje de error debe desaparecer y el borde del campo debe cambiar a un color neutro o de confirmacion (verde).
 
-```
-submitForm(): void {
-  this.formSubmitted = true;
+    4. **Resumen de errores en el envio.** Si el usuario intenta enviar un formulario con multiples campos invalidos, es buena practica mostrar un resumen en la parte superior, marcar todos los campos invalidos como `touched` y hacer scroll automatico al primer error:
 
-  if (this.form.invalid) {
-    this.markFormGroupTouched(this.form);
+    ```
+    submitForm(): void {
+      this.formSubmitted = true;
 
-    setTimeout(() => {
-      const firstError = document.querySelector('.ng-invalid');
-      firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-    return;
-  }
+      if (this.form.invalid) {
+        this.markFormGroupTouched(this.form);
 
-  this.processForm();
-}
+        setTimeout(() => {
+          const firstError = document.querySelector('.ng-invalid');
+          firstError?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        return;
+      }
 
-private markFormGroupTouched(formGroup: FormGroup): void {
-  Object.values(formGroup.controls).forEach(control => {
-    control.markAsTouched();
-    if (control instanceof FormGroup) {
-      this.markFormGroupTouched(control);
+      this.processForm();
     }
-  });
-}
-```
+
+    private markFormGroupTouched(formGroup: FormGroup): void {
+      Object.values(formGroup.controls).forEach(control => {
+        control.markAsTouched();
+        if (control instanceof FormGroup) {
+          this.markFormGroupTouched(control);
+        }
+      });
+    }
+    ```
 
 ---
 
@@ -492,7 +502,7 @@ private markFormGroupTouched(formGroup: FormGroup): void {
 
 #### Formularios multi-paso (Wizard/Stepper)
 
-Los formularios multi-paso dividen un formulario largo en pasos secuenciales, reduciendo la carga cognitiva y la tasa de abandono. Cada paso es un `FormGroup` independiente, y un `FormGroup` principal los agrupa a todos.
+Los **formularios multi-paso** dividen un formulario largo en pasos secuenciales, reduciendo la carga cognitiva y la tasa de abandono. Cada paso es un `FormGroup` independiente, y un `FormGroup` principal los agrupa a todos.
 
 La implementacion con Signals para el paso actual proporciona una experiencia fluida. El componente Wizard incluye: barra de progreso visual con pasos numerados, lineas conectoras entre pasos que cambian de color al completarse, contenido del paso actual renderizado con `@switch`, y botones de navegacion "Anterior" y "Siguiente" (el ultimo paso muestra "Completar").
 
@@ -592,7 +602,7 @@ export class WizardFormComponent {
 
 Los `FormArray` permiten crear formularios donde el usuario puede anadir y eliminar dinamicamente grupos de campos. Este patron es esencial para interfaces como facturas (anadir/quitar lineas), formularios de direcciones (multiples direcciones de envio), o gestion de equipos (anadir/quitar miembros).
 
-La implementacion con Signals para calcular totales derivados en tiempo real hace que el formulario sea reactivo y eficiente:
+La implementacion con **Signals** para calcular totales derivados en tiempo real hace que el formulario sea reactivo y eficiente:
 
 ```
 @Component({
@@ -697,7 +707,7 @@ export class InvoiceFormComponent {
 
 #### Auto-guardado de formularios (draft)
 
-El auto-guardado de borradores mejora drasticamente la experiencia de usuario en formularios largos. Consiste en guardar automaticamente el estado del formulario en localStorage a medida que el usuario rellena los campos:
+El **auto-guardado de borradores** mejora drasticamente la experiencia de usuario en formularios largos. Consiste en guardar automaticamente el estado del formulario en localStorage a medida que el usuario rellena los campos:
 
 ```
 @Injectable({ providedIn: 'root' })
@@ -764,7 +774,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
 #### Confirmacion al salir sin guardar (CanDeactivate)
 
-El guard `CanDeactivate` de Angular Router protege al usuario de perder cambios no guardados al navegar a otra pagina:
+El guard `CanDeactivate` de Angular Router protege al usuario de perder **cambios no guardados** al navegar a otra pagina:
 
 ```
 export interface CanComponentDeactivate {
@@ -798,7 +808,7 @@ export class ProductEditComponent implements CanComponentDeactivate {
 
 #### Mascaras de input
 
-Las mascaras de entrada guian al usuario en la introduccion de datos con formato especifico, reduciendo errores y mejorando la velocidad de entrada:
+Las **mascaras de entrada** guian al usuario en la introduccion de datos con formato especifico, reduciendo errores y mejorando la velocidad de entrada:
 
 ```
 @Directive({
@@ -841,7 +851,7 @@ export class PhoneMaskDirective implements ControlValueAccessor {
 
 #### Estados de boton y transiciones
 
-Los botones deben comunicar claramente su estado en cada momento mediante representacion visual distinta y transiciones suaves:
+Los botones deben comunicar claramente su estado en cada momento mediante representacion visual distinta y **transiciones suaves**:
 - **Default:** Color de fondo correspondiente a la variante.
 - **Hover:** Oscurecimiento ligero o cambio de elevacion.
 - **Active/Pressed:** Oscurecimiento adicional o reduccion de escala (0.98).
@@ -853,7 +863,7 @@ Estas transiciones se implementan con `transition-all duration-150` y las varian
 
 #### Micro-interacciones
 
-Las micro-interacciones son animaciones pequenas y sutiles que mejoran la percepcion de respuesta y calidad de la interfaz. Cada micro-interaccion debe tener un proposito funcional, no meramente decorativo.
+Las **micro-interacciones** son animaciones pequenas y sutiles que mejoran la percepcion de respuesta y calidad de la interfaz. Cada micro-interaccion debe tener un proposito funcional, no meramente decorativo.
 
 **Shake en error:** Comunicacion instintiva de error mediante sacudida horizontal:
 
@@ -927,7 +937,7 @@ Cuando un formulario de edicion carga datos desde el servidor, mostrar campos va
 
 #### Toast de confirmacion tras envio exitoso
 
-Tras un envio exitoso, un toast de confirmacion es el cierre perfecto para la interaccion. Debe mostrarse en una ubicacion consistente (esquina superior derecha) y desaparecer automaticamente tras unos segundos. Utilizando el `ToastService` y `ToastComponent` definidos en la Unidad 11, el patron de uso es:
+Tras un envio exitoso, un **toast de confirmacion** es el cierre perfecto para la interaccion. Debe mostrarse en una ubicacion consistente (esquina superior derecha) y desaparecer automaticamente tras unos segundos. Utilizando el `ToastService` y `ToastComponent` definidos en la Unidad 11, el patron de uso es:
 
 ```
 submitForm(): void {
@@ -952,7 +962,7 @@ submitForm(): void {
 
 #### Transiciones suaves en cambios de estado
 
-Cada cambio de estado en la interfaz debe estar acompanado de una transicion CSS suave. Tailwind proporciona las clases `transition-colors`, `transition-opacity`, `transition-all` con duraciones configurables:
+Cada cambio de estado en la interfaz debe estar acompanado de una transicion CSS suave. **Tailwind** proporciona las clases `transition-colors`, `transition-opacity`, `transition-all` con duraciones configurables:
 
 ```
 // Input con transicion de borde y sombra
@@ -1196,119 +1206,119 @@ submitForm(): void {
 
 ---
 
-## Actividades de ampliacion
+??? "Actividades de ampliacion"
 
-### Actividad de ampliacion 1: Sistema de formularios generados por esquema JSON
+    ### Actividad de ampliacion 1: Sistema de formularios generados por esquema JSON
 
-**Duracion:** 240 minutos.
+    **Duracion:** 240 minutos.
 
-**Descripcion:** Disenar un sistema que genere formularios Angular dinamicamente a partir de un esquema JSON, similar a JSON Schema Forms.
+    **Descripcion:** Disenar un sistema que genere formularios Angular dinamicamente a partir de un esquema JSON, similar a **JSON Schema Forms**.
 
-**Requisitos:**
-- Definir un formato de esquema JSON que describa: campos, tipos, validaciones, orden, dependencias entre campos.
-- Crear un componente `DynamicFormComponent` que reciba un esquema y renderice los campos correspondientes.
-- Soportar tipos: text, number, email, select, checkbox, radio, date, textarea, file.
-- Implementar logica de visibilidad condicional: un campo se muestra solo si otro campo tiene cierto valor.
-- Generar el `FormGroup` dinamicamente con todas las validaciones especificadas en el esquema.
+    **Requisitos:**
+    - Definir un formato de esquema JSON que describa: campos, tipos, validaciones, orden, dependencias entre campos.
+    - Crear un componente `DynamicFormComponent` que reciba un esquema y renderice los campos correspondientes.
+    - Soportar tipos: text, number, email, select, checkbox, radio, date, textarea, file.
+    - Implementar logica de visibilidad condicional: un campo se muestra solo si otro campo tiene cierto valor.
+    - Generar el `FormGroup` dinamicamente con todas las validaciones especificadas en el esquema.
 
-**Entregable:** Sistema de formularios dinamicos con al menos 3 esquemas de ejemplo.
+    **Entregable:** Sistema de formularios dinamicos con al menos 3 esquemas de ejemplo.
 
-### Actividad de ampliacion 2: Comparativa de librerias de formularios para Angular
+    ### Actividad de ampliacion 2: Comparativa de librerias de formularios para Angular
 
-**Duracion:** 120 minutos.
+    **Duracion:** 120 minutos.
 
-**Descripcion:** Investigar, probar y comparar tres librerias de formularios para Angular, documentando ventajas, desventajas y casos de uso.
+    **Descripcion:** Investigar, probar y comparar tres librerias de formularios para Angular, documentando ventajas, desventajas y casos de uso.
 
-**Librerias a comparar:**
-- Angular Reactive Forms (nativo).
-- Formly (formularios dinamicos por configuracion JSON).
-- @rxweb/reactive-form-validators (validadores extendidos).
+    **Librerias a comparar:**
+    - **Angular Reactive Forms** (nativo).
+    - **Formly** (formularios dinamicos por configuracion JSON).
+    - @rxweb/reactive-form-validators (validadores extendidos).
 
-**Entregable:** Informe comparativo (~1500 palabras) con tabla de caracteristicas, ejemplos de codigo equivalentes en cada libreria, curva de aprendizaje, tamano del bundle y recomendacion final.
+    **Entregable:** Informe comparativo (~1500 palabras) con tabla de caracteristicas, ejemplos de codigo equivalentes en cada libreria, curva de aprendizaje, tamano del bundle y recomendacion final.
 
-### Actividad de ampliacion 3: Implementar un editor de formularios visual (drag and drop)
+    ### Actividad de ampliacion 3: Implementar un editor de formularios visual (drag and drop)
 
-**Duracion:** 300 minutos.
+    **Duracion:** 300 minutos.
 
-**Descripcion:** Construir un editor visual de formularios donde el usuario pueda arrastrar campos desde una paleta a un lienzo, configurar sus propiedades y generar el formulario resultante.
+    **Descripcion:** Construir un editor visual de formularios donde el usuario pueda arrastrar campos desde una paleta a un lienzo, configurar sus propiedades y generar el formulario resultante.
 
-**Requisitos:**
-- Paleta de campos disponibles: texto, numero, email, select, checkbox, radio, fecha, area de texto, encabezado, parrafo informativo, separador.
-- Lienzo donde se sueltan los campos (drag and drop con Angular CDK Drag and Drop).
-- Panel de propiedades que se muestra al seleccionar un campo en el lienzo: label, placeholder, requerido, validaciones, opciones (para select/radio).
-- Los campos en el lienzo se pueden reordenar arrastrando y eliminar con un boton X.
-- Boton "Previsualizar" que renderiza el formulario como lo veria el usuario final.
-- Boton "Exportar JSON" que genera el esquema del formulario en formato compatible con el sistema de la Actividad de Ampliacion 1.
+    **Requisitos:**
+    - Paleta de campos disponibles: texto, numero, email, select, checkbox, radio, fecha, area de texto, encabezado, parrafo informativo, separador.
+    - Lienzo donde se sueltan los campos (drag and drop con **Angular CDK Drag and Drop**).
+    - Panel de propiedades que se muestra al seleccionar un campo en el lienzo: label, placeholder, requerido, validaciones, opciones (para select/radio).
+    - Los campos en el lienzo se pueden reordenar arrastrando y eliminar con un boton X.
+    - Boton "Previsualizar" que renderiza el formulario como lo veria el usuario final.
+    - Boton "Exportar JSON" que genera el esquema del formulario en formato compatible con el sistema de la Actividad de Ampliacion 1.
 
-**Entregable:** Editor visual de formularios completamente funcional.
-
----
-
-## Buenas practicas
-
-1. **Usar FormBuilder para formularios complejos.** `FormBuilder` reduce significativamente el codigo repetitivo al crear FormControls y FormGroups, especialmente en formularios con multiples niveles de anidamiento.
-
-2. **Validar en `blur` por defecto para formularios con validacion asincrona.** La opcion `updateOn: 'blur'` ofrece el mejor equilibrio entre feedback inmediato y eficiencia, evitando peticiones excesivas al servidor.
-
-3. **No mostrar errores hasta que el campo haya sido tocado.** Mostrar errores en campos `untouched` es una mala practica de UX que abruma al usuario antes de que haya comenzado a interactuar. La formula `control.invalid && (control.touched || formSubmitted)` es la regla de oro.
-
-4. **Extraer los validadores personalizados a funciones reutilizables.** Un validador de DNI o IBAN debe ser una funcion exportable e independiente del componente, no un metodo privado, para facilitar su reutilizacion en multiples formularios.
-
-5. **Usar `computed` para derivar estado visual de formulario.** En lugar de comprobar `form.valid && form.dirty` repetidamente en el template, crear computed signals: `canSave = computed(() => this.form.valid && this.form.dirty)`.
-
-6. **Proporcionar mensajes de error utiles, no tecnicos.** El mensaje "Campo requerido" es mejor que "Error: required validator failed". Los mensajes deben guiar al usuario hacia la correccion, no simplemente anunciar que algo esta mal.
-
-7. **Implementar auto-guardado en formularios largos.** Para formularios que requieren mas de 2 minutos para completarse, el auto-guardado de borradores en localStorage es una funcionalidad que el usuario agradecera enormemente.
-
-8. **Hacer scroll al primer error en formularios largos tras el envio.** El usuario no deberia tener que buscar manualmente cual campo fallo la validacion. `scrollIntoView({ behavior: 'smooth' })` es la implementacion estandar.
-
-9. **Usar skeleton en lugar de spinner para carga inicial de formularios.** Un spinner giratorio no da informacion sobre la estructura del formulario; un skeleton que imita la disposicion de los campos reduce la ansiedad del usuario durante la carga.
-
-10. **Limpiar suscripciones y timers en `ngOnDestroy`.** Las suscripciones a `valueChanges`, `statusChanges` y los timers de auto-guardado deben cancelarse cuando el componente se destruye. Usar `takeUntilDestroyed()` o gestion manual con `Subscription.unsubscribe()`.
-
-11. **Testear validadores personalizados de forma aislada.** Un validador como `dniValidator()` debe tener tests unitarios independientes que verifiquen DNI validos, formatos incorrectos y letras erroneas, sin necesidad de montar un componente completo.
-
-12. **No abusar de la validacion asincrona.** La validacion asincrona introduce latencia y complejidad. Debe reservarse para casos donde sea estrictamente necesaria (unicidad en BD). Si una validacion se puede realizar en el frontend, debe hacerse en el frontend.
+    **Entregable:** Editor visual de formularios completamente funcional.
 
 ---
 
-## Errores frecuentes
+!!! tip "Buenas practicas"
 
-1. **Mostrar errores en campos untouched.** Un formulario con todos los campos en rojo al cargar es uno de los errores de UX mas graves y comunes. Siempre proteger la visualizacion de errores con la comprobacion `touched || formSubmitted`.
+    1. **Usar FormBuilder para formularios complejos.** `FormBuilder` reduce significativamente el codigo repetitivo al crear FormControls y FormGroups, especialmente en formularios con multiples niveles de anidamiento.
 
-2. **Olvidar el estado `pending` en la UI.** Si un campo tiene validacion asincrona, su estado `pending` debe reflejarse visualmente (borde amarillo, spinner). Ignorarlo hace que el formulario parezca congelado mientras el validador espera respuesta del servidor.
+    2. **Validar en `blur` por defecto para formularios con validacion asincrona.** La opcion `updateOn: 'blur'` ofrece el mejor equilibrio entre feedback inmediato y eficiencia, evitando peticiones excesivas al servidor.
 
-3. **No limpiar validadores asincronos obsoletos.** Si un usuario escribe "a", luego "ab", luego "abc" rapidamente, las tres peticiones asincronas se lanzaran. Sin `switchMap` o `debounceTime`, la respuesta de "a" podria llegar despues de la de "abc" y sobrescribir el estado correcto con un error obsoleto.
+    3. **No mostrar errores hasta que el campo haya sido tocado.** Mostrar errores en campos `untouched` es una mala practica de UX que abruma al usuario antes de que haya comenzado a interactuar. La formula `control.invalid && (control.touched || formSubmitted)` es la regla de oro.
 
-4. **Usar `form.value` sin comprobar que es valido.** `form.value` contiene los valores de todos los controles incluso si el formulario es invalido. Siempre comprobar `form.valid` antes de procesar los datos.
+    4. **Extraer los validadores personalizados a funciones reutilizables.** Un validador de DNI o IBAN debe ser una funcion exportable e independiente del componente, no un metodo privado, para facilitar su reutilizacion en multiples formularios.
 
-5. **Anidar FormArrays incorrectamente.** Al anadir controles a un FormArray, es facil olvidar que cada elemento debe ser un `FormControl` o `FormGroup`. Intentar anadir valores crudos directamente causa errores en tiempo de ejecucion.
+    5. **Usar `computed` para derivar estado visual de formulario.** En lugar de comprobar `form.valid && form.dirty` repetidamente en el template, crear computed signals: `canSave = computed(() => this.form.valid && this.form.dirty)`.
 
-6. **No recalcular totals al eliminar lineas en FormArray.** Al usar `removeAt(index)` en un FormArray, los computed signals que dependen del array se actualizan automaticamente, pero cualquier logica imperativa que mantenga un estado separado debe actualizarse manualmente. Usar siempre `computed` para valores derivados.
+    6. **Proporcionar mensajes de error utiles, no tecnicos.** El mensaje "Campo requerido" es mejor que "Error: required validator failed". Los mensajes deben guiar al usuario hacia la correccion, no simplemente anunciar que algo esta mal.
 
-7. **Ignorar la accesibilidad en mensajes de error.** Los mensajes de error deben usar `role="alert"` para que los lectores de pantalla los anuncien inmediatamente. El input debe tener `aria-describedby` apuntando al ID del mensaje de error.
+    7. **Implementar auto-guardado en formularios largos.** Para formularios que requieren mas de 2 minutos para completarse, el auto-guardado de borradores en localStorage es una funcionalidad que el usuario agradecera enormemente.
 
-8. **No deshabilitar el boton de envio durante el procesamiento.** Mientras se procesa un formulario (estado `submitting`), el boton de envio debe estar deshabilitado y mostrar un spinner para evitar dobles envios accidentales.
+    8. **Hacer scroll al primer error en formularios largos tras el envio.** El usuario no deberia tener que buscar manualmente cual campo fallo la validacion. `scrollIntoView({ behavior: 'smooth' })` es la implementacion estandar.
 
-9. **Escribir validadores cross-field que mutan los controles hijos directamente.** Un validador de FormGroup debe devolver un objeto de error, no modificar directamente los controles. Para anadir errores a controles especificos, usar `setErrors` en el control concreto.
+    9. **Usar skeleton en lugar de spinner para carga inicial de formularios.** Un spinner giratorio no da informacion sobre la estructura del formulario; un skeleton que imita la disposicion de los campos reduce la ansiedad del usuario durante la carga.
 
-10. **Usar `setValue` en lugar de `patchValue` al restaurar borradores.** `setValue` requiere proporcionar valores para TODOS los controles del formulario, mientras que `patchValue` permite valores parciales. Para restaurar borradores, `patchValue` es casi siempre la opcion correcta.
+    10. **Limpiar suscripciones y timers en `ngOnDestroy`.** Las suscripciones a `valueChanges`, `statusChanges` y los timers de auto-guardado deben cancelarse cuando el componente se destruye. Usar `takeUntilDestroyed()` o gestion manual con `Subscription.unsubscribe()`.
+
+    11. **Testear validadores personalizados de forma aislada.** Un validador como `dniValidator()` debe tener tests unitarios independientes que verifiquen DNI validos, formatos incorrectos y letras erroneas, sin necesidad de montar un componente completo.
+
+    12. **No abusar de la validacion asincrona.** La validacion asincrona introduce latencia y complejidad. Debe reservarse para casos donde sea estrictamente necesaria (unicidad en BD). Si una validacion se puede realizar en el frontend, debe hacerse en el frontend.
 
 ---
 
-## Resumen
+!!! warning "Errores frecuentes"
 
-Esta unidad ha abordado en profundidad los formularios y la interaccion de usuario en Angular, cubriendo:
+    1. **Mostrar errores en campos untouched.** Un formulario con todos los campos en rojo al cargar es uno de los errores de UX mas graves y comunes. Siempre proteger la visualizacion de errores con la comprobacion `touched || formSubmitted`.
 
-- El uso de **Reactive Forms** con un enfoque especifico en la interfaz de usuario: cada estado del control (touched, dirty, valid, pending) se traduce en feedback visual mediante clases de Tailwind condicionales, creando formularios que guian al usuario sin abrumarlo.
+    2. **Olvidar el estado `pending` en la UI.** Si un campo tiene validacion asincrona, su estado `pending` debe reflejarse visualmente (borde amarillo, spinner). Ignorarlo hace que el formulario parezca congelado mientras el validador espera respuesta del servidor.
 
-- La implementacion de **validaciones completas**: validadores integrados, validadores personalizados para documentos espanoles (DNI, CIF, IBAN), validacion cross-field para confirmacion de contrasenas y rangos de fecha, y validacion asincrona contra APIs con gestion del estado `pending` en la interfaz.
+    3. **No limpiar validadores asincronos obsoletos.** Si un usuario escribe "a", luego "ab", luego "abc" rapidamente, las tres peticiones asincronas se lanzaran. Sin `switchMap` o `debounceTime`, la respuesta de "a" podria llegar despues de la de "abc" y sobrescribir el estado correcto con un error obsoleto.
 
-- La construccion de un **sistema profesional de mensajes de error** mediante el componente `FormErrorComponent`, que encapsula la logica de presentacion de errores y la mantiene consistente en toda la aplicacion.
+    4. **Usar `form.value` sin comprobar que es valido.** `form.value` contiene los valores de todos los controles incluso si el formulario es invalido. Siempre comprobar `form.valid` antes de procesar los datos.
 
-- Las **tecnicas avanzadas de UX en formularios**: wizards multi-paso con Signals, formularios dinamicos con FormArray y calculos reactivos, auto-guardado de borradores en localStorage, y proteccion contra perdida de datos con CanDeactivate.
+    5. **Anidar FormArrays incorrectamente.** Al anadir controles a un FormArray, es facil olvidar que cada elemento debe ser un `FormControl` o `FormGroup`. Intentar anadir valores crudos directamente causa errores en tiempo de ejecucion.
 
-- El **feedback visual y las micro-interacciones**: animaciones de shake en error, check en validacion correcta, slide in para mensajes, skeleton para carga de formularios, y toasts de confirmacion.
+    6. **No recalcular totals al eliminar lineas en FormArray.** Al usar `removeAt(index)` en un FormArray, los computed signals que dependen del array se actualizan automaticamente, pero cualquier logica imperativa que mantenga un estado separado debe actualizarse manualmente. Usar siempre `computed` para valores derivados.
+
+    7. **Ignorar la accesibilidad en mensajes de error.** Los mensajes de error deben usar `role="alert"` para que los lectores de pantalla los anuncien inmediatamente. El input debe tener `aria-describedby` apuntando al ID del mensaje de error.
+
+    8. **No deshabilitar el boton de envio durante el procesamiento.** Mientras se procesa un formulario (estado `submitting`), el boton de envio debe estar deshabilitado y mostrar un spinner para evitar dobles envios accidentales.
+
+    9. **Escribir validadores cross-field que mutan los controles hijos directamente.** Un validador de FormGroup debe devolver un objeto de error, no modificar directamente los controles. Para anadir errores a controles especificos, usar `setErrors` en el control concreto.
+
+    10. **Usar `setValue` en lugar de `patchValue` al restaurar borradores.** `setValue` requiere proporcionar valores para TODOS los controles del formulario, mientras que `patchValue` permite valores parciales. Para restaurar borradores, `patchValue` es casi siempre la opcion correcta.
+
+---
+
+!!! abstract "Resumen"
+
+    Esta unidad ha abordado en profundidad los formularios y la interaccion de usuario en Angular, cubriendo:
+
+    - El uso de **Reactive Forms** con un enfoque especifico en la interfaz de usuario: cada estado del control (touched, dirty, valid, pending) se traduce en feedback visual mediante clases de Tailwind condicionales, creando formularios que guian al usuario sin abrumarlo.
+
+    - La implementacion de **validaciones completas**: validadores integrados, validadores personalizados para documentos espanoles (DNI, CIF, IBAN), validacion cross-field para confirmacion de contrasenas y rangos de fecha, y validacion asincrona contra APIs con gestion del estado `pending` en la interfaz.
+
+    - La construccion de un **sistema profesional de mensajes de error** mediante el componente `FormErrorComponent`, que encapsula la logica de presentacion de errores y la mantiene consistente en toda la aplicacion.
+
+    - Las **tecnicas avanzadas de UX en formularios**: wizards multi-paso con Signals, formularios dinamicos con FormArray y calculos reactivos, auto-guardado de borradores en localStorage, y proteccion contra perdida de datos con CanDeactivate.
+
+    - El **feedback visual y las micro-interacciones**: animaciones de shake en error, check en validacion correcta, slide in para mensajes, skeleton para carga de formularios, y toasts de confirmacion.
 
 ---
 

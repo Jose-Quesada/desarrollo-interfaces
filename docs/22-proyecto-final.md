@@ -1,3 +1,7 @@
+---
+icon: lucide/flag
+---
+
 # Proyecto Final Integrador: Aplicación Empresarial Completa "GesFlow"
 
 ## Objetivos de aprendizaje
@@ -26,7 +30,9 @@ Al finalizar este proyecto final integrador, el alumnado habrá demostrado la ca
 
 ## Resultado de aprendizaje asociado
 
-Este proyecto final integrador evalúa de forma conjunta los resultados de aprendizaje del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
+!!! info "Normativa"
+
+    Este proyecto final integrador evalúa de forma conjunta los resultados de aprendizaje del módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de Aplicaciones Multiplataforma, DAM — currículo andaluz, BOJA; actualizado por el RD 405/2023, BOE):
 
 - **RA 1.** Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado (Figma como entorno de diseño, interfaz Angular).
 - **RA 3.** Crea componentes visuales valorando y empleando herramientas específicas (componentes Angular standalone, Storybook).
@@ -40,21 +46,21 @@ Este proyecto final integrador evalúa de forma conjunta los resultados de apren
 
 Cada uno de los criterios de evaluación de estos RA se evalúa en la rúbrica detallada del proyecto que se presenta más adelante en este documento.
 
-## Conocimientos previos
+!!! note "Conocimientos previos"
 
-Este proyecto integrador presupone que el alumnado ha cursado y superado las 21 unidades didácticas anteriores del módulo 0488 *Desarrollo de interfaces*, así como los módulos de primero y segundo curso que proporcionan la base de programación, bases de datos, entornos de desarrollo y sistemas informáticos.
+    Este proyecto integrador presupone que el alumnado ha cursado y superado las 21 unidades didácticas anteriores del módulo 0488 *Desarrollo de interfaces*, así como los módulos de primero y segundo curso que proporcionan la base de programación, bases de datos, entornos de desarrollo y sistemas informáticos.
 
-En particular, se requiere dominio de:
+    En particular, se requiere dominio de:
 
-- **Angular 18+ standalone**: componentes, servicios con `inject()`, Signals (`signal`, `computed`, `effect`), Reactive Forms, HttpClient, Router con lazy loading, guards, interceptores, pipes, directivas estructurales (`@if`, `@for`, `@switch`).
-- **Tailwind CSS 4**: sistema de utilidades, responsive design (breakpoints `sm`, `md`, `lg`, `xl`, `2xl`), dark mode con `dark:`, personalización con `@theme`, CSS Grid y Flexbox con utilidades de Tailwind.
-- **Figma**: diseño de interfaces, Auto Layout, componentes y variantes, variables (Design Tokens), estilos de texto y color, exportación de assets.
-- **Storybook**: creación de historias, documentación de componentes, tests de interacción, controls, acciones y docs automáticos.
-- **Chart.js**: tipos de gráficos, configuración, integración en Angular, ciclo de vida, exportación a imagen base64.
-- **PDFMake**: definición declarativa de documentos, tablas, estilos, imágenes, métodos de salida.
-- **Electron**: arquitectura de procesos, main.js, preload.js, IPC, integración con Angular, electron-builder.
-- **TypeScript avanzado**: interfaces, tipos genéricos, tipos de unión, narrowing, utility types.
-- **Control de versiones con Git y GitHub**: ramas, commits, pull requests, GitHub Pages, GitHub Actions.
+    - **Angular 18+ standalone**: componentes, servicios con `inject()`, Signals (`signal`, `computed`, `effect`), Reactive Forms, HttpClient, Router con lazy loading, guards, interceptores, pipes, directivas estructurales (`@if`, `@for`, `@switch`).
+    - **Tailwind CSS 4**: sistema de utilidades, responsive design (breakpoints `sm`, `md`, `lg`, `xl`, `2xl`), dark mode con `dark:`, personalización con `@theme`, CSS Grid y Flexbox con utilidades de Tailwind.
+    - **Figma**: diseño de interfaces, Auto Layout, componentes y variantes, variables (Design Tokens), estilos de texto y color, exportación de assets.
+    - **Storybook**: creación de historias, documentación de componentes, tests de interacción, controls, acciones y docs automáticos.
+    - **Chart.js**: tipos de gráficos, configuración, integración en Angular, ciclo de vida, exportación a imagen base64.
+    - **PDFMake**: definición declarativa de documentos, tablas, estilos, imágenes, métodos de salida.
+    - **Electron**: arquitectura de procesos, main.js, preload.js, IPC, integración con Angular, electron-builder.
+    - **TypeScript avanzado**: interfaces, tipos genéricos, tipos de unión, narrowing, utility types.
+    - **Control de versiones con Git y GitHub**: ramas, commits, pull requests, GitHub Pages, GitHub Actions.
 
 ## Contenidos
 
@@ -73,15 +79,17 @@ En particular, se requiere dominio de:
 
 ### 1. Enunciado completo del proyecto "GesFlow"
 
-GesFlow es un sistema de gestión empresarial integral desarrollado como proyecto final del módulo 0488 Desarrollo de Interfaces. La aplicación cubre el flujo completo de una pequeña/mediana empresa: gestión de clientes, facturación, productos, dashboard de indicadores, informes y configuración.
+!!! info "Definición"
 
-**Contexto de negocio**: GesFlow está dirigido a autónomos, pymes y microempresas andaluzas que necesitan una herramienta sencilla pero completa para gestionar su negocio diario. La aplicación debe funcionar tanto en navegador web (accesible desde cualquier dispositivo) como en escritorio (para uso intensivo en oficina), compartiendo la misma base de código.
+    GesFlow es un **sistema de gestión empresarial integral** desarrollado como proyecto final del módulo 0488 Desarrollo de Interfaces. La aplicación cubre el flujo completo de una pequeña/mediana empresa: gestión de clientes, facturación, productos, dashboard de indicadores, informes y configuración.
+
+**Contexto de negocio**: GesFlow está dirigido a **autónomos, pymes y microempresas** andaluzas que necesitan una herramienta sencilla pero completa para gestionar su negocio diario. La aplicación debe funcionar tanto en navegador web (accesible desde cualquier dispositivo) como en escritorio (para uso intensivo en oficina), compartiendo la misma base de código.
 
 **Módulos funcionales**:
 
 1. **Autenticación**: Registro de nuevos usuarios, inicio de sesión, recuperación de contraseña, cierre de sesión. Protección de rutas mediante guardas de autenticación. Simulación de JWT mediante json-server + json-server-auth o implementación real con Firebase Auth.
 
-2. **Dashboard**: Panel de control con 5 KPI cards (ingresos totales del mes, número de facturas emitidas, número de clientes activos, ticket medio, tasa de cobro), 3 gráficos interactivos (evolución de ingresos mensual —líneas, top 5 productos por ingresos —barras horizontales, distribución de ingresos por categoría —doughnut), tabla de últimas 10 facturas emitidas, y filtro de rango de fechas.
+2. **Dashboard**: Panel de control con 5 **KPI cards** (ingresos totales del mes, número de facturas emitidas, número de clientes activos, ticket medio, tasa de cobro), 3 gráficos interactivos (evolución de ingresos mensual —líneas, top 5 productos por ingresos —barras horizontales, distribución de ingresos por categoría —doughnut), tabla de últimas 10 facturas emitidas, y filtro de rango de fechas.
 
 3. **Clientes (CRUD)**: Listado con tabla paginada, búsqueda en tiempo real, filtrado por ciudad y estado (activo/inactivo), ordenación por columnas (nombre, fecha de alta, total facturado), formulario de creación/edición con validación (nombre, NIF/CIF, email, teléfono, dirección, ciudad, código postal, notas), vista de detalle con historial de facturas del cliente, y acciones (editar, desactivar, eliminar con confirmación).
 
@@ -95,9 +103,11 @@ GesFlow es un sistema de gestión empresarial integral desarrollado como proyect
 
 ### 2. Planificación del proyecto en 9 fases
 
-El proyecto se estructura en 9 fases, diseñadas para ser ejecutadas de forma secuencial aunque algunas pueden solaparse. La carga horaria estimada es de 40 horas (2 semanas completas de clase a razón de 4 horas diarias de trabajo práctico).
+!!! info "Dato clave"
 
-| Fase | Descripción | Horas estimadas | Semana |
+    El proyecto se estructura en **9 fases**, diseñadas para ser ejecutadas de forma secuencial aunque algunas pueden solaparse. La carga horaria estimada es de 40 horas (2 semanas completas de clase a razón de 4 horas diarias de trabajo práctico).
+
+| **Fase** | **Descripción** | **Horas estimadas** | **Semana** |
 |---|---|---|---|
 | FASE 1 | Diseño en Figma | 6h | Semana 1 |
 | FASE 2 | Configuración del proyecto Angular | 2h | Semana 1 |
@@ -535,11 +545,11 @@ export const routes: Routes = [
 
 ### 7. Fase 5: Features (funcionalidades de negocio)
 
-Esta es la fase más extensa del proyecto (10 horas). Se implementan todas las funcionalidades de negocio. A continuación se detalla la especificación para cada feature.
+Esta es la **fase más extensa del proyecto** (10 horas). Se implementan todas las funcionalidades de negocio. A continuación se detalla la especificación para cada feature.
 
 #### 7.1. Autenticación
 
-- **Login**: Formulario reactivo con email (validación de formato) y contraseña (mínimo 6 caracteres). Al enviar, llamar al `AuthService.login()`, almacenar el token JWT en `localStorage`, redirigir al dashboard. Manejar errores: credenciales inválidas (mostrar mensaje genérico "Email o contraseña incorrectos"), error de red (mostrar "Error de conexión, intente de nuevo").
+- **Login**: Formulario reactivo con email (validación de formato) y contraseña (mínimo 6 caracteres). Al enviar, llamar al `AuthService.login()`, almacenar el **token JWT** en `localStorage`, redirigir al dashboard. Manejar errores: credenciales inválidas (mostrar mensaje genérico "Email o contraseña incorrectos"), error de red (mostrar "Error de conexión, intente de nuevo").
 - **Register**: Formulario con nombre, email, contraseña, confirmar contraseña (validación de coincidencia). Al enviar, llamar al `AuthService.register()`, redirigir al login con mensaje de éxito. Manejar errores: email ya registrado.
 - **AuthGuard**: Comprobar si existe token en `localStorage`. Si no, redirigir a `/auth/login`. Si sí, permitir acceso.
 - **AuthInterceptor**: Interceptar todas las peticiones HTTP salientes y añadir cabecera `Authorization: Bearer <token>`.
@@ -572,7 +582,7 @@ Esta es la fase más extensa del proyecto (10 horas). Se implementan todas las f
 
 #### 7.5. Productos
 
-CRUD estándar con listado paginado, formulario de creación/edición con campos (nombre, descripción, categoría, precio base, tipo de IVA, stock), y toggle de activo/inactivo.
+**CRUD estándar** con listado paginado, formulario de creación/edición con campos (nombre, descripción, categoría, precio base, tipo de IVA, stock), y toggle de activo/inactivo.
 
 #### 7.6. Informes
 
@@ -594,7 +604,7 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 2. **Auditoría con WAVE**: Analizar cada pantalla con la extensión WAVE. Corregir errores (missing labels, contrast errors, empty buttons, missing alt text).
 3. **Auditoría con axe DevTools**: Ejecutar tests automatizados de accesibilidad con axe-core.
 4. **Verificar navegación por teclado**: Navegar por todas las pantallas usando solo el teclado (Tab, Shift+Tab, Enter, Escape, flechas). Verificar que todos los elementos interactivos son accesibles y el focus es visible.
-5. **Verificar textos y contrastes**: Todos los textos de la interfaz deben tener un contraste mínimo de 4.5:1 (WCAG AA) para texto normal y 3:1 para texto grande.
+5. **Verificar textos y contrastes**: Todos los textos de la interfaz deben tener un **contraste mínimo de 4.5:1** (WCAG AA) para texto normal y 3:1 para texto grande.
 6. **Estados de la interfaz**: Verificar que todas las pantallas manejan correctamente los estados de carga (skeleton loaders), vacío (empty states con ilustración, texto y acción), error (mensaje de error y botón de reintentar) y datos (visualización normal).
 7. **Microcopy**: Revisar todos los textos de la interfaz (etiquetas, placeholders, mensajes de error, tooltips, textos de botones) para que sean claros, concisos y útiles.
 
@@ -604,7 +614,7 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 
 **Actividades**:
 
-1. Probar cada pantalla en 5 breakpoints diferentes usando las herramientas de desarrollo del navegador.
+1. Probar cada pantalla en 5 **breakpoints** diferentes usando las herramientas de desarrollo del navegador.
 2. Adaptar el sidebar: overlay con backdrop en móvil, colapsado en tablet, expandido en desktop.
 3. Adaptar las tablas: scroll horizontal en pantallas pequeñas, ocultar columnas menos importantes en móvil.
 4. Adaptar los gráficos: reducir altura, apilar verticalmente en lugar de horizontalmente.
@@ -655,7 +665,7 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 
 ### 12. Rúbrica de evaluación detallada
 
-| Criterio | Peso | Excelente (10) | Notable (7-8) | Suficiente (5-6) | Insuficiente (<5) |
+| **Criterio** | **Peso** | **Excelente (10)** | **Notable (7-8)** | **Suficiente (5-6)** | **Insuficiente (<5)** |
 |---|---|---|---|---|---|
 | **Diseño en Figma** | 10% | Design System completo con componentes, variantes, Auto Layout, variables de diseño. 5+ pantallas diseñadas a alta fidelidad. Consistencia visual total. | 5 pantallas diseñadas correctamente. Uso de Auto Layout en la mayoría de componentes. Cierta consistencia visual. | Diseño básico con algunas pantallas. Poco uso de componentes y Auto Layout. | Sin diseño en Figma o diseño extremadamente pobre. |
 | **Design System + Storybook** | 15% | 10+ componentes documentados en Storybook. Todas las variantes y estados cubiertos. Tests de interacción implementados. Accesibilidad verificada en cada componente. | 6-9 componentes documentados. Mayoría de variantes cubiertas. Storybook desplegado. | 3-5 componentes básicos documentados. Storybook funcional pero incompleto. | Sin Design System o sin Storybook. |
@@ -669,7 +679,7 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 
 **Criterios de evaluación oficiales mapeados**:
 
-| Criterio de evaluación | Dónde se evalúa en GesFlow |
+| **Criterio de evaluación** | **Dónde se evalúa en GesFlow** |
 |---|---|
 | RA1.a - Identifica elementos de diseño | Fase 1 (Figma), Fase 3 (Design System) |
 | RA1.b - Aplica principios de diseño | Fase 1 (Figma) |
@@ -1003,114 +1013,114 @@ export class DashboardComponent implements OnInit {
 }
 ```
 
-## Actividades de ampliación
+??? "Actividades de ampliación"
 
-### Ampliación 1: Tests unitarios con Jasmine/Karma
+    ### Ampliación 1: Tests unitarios con Jasmine/Karma
 
-Implementa tests unitarios para al menos 5 servicios y 5 componentes:
-- `AuthService`: test de login exitoso, login fallido, registro, logout.
-- `InvoicePdfService`: test de generación de documento PDF (verificar estructura).
-- `ButtonComponent`: test de renderizado con diferentes inputs, test de emisión de eventos.
-- `StatCardComponent`: test de renderizado de KPI positivo/negativo.
-- `ClientFormComponent`: test de validación de formulario.
+    Implementa tests unitarios para al menos 5 servicios y 5 componentes:
+    - `AuthService`: test de login exitoso, login fallido, registro, logout.
+    - `InvoicePdfService`: test de generación de documento PDF (verificar estructura).
+    - `ButtonComponent`: test de renderizado con diferentes inputs, test de emisión de eventos.
+    - `StatCardComponent`: test de renderizado de KPI positivo/negativo.
+    - `ClientFormComponent`: test de validación de formulario.
 
-### Ampliación 2: Tests end-to-end con Cypress o Playwright
+    ### Ampliación 2: Tests end-to-end con Cypress o Playwright
 
-Implementa al menos 5 tests e2e que cubran flujos completos:
-- Login → Dashboard → Navegación a Clientes → Crear cliente → Verificar en listado.
-- Crear factura con líneas → Vista previa → Emitir → Verificar estado.
-- Dashboard → Cambiar rango de fechas → Verificar que los gráficos se actualizan.
-- Exportar CSV de clientes → Verificar descarga.
-- Modo oscuro → Cambiar tema → Verificar que persiste al recargar.
+    Implementa al menos 5 tests e2e que cubran flujos completos:
+    - Login → Dashboard → Navegación a Clientes → Crear cliente → Verificar en listado.
+    - Crear factura con líneas → Vista previa → Emitir → Verificar estado.
+    - Dashboard → Cambiar rango de fechas → Verificar que los gráficos se actualizan.
+    - Exportar CSV de clientes → Verificar descarga.
+    - Modo oscuro → Cambiar tema → Verificar que persiste al recargar.
 
-### Ampliación 3: CI/CD completo con GitHub Actions
+    ### Ampliación 3: CI/CD completo con GitHub Actions
 
-Implementa un pipeline CI/CD que ejecute: lint → tests unitarios → build de Angular → build de Storybook → deploy de Storybook a GitHub Pages → build de Electron → release de GitHub con instaladores (todo automatizado al pushear un tag).
+    Implementa un pipeline CI/CD que ejecute: lint → tests unitarios → build de Angular → build de Storybook → deploy de Storybook a GitHub Pages → build de Electron → release de GitHub con instaladores (todo automatizado al pushear un tag).
 
-### Ampliación 4: PWA (Progressive Web Application)
+    ### Ampliación 4: PWA (Progressive Web Application)
 
-Convierte la aplicación Angular en una PWA instalable en dispositivos móviles y escritorio:
-- Añade `@angular/pwa` (`ng add @angular/pwa`).
-- Configura el Service Worker para cache offline.
-- Personaliza el manifest (nombre, iconos, colores, orientación).
-- Prueba la instalación en un dispositivo Android y en Chrome Desktop.
+    Convierte la aplicación Angular en una PWA instalable en dispositivos móviles y escritorio:
+    - Añade `@angular/pwa` (`ng add @angular/pwa`).
+    - Configura el Service Worker para cache offline.
+    - Personaliza el manifest (nombre, iconos, colores, orientación).
+    - Prueba la instalación en un dispositivo Android y en Chrome Desktop.
 
-### Ampliación 5: Backend real con Firebase o Supabase
+    ### Ampliación 5: Backend real con Firebase o Supabase
 
-Sustituye el json-server por un backend real:
-- Firebase: Authentication (login/registro con email/password), Firestore (base de datos NoSQL para clientes, facturas, productos), Storage (para logos y avatares).
-- Supabase: alternativa open source a Firebase con PostgreSQL, autenticación y storage.
+    Sustituye el json-server por un backend real:
+    - Firebase: Authentication (login/registro con email/password), Firestore (base de datos NoSQL para clientes, facturas, productos), Storage (para logos y avatares).
+    - Supabase: alternativa open source a Firebase con PostgreSQL, autenticación y storage.
 
-### Ampliación 6: Internacionalización (i18n)
+    ### Ampliación 6: Internacionalización (i18n)
 
-Añade soporte para español e inglés:
-- Implementa `@angular/localize` o `ngx-translate`.
-- Traduce toda la interfaz (menús, etiquetas, mensajes de error, tooltips, textos de botones).
-- Añade un selector de idioma en la configuración.
-- Adapta formatos de fecha, moneda y número según el idioma seleccionado.
+    Añade soporte para español e inglés:
+    - Implementa `@angular/localize` o `ngx-translate`.
+    - Traduce toda la interfaz (menús, etiquetas, mensajes de error, tooltips, textos de botones).
+    - Añade un selector de idioma en la configuración.
+    - Adapta formatos de fecha, moneda y número según el idioma seleccionado.
 
-### Ampliación 7: Versión móvil con Capacitor
+    ### Ampliación 7: Versión móvil con Capacitor
 
-Migra la aplicación a una app móvil nativa para Android e iOS usando Capacitor:
-- Instala Capacitor: `npm install @capacitor/core @capacitor/cli`.
-- Adapta la UI para pantallas táctiles pequeñas.
-- Añade funcionalidades nativas móviles (cámara para avatar, GPS para dirección, compartir factura por WhatsApp).
+    Migra la aplicación a una app móvil nativa para Android e iOS usando Capacitor:
+    - Instala Capacitor: `npm install @capacitor/core @capacitor/cli`.
+    - Adapta la UI para pantallas táctiles pequeñas.
+    - Añade funcionalidades nativas móviles (cámara para avatar, GPS para dirección, compartir factura por WhatsApp).
 
-## Buenas prácticas
+!!! tip "Buenas prácticas"
 
-1. **Empieza por el diseño, no por el código**: Invierte tiempo en Figma al principio. Un diseño bien pensado ahorra horas de refactorización de código. Los componentes del Design System deben diseñarse en Figma antes de implementarse en Angular.
+    1. **Empieza por el diseño, no por el código**: Invierte tiempo en Figma al principio. ==Un diseño bien pensado ahorra horas de refactorización de código.== Los componentes del Design System deben diseñarse en Figma antes de implementarse en Angular.
 
-2. **Un componente a la vez**: No intentes implementar todos los componentes del Design System de golpe. Implementa uno, documéntalo en Storybook, verifica su accesibilidad, y solo entonces pasa al siguiente.
+    2. **Un componente a la vez**: No intentes implementar todos los componentes del Design System de golpe. Implementa uno, documéntalo en Storybook, verifica su accesibilidad, y solo entonces pasa al siguiente.
 
-3. **Commits frecuentes y con mensajes descriptivos**: Sigue el estándar de conventional commits: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`. Cada commit debe ser atómico (un solo cambio lógico).
+    3. **Commits frecuentes y con mensajes descriptivos**: Sigue el estándar de conventional commits: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`. Cada commit debe ser atómico (un solo cambio lógico).
 
-4. **Prueba en el navegador antes que en Electron**: La aplicación debe funcionar perfectamente en el navegador (`ng serve`). Electron es una capa adicional que añade funcionalidades nativas, no un requisito para que la funcionalidad básica funcione.
+    4. **Prueba en el navegador antes que en Electron**: La aplicación debe funcionar perfectamente en el navegador (`ng serve`). Electron es una capa adicional que añade funcionalidades nativas, no un requisito para que la funcionalidad básica funcione.
 
-5. **No dejes la accesibilidad para el final**: Incorpora consideraciones de accesibilidad desde el primer componente. Añadir accesibilidad al final es mucho más costoso que incluirla desde el diseño.
+    5. **No dejes la accesibilidad para el final**: Incorpora consideraciones de accesibilidad desde el primer componente. Añadir accesibilidad al final es mucho más costoso que incluirla desde el diseño.
 
-6. **Separa lógica de presentación**: Componentes Smart (contenedores) manejan la lógica de negocio y el estado. Componentes Dumb (presentacionales) reciben datos por `@Input()` y emiten eventos por `@Output()`. Esta separación facilita el testing y la reutilización.
+    6. **Separa lógica de presentación**: Componentes Smart (contenedores) manejan la lógica de negocio y el estado. Componentes Dumb (presentacionales) reciben datos por `@Input()` y emiten eventos por `@Output()`. Esta separación facilita el testing y la reutilización.
 
-7. **Usa Signals para estado reactivo, no para todo**: Signals son excelentes para estado de UI (tema, sidebar, formularios, datos cargados). Para estado de servidor (datos que vienen de API), considera usar RxJS con `HttpClient`, que ya es reactivo.
+    7. **Usa Signals para estado reactivo, no para todo**: Signals son excelentes para estado de UI (tema, sidebar, formularios, datos cargados). Para estado de servidor (datos que vienen de API), considera usar RxJS con `HttpClient`, que ya es reactivo.
 
-8. **Documenta mientras desarrollas**: No dejes el README y la memoria para el último día. Ve tomando capturas, documentando decisiones y escribiendo secciones de la memoria a medida que avanzas en las fases.
+    8. **Documenta mientras desarrollas**: No dejes el README y la memoria para el último día. Ve tomando capturas, documentando decisiones y escribiendo secciones de la memoria a medida que avanzas en las fases.
 
-9. **Prioriza funcionalidad sobre perfección**: Es preferible tener todas las funcionalidades implementadas de forma aceptable que 2 funcionalidades perfectas y el resto sin hacer. La rúbrica valora la completitud.
+    9. **Prioriza funcionalidad sobre perfección**: Es preferible tener todas las funcionalidades implementadas de forma aceptable que 2 funcionalidades perfectas y el resto sin hacer. La rúbrica valora la completitud.
 
-10. **Pide feedback**: Muestra tu progreso a compañeros y al profesor regularmente. Un par de ojos frescos detectan problemas de usabilidad y bugs que el desarrollador pasa por alto por estar inmerso en el código.
+    10. **Pide feedback**: Muestra tu progreso a compañeros y al profesor regularmente. Un par de ojos frescos detectan problemas de usabilidad y bugs que el desarrollador pasa por alto por estar inmerso en el código.
 
-## Errores frecuentes
+!!! warning "Errores frecuentes"
 
-1. **Empezar a programar sin tener el diseño en Figma**: Sin un diseño previo, la implementación carece de dirección y el resultado es inconsistente visualmente. Es el error más común y el que más tiempo hace perder.
+    1. **Empezar a programar sin tener el diseño en Figma**: Sin un diseño previo, la implementación carece de dirección y el resultado es inconsistente visualmente. ==Es el error más común y el que más tiempo hace perder.==
 
-2. **No tipar correctamente con TypeScript**: Usar `any` en los modelos de datos, en los servicios o en las respuestas de la API. Esto anula las ventajas de TypeScript y hace que los errores aparezcan en tiempo de ejecución en lugar de en tiempo de compilación.
+    2. **No tipar correctamente con TypeScript**: Usar `any` en los modelos de datos, en los servicios o en las respuestas de la API. Esto anula las ventajas de TypeScript y hace que los errores aparezcan en tiempo de ejecución en lugar de en tiempo de compilación.
 
-3. **Crear componentes gigantes (God Components)**: Un componente de 500 líneas que hace de todo (tabla + formulario + filtros + paginación) es difícil de mantener, testear y reutilizar. Divide en componentes más pequeños con responsabilidades claras.
+    3. **Crear componentes gigantes (God Components)**: Un componente de 500 líneas que hace de todo (tabla + formulario + filtros + paginación) es difícil de mantener, testear y reutilizar. Divide en componentes más pequeños con responsabilidades claras.
 
-4. **Olvidar destruir instancias de Chart.js**: Si no se llama a `chart.destroy()` en `ngOnDestroy`, cada vez que se navega al dashboard se crea una nueva instancia sin liberar la anterior, causando fugas de memoria.
+    4. **Olvidar destruir instancias de Chart.js**: Si no se llama a `chart.destroy()` en `ngOnDestroy`, cada vez que se navega al dashboard se crea una nueva instancia sin liberar la anterior, causando fugas de memoria.
 
-5. **No probar en diferentes navegadores y dispositivos**: "En mi Chrome funciona" no es suficiente. La aplicación debe probarse en Firefox, Edge, Safari, Chrome, y en diferentes tamaños de pantalla. Electron usa Chromium, pero la versión web puede ser usada en cualquier navegador.
+    5. **No probar en diferentes navegadores y dispositivos**: "En mi Chrome funciona" no es suficiente. La aplicación debe probarse en Firefox, Edge, Safari, Chrome, y en diferentes tamaños de pantalla. Electron usa Chromium, pero la versión web puede ser usada en cualquier navegador.
 
-6. **Ignorar los estados de carga, vacío y error**: Mostrar una pantalla en blanco mientras se cargan los datos, no mostrar nada cuando no hay resultados, o que la app se rompa cuando falla una petición HTTP. Son errores de UX graves y fáciles de prevenir.
+    6. **Ignorar los estados de carga, vacío y error**: Mostrar una pantalla en blanco mientras se cargan los datos, no mostrar nada cuando no hay resultados, o que la app se rompa cuando falla una petición HTTP. Son errores de UX graves y fáciles de prevenir.
 
-7. **Hardcodear valores en lugar de usar Design Tokens**: Poner colores en hexadecimal directamente en los componentes en lugar de usar las variables de Tailwind `@theme`. Cuando se quiera cambiar el color primario, habrá que modificar cientos de archivos.
+    7. **Hardcodear valores en lugar de usar Design Tokens**: Poner colores en hexadecimal directamente en los componentes en lugar de usar las variables de Tailwind `@theme`. Cuando se quiera cambiar el color primario, habrá que modificar cientos de archivos.
 
-8. **No configurar correctamente el routing y la navegación**: URLs que no reflejan la estructura de la aplicación, navegación que no actualiza el breadcrumb, botones "volver" que usan `history.back()` en lugar del router de Angular.
+    8. **No configurar correctamente el routing y la navegación**: URLs que no reflejan la estructura de la aplicación, navegación que no actualiza el breadcrumb, botones "volver" que usan `history.back()` en lugar del router de Angular.
 
-9. **Generar el PDF con datos no validados**: Si la factura tiene datos incorrectos (importes negativos, fechas inválidas, cliente no seleccionado), el PDF se generará con esos errores. Valida los datos antes de pasarlos al generador de PDF.
+    9. **Generar el PDF con datos no validados**: Si la factura tiene datos incorrectos (importes negativos, fechas inválidas, cliente no seleccionado), el PDF se generará con esos errores. Valida los datos antes de pasarlos al generador de PDF.
 
-10. **No probar el instalador generado**: Asumir que si electron-builder termina sin errores, el instalador funciona. Siempre se debe probar el instalador en una máquina limpia (o VM).
+    10. **No probar el instalador generado**: Asumir que si electron-builder termina sin errores, el instalador funciona. Siempre se debe probar el instalador en una máquina limpia (o VM).
 
-## Resumen
+!!! abstract "Resumen"
 
-El Proyecto Final Integrador "GesFlow" constituye la culminación del módulo 0488 Desarrollo de Interfaces, integrando todos los conocimientos, competencias y habilidades adquiridos a lo largo de las 19 unidades didácticas anteriores en un único proyecto completo de aplicación empresarial.
+    El Proyecto Final Integrador "GesFlow" constituye la culminación del módulo 0488 Desarrollo de Interfaces, integrando todos los conocimientos, competencias y habilidades adquiridos a lo largo de las 19 unidades didácticas anteriores en un único proyecto completo de aplicación empresarial.
 
-La metodología en 9 fases —diseño, configuración, Design System, layout, funcionalidades, UX/accesibilidad, responsive, Electron y documentación— proporciona una estructura clara y realista para la ejecución del proyecto, simulando el flujo de trabajo de un equipo profesional de desarrollo de software.
+    La metodología en 9 fases —diseño, configuración, Design System, layout, funcionalidades, UX/accesibilidad, responsive, Electron y documentación— proporciona una estructura clara y realista para la ejecución del proyecto, simulando el flujo de trabajo de un equipo profesional de desarrollo de software.
 
-El proyecto abarca todas las áreas del módulo: diseño de interfaces con Figma (aplicando Auto Layout, componentes, variantes y Design Tokens), implementación del Design System con Storybook (10+ componentes documentados y accesibles), desarrollo Angular standalone con arquitectura feature-based (lazy loading, Signals, Reactive Forms, guards, interceptores), maquetación con Tailwind CSS 4 y `@theme`, dashboard con Chart.js, generación de documentos PDF profesionales con PDFMake, exportación de datos (CSV, Excel), empaquetado de escritorio con Electron (main.js, preload.js, electron-builder), y documentación técnica completa.
+    El proyecto abarca todas las áreas del módulo: diseño de interfaces con Figma (aplicando Auto Layout, componentes, variantes y Design Tokens), implementación del Design System con Storybook (10+ componentes documentados y accesibles), desarrollo Angular standalone con arquitectura feature-based (lazy loading, Signals, Reactive Forms, guards, interceptores), maquetación con Tailwind CSS 4 y `@theme`, dashboard con Chart.js, generación de documentos PDF profesionales con PDFMake, exportación de datos (CSV, Excel), empaquetado de escritorio con Electron (main.js, preload.js, electron-builder), y documentación técnica completa.
 
-La rúbrica de evaluación detallada, con 9 criterios y pesos específicos, y el mapeo a los criterios de evaluación oficiales del currículo DAM, garantizan una evaluación objetiva, transparente y alineada con la normativa educativa de Andalucía.
+    La rúbrica de evaluación detallada, con 9 criterios y pesos específicos, y el mapeo a los criterios de evaluación oficiales del currículo DAM, garantizan una evaluación objetiva, transparente y alineada con la normativa educativa de Andalucía.
 
-Las actividades de ampliación (tests, CI/CD, PWA, backend real, i18n, Capacitor) ofrecen al alumnado avanzado la oportunidad de profundizar y diferenciar su proyecto, preparándolos para los requisitos del mercado laboral actual.
+    Las actividades de ampliación (tests, CI/CD, PWA, backend real, i18n, Capacitor) ofrecen al alumnado avanzado la oportunidad de profundizar y diferenciar su proyecto, preparándolos para los requisitos del mercado laboral actual.
 
 ## Recursos complementarios
 
