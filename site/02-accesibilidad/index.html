@@ -798,6 +798,34 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-layouts-modernos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05.Layouts Modernos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1406,6 +1434,8 @@
 <p class="admonition-title">Mal uso de ARIA</p>
 <p>Es fundamental entender lo que ARIA no hace. ARIA no añade interactividad; si creas un <code>&lt;div role="button"&gt;</code>, debes implementar manualmente el manejo de teclado (Enter, Space), el foco visible, y la prevención de comportamiento por defecto. ARIA no modifica el comportamiento del navegador; solo comunica semántica a las tecnologías asistivas. <strong>Un mal uso de ARIA puede empeorar la accesibilidad</strong>: un <code>aria-label</code> redundante que repita información ya disponible, un <code>aria-hidden="true"</code> en un elemento interactivo que debería ser accesible, o un rol incorrecto que confunda al lector de pantalla.</p>
 </div>
+<p><a href="https://www.youtube.com/watch?v=ro3GQ9E7HVA">¿Qué es ARIA?</a></p>
+<p><a href="https://www.youtube.com/watch?v=pVTiAZgEslw&amp;t=1510s">Angular ARIA</a></p>
 <h3 id="8-implementacion-de-accesibilidad-en-angular">8. Implementación de Accesibilidad en Angular</h3>
 <p>El ecosistema Angular ofrece varias herramientas específicas para implementar accesibilidad de forma robusta. <strong>Angular CDK</strong> (Component Dev Kit) es una biblioteca oficial del equipo de Angular que proporciona primitivas de comportamiento sin estilos predefinidos, incluyendo varias utilidades de accesibilidad.</p>
 <p>La directiva <code>cdkTrapFocus</code> captura el foco del teclado dentro de un elemento, imprescindible para modales accesibles. Su uso es directo: <code>&lt;div cdkTrapFocus [cdkTrapFocusAutoCapture]="true"&gt;</code> en el contenedor del modal. Cuando el modal se cierra, el foco se libera automáticamente. Combinada con un listener de teclado para la tecla Escape (<code>@HostListener('document:keydown.escape')</code>), se obtiene un modal completamente accesible por teclado.</p>

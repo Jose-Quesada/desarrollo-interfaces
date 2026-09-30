@@ -166,6 +166,10 @@ Las **regiones en vivo** (live regions) son uno de los usos más potentes de ARI
 
     Es fundamental entender lo que ARIA no hace. ARIA no añade interactividad; si creas un `<div role="button">`, debes implementar manualmente el manejo de teclado (Enter, Space), el foco visible, y la prevención de comportamiento por defecto. ARIA no modifica el comportamiento del navegador; solo comunica semántica a las tecnologías asistivas. **Un mal uso de ARIA puede empeorar la accesibilidad**: un `aria-label` redundante que repita información ya disponible, un `aria-hidden="true"` en un elemento interactivo que debería ser accesible, o un rol incorrecto que confunda al lector de pantalla.
 
+[¿Qué es ARIA?](https://www.youtube.com/watch?v=ro3GQ9E7HVA)
+
+[Angular ARIA](https://www.youtube.com/watch?v=pVTiAZgEslw&t=1510s)
+
 ### 8. Implementación de Accesibilidad en Angular
 
 El ecosistema Angular ofrece varias herramientas específicas para implementar accesibilidad de forma robusta. **Angular CDK** (Component Dev Kit) es una biblioteca oficial del equipo de Angular que proporciona primitivas de comportamiento sin estilos predefinidos, incluyendo varias utilidades de accesibilidad.
@@ -280,7 +284,7 @@ Si el aula dispone de equipos con Windows, el alumnado instalará NVDA (lector d
 
 ### Actividad Propuesta 1: Auditoría WCAG Nivel AA
 
-Selecciona tres aplicaciones web que utilices habitualmente (por ejemplo, la plataforma educativa del instituto, tu banco online y una red social) y realiza una **auditoría de accesibilidad** de cada una utilizando al menos tres herramientas diferentes (Lighthouse, WAVE y axe DevTools). Para cada aplicación, documenta los errores encontrados, clasifícalos por principio POUR y nivel WCAG, y elabora un cuadro comparativo de las tres aplicaciones. Incluye capturas de pantalla de los informes y reflexiona sobre qué aplicación es más accesible y por qué.
+Selecciona tres aplicaciones web que utilices habitualmente (por ejemplo, la plataforma educativa del instituto, tu banco online y una red social) y realiza una **auditoría de accesibilidad** de cada una utilizando al menos tres herramientas diferentes (Lighthouse, [WAVE](https://wave.webaim.org/) y [axe DevTools](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd?pli=1). Para cada aplicación, documenta los errores encontrados, clasifícalos por principio POUR y nivel WCAG, y elabora un cuadro comparativo de las tres aplicaciones. Incluye capturas de pantalla de los informes y reflexiona sobre qué aplicación es más accesible y por qué.
 
 ### Actividad Propuesta 2: Implementación de Componentes Accesibles
 
