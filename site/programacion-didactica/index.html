@@ -1,0 +1,2095 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Apuntes básicos de Angular para Martos y alrededores.">
+      
+      
+        <meta name="author" content="Jose Quesada">
+      
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+        <link rel="next" href="../01-ux/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.44">
+    
+    
+      
+        <title>Programación Didáctica: Desarrollo de Interfaces (2º DAM) - Desarrollo de Interfaces - DAM</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.fba56155.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programacion-didactica-desarrollo-de-interfaces-2o-dam" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./.." title="Desarrollo de Interfaces - DAM" class="md-header__button md-logo" aria-label="Desarrollo de Interfaces - DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo de Interfaces - DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Programación Didáctica: Desarrollo de Interfaces (2º DAM)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Desarrollo de Interfaces - DAM" class="md-nav__button md-logo" aria-label="Desarrollo de Interfaces - DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Desarrollo de Interfaces - DAM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  00.Introducción
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programación didáctica
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programación didáctica
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion-y-justificacion-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Introducción y Justificación del Módulo
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-marco-normativo-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Marco Normativo de Referencia
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Marco Normativo de Referencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-normativa-estatal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Normativa Estatal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-normativa-autonomica-de-andalucia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Normativa Autonómica de Andalucía
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-carga-horaria-calendario-y-modalidad-dual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Carga Horaria, Calendario y Modalidad Dual
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resultados-de-aprendizaje-ra-y-criterios-de-evaluacion-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ra1-confecciona-interfaces-de-usuario-graficas-identificando-y-aplicando-la-metodologia-del-diseno-de-interfaces-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA1: Confecciona interfaces de usuario gráficas identificando y aplicando la metodología del diseño de interfaces (22%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra2-confecciona-interfaces-de-usuario-utilizando-interfaces-naturales-nui-voz-gestos-vision-y-tecnologias-emergentes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA2: Confecciona interfaces de usuario utilizando interfaces naturales (NUI, voz, gestos, visión) y tecnologías emergentes (16%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra3-crea-componentes-visuales-estandar-y-personalizados-reutilizables-integrandolos-en-librerias-y-aplicaciones-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA3: Crea componentes visuales estándar y personalizados reutilizables integrándolos en librerías y aplicaciones (20%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra4-disena-interfaces-amigables-y-accesibles-verificando-el-cumplimiento-de-estandares-y-normativas-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA4: Diseña interfaces amigables y accesibles verificando el cumplimiento de estándares y normativas (11%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra5-crea-informes-y-cuadros-de-mando-interactivos-integrando-fuentes-de-datos-y-elementos-graficos-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA5: Crea informes y cuadros de mando interactivos integrando fuentes de datos y elementos gráficos (4%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra6-elabora-la-documentacion-tecnica-y-de-usuario-de-la-interfaz-facilitando-su-mantenimiento-y-uso-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA6: Elabora la documentación técnica y de usuario de la interfaz facilitando su mantenimiento y uso (7%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra7-prepara-aplicaciones-para-su-distribucion-empaquetando-componentes-instaladores-y-dependencias-multiplataforma-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA7: Prepara aplicaciones para su distribución empaquetando componentes, instaladores y dependencias multiplataforma (10%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra8-realiza-pruebas-unitarias-de-integracion-y-extremo-a-extremo-en-interfaces-evaluando-su-rendimiento-y-robustez-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA8: Realiza pruebas unitarias, de integración y extremo a extremo en interfaces evaluando su rendimiento y robustez (10%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-organizacion-de-unidades-didacticas-y-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Organización de Unidades Didácticas y Materiales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Organización de Unidades Didácticas y Materiales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabla-de-unidades-didacticas-ras-y-temporalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tabla de Unidades Didácticas, RAs y Temporalización
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-metodologia-didactica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Metodología Didáctica
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-procedimiento-y-criterios-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Procedimiento y Criterios de Evaluación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Procedimiento y Criterios de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrumentos-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Instrumentos de Evaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistema de Recuperación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-atencion-a-la-diversidad-y-medidas-de-inclusion-dua" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Atención a la Diversidad y Medidas de Inclusión (DUA)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos-materiales-y-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Recursos Materiales y Software
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-concrecion-y-seguimiento-de-la-fase-dual-en-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Concreción y Seguimiento de la Fase Dual en Empresa
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-ux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  01.UX
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-accesibilidad/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-accessibility" viewBox="0 0 24 24"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1M5 8l3-3 5.5 3-2.36 3.5M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  02.Accesibilidad
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-interfaces-naturales/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  03.Interfaces Naturales
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-figma/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-pen-tool" viewBox="0 0 24 24"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18M2.3 2.3l7.286 7.286"/><circle cx="11" cy="11" r="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  04.Figma
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-layouts-modernos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  05.Layouts Modernos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-tailwindcss4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-wind" viewBox="0 0 24 24"><path d="M12.8 19.6A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  06.Tailwind CSS 4
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-componentes-tailwind/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-component" viewBox="0 0 24 24"><path d="M15.536 11.293a1 1 0 0 0 0 1.414l2.376 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0zM2.297 11.293a1 1 0 0 0 0 1.414l2.377 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414L6.088 8.916a1 1 0 0 0-1.414 0zM8.916 17.912a1 1 0 0 0 0 1.415l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.415l-2.377-2.376a1 1 0 0 0-1.414 0zM8.916 4.674a1 1 0 0 0 0 1.414l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  07.Componentes Tailwind
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-responsive-design/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8M10 19v-3.96 3.15M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  08.Responsive Design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-ecosistema-frontend/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-network" viewBox="0 0 24 24"><rect width="6" height="6" x="16" y="16" rx="1"/><rect width="6" height="6" x="2" y="16" rx="1"/><rect width="6" height="6" x="9" y="2" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  09.Ecosistema Frontend
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-arquitectura-angular/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  10.Arquitectura Angular
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-componentes-reutilizables/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-blocks" viewBox="0 0 24 24"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"/><rect width="8" height="8" x="14" y="2" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  11.Componentes Reutilizables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-formularios-interaccion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-text-cursor-input" viewBox="0 0 24 24"><path d="M12 20h-1a2 2 0 0 1-2-2 2 2 0 0 1-2 2H6M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1M6 4h1a2 2 0 0 1 2 2 2 2 0 0 1 2-2h1M9 6v12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  12.Formularios e Interacción
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-design-systems/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  13.Design Systems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-storybook/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-library" viewBox="0 0 24 24"><path d="m16 6 4 14M12 6v14M8 8v12M4 4v16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  14.Storybook
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-diseno-a-implementacion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right-left" viewBox="0 0 24 24"><path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  15.Diseño a Implementación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-generacion-informes/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-down" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M12 18v-6M9 15l3 3 3-3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  16.Generación de Informes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-dashboards-exportacion-datos/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  17.Dashboards y Datos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-documentacion-aplicaciones/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 9H8M16 13H8M16 17H8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  18.Documentación de Aplicaciones
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-pruebas-de-software/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bug" viewBox="0 0 24 24"><path d="M12 20v-9M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4zM14.12 3.88 16 2"/><path d="M21 21a4 4 0 0 0-3.81-4M21 5a4 4 0 0 1-3.55 3.97M22 13h-4M3 21a4 4 0 0 1 3.81-4M3 5a4 4 0 0 0 3.55 3.97M6 13H2M8 2l1.88 1.88M9 7.13V6a3 3 0 1 1 6 0v1.13"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  19.Pruebas de Software
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-electron/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-app-window" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M10 4v4M2 8h20M6 4v4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  20.Electron
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-empaquetado-distribucion/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73zM12 22V12"/><path d="M3.29 7 12 12l8.71-5M7.5 4.27l9 5.15"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  21.Empaquetado y Distribución
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-proyecto-final/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  22.Proyecto Final
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion-y-justificacion-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Introducción y Justificación del Módulo
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-marco-normativo-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Marco Normativo de Referencia
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Marco Normativo de Referencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-normativa-estatal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Normativa Estatal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-normativa-autonomica-de-andalucia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Normativa Autonómica de Andalucía
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-carga-horaria-calendario-y-modalidad-dual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Carga Horaria, Calendario y Modalidad Dual
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resultados-de-aprendizaje-ra-y-criterios-de-evaluacion-ce" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ra1-confecciona-interfaces-de-usuario-graficas-identificando-y-aplicando-la-metodologia-del-diseno-de-interfaces-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA1: Confecciona interfaces de usuario gráficas identificando y aplicando la metodología del diseño de interfaces (22%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra2-confecciona-interfaces-de-usuario-utilizando-interfaces-naturales-nui-voz-gestos-vision-y-tecnologias-emergentes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA2: Confecciona interfaces de usuario utilizando interfaces naturales (NUI, voz, gestos, visión) y tecnologías emergentes (16%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra3-crea-componentes-visuales-estandar-y-personalizados-reutilizables-integrandolos-en-librerias-y-aplicaciones-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA3: Crea componentes visuales estándar y personalizados reutilizables integrándolos en librerías y aplicaciones (20%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra4-disena-interfaces-amigables-y-accesibles-verificando-el-cumplimiento-de-estandares-y-normativas-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA4: Diseña interfaces amigables y accesibles verificando el cumplimiento de estándares y normativas (11%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra5-crea-informes-y-cuadros-de-mando-interactivos-integrando-fuentes-de-datos-y-elementos-graficos-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA5: Crea informes y cuadros de mando interactivos integrando fuentes de datos y elementos gráficos (4%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra6-elabora-la-documentacion-tecnica-y-de-usuario-de-la-interfaz-facilitando-su-mantenimiento-y-uso-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA6: Elabora la documentación técnica y de usuario de la interfaz facilitando su mantenimiento y uso (7%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra7-prepara-aplicaciones-para-su-distribucion-empaquetando-componentes-instaladores-y-dependencias-multiplataforma-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA7: Prepara aplicaciones para su distribución empaquetando componentes, instaladores y dependencias multiplataforma (10%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ra8-realiza-pruebas-unitarias-de-integracion-y-extremo-a-extremo-en-interfaces-evaluando-su-rendimiento-y-robustez-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RA8: Realiza pruebas unitarias, de integración y extremo a extremo en interfaces evaluando su rendimiento y robustez (10%)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-organizacion-de-unidades-didacticas-y-materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Organización de Unidades Didácticas y Materiales
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Organización de Unidades Didácticas y Materiales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabla-de-unidades-didacticas-ras-y-temporalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tabla de Unidades Didácticas, RAs y Temporalización
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-metodologia-didactica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Metodología Didáctica
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-procedimiento-y-criterios-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Procedimiento y Criterios de Evaluación
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Procedimiento y Criterios de Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrumentos-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Instrumentos de Evaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Sistema de Recuperación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-atencion-a-la-diversidad-y-medidas-de-inclusion-dua" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Atención a la Diversidad y Medidas de Inclusión (DUA)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-recursos-materiales-y-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Recursos Materiales y Software
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-concrecion-y-seguimiento-de-la-fase-dual-en-empresa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Concreción y Seguimiento de la Fase Dual en Empresa
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="programacion-didactica-desarrollo-de-interfaces-2o-dam">Programación Didáctica: Desarrollo de Interfaces (2º DAM)</h1>
+<p><strong>Curso Académico: 2025/2026</strong><br />
+<strong>Ciclo Formativo:</strong> Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)<br />
+<strong>Módulo Profesional:</strong> Desarrollo de Interfaces (Código: 0488)<br />
+<strong>Comunidad Autónoma:</strong> Andalucía  </p>
+<hr />
+<h2 id="1-introduccion-y-justificacion-del-modulo">1. Introducción y Justificación del Módulo</h2>
+<p>El módulo profesional de <strong>Desarrollo de Interfaces</strong> (Código 0488) es una materia fundamental en el 2º curso del Ciclo Formativo de Grado Superior de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>. Su objetivo principal es dotar al alumnado de las competencias necesarias para concebir, diseñar, implementar, documentar, probar y distribuir interfaces de usuario modernas, intuitivas, accesibles y multidispositivo (escritorio con Electron/Angular, web apps y entornos interactivos basados en interfaces naturales NUI/voz/gestos).</p>
+<p>El enfoque pedagógico sitúa al usuario en el centro del diseño (<strong>User-Centered Design &amp; UX</strong>), combinando herramientas de prototipado y diseño en alta fidelidad (<strong>Figma</strong>), frameworks de diseño atómico y utilidades (<strong>Tailwind CSS v4</strong>), arquitecturas avanzadas de componentes desacoplados (<strong>Angular 19+</strong> con Standalone Components, Signals y Storybook), librerías de generación y exportación de informes (<strong>jsPDF, SheetJS, Chart.js</strong>), automatización de pruebas (<strong>Vitest, Playwright/Cypress</strong>) y empaquetado nativo multiplataforma (<strong>Electron, Electron Forge/Builder, MSIX/AppImage</strong>).</p>
+<hr />
+<h2 id="2-marco-normativo-de-referencia">2. Marco Normativo de Referencia</h2>
+<p>La presente programación didáctica se fundamenta y adecúa estrictamente a la normativa estatal y autonómica vigente:</p>
+<h3 id="21-normativa-estatal">2.1. Normativa Estatal</h3>
+<ol>
+<li><strong>Ley Orgánica 3/2022, de 31 de marzo</strong>, de ordenación e integración de la Formación Profesional.</li>
+<li><strong>Real Decreto 659/2023, de 18 de julio</strong>, por el que se desarrolla la ordenación del Sistema de Formación Profesional.</li>
+<li><strong>Real Decreto 405/2023, de 29 de mayo</strong>, por el que se actualizan los títulos de la formación profesional del sistema educativo (entre ellos DAM) y se fijan sus enseñanzas mínimas.</li>
+<li><strong>Real Decreto 500/2024, de 21 de mayo</strong>, por el que se modifican determinados reales decretos de títulos de Formación Profesional para adaptar currículos y marcos de competencias.</li>
+<li><strong>Real Decreto 1112/2018, de 7 de septiembre</strong>, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles.</li>
+<li><strong>Ley 11/2023, de 8 de mayo</strong>, de trasposición de Directivas de la Unión Europea en materia de accesibilidad de determinados productos y servicios (Directiva Europea de Accesibilidad).</li>
+<li><strong>Ley Orgánica 3/2018 (LOPDGDD)</strong> y <strong>Reglamento (UE) 2016/679 (RGPD)</strong> sobre protección de datos y privacidad en interfaces y formularios.</li>
+</ol>
+<h3 id="22-normativa-autonomica-de-andalucia">2.2. Normativa Autonómica de Andalucía</h3>
+<ol>
+<li><strong>Decreto 104/2024, de 28 de mayo</strong>, por el que se establece la ordenación del Sistema de Formación Profesional en la Comunidad Autónoma de Andalucía (deroga el Decreto 436/2008).</li>
+<li><strong>Orden de 16 de junio de 2011</strong>, por la que se desarrolla el currículo correspondiente al título de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma en Andalucía.</li>
+<li><strong>Orden de 18 de septiembre de 2025</strong>, por la que se regula la evaluación y acreditación del aprendizaje del alumnado de Formación Profesional en Andalucía.</li>
+<li><strong>Orden de 26 de septiembre de 2025</strong>, por la que se regulan los periodos de formación en empresas y la modalidad Dual en Andalucía.</li>
+</ol>
+<hr />
+<h2 id="3-carga-horaria-calendario-y-modalidad-dual">3. Carga Horaria, Calendario y Modalidad Dual</h2>
+<p>De acuerdo con el Decreto 104/2024 y la ordenación de 2º curso de Grado Superior en Andalucía:</p>
+<ul>
+<li><strong>Carga horaria total del módulo:</strong> 210 horas.</li>
+<li><strong>Distribución lectiva semanal:</strong> 6 horas/semana.</li>
+<li><strong>Periodo en Centro Educativo (Trimestres 1 y 2):</strong> ~124 horas lectivas (septiembre a marzo).</li>
+<li><strong>Fase de Formación Dual en Empresa (Trimestre 3):</strong> ~86 horas del módulo integradas en la estancia en empresa (que completa las 400 horas duales de 2º curso de marzo a junio).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fase</th>
+<th style="text-align: left;">Periodo</th>
+<th style="text-align: center;">Horas Módulo</th>
+<th style="text-align: left;">Actividades Principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Fase Centro (T1 y T2)</strong></td>
+<td style="text-align: left;">Septiembre - Marzo</td>
+<td style="text-align: center;">124 h</td>
+<td style="text-align: left;">Clases teórico-prácticas, retos y desarrollo del proyecto GesFlow.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fase Dual Empresa (T3)</strong></td>
+<td style="text-align: left;">Marzo - Junio</td>
+<td style="text-align: center;">86 h</td>
+<td style="text-align: left;">Prácticas profesionales en empresas de desarrollo de software multiplataforma.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Total Módulo</strong></td>
+<td style="text-align: left;">Curso 2025/2026</td>
+<td style="text-align: center;"><strong>210 h</strong></td>
+<td style="text-align: left;">Adquisición plena de las competencias profesionales del módulo.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-resultados-de-aprendizaje-ra-y-criterios-de-evaluacion-ce">4. Resultados de Aprendizaje (RA) y Criterios de Evaluación (CE)</h2>
+<p>El módulo consta de <strong>8 Resultados de Aprendizaje</strong> oficiales, con las ponderaciones asignadas en función de su impacto competencial:</p>
+<h3 id="ra1-confecciona-interfaces-de-usuario-graficas-identificando-y-aplicando-la-metodologia-del-diseno-de-interfaces-22">RA1: Confecciona interfaces de usuario gráficas identificando y aplicando la metodología del diseño de interfaces (22%)</h3>
+<ul>
+<li><strong>CE1.a:</strong> Se han identificado los elementos que componen la interfaz gráfica.</li>
+<li><strong>CE1.b:</strong> Se han analizado los principios de usabilidad y diseño centrado en el usuario (UX).</li>
+<li><strong>CE1.c:</strong> Se han elaborado bocetos, wireframes y prototipos interactivos en alta fidelidad (Figma).</li>
+<li><strong>CE1.d:</strong> Se han aplicado guías de estilo, tipografías, colores, espaciados y sistemas de diseño (Design Tokens).</li>
+<li><strong>CE1.e:</strong> Se han diseñado layouts modernos y adaptables a diferentes resoluciones y dispositivos (CSS Grid, Flexbox, Tailwind CSS v4).</li>
+<li><strong>CE1.f:</strong> Se ha verificado la correcta interacción y flujo de navegación entre pantallas.</li>
+</ul>
+<h3 id="ra2-confecciona-interfaces-de-usuario-utilizando-interfaces-naturales-nui-voz-gestos-vision-y-tecnologias-emergentes-16">RA2: Confecciona interfaces de usuario utilizando interfaces naturales (NUI, voz, gestos, visión) y tecnologías emergentes (16%)</h3>
+<ul>
+<li><strong>CE2.a:</strong> Se han identificado los conceptos, arquitecturas y hardware de interfaces naturales (NUI).</li>
+<li><strong>CE2.b:</strong> Se han integrado librerías y APIs de reconocimiento de voz y síntesis de voz (Web Speech API / SpeechRecognition).</li>
+<li><strong>CE2.c:</strong> Se han implementado controles basados en visión artificial y tracking de gestos/manos (MediaPipe, Handpose).</li>
+<li><strong>CE2.d:</strong> Se han explorado y aplicado patrones de realidad aumentada y experiencias inmersivas básicas (WebXR, Three.js).</li>
+<li><strong>CE2.e:</strong> Se han evaluado las ventajas y barreras de accesibilidad de las interfaces conversacionales y gestuales.</li>
+</ul>
+<h3 id="ra3-crea-componentes-visuales-estandar-y-personalizados-reutilizables-integrandolos-en-librerias-y-aplicaciones-20">RA3: Crea componentes visuales estándar y personalizados reutilizables integrándolos en librerías y aplicaciones (20%)</h3>
+<ul>
+<li><strong>CE3.a:</strong> Se ha seleccionado el framework y entorno de desarrollo de componentes (Angular 19+ Standalone).</li>
+<li><strong>CE3.b:</strong> Se han diseñado componentes reutilizables aplicando atomic design (átomos, moléculas, organismos).</li>
+<li><strong>CE3.c:</strong> Se ha gestionado el estado reactivo y la comunicación entre componentes (Input/Output signals, RxJS/State).</li>
+<li><strong>CE3.d:</strong> Se han integrado directivas, pipes personalizados y servicios de inyección de dependencias.</li>
+<li><strong>CE3.e:</strong> Se ha documentado e interactuado con la librería de componentes mediante catálogos interactivos (Storybook).</li>
+<li><strong>CE3.f:</strong> Se han creado formularios reactivos con validaciones asíncronas y accesibles.</li>
+</ul>
+<h3 id="ra4-disena-interfaces-amigables-y-accesibles-verificando-el-cumplimiento-de-estandares-y-normativas-11">RA4: Diseña interfaces amigables y accesibles verificando el cumplimiento de estándares y normativas (11%)</h3>
+<ul>
+<li><strong>CE4.a:</strong> Se han analizado las pautas WCAG 2.2 en niveles A, AA y AAA.</li>
+<li><strong>CE4.b:</strong> Se han verificado atributos semánticos WAI-ARIA (roles, states, properties, live regions).</li>
+<li><strong>CE4.c:</strong> Se ha asegurado la navegación completa por teclado, focos visibles y ratios de contraste de color.</li>
+<li><strong>CE4.d:</strong> Se han ejecutado auditorías automáticas de accesibilidad con herramientas especializadas (Axe Core, Lighthouse).</li>
+<li><strong>CE4.e:</strong> Se han realizado pruebas de compatibilidad con lectores de pantalla (NVDA, VoiceOver).</li>
+</ul>
+<h3 id="ra5-crea-informes-y-cuadros-de-mando-interactivos-integrando-fuentes-de-datos-y-elementos-graficos-4">RA5: Crea informes y cuadros de mando interactivos integrando fuentes de datos y elementos gráficos (4%)</h3>
+<ul>
+<li><strong>CE5.a:</strong> Se han seleccionado herramientas y librerías de generación de documentos e informes (jsPDF, SheetJS/XLSX).</li>
+<li><strong>CE5.b:</strong> Se han diseñado plantillas de informes estructurados con encabezados, tablas y paginación.</li>
+<li><strong>CE5.c:</strong> Se han creado cuadros de mando (Dashboards) interactivos con visualización de datos (Chart.js / ng2-charts).</li>
+<li><strong>CE5.d:</strong> Se han implementado funciones de filtrado dinámico y exportación masiva en formatos estándar (PDF, Excel, CSV, JSON).</li>
+</ul>
+<h3 id="ra6-elabora-la-documentacion-tecnica-y-de-usuario-de-la-interfaz-facilitando-su-mantenimiento-y-uso-7">RA6: Elabora la documentación técnica y de usuario de la interfaz facilitando su mantenimiento y uso (7%)</h3>
+<ul>
+<li><strong>CE6.a:</strong> Se han identificado los destinatarios y requisitos de la documentación técnica y manuales de usuario.</li>
+<li><strong>CE6.b:</strong> Se han generado esquemas, diagramas de flujo y arquitectura de la interfaz.</li>
+<li><strong>CE6.c:</strong> Se ha automatizado la generación de documentación de código y componentes (Compodoc, Typedoc).</li>
+<li><strong>CE6.d:</strong> Se han redactado guías de estilo, manuales de usuario interactivos y sistemas de ayuda en línea (Zensical / Markdown).</li>
+</ul>
+<h3 id="ra7-prepara-aplicaciones-para-su-distribucion-empaquetando-componentes-instaladores-y-dependencias-multiplataforma-10">RA7: Prepara aplicaciones para su distribución empaquetando componentes, instaladores y dependencias multiplataforma (10%)</h3>
+<ul>
+<li><strong>CE7.a:</strong> Se han identificado los entornos de ejecución y plataformas de destino (Windows, macOS, Linux).</li>
+<li><strong>CE7.b:</strong> Se ha integrado la aplicación Angular en un contenedor de escritorio mediante Electron.</li>
+<li><strong>CE7.c:</strong> Se ha configurado la comunicación segura entre procesos (IPC Main y IPC Renderer con Preload Scripts y Context Isolation).</li>
+<li><strong>CE7.d:</strong> Se han generado paquetes e instaladores distribuidos (Electron Forge / Builder, MSIX, NSIS, AppImage).</li>
+<li><strong>CE7.e:</strong> Se han configurado actualizaciones automáticas y firmas digitales de ejecutables.</li>
+</ul>
+<h3 id="ra8-realiza-pruebas-unitarias-de-integracion-y-extremo-a-extremo-en-interfaces-evaluando-su-rendimiento-y-robustez-10">RA8: Realiza pruebas unitarias, de integración y extremo a extremo en interfaces evaluando su rendimiento y robustez (10%)</h3>
+<ul>
+<li><strong>CE8.a:</strong> Se ha planificado la estrategia de pruebas de la interfaz de usuario.</li>
+<li><strong>CE8.b:</strong> Se han implementado pruebas unitarias de componentes y servicios (Vitest / Jasmine).</li>
+<li><strong>CE8.c:</strong> Se han realizado pruebas de integración y simulación de eventos de usuario (Testing Library).</li>
+<li><strong>CE8.d:</strong> Se han automatizado pruebas End-to-End (E2E) de flujos críticos (Playwright / Cypress).</li>
+<li><strong>CE8.e:</strong> Se han medido métricas de rendimiento, tiempos de renderizado y Core Web Vitals.</li>
+</ul>
+<hr />
+<h2 id="5-organizacion-de-unidades-didacticas-y-materiales">5. Organización de Unidades Didácticas y Materiales</h2>
+<p>Los contenidos se articulan en <strong>23 Unidades Didácticas</strong> organizadas en 4 bloques temáticos, vinculadas directamente a los materiales preparados en el repositorio:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docs/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 01-ux.md
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 02-accesibilidad.md
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── 03-interfaces-naturales.md
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── 04-figma.md
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── 05-layouts-modernos.md
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── 06-tailwindcss4.md
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── 07-componentes-tailwind.md
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── 08-responsive-design.md
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├── 09-ecosistema-frontend.md
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── 10-arquitectura-angular.md
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── 11-componentes-reutilizables.md
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── 12-formularios-interaccion.md
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── 13-design-systems.md
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── 14-storybook.md
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── 15-diseno-a-implementacion.md
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├── 16-generacion-informes.md
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>├── 17-dashboards-exportacion-datos.md
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>├── 18-documentacion-aplicaciones.md
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>├── 19-pruebas-de-software.md
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├── 20-electron.md
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>├── 21-empaquetado-distribucion.md
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>├── 22-proyecto-final.md
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>└── index.md
+</span></code></pre></div>
+<h3 id="tabla-de-unidades-didacticas-ras-y-temporalizacion">Tabla de Unidades Didácticas, RAs y Temporalización</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Ud.</th>
+<th style="text-align: left;">Título de la Unidad</th>
+<th style="text-align: left;">Archivo de Materiales</th>
+<th style="text-align: center;">RAs Asociados</th>
+<th style="text-align: center;">Horas Centro</th>
+<th style="text-align: center;">Trimestre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>UD00</strong></td>
+<td style="text-align: left;">Introducción a Interfaces Multiplataforma</td>
+<td style="text-align: left;"><code>index.md</code></td>
+<td style="text-align: center;">RA1</td>
+<td style="text-align: center;">4 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD01</strong></td>
+<td style="text-align: left;">Fundamentos de UX y Diseño Centrado en Usuario</td>
+<td style="text-align: left;"><code>01-ux.md</code></td>
+<td style="text-align: center;">RA1</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD02</strong></td>
+<td style="text-align: left;">Accesibilidad Web y Universal (WCAG 2.2, WAI-ARIA)</td>
+<td style="text-align: left;"><code>02-accesibilidad.md</code></td>
+<td style="text-align: center;">RA4</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD03</strong></td>
+<td style="text-align: left;">Interfaces Naturales de Usuario (NUI, Voz, Gestos)</td>
+<td style="text-align: left;"><code>03-interfaces-naturales.md</code></td>
+<td style="text-align: center;">RA2</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD04</strong></td>
+<td style="text-align: left;">Prototipado y Wireframing en Alta Fidelidad con Figma</td>
+<td style="text-align: left;"><code>04-figma.md</code></td>
+<td style="text-align: center;">RA1</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD05</strong></td>
+<td style="text-align: left;">Layouts Modernos: Flexbox, CSS Grid y Subgrid</td>
+<td style="text-align: left;"><code>05-layouts-modernos.md</code></td>
+<td style="text-align: center;">RA1</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD06</strong></td>
+<td style="text-align: left;">Tailwind CSS v4: Arquitectura y Utilidades</td>
+<td style="text-align: left;"><code>06-tailwindcss4.md</code></td>
+<td style="text-align: center;">RA1</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD07</strong></td>
+<td style="text-align: left;">Creación de Componentes Estilizados con Tailwind</td>
+<td style="text-align: left;"><code>07-componentes-tailwind.md</code></td>
+<td style="text-align: center;">RA1, RA3</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD08</strong></td>
+<td style="text-align: left;">Diseño Adaptativo y Responsive Design</td>
+<td style="text-align: left;"><code>08-responsive-design.md</code></td>
+<td style="text-align: center;">RA1, RA4</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD09</strong></td>
+<td style="text-align: left;">Ecosistema Frontend: Node, npm, Vite y TypeScript</td>
+<td style="text-align: left;"><code>09-ecosistema-frontend.md</code></td>
+<td style="text-align: center;">RA3</td>
+<td style="text-align: center;">4 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD10</strong></td>
+<td style="text-align: left;">Arquitectura Angular: Standalone, Signals y Control Flow</td>
+<td style="text-align: left;"><code>10-arquitectura-angular.md</code></td>
+<td style="text-align: center;">RA3</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD11</strong></td>
+<td style="text-align: left;">Componentes Reutilizables en Angular</td>
+<td style="text-align: left;"><code>11-componentes-reutilizables.md</code></td>
+<td style="text-align: center;">RA3</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD12</strong></td>
+<td style="text-align: left;">Formularios Reactivos y Manejo de Interacción</td>
+<td style="text-align: left;"><code>12-formularios-interaccion.md</code></td>
+<td style="text-align: center;">RA3, RA4</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD13</strong></td>
+<td style="text-align: left;">Design Systems y Atomic Design</td>
+<td style="text-align: left;"><code>13-design-systems.md</code></td>
+<td style="text-align: center;">RA1, RA3</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD14</strong></td>
+<td style="text-align: left;">Catálogo Interactivo y Aislamiento con Storybook</td>
+<td style="text-align: left;"><code>14-storybook.md</code></td>
+<td style="text-align: center;">RA3, RA6</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD15</strong></td>
+<td style="text-align: left;">De Diseño a Implementación (Figma to Code)</td>
+<td style="text-align: left;"><code>15-diseno-a-implementacion.md</code></td>
+<td style="text-align: center;">RA1, RA3</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD16</strong></td>
+<td style="text-align: left;">Generación de Informes y Documentos (jsPDF, PDFMake)</td>
+<td style="text-align: left;"><code>16-generacion-informes.md</code></td>
+<td style="text-align: center;">RA5</td>
+<td style="text-align: center;">5 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD17</strong></td>
+<td style="text-align: left;">Cuadros de Mando (Dashboards) y Exportación de Datos</td>
+<td style="text-align: left;"><code>17-dashboards-exportacion-datos.md</code></td>
+<td style="text-align: center;">RA5</td>
+<td style="text-align: center;">5 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD18</strong></td>
+<td style="text-align: left;">Documentación de Aplicaciones (Compodoc, MkDocs/Zensical)</td>
+<td style="text-align: left;"><code>18-documentacion-aplicaciones.md</code></td>
+<td style="text-align: center;">RA6</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD19</strong></td>
+<td style="text-align: left;">Pruebas de Software en UI (Unitarias, E2E con Vitest y Playwright)</td>
+<td style="text-align: left;"><code>19-pruebas-de-software.md</code></td>
+<td style="text-align: center;">RA8</td>
+<td style="text-align: center;">10 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD20</strong></td>
+<td style="text-align: left;">Aplicaciones de Escritorio con Electron y Angular</td>
+<td style="text-align: left;"><code>20-electron.md</code></td>
+<td style="text-align: center;">RA7</td>
+<td style="text-align: center;">8 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD21</strong></td>
+<td style="text-align: left;">Empaquetado, Compilación y Distribución Multiplataforma</td>
+<td style="text-align: left;"><code>21-empaquetado-distribucion.md</code></td>
+<td style="text-align: center;">RA7</td>
+<td style="text-align: center;">6 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>UD22</strong></td>
+<td style="text-align: left;">Proyecto Final Integrador: Sistema Multiplataforma GesFlow</td>
+<td style="text-align: left;"><code>22-proyecto-final.md</code></td>
+<td style="text-align: center;">RA1-RA8</td>
+<td style="text-align: center;">10 h</td>
+<td style="text-align: center;">T2</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Dual</strong></td>
+<td style="text-align: left;">Formación en Empresa (Empaquetado, UX, Pruebas y Despliegue)</td>
+<td style="text-align: left;">Entorno profesional</td>
+<td style="text-align: center;">RA1-RA8</td>
+<td style="text-align: center;">86 h</td>
+<td style="text-align: center;">T3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-metodologia-didactica">6. Metodología Didáctica</h2>
+<p>La metodología se fundamenta en principios activos, constructivistas y aplicados:</p>
+<ol>
+<li><strong>Aprendizaje Basado en Proyectos (ABP):</strong> El alumnado construye de forma transversal a lo largo del curso el proyecto integrador <strong>GesFlow</strong> (una aplicación completa de escritorio y panel de gestión con Electron, Angular, Tailwind CSS, generación de informes y suite de tests).</li>
+<li><strong>Design Thinking y User Experience (UX):</strong> Flujo de trabajo real de la industria: <em>Empatizar -&gt; Definir -&gt; Idear -&gt; Prototipar (Figma) -&gt; Testear -&gt; Implementar</em>.</li>
+<li><strong>Atomic Design &amp; Modularidad:</strong> Construcción de interfaces desde átomos (botones, inputs) hasta páginas y plantillas completas.</li>
+<li><strong>Diseño Universal para el Aprendizaje (DUA):</strong><ul>
+<li>Múltiples formas de representación: explicaciones visuales, diagramas de arquitectura, código en vivo, tutoriales interactivos en Storybook y documentación Zensical.</li>
+<li>Múltiples formas de acción y expresión: desarrollo de proyectos individuales, retos grupales, exposiciones técnicas y defensas de código.</li>
+<li>Múltiples formas de implicación: retos progresivos, gamificación en revisiones de código y simulaciones de casos reales de clientes.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="7-procedimiento-y-criterios-de-evaluacion">7. Procedimiento y Criterios de Evaluación</h2>
+<p>Conforme a la <strong>Orden de 18 de septiembre de 2025</strong> (Andalucía):</p>
+<ul>
+<li>La evaluación será <strong>continua, formativa e integradora</strong>.</li>
+<li>Cada Criterio de Evaluación (CE) se evalúa mediante instrumentos objetivos y rúbricas públicas.</li>
+<li>La calificación del módulo se obtiene a partir de la media ponderada de los Resultados de Aprendizaje superados:</li>
+</ul>
+<div class="arithmatex">\[\text{Calificación Final} = \sum_{i=1}^{8} (\text{Nota } RA_i \times \text{Ponderación } RA_i)\]</div>
+<h3 id="instrumentos-de-evaluacion">Instrumentos de Evaluación</h3>
+<ol>
+<li><strong>Pruebas Prácticas y Retos de Código (40%):</strong> Pruebas de desarrollo individual en aula de informática (creación de componentes Angular, maquetación CSS/Tailwind, scripts Electron, tests unitarios).</li>
+<li><strong>Proyectos Prácticos y Entregables (GesFlow / Storybook) (40%):</strong> Calidad del código, arquitectura, cumplimiento de especificaciones UX/UI, accesibilidad WCAG y suite de pruebas automatizadas.</li>
+<li><strong>Documentación Técnica, Presentaciones y Pruebas Teóricas (10%):</strong> Claridad en la documentación, diagramas de arquitectura, manuales y exposición de proyectos.</li>
+<li><strong>Actitud, Participación y Trabajo Colaborativo (10%):</strong> Uso de control de versiones (Git), buenas prácticas de Clean Code, puntualidad y trabajo en equipo.</li>
+</ol>
+<h3 id="sistema-de-recuperacion">Sistema de Recuperación</h3>
+<ul>
+<li><strong>Recuperación continua:</strong> Al finalizar cada bloque/trimestre se planificarán actividades de refuerzo y segundas oportunidades para los RAs no alcanzados.</li>
+<li><strong>Convocatoria ordinaria (marzo):</strong> Prueba integradora para aquellos RAs pendientes antes del inicio de la fase dual en empresa.</li>
+<li><strong>Convocatoria extraordinaria (junio):</strong> Para el alumnado que no haya superado el módulo en la fase ordinaria.</li>
+</ul>
+<hr />
+<h2 id="8-atencion-a-la-diversidad-y-medidas-de-inclusion-dua">8. Atención a la Diversidad y Medidas de Inclusión (DUA)</h2>
+<ol>
+<li><strong>Adaptaciones de Acceso:</strong> Uso de herramientas de apoyo, tipografías legibles (OpenDyslexic, JetBrains Mono), software con soporte de alto contraste y lectores de pantalla.</li>
+<li><strong>Gradación de Actividades:</strong> Tareas organizadas en tres niveles: <em>Básico</em> (adquisición del criterio esencial), <em>Intermedio</em> (consolidación y buenas prácticas) y <em>Avanzado</em> (retos de optimización, accesibilidad avanzada o animación compleja).</li>
+<li><strong>Tutorización personalizada:</strong> Seguimiento cercano de ritmos de aprendizaje y refuerzo en conceptos troncales de programación reactiva y arquitectura modular.</li>
+</ol>
+<hr />
+<h2 id="9-recursos-materiales-y-software">9. Recursos Materiales y Software</h2>
+<ul>
+<li><strong>Equipamiento:</strong> Aulas de informática con puestos individuales conectados a Internet.</li>
+<li><strong>Software Libre y de Desarrollo:</strong><ul>
+<li>Node.js (LTS), npm / pnpm.</li>
+<li>Visual Studio Code con extensiones recomendadas (Angular Language Service, Tailwind CSS IntelliSense, Prettier, ESLint).</li>
+<li>Figma (cuenta educativa) para diseño y prototipado.</li>
+<li>Angular CLI, Storybook, Vitest, Playwright.</li>
+<li>Electron &amp; Electron Forge / Builder.</li>
+<li>Git y GitHub / GitLab.</li>
+<li>Generador de documentación: Zensical / Markdown / Compodoc.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="10-concrecion-y-seguimiento-de-la-fase-dual-en-empresa">10. Concreción y Seguimiento de la Fase Dual en Empresa</h2>
+<p>En coordinación con la empresa formadora:</p>
+<ul>
+<li><strong>Tutor laboral y tutor docente:</strong> Plan de formación individualizado con seguimiento quincenal.</li>
+<li><strong>Actividades en empresa:</strong> Integración de componentes UI en sistemas en producción, adaptación de interfaces a normativas de accesibilidad corporativas, automatización de suites de pruebas E2E y empaquetado de ejecutables multiplataforma.</li>
+<li><strong>Evaluación dual:</strong> Coordinación entre el tutor laboral y el equipo docente para la valoración del logro de los RAs en el puesto de trabajo.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./.." class="md-footer__link md-footer__link--prev" aria-label="Anterior: 00.Introducción">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                00.Introducción
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../01-ux/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 01.UX">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                01.UX
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6e5f0216.min.js"></script>
+      
+    
+  </body>
+</html>

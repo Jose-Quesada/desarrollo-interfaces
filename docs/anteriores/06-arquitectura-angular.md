@@ -3,6 +3,7 @@
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
+
 - Diseñar y estructurar la arquitectura de una interfaz de aplicación Angular siguiendo patrones profesionales.
 - Diferenciar entre componentes Smart (contenedores) y Presentational (de presentación) y aplicarlos correctamente en el desarrollo de interfaces.
 - Configurar y utilizar Standalone Components con imports explícitos en el diseño de interfaces complejas.
@@ -17,6 +18,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 RA3 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla componentes software para la interfaz de usuario, aplicando las técnicas de programación orientada a eventos y utilizando librerías de componentes."
 
 Criterios de evaluación relacionados:
+
 - Se han identificado las librerías y frameworks disponibles para el desarrollo de interfaces de usuario.
 - Se han creado componentes visuales reutilizables que responden a eventos del usuario.
 - Se ha implementado la comunicación entre componentes de la interfaz.
@@ -25,6 +27,7 @@ Criterios de evaluación relacionados:
 ## Conocimientos previos
 
 El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+
 - Fundamentos de Angular: uso de Angular CLI, estructura básica de un proyecto, comprensión del sistema de módulos y componentes.
 - TypeScript: tipos básicos, interfaces, genéricos, decoradores y programación orientada a objetos aplicada a Angular.
 - HTML semántico y CSS: comprensión de selectores, especificidad, modelo de caja, flexbox y grid.
@@ -177,6 +180,7 @@ La decisión entre estilos inline (definidos en el array `styles`), estilos exte
 El ciclo de vida de un componente Angular incluye múltiples hooks, pero tres de ellos son particularmente relevantes para el desarrollo de interfaces de usuario: `ngOnInit`, `ngAfterViewInit` y `ngOnDestroy`. Comprender cuándo y cómo utilizar cada uno es esencial para construir interfaces reactivas y eficientes.
 
 `ngOnInit` se ejecuta una única vez, después de que Angular haya inicializado todas las propiedades enlazadas con datos (inputs) y antes de que se renderice la vista. Es el lugar idóneo para:
+
 - Inicializar datos del componente mediante llamadas a servicios.
 - Inicializar Signals de estado de interfaz con valores por defecto.
 - Configurar suscripciones a streams de datos (Observables) que alimentarán la interfaz.
@@ -210,6 +214,7 @@ ngOnInit(): void {
 Obsérvese el uso de `takeUntilDestroyed()` introducido en Angular 16, que simplifica la limpieza de suscripciones vinculando su ciclo de vida al del componente, eliminando la necesidad de gestionar manualmente `Subject` de destrucción.
 
 `ngAfterViewInit` se ejecuta una vez que la vista del componente y las vistas de sus hijos han sido completamente inicializadas. En este punto, el DOM está disponible para ser manipulado. Es el hook adecuado para:
+
 - Inicializar librerías externas que requieren acceso al DOM, como bibliotecas de gráficos (Chart.js, D3.js, ApexCharts), editores de texto enriquecido (Quill, Monaco), o mapas (Leaflet, Mapbox).
 - Realizar mediciones del DOM (tamaños, posiciones) para cálculos de layout.
 - Implementar scroll programático a elementos específicos.
@@ -242,6 +247,7 @@ private initializeChart(element: HTMLElement): void {
 Es importante destacar que el uso de `viewChild` con señales (sintaxis `viewChild<ElementRef>('chartContainer')`) devuelve una señal que se actualiza reactivamente cuando el elemento está disponible, proporcionando una garantía más robusta que la versión imperativa tradicional.
 
 `ngOnDestroy` se invoca inmediatamente antes de que Angular destruya el componente. Es el momento crítico para realizar tareas de limpieza que eviten fugas de memoria y comportamientos indeseados:
+
 - Cancelar suscripciones a Observables que no utilicen `takeUntilDestroyed()`.
 - Eliminar event listeners añadidos manualmente al `document`, `window` u otros elementos globales.
 - Destruir instancias de librerías externas (gráficos, mapas, editores).
@@ -398,6 +404,7 @@ El `DashboardPage` (Smart Component) mantiene la responsabilidad de orquestar: o
 La distinción entre Smart Components (contenedores inteligentes) y Presentational Components (componentes de presentación o "dumb") es uno de los patrones arquitectónicos más importantes en el desarrollo de interfaces con Angular. Originado en el ecosistema React y popularizado por Dan Abramov, este patrón se adapta perfectamente a Angular y proporciona una separación clara de responsabilidades que mejora la mantenibilidad, la testabilidad y la reutilización del código.
 
 Los **Smart Components** —también conocidos como Containers o Page Components— son los componentes que poseen la inteligencia de la aplicación. Sus responsabilidades incluyen:
+
 - Obtener y gestionar datos desde servicios (HTTP, estado global, almacenamiento local).
 - Contener la lógica de negocio específica de la página o sección.
 - Mantener el estado de interfaz mediante Signals para esa sección.
@@ -450,6 +457,7 @@ export class DashboardPageComponent implements OnInit {
 Los **Presentational Components** —también llamados Dumb Components— son componentes puramente visuales que no tienen conocimiento de la lógica de negocio ni dependencias de servicios. Sus responsabilidades son exclusivamente dos: renderizar los datos que reciben y emitir eventos hacia arriba cuando el usuario interactúa con ellos.
 
 Las reglas de oro para un Presentational Component son:
+
 1. Reciben TODO lo que necesitan mediante `@Input()`.
 2. Emiten TODO lo que sucede mediante `@Output()`.
 3. No inyectan servicios de datos ni de estado global.
@@ -624,6 +632,7 @@ El uso de `asReadonly()` expone la señal de forma que los consumidores pueden l
 La función `viewChild` (y su versión basada en señales introducida en Angular 17) permite acceder a elementos del DOM o a instancias de componentes hijos dentro del template del propio componente. En el contexto del desarrollo de interfaces, `viewChild` es esencial para escenarios que requieren manipulación directa del DOM que no puede lograrse mediante binding declarativo.
 
 Los casos de uso más comunes incluyen:
+
 - Inicialización de gráficos y visualizaciones: acceder a un elemento `<canvas>` o `<div>` contenedor para pasar su contexto a una librería de gráficos.
 - Gestión del foco: enfocar automáticamente un campo de formulario cuando se abre un modal o se navega a una página.
 - Scroll programático: desplazar la vista a un elemento específico (primer error de formulario, nuevo elemento añadido a una lista).
@@ -673,6 +682,7 @@ Es importante destacar que `viewChild` con señales permite un enfoque reactivo:
 Mientras `viewChild` accede a elementos que forman parte del template del componente, `contentChild` accede a elementos que han sido proyectados desde el componente padre mediante `<ng-content>`. Esta distinción es fundamental para construir componentes de interfaz compuestos que aceptan contenido externo.
 
 Los casos de uso típicos incluyen:
+
 - Componentes de panel/Tab/TabGroup: cada Tab proyecta su contenido, y el TabGroup necesita acceder a los tabs hijos proyectados para gestionar cuál está activo.
 - Acordeón: los items del acordeón se proyectan desde el padre, y el componente acordeón necesita coordinar cuál está expandido.
 - Wizard/Stepper: los pasos se proyectan como contenido, y el wizard accede a ellos para validar y navegar.
@@ -1100,6 +1110,7 @@ export class ThemeToggleComponent {
 Analicemos la arquitectura de componentes de un clon de Spotify Web construido con Angular, un excelente ejemplo de aplicación intensiva en interfaz de usuario.
 
 La aplicación se organiza en las siguientes features:
+
 - `browse/`: página de exploración con géneros, listas de reproducción destacadas y nuevos lanzamientos.
 - `library/`: biblioteca del usuario con playlists, álbumes guardados, artistas seguidos y podcasts.
 - `search/`: búsqueda global con resultados en tiempo real categorizados por canciones, artistas, álbumes y playlists.
@@ -1109,6 +1120,7 @@ La aplicación se organiza en las siguientes features:
 Los Smart Components principales son `BrowsePage`, `LibraryPage`, `SearchPage`, `PlaylistDetailPage` y `PlayerBar`. Cada uno orquesta los datos desde `SpotifyService` (en `core/`) y los distribuye a componentes presentacionales.
 
 Los Presentational Components del catálogo incluyen:
+
 - `MediaCard`: tarjeta con imagen de portada, título, artista y botón de reproducir (hover).
 - `TrackRow`: fila de canción con número, título, artista, álbum, duración y botón de favorito.
 - `MediaGrid`: grid responsive de `MediaCard` con scroll infinito.
@@ -1125,6 +1137,7 @@ La comunicación sigue estrictamente el patrón Smart/Presentational. El estado 
 Un dashboard de análisis de ventas para una empresa de comercio electrónico representa otro caso de uso paradigmático de la arquitectura de interfaces con Angular.
 
 La estructura de features incluye:
+
 - `overview/`: dashboard principal con KPIs, gráficos de tendencia y mapa de ventas por región.
 - `products/`: análisis de productos con tabla clasificable, filtros avanzados y vista de detalle de producto.
 - `customers/`: segmentación de clientes, cohortes y valor de vida del cliente (LTV).
@@ -1133,6 +1146,7 @@ La estructura de features incluye:
 El sistema de diseño se basa en un conjunto de tokens definidos en `design-system/` que incluyen una paleta de colores corporativa, una escala tipográfica con la fuente Inter para datos y tablas, y un sistema de espaciado de 4px.
 
 Los componentes presentacionales clave son:
+
 - `KpiCard`: tarjeta de indicador clave con valor principal, variación porcentual, minigráfico sparkline y tooltip con datos históricos.
 - `FilterBar`: barra horizontal con filtros de fecha (selector de rango con calendario), filtros de categoría (dropdown multiselección) y botón de aplicar.
 - `SortableTable`: tabla de datos con ordenación por columna (click en cabecera), redimensionamiento de columnas, selección de filas y paginación.
@@ -1152,12 +1166,13 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Objetivo:** Analizar una aplicación Angular existente y clasificar sus componentes según el patrón Smart/Presentational.
 
 **Desarrollo:**
+
 1. El docente proporciona el código fuente de una aplicación Angular de comercio electrónico con al menos 15 componentes (puede ser un proyecto de ejemplo o un repositorio público simplificado).
 2. El alumnado, en parejas, examina la estructura de carpetas y los archivos de componentes, identificando para cada uno:
-   - Si es Smart o Presentational.
-   - Qué servicios inyecta (si es Smart).
-   - Qué inputs y outputs expone (si es Presentational).
-   - Si cumple o viola el principio de responsabilidad única.
+    - Si es Smart o Presentational.
+    - Qué servicios inyecta (si es Smart).
+    - Qué inputs y outputs expone (si es Presentational).
+    - Si cumple o viola el principio de responsabilidad única.
 3. El alumnado anota en un documento compartido sus hallazgos para cada componente, justificando la clasificación.
 4. Puesta en común: cada pareja expone sus conclusiones sobre dos componentes, y se debate si la clasificación es correcta.
 5. El alumnado propone al menos dos refactorizaciones: componentes que deberían dividirse (SRP) o componentes que deberían migrar de Smart a Presentational (o viceversa).
@@ -1171,14 +1186,15 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Objetivo:** Transformar un componente página que mezcla lógica y presentación en una arquitectura Smart/Presentational limpia.
 
 **Desarrollo:**
+
 1. El docente proporciona un componente `ProductListPage` monolítico (~300 líneas) que contiene en un solo archivo: inyección del servicio HTTP, obtención de datos, filtrado, ordenación, y un template HTML extenso con tarjetas de producto, barra de filtros y paginación.
 2. El alumnado, individualmente o en parejas, sigue estos pasos:
-   - **Paso 1:** Crear `ProductListPage` como Smart Component que mantenga la lógica de obtención de datos y gestión de estado (filtros, paginación, ordenación) en Signals.
-   - **Paso 2:** Extraer la barra de filtros a `ProductFiltersComponent` (Presentational) con inputs para categorías, rango de precio y término de búsqueda, y outputs para los eventos de cambio de filtro.
-   - **Paso 3:** Extraer la tarjeta de producto individual a `ProductCardComponent` (Presentational) con input para los datos del producto y output para click y añadir al carrito.
-   - **Paso 4:** Extraer la cuadrícula de productos a `ProductGridComponent` (Presentational) con inputs para el array de productos y el estado de carga.
-   - **Paso 5:** Extraer la paginación a `PaginationComponent` (Presentational) con inputs para página actual, total de páginas y outputs para cambio de página.
-   - **Paso 6:** Ensamblar todos los componentes en el template del Smart Component `ProductListPage`.
+    - **Paso 1:** Crear `ProductListPage` como Smart Component que mantenga la lógica de obtención de datos y gestión de estado (filtros, paginación, ordenación) en Signals.
+    - **Paso 2:** Extraer la barra de filtros a `ProductFiltersComponent` (Presentational) con inputs para categorías, rango de precio y término de búsqueda, y outputs para los eventos de cambio de filtro.
+    - **Paso 3:** Extraer la tarjeta de producto individual a `ProductCardComponent` (Presentational) con input para los datos del producto y output para click y añadir al carrito.
+    - **Paso 4:** Extraer la cuadrícula de productos a `ProductGridComponent` (Presentational) con inputs para el array de productos y el estado de carga.
+    - **Paso 5:** Extraer la paginación a `PaginationComponent` (Presentational) con inputs para página actual, total de páginas y outputs para cambio de página.
+    - **Paso 6:** Ensamblar todos los componentes en el template del Smart Component `ProductListPage`.
 3. Verificar que la funcionalidad completa se ha preservado y que cada nuevo componente cumple estrictamente su rol.
 4. Ejecutar tests y comprobar que la cobertura no ha disminuido.
 
@@ -1191,15 +1207,16 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Objetivo:** Implementar un componente de selector de talla con two-way binding usando `model()` y Signals para el estado de UI.
 
 **Desarrollo:**
+
 1. El docente explica el componente a construir: un selector de talla de producto (XS, S, M, L, XL) que muestra botones de selección, resalta la talla seleccionada y notifica al componente padre.
 2. El alumnado implementa el componente paso a paso:
-   - **Paso 1:** Crear `SizeSelectorComponent` standalone.
-   - **Paso 2:** Definir el model input: `selectedSize = model<string>('M')`.
-   - **Paso 3:** Definir inputs: `availableSizes = input<string[]>(['XS', 'S', 'M', 'L', 'XL'])`, `disabled = input(false)`.
-   - **Paso 4:** Implementar un computed signal `disabledSizes` que devuelva las tallas sin stock (simulado).
-   - **Paso 5:** Crear el template con Tailwind: grid de botones, el seleccionado con borde azul y fondo azul claro, los no disponibles tachados y sin interacción.
-   - **Paso 6:** Manejar el click en un botón: actualizar la señal `selectedSize` mediante `.set()`.
-   - **Paso 7:** Crear un componente padre `ProductDetailPage` (Smart) que use `SizeSelectorComponent` con `[(selectedSize)]` y reaccione al cambio mostrando un mensaje de confirmación mediante un Toast.
+    - **Paso 1:** Crear `SizeSelectorComponent` standalone.
+    - **Paso 2:** Definir el model input: `selectedSize = model<string>('M')`.
+    - **Paso 3:** Definir inputs: `availableSizes = input<string[]>(['XS', 'S', 'M', 'L', 'XL'])`, `disabled = input(false)`.
+    - **Paso 4:** Implementar un computed signal `disabledSizes` que devuelva las tallas sin stock (simulado).
+    - **Paso 5:** Crear el template con Tailwind: grid de botones, el seleccionado con borde azul y fondo azul claro, los no disponibles tachados y sin interacción.
+    - **Paso 6:** Manejar el click en un botón: actualizar la señal `selectedSize` mediante `.set()`.
+    - **Paso 7:** Crear un componente padre `ProductDetailPage` (Smart) que use `SizeSelectorComponent` con `[(selectedSize)]` y reaccione al cambio mostrando un mensaje de confirmación mediante un Toast.
 3. El alumnado comprueba que el two-way binding funciona correctamente: al seleccionar una talla en el selector, el valor se actualiza en el padre, y si el padre cambia el valor programáticamente, el selector se actualiza.
 
 **Entregable:** Componentes `SizeSelector` y `ProductDetailPage` funcionales.
@@ -1216,14 +1233,15 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 
 - **Requisitos funcionales:** La aplicación debe permitir crear tableros, crear listas dentro de cada tablero, añadir tarjetas a las listas, mover tarjetas entre listas (drag and drop), asignar etiquetas de colores, establecer fechas de vencimiento y filtrar por etiqueta o fecha.
 - **Entregables:**
-  1. Diagrama de árbol de componentes con la jerarquía completa, indicando para cada componente si es Smart (S) o Presentational (P).
-  2. Estructura de carpetas propuesta siguiendo la arquitectura feature-based.
-  3. Definición de las interfaces TypeScript para los modelos de datos (Board, List, Card, Label).
-  4. Listado de servicios necesarios y qué Signals o métodos expone cada uno.
-  5. Para los cinco componentes más importantes: especificación de inputs, outputs y responsabilidades.
-  6. Justificación escrita de las decisiones arquitectónicas (por qué ciertos componentes son Smart, por qué ciertos servicios residen en core o en feature).
+    1. Diagrama de árbol de componentes con la jerarquía completa, indicando para cada componente si es Smart (S) o Presentational (P).
+    2. Estructura de carpetas propuesta siguiendo la arquitectura feature-based.
+    3. Definición de las interfaces TypeScript para los modelos de datos (Board, List, Card, Label).
+    4. Listado de servicios necesarios y qué Signals o métodos expone cada uno.
+    5. Para los cinco componentes más importantes: especificación de inputs, outputs y responsabilidades.
+    6. Justificación escrita de las decisiones arquitectónicas (por qué ciertos componentes son Smart, por qué ciertos servicios residen en core o en feature).
 
 **Criterios de evaluación:**
+
 - Correcta aplicación del patrón Smart/Presentational (30%).
 - Coherencia de la estructura de carpetas feature-based (20%).
 - Definición precisa de interfaces y tipos (15%).
@@ -1237,6 +1255,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Descripción:** Implementar un sistema de notificaciones toast global utilizando un servicio con Signals y componentes presentacionales.
 
 **Requisitos:**
+
 - El servicio `NotificationService` debe exponer una Signal de solo lectura con el array de notificaciones activas.
 - Debe tener métodos `show(message, type)`, `success(message)`, `error(message)`, `warning(message)`, `info(message)` y `dismiss(id)`.
 - Las notificaciones deben auto-desaparecer tras 5 segundos (configurable).
@@ -1252,6 +1271,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Descripción:** Construir un componente `DataTable` reutilizable completo siguiendo el patrón Presentational.
 
 **Requisitos:**
+
 - Inputs: `columns` (definición de columnas), `data` (datos genéricos), `loading`, `emptyMessage`, `sortable`.
 - Outputs: `sortChange`, `rowClick`.
 - Funcionalidades: ordenación por columna (ascendente, descendente, sin ordenar), resaltado de fila al hacer hover, estado de carga (skeleton), estado vacío (mensaje e icono), filas seleccionables.
@@ -1267,6 +1287,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Descripción:** El docente proporciona un proyecto Angular pequeño (~10 componentes) estructurado con NgModules tradicionales. El alumnado debe migrarlo completamente a Standalone Components.
 
 **Pasos:**
+
 1. Identificar las dependencias reales de cada componente.
 2. Añadir `standalone: true` a cada componente.
 3. Migrar los `imports` de los NgModules a los arrays `imports` de cada componente.
@@ -1283,6 +1304,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Descripción:** Construir un `LayoutComponent` con sidebar colapsable, header fijo y área de contenido con scroll.
 
 **Requisitos:**
+
 - Sidebar: navegación con iconos y texto, colapsable a versión solo iconos, resaltado del enlace activo basado en la ruta actual.
 - Header: barra superior fija con botón de toggle de sidebar, breadcrumb, barra de búsqueda y menú de usuario (dropdown).
 - Contenido: área principal con scroll vertical independiente.
@@ -1300,6 +1322,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Duración estimada:** 120 minutos.
 
 **Descripción:** Investigar e implementar la API `@angular/cdk/scrolling` para crear una tabla de datos con scroll virtual que maneje eficientemente 10.000+ filas. El alumnado debe:
+
 1. Estudiar la documentación de Angular CDK Virtual Scrolling.
 2. Implementar una versión de `DataTable` que utilice `cdk-virtual-scroll-viewport` en lugar de renderizar todas las filas.
 3. Comparar el rendimiento (tiempo de renderizado, memoria) entre la versión normal y la versión con scroll virtual para 1.000, 5.000 y 10.000 filas.
@@ -1312,6 +1335,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Duración estimada:** 150 minutos.
 
 **Descripción:** Aprender a crear una librería Angular independiente que contenga los componentes reutilizables del proyecto, permitiendo su uso en múltiples aplicaciones. El alumnado debe:
+
 1. Generar un workspace Angular con una aplicación de prueba y una librería.
 2. Migrar los componentes de `shared/` a la librería.
 3. Configurar la librería para que exporte los componentes, modelos y servicios públicos.
@@ -1325,6 +1349,7 @@ El Smart Component `OverviewPage` inyecta `AnalyticsService` y `DateRangeService
 **Duración estimada:** 180 minutos.
 
 **Descripción:** Diseñar e implementar un sistema que permita a diferentes features de la aplicación registrar componentes en zonas predefinidas del layout (por ejemplo, añadir widgets al dashboard, acciones al menú contextual de tabla, o pestañas a la página de detalle de producto). El alumnado debe:
+
 1. Crear un servicio `UIPluginService` que gestione el registro de plugins por zona.
 2. Utilizar `ngComponentOutlet` para renderizar dinámicamente los plugins registrados.
 3. Implementar un sistema de prioridades para ordenar los plugins dentro de cada zona.

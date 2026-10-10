@@ -17,6 +17,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 Esta unidad contribuye al Resultado de Aprendizaje 3 del currículo del módulo 0488 Desarrollo de Interfaces del CFGS Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía: "Implementa componentes de interfaz de usuario reutilizables utilizando un framework de desarrollo frontend, aplicando patrones de diseño y buenas prácticas de arquitectura de componentes."
 
 Criterios de evaluación asociados:
+
 - Se han implementado componentes de interfaz reutilizables con múltiples variantes, tamaños y estados visuales.
 - Se han desarrollado formularios con validación reactiva y retroalimentación visual de todos los estados posibles.
 - Se han construido tablas de datos con funcionalidades avanzadas de presentación y selección.

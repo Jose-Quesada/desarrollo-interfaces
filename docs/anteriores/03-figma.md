@@ -42,6 +42,7 @@ El alumnado debe poseer los siguientes conocimientos y habilidades antes de abor
 ## Contenidos
 
 **Bloque 1: Fundamentos de Figma**
+
 - Qué es Figma: herramienta de diseño de interfaces basada en web, colaborativa en tiempo real, con soporte para diseño vectorial, prototipado interactivo, sistemas de diseño y modo desarrollador.
 - Por qué Figma es el estándar de la industria: accesibilidad multiplataforma (funciona en navegador, no requiere macOS como Sketch), colaboración en tiempo real tipo Google Docs, gratuito para educación, único source of truth para diseño y desarrollo.
 - Espacio de trabajo: toolbar (herramientas de creación y edición), panel izquierdo (capas, assets, páginas), canvas (área de trabajo infinita), panel derecho (propiedades de diseño, prototipado, inspección).
@@ -50,6 +51,7 @@ El alumnado debe poseer los siguientes conocimientos y habilidades antes de abor
 - Plugins: qué son, cómo instalarlos desde Figma Community, plugins esenciales para el flujo de trabajo (Tailwind CSS, Iconify, Unsplash, Stark, Content Reel).
 
 **Bloque 2: Frames y elementos básicos**
+
 - Concepto de Frame: contenedor fundamental de Figma, equivalente a un div en HTML o una pantalla/componente en diseño.
 - Tamaños predefinidos de Frame: dispositivos (iPhone, Android, tablet, desktop presets), tamaños personalizados.
 - Constraints: sistema de anclaje de elementos hijos respecto al frame padre (left, right, top, bottom, center, scale), equivalente al posicionamiento CSS (relative, absolute, fixed).
@@ -57,18 +59,20 @@ El alumnado debe poseer los siguientes conocimientos y habilidades antes de abor
 - Texto en Figma: propiedades tipográficas (font family, weight, size, line height, letter spacing, paragraph spacing), alineación, color, estilos de texto.
 
 **Bloque 3: Auto Layout (función estrella de Figma)**
+
 - Qué es Auto Layout: sistema de layout dinámico que permite crear diseños flexibles que se adaptan al contenido. Es el equivalente directo de CSS Flexbox.
 - Propiedades de Auto Layout:
-  - Direction: horizontal (→ flex-row) o vertical (↓ flex-col).
-  - Gap: espacio entre elementos hijos (equivalente a gap en CSS/Tailwind).
-  - Padding: espacio interior en los cuatro lados (equivalente a padding en CSS).
-  - Alignment: alineación de hijos en ambos ejes (equivalente a justify-content + align-items).
-  - Resizing: hug contents (el frame se adapta al tamaño del contenido, equivalente a width: fit-content), fill container (el frame se expande para llenar el espacio disponible, equivalente a flex: 1), fixed (tamaño fijo).
+    - Direction: horizontal (→ flex-row) o vertical (↓ flex-col).
+    - Gap: espacio entre elementos hijos (equivalente a gap en CSS/Tailwind).
+    - Padding: espacio interior en los cuatro lados (equivalente a padding en CSS).
+    - Alignment: alineación de hijos en ambos ejes (equivalente a justify-content + align-items).
+    - Resizing: hug contents (el frame se adapta al tamaño del contenido, equivalente a width: fit-content), fill container (el frame se expande para llenar el espacio disponible, equivalente a flex: 1), fixed (tamaño fijo).
 - Auto Layout anidado: combinar frames con Auto Layout dentro de otros frames con Auto Layout para construir layouts complejos.
 - Comparación directa Tabla Figma ↔ Tailwind CSS: mapear cada propiedad de Auto Layout a su clase Tailwind equivalente para que el alumnado entienda el puente entre diseño y código.
 - Wrap: habilitar ajuste de línea en Auto Layout horizontal (equivalente a flex-wrap en CSS).
 
 **Bloque 4: Variables en Figma**
+
 - Concepto de variables: valores reutilizables y centralizados que pueden aplicarse a fills, strokes, effects, texto, dimensiones, etc. Equivalente a Design Tokens y a CSS Custom Properties (variables CSS).
 - Tipos de variables: Color, Number (dimensiones, spacing, border-radius, opacidad), String (textos reutilizables), Boolean (toggles true/false).
 - Colecciones: agrupación de variables por categoría (Colors, Typography, Spacing, Radius, Effects).
@@ -77,48 +81,53 @@ El alumnado debe poseer los siguientes conocimientos y habilidades antes de abor
 - Organización profesional: jerarquía de variables (primitivas → semánticas → componentes), convenciones de nomenclatura (categoría/nombre-tono, ej: color/primary-500).
 
 **Bloque 5: Componentes en Figma**
+
 - Qué es un componente: elemento reutilizable con un "master" (componente principal) y múltiples "instances" (copias vinculadas). Equivalente a un componente de Angular o React.
 - Creación de un componente: seleccionar elementos, Ctrl+Alt+K (Create component).
 - Instancias: copias de un componente que mantienen vínculo con el master. Modificar el master actualiza todas las instancias.
 - Propiedades de componente:
-  - Propiedad de texto: permite editar texto en instancias sin desvincular.
-  - Propiedad booleana (toggle): mostrar/ocultar capas dentro del componente (ej: mostrar u ocultar un icono en un botón).
-  - Propiedad de intercambio de instancia (instance swap): reemplazar un componente hijo por otro del mismo conjunto (ej: cambiar el icono de un botón).
-  - Propiedad de variante: seleccionar entre variantes de un componente set (ej: cambiar un botón de primary a secondary).
+    - Propiedad de texto: permite editar texto en instancias sin desvincular.
+    - Propiedad booleana (toggle): mostrar/ocultar capas dentro del componente (ej: mostrar u ocultar un icono en un botón).
+    - Propiedad de intercambio de instancia (instance swap): reemplazar un componente hijo por otro del mismo conjunto (ej: cambiar el icono de un botón).
+    - Propiedad de variante: seleccionar entre variantes de un componente set (ej: cambiar un botón de primary a secondary).
 - Buenas prácticas en la creación de componentes: nomenclatura consistente, descripción (para documentación en el panel Assets), organización en subcarpetas.
 
 **Bloque 6: Variantes (Component Sets)**
+
 - Concepto de variantes: conjunto de estados o versiones de un mismo componente que se agrupan en un "component set". Equivalente a las variantes de un componente en Angular (prop input `variant: 'primary' | 'secondary' | 'outline'`).
 - Creación de un component set: seleccionar dos o más componentes relacionados, "Combine as variants".
 - Propiedades de variante: se definen automáticamente como propiedades del component set. Cada variante tendrá un valor para cada propiedad.
 - Ejemplo completo: Button component set con propiedades:
-  - Variant: Primary, Secondary, Outline, Ghost
-  - Size: Small (sm), Medium (md), Large (lg)
-  - State: Default, Hover, Focus, Disabled, Loading
-  - Icon: None, Left, Right
+    - Variant: Primary, Secondary, Outline, Ghost
+    - Size: Small (sm), Medium (md), Large (lg)
+    - State: Default, Hover, Focus, Disabled, Loading
+    - Icon: None, Left, Right
 - Esto genera 4 × 3 × 5 × 3 = 180 variantes teóricas. No es necesario diseñarlas todas manualmente (se pueden derivar con propiedades booleanas para estados como hover), pero el sistema lo permite.
 - Organización visual del component set en el canvas de Figma para mantener la cordura con muchos componentes.
 
 **Bloque 7: Design Tokens**
+
 - Definición formal de Design Tokens: valores indivisibles que almacenan decisiones de diseño y pueden aplicarse consistentemente a través del sistema. Según la especificación W3C Design Tokens Community Group.
 - Implementación de Design Tokens en Figma con variables: crear todas las variables necesarias (colores, tipografías, espaciados, bordes, sombras) como fuente de verdad única.
 - Mapeo Figma → Código: correspondencia entre:
-  - Variable de color en Figma → `--color-*` en `@theme` de Tailwind 4.
-  - Variable de número (spacing) en Figma → `--spacing-*` en `@theme`.
-  - Variable de número (font-size) en Figma → `--text-*` en `@theme`.
+    - Variable de color en Figma → `--color-*` en `@theme` de Tailwind 4.
+    - Variable de número (spacing) en Figma → `--spacing-*` en `@theme`.
+    - Variable de número (font-size) en Figma → `--text-*` en `@theme`.
 - Plugins de exportación de tokens: Design Tokens (plugin para exportar JSON), Tailwind CSS (plugin para generar configuración), Tokens Studio for Figma (plugin avanzado para gestionar tokens con soporte para múltiples plataformas de destino: CSS, SCSS, JS, Tailwind, Android, iOS).
 
 **Bloque 8: Sistemas de diseño (Design Systems) en Figma**
+
 - Qué es un sistema de diseño: colección de componentes reutilizables, guiados por estándares claros, que pueden ensamblarse para construir aplicaciones.
 - Componentes del sistema de diseño en Figma:
-  - Foundations (cimientos): colores, tipografía, espaciado, iconografía, border-radius, sombras, grid. Todo basado en variables.
-  - Components (componentes): botones, inputs, selects, checkboxes, radios, toggles, cards, modals, tooltips, tabs, tables, avatars, badges, etc. Construidos con Auto Layout y organizados en component sets con variantes.
-  - Patterns (patrones): combinaciones de componentes que resuelven necesidades comunes (header con navegación, tabla con filtros y paginación, formulario de búsqueda avanzada).
-  - Pages (pantallas de ejemplo): layouts completos que muestran cómo se combinan los componentes en situaciones reales.
+    - Foundations (cimientos): colores, tipografía, espaciado, iconografía, border-radius, sombras, grid. Todo basado en variables.
+    - Components (componentes): botones, inputs, selects, checkboxes, radios, toggles, cards, modals, tooltips, tabs, tables, avatars, badges, etc. Construidos con Auto Layout y organizados en component sets con variantes.
+    - Patterns (patrones): combinaciones de componentes que resuelven necesidades comunes (header con navegación, tabla con filtros y paginación, formulario de búsqueda avanzada).
+    - Pages (pantallas de ejemplo): layouts completos que muestran cómo se combinan los componentes en situaciones reales.
 - Bibliotecas compartidas (Shared Libraries): publicar componentes y estilos como una librería de equipo, accesible desde cualquier archivo de Figma. Los cambios en la librería se propagan a todos los archivos que la usan (con aceptación explícita de actualizaciones para control de versiones).
 - Analogía con el desarrollo: el sistema de diseño en Figma es el equivalente al sistema de diseño en código (componentes Angular + estilos Tailwind). El objetivo de las Unidades 3 y 5 es alinear ambos.
 
 **Bloque 9: Plugins útiles para desarrolladores**
+
 - Tailwind CSS: convierte selecciones de Figma a clases Tailwind (versión gratuita limitada, de pago completo). Alternativamente, usar el Dev Mode que genera CSS y traducir mentalmente.
 - Iconify: búsqueda e inserción de iconos SVG de más de 150 sets (Material Design, Heroicons, Lucide, Phosphor, etc.) directamente en Figma.
 - Unsplash: inserción de imágenes de stock gratuitas para rellenar diseños de forma realista.
@@ -128,34 +137,36 @@ El alumnado debe poseer los siguientes conocimientos y habilidades antes de abor
 - html.to.design: convierte cualquier página web en un diseño Figma editable (útil para analizar interfaces existentes).
 
 **Bloque 10: Modo desarrollador (Dev Mode) y handoff**
+
 - Activación y uso del Dev Mode: toggle en la barra superior (o atajo Shift+D).
 - Información disponible en Dev Mode:
-  - Medidas entre elementos seleccionados (distancia, dimensiones).
-  - Código CSS generado automáticamente (con unidades, colores en hex, tipografía en px).
-  - Variables de Figma con sus nombres.
-  - Assets exportables (seleccionar capa → Export → formato y resolución).
-  - Comparación de cambios entre versiones del diseño (diff visual).
+    - Medidas entre elementos seleccionados (distancia, dimensiones).
+    - Código CSS generado automáticamente (con unidades, colores en hex, tipografía en px).
+    - Variables de Figma con sus nombres.
+    - Assets exportables (seleccionar capa → Export → formato y resolución).
+    - Comparación de cambios entre versiones del diseño (diff visual).
 - Configuración de la salida de código: Tailwind (si el plugin está instalado y configurado), CSS, SwiftUI, Compose.
 - Plugins de VS Code para Figma: Figma for VS Code (incrustar diseños en el editor), Figma Embed.
 - Handoff: proceso de transferencia del diseño al desarrollo:
-  - Qué información necesita el desarrollador: medidas exactas, colores, tipografías, assets, comportamiento interactivo (estados: hover, focus, disabled, loading), flujo de navegación (prototipo).
-  - Buenas prácticas del diseñador: nombrar capas semánticamente, agrupar lógicamente, limpiar capas ocultas, anotar decisiones de diseño, proporcionar specs.
-  - Buenas prácticas del desarrollador: revisar el diseño completo antes de empezar a programar, preguntar dudas antes de asumir, verificar medidas y colores en Dev Mode, no adivinar.
+    - Qué información necesita el desarrollador: medidas exactas, colores, tipografías, assets, comportamiento interactivo (estados: hover, focus, disabled, loading), flujo de navegación (prototipo).
+    - Buenas prácticas del diseñador: nombrar capas semánticamente, agrupar lógicamente, limpiar capas ocultas, anotar decisiones de diseño, proporcionar specs.
+    - Buenas prácticas del desarrollador: revisar el diseño completo antes de empezar a programar, preguntar dudas antes de asumir, verificar medidas y colores en Dev Mode, no adivinar.
 
 **Bloque 11: Figma ↔ Tailwind ↔ Angular: el puente completo**
+
 - Mapeo semántico: entender que lo que se hace en Figma tiene una traducción directa al código.
 - Tabla de correspondencias:
-  - Color Fill → `bg-{color}-{shade}` en Tailwind.
-  - Text → componente `<p>`, `<h1>`-`<h6>` con clases `text-*`, `font-*`.
-  - Auto Layout direction horizontal → `class="flex flex-row"`.
-  - Auto Layout direction vertical → `class="flex flex-col"`.
-  - Auto Layout gap → `class="gap-{size}"`.
-  - Auto Layout padding → `class="p-{size}"`.
-  - Corner radius → `class="rounded-{size}"`.
-  - Drop shadow → `class="shadow-{size}"`.
-  - Component (Figma) → Component (Angular standalone).
-  - Variant property → `@Input() variant`.
-  - Instance → Uso del componente en un template padre: `<app-button variant="primary">`.
+    - Color Fill → `bg-{color}-{shade}` en Tailwind.
+    - Text → componente `<p>`, `<h1>`-`<h6>` con clases `text-*`, `font-*`.
+    - Auto Layout direction horizontal → `class="flex flex-row"`.
+    - Auto Layout direction vertical → `class="flex flex-col"`.
+    - Auto Layout gap → `class="gap-{size}"`.
+    - Auto Layout padding → `class="p-{size}"`.
+    - Corner radius → `class="rounded-{size}"`.
+    - Drop shadow → `class="shadow-{size}"`.
+    - Component (Figma) → Component (Angular standalone).
+    - Variant property → `@Input() variant`.
+    - Instance → Uso del componente en un template padre: `<app-button variant="primary">`.
 
 ## Desarrollo teórico
 
@@ -210,17 +221,19 @@ Es el espacio infinito donde se crean los diseños. No tiene bordes (como un can
 El panel más importante para el trabajo cotidiano. Dividido en tres secciones principales según el modo:
 
 En **Modo Diseño**:
+
 - **Design:** Propiedades del elemento seleccionado. Se subdivide en:
-  - *Alignment & Distribution*: alinear y distribuir elementos seleccionados (equivalente a justify-content + align-items en Flexbox).
-  - *Position & Dimensions*: coordenadas X/Y, ancho/alto, rotación, radio de esquina, constraints.
-  - *Auto Layout*: dirección, gap, padding, alignment, resizing, wrap.
-  - *Fill & Stroke*: colores de relleno (sólido, gradiente, imagen) y trazo (borde).
-  - *Effects*: sombras (drop, inner), desenfoques (layer, background), texturas.
-  - *Export*: configuración de exportación para el elemento seleccionado (formato, resolución, sufijo).
+    - *Alignment & Distribution*: alinear y distribuir elementos seleccionados (equivalente a justify-content + align-items en Flexbox).
+    - *Position & Dimensions*: coordenadas X/Y, ancho/alto, rotación, radio de esquina, constraints.
+    - *Auto Layout*: dirección, gap, padding, alignment, resizing, wrap.
+    - *Fill & Stroke*: colores de relleno (sólido, gradiente, imagen) y trazo (borde).
+    - *Effects*: sombras (drop, inner), desenfoques (layer, background), texturas.
+    - *Export*: configuración de exportación para el elemento seleccionado (formato, resolución, sufijo).
 - **Prototype:** Configuración de interacciones para prototipado (al hacer clic en elemento A, navegar al frame B, con animación de transición).
 - **Inspect (en versiones antiguas, ahora Dev Mode):** Información técnica para desarrollo. En la versión actual, esta información se accede desde el Dev Mode.
 
 En **Modo Desarrollador (Dev Mode)**:
+
 - Información optimizada para implementación: medidas respecto al frame padre, código CSS/Tailwind, nombres de variables, assets listos para descargar, comparación de cambios.
 
 ### 3. Auto Layout: Flexbox en Figma
@@ -251,21 +264,21 @@ Auto Layout es un sistema de layout dinámico aplicado a un frame. Cuando activa
 La verdadera potencia aparece cuando anidas frames con Auto Layout. Por ejemplo, para construir una Card de una red social:
 
 1. Frame exterior (Card) con Auto Layout vertical:
-   - Padding: 16px todos lados.
-   - Gap: 12px.
+    - Padding: 16px todos lados.
+    - Gap: 12px.
 
 2. Frame hijo 1 (Header) con Auto Layout horizontal:
-   - Gap: 8px.
-   - Contiene: Avatar (frame fixed 40x40, corner radius 100 = círculo) + Frame vertical (Name + Timestamp).
-   - Alignment: center (para alinear avatar y texto verticalmente).
+    - Gap: 8px.
+    - Contiene: Avatar (frame fixed 40x40, corner radius 100 = círculo) + Frame vertical (Name + Timestamp).
+    - Alignment: center (para alinear avatar y texto verticalmente).
 
 3. Frame hijo 2 (Content) con Auto Layout vertical:
-   - Contiene: Texto del post (fill container, multilínea) + Imagen (fixed width: fill container, height: fija).
+    - Contiene: Texto del post (fill container, multilínea) + Imagen (fixed width: fill container, height: fija).
 
 4. Frame hijo 3 (Actions) con Auto Layout horizontal:
-   - Gap: 24px.
-   - Contiene: Like button (icono + texto), Comment button (icono + texto), Share button (icono).
-   - Alignment: space-between (para distribuir acciones).
+    - Gap: 24px.
+    - Contiene: Like button (icono + texto), Comment button (icono + texto), Share button (icono).
+    - Alignment: space-between (para distribuir acciones).
 
 Cada nivel de anidamiento de Auto Layout en Figma se traduce en un `<div>` con clases flex en Tailwind cuando implementemos el componente en Angular. Este es el patrón mental que debéis desarrollar: **ver Auto Layout en Figma y visualizar inmediatamente el HTML + Tailwind correspondiente**.
 
@@ -365,6 +378,7 @@ Puedes añadir múltiples propiedades de variante. Por ejemplo, para un Button c
 **Ejemplo completo: Component Set de Input**
 
 Propiedades:
+
 - **Variant:** Default (borde gris), Filled (fondo gris claro), Outline (sin fondo, borde azul).
 - **Size:** Small (height: 32px), Medium (height: 40px), Large (height: 48px).
 - **State:** Default, Hover (borde azul), Focus (borde azul + ring), Disabled (opacity 50%, cursor not-allowed), Error (borde rojo, texto de error debajo), Success (borde verde, check icon).
@@ -532,6 +546,7 @@ Los plugins son extensiones que añaden funcionalidad a Figma. Se instalan desde
 **Iconify:** Accede a más de 150 sets de iconos (Material Design, Heroicons, Lucide, Phosphor, Tabler, Font Awesome, etc.) y los inserta como SVG vectoriales en Figma. Buscas "search", eliges el estilo, y se inserta en tu diseño. En desarrollo, usarás la versión web/React/Angular de Iconify o directamente Heroicons/Lucide.
 
 **Stark:** Herramientas de accesibilidad integradas en Figma:
+
 - Contraste: selecciona dos elementos (texto y fondo) y verifica si cumplen WCAG AA (ratio >= 4.5) o AAA (ratio >= 7).
 - Daltonismo: simula cómo ve el diseño una persona con deuteranopia, protanopia, tritanopia.
 - Visión borrosa: simula diferentes niveles de agudeza visual.
@@ -595,11 +610,13 @@ Accesible como toggle en la barra superior (o Shift+D), transforma la interfaz d
 **Desarrollo paso a paso:**
 
 **Paso 1 - Configurar las variables de color (si no están creadas):**
+
 1. Abrir el panel de Variables (o el panel Local variables en el lateral derecho, según la versión de Figma).
 2. Crear colección "Primitives" con modos "Light".
 3. Añadir variables: `blue-500 (#3B82F6)`, `blue-600 (#2563EB)`, `blue-700 (#1D4ED8)`, `white (#FFFFFF)`, `slate-200 (#E2E8F0)`, `slate-400 (#94A3B8)`, `transparent`.
 
 **Paso 2 - Diseñar la variante Primary / Default:**
+
 1. Crear un frame (F) de dimensiones arbitrarias (luego se ajustará).
 2. Añadir Auto Layout (Shift+A): horizontal, gap 8px, padding 16px top/bottom, 20px left/right, alineación center.
 3. Fill: usar variable `blue-600`. Stroke: none.
@@ -608,22 +625,26 @@ Accesible como toggle en la barra superior (o Shift+D), transforma la interfaz d
 6. Renombrar el frame a "Button / Primary / Default".
 
 **Paso 3 - Crear variante Secondary / Default:**
+
 1. Duplicar (Ctrl+D) el frame Primary.
 2. Cambiar fill a `slate-200` y texto a `slate-900` (o `blue-600` según preferencia de diseño).
 3. Renombrar a "Button / Secondary / Default".
 
 **Paso 4 - Crear variante Outline / Default:**
+
 1. Duplicar Primary.
 2. Quitar fill. Añadir stroke: 1.5px, color `blue-600`. Texto: `blue-600`.
 3. Renombrar a "Button / Outline / Default".
 
 **Paso 5 - Crear variante Ghost / Default:**
+
 1. Duplicar Primary.
 2. Fill: `transparent`. Texto: `blue-600`. Stroke none.
 3. Renombrar a "Button / Ghost / Default".
 
 **Paso 6 - Crear variantes de hover para cada una:**
 Para cada variante, duplicar y modificar el estado hover:
+
 - Primary Hover: fill `blue-700`.
 - Secondary Hover: fill `slate-400`.
 - Outline Hover: fill `blue-600`, texto `white`.
@@ -631,6 +652,7 @@ Para cada variante, duplicar y modificar el estado hover:
 
 **Paso 7 - Crear variantes de tamaño:**
 Duplicar cada variante Default y ajustar padding:
+
 - Small (sm): padding 8px top/bottom, 12px left/right, texto 12px.
 - Medium (md): padding 12px top/bottom, 16px left/right, texto 14px (este es el que ya tenemos, renombrar para claridad).
 - Large (lg): padding 16px top/bottom, 24px left/right, texto 16px.
@@ -641,10 +663,12 @@ Nombrar en consecuencia: `Button / Primary / Small / Default`, `Button / Primary
 Duplicar algunas variantes Default, añadir un icono (Insert → Iconify → search icon "arrow-right"), posicionarlo a la izquierda del texto mediante Auto Layout. Añadir propiedad booleana "Has Left Icon" o crear como variante adicional.
 
 **Paso 9 - Crear variante Disabled y Loading:**
+
 - Disabled: opacity 50%, fill `slate-200`, texto `slate-400`.
 - Loading: añadir un spinner SVG junto al texto "Loading...". (Puede insertarse desde Iconify → "spinner").
 
 **Paso 10 - Combinar en Component Set:**
+
 1. Seleccionar TODAS las variantes creadas.
 2. Click derecho → "Combine as variants" (o desde la toolbar).
 3. Figma crea automáticamente las propiedades de variante. Renombrar las propiedades: "Variant", "Size", "State", "Icon".
@@ -710,9 +734,9 @@ Notar la inversión en modo dark: los slates se invierten, el blue-600 (más osc
 1. Crear colección "Typography" con modos: Desktop, Mobile.
 
 2. Variables de familia tipográfica:
-   - `font-family-sans`: 'Inter', sans-serif
-   - `font-family-heading`: 'Inter', sans-serif (puede ser diferente)
-   - `font-family-mono`: 'JetBrains Mono', monospace
+    - `font-family-sans`: 'Inter', sans-serif
+    - `font-family-heading`: 'Inter', sans-serif (puede ser diferente)
+    - `font-family-mono`: 'JetBrains Mono', monospace
 
 3. Variables de tamaño de fuente (en px, que luego se traducirán a rem en CSS):
 
@@ -728,24 +752,26 @@ Notar la inversión en modo dark: los slates se invierten, el blue-600 (más osc
 | `font-size-4xl` | 36 | 28 | Hero titles |
 
 4. Variables de peso de fuente (`font-weight`):
-   - `font-weight-normal`: 400
-   - `font-weight-medium`: 500
-   - `font-weight-semibold`: 600
-   - `font-weight-bold`: 700
+    - `font-weight-normal`: 400
+    - `font-weight-medium`: 500
+    - `font-weight-semibold`: 600
+    - `font-weight-bold`: 700
 
 5. Variables de line-height:
-   - `line-height-tight`: 1.25 (headings)
-   - `line-height-normal`: 1.5 (cuerpo de texto)
-   - `line-height-relaxed`: 1.625 (texto extenso)
+    - `line-height-tight`: 1.25 (headings)
+    - `line-height-normal`: 1.5 (cuerpo de texto)
+    - `line-height-relaxed`: 1.625 (texto extenso)
 
 **Parte C - Documentación visual:**
 
 En la página "Foundations → Colors" del archivo Figma:
+
 1. Crear frames para cada paleta de color (Slate, Blue, Red, Green) mostrando todos los tonos.
 2. Debajo de cada muestra, escribir el nombre de la variable y el valor hex.
 3. En una sección aparte, mostrar los tokens semánticos aplicados a elementos de ejemplo (un texto primary sobre fondo primary, un texto secondary sobre fondo primary, etc.).
 
 En la página "Foundations → Typography":
+
 1. Crear frames con muestras de cada nivel tipográfico (desde xs hasta 4xl).
 2. Especificar para cada muestra: nombre de la variable, font-family, font-size, font-weight, line-height.
 
@@ -760,11 +786,13 @@ Esta documentación es la que el equipo de desarrollo consultará para implement
 **Desarrollo:**
 
 **Paso 1 - Configurar el frame de pantalla:**
+
 - Frame (F) → Desktop → 1440 × 900.
 - Renombrar: "Login Screen".
 - Auto Layout: no en el frame principal (lo usaremos en sub-frames). Layout: centrar elementos con constraints.
 
 **Paso 2 - Diseñar el panel de login:**
+
 1. Crear frame hijo (F), dimensiones: 400 × auto (hug contents).
 2. Auto Layout (Shift+A): vertical, gap 24px, padding 32px, alineación stretch.
 3. Posicionar en el centro del frame principal (X: 520, Y: 150, aproximadamente).
@@ -773,44 +801,44 @@ Esta documentación es la que el equipo de desarrollo consultará para implement
 **Paso 3 - Añadir contenido al panel:**
 
 1. **Logo / Nombre de la app:**
-   - Frame con Auto Layout horizontal, gap 8px, alineación center.
-   - Icono (cuadrado 32×32, color `color-action-primary`, insertar desde Iconify o crear rectángulo).
-   - Texto "AppName", fuente Inter, weight Bold, size `font-size-2xl`, color `color-text-primary`.
+    - Frame con Auto Layout horizontal, gap 8px, alineación center.
+    - Icono (cuadrado 32×32, color `color-action-primary`, insertar desde Iconify o crear rectángulo).
+    - Texto "AppName", fuente Inter, weight Bold, size `font-size-2xl`, color `color-text-primary`.
 
 2. **Texto de bienvenida:**
-   - Frame con Auto Layout vertical, gap 4px.
-   - Texto "Iniciar sesión", weight Semibold, size `font-size-2xl`.
-   - Texto "Accede a tu cuenta para continuar", weight Regular, size `font-size-sm`, color `color-text-secondary`.
+    - Frame con Auto Layout vertical, gap 4px.
+    - Texto "Iniciar sesión", weight Semibold, size `font-size-2xl`.
+    - Texto "Accede a tu cuenta para continuar", weight Regular, size `font-size-sm`, color `color-text-secondary`.
 
 3. **Campos del formulario:**
-   - **Email input:**
+    - **Email input:**
      - Frame con Auto Layout vertical, gap 6px, alineación stretch.
      - Label: Texto "Correo electrónico", weight Medium, size `font-size-sm`.
      - Input: Frame con Auto Layout horizontal, gap 8px, padding 12px, corner radius 8px, border 1px (color `color-border-default`), fill `color-bg-primary`. Contiene icono mail (18×18) + texto "tu@email.com" (color `color-text-secondary`, size `font-size-sm`).
-   - **Password input:** Similar pero con icono lock y un icono eye (toggle visibilidad) a la derecha.
+    - **Password input:** Similar pero con icono lock y un icono eye (toggle visibilidad) a la derecha.
 
 4. **Opciones:**
-   - Frame con Auto Layout horizontal, gap (space-between en distribución).
-   - Checkbox + label "Recordarme".
-   - Link "¿Olvidaste tu contraseña?" (color `color-action-primary`, weight Medium, size `font-size-sm`).
+    - Frame con Auto Layout horizontal, gap (space-between en distribución).
+    - Checkbox + label "Recordarme".
+    - Link "¿Olvidaste tu contraseña?" (color `color-action-primary`, weight Medium, size `font-size-sm`).
 
 5. **Botón de login:**
-   - Insertar instancia del componente Button creado en el Ejemplo Guiado 1.
-   - Configurar: Variant = Primary, Size = Large, Width = Fill container, Texto = "Iniciar sesión".
+    - Insertar instancia del componente Button creado en el Ejemplo Guiado 1.
+    - Configurar: Variant = Primary, Size = Large, Width = Fill container, Texto = "Iniciar sesión".
 
 6. **Separador "o":**
-   - Frame con Auto Layout horizontal, gap 12px, alineación center.
-   - Línea (rectángulo 1px de alto, fill `color-border-default`, resize: fill container).
-   - Texto "o continuar con" (size `font-size-sm`, color `color-text-secondary`).
-   - Línea (ídem a la primera).
+    - Frame con Auto Layout horizontal, gap 12px, alineación center.
+    - Línea (rectángulo 1px de alto, fill `color-border-default`, resize: fill container).
+    - Texto "o continuar con" (size `font-size-sm`, color `color-text-secondary`).
+    - Línea (ídem a la primera).
 
 7. **Botones sociales:**
-   - Frame con Auto Layout horizontal, gap 12px.
-   - Dos botones (instancias de Button, variante Outline, size Medium, width fill container): "Google" y "GitHub", cada uno con su icono.
+    - Frame con Auto Layout horizontal, gap 12px.
+    - Dos botones (instancias de Button, variante Outline, size Medium, width fill container): "Google" y "GitHub", cada uno con su icono.
 
 8. **Link de registro:**
-   - Frame con Auto Layout horizontal, gap 4px, alineación center.
-   - Texto "¿No tienes cuenta?" + Link "Regístrate" (weight Semibold, color `color-action-primary`).
+    - Frame con Auto Layout horizontal, gap 4px, alineación center.
+    - Texto "¿No tienes cuenta?" + Link "Regístrate" (weight Semibold, color `color-action-primary`).
 
 9. **Verificar espaciado y alineación:** Todo debe usar las variables de espaciado definidas. Los gaps y paddings deben ser consistentes (múltiplos de 4px: 4, 8, 12, 16, 20, 24, 32).
 
@@ -835,6 +863,7 @@ Esta documentación es la que el equipo de desarrollo consultará para implement
 Shopify, plataforma de ecommerce canadiense, mantiene Polaris, uno de los sistemas de diseño más completos y accesibles públicamente. Polaris se gestiona en Figma como fuente de verdad de diseño y se implementa en React como librería de componentes. Es un caso de estudio notable porque Shopify ha compartido públicamente su proceso.
 
 En Figma, el equipo de Shopify organiza Polaris con múltiples archivos de librería:
+
 - **Polaris Foundations:** Variables de color, tipografía, espaciado, iconografía.
 - **Polaris Components:** Todos los componentes con todas sus variantes y estados. Cada componente tiene una página dedicada con explicaciones de uso, ejemplos y consideraciones de accesibilidad.
 - **Polaris Patterns:** Combinaciones de componentes para flujos comunes (creación de producto, configuración de envíos, gestión de pedidos).
@@ -1048,11 +1077,11 @@ Utiliza Style Dictionary (de Amazon, https://amzn.github.io/style-dictionary/) p
 1. Toma como entrada un archivo JSON con design tokens (puedes exportar tus variables de Figma con un plugin como "Design Tokens" y convertirlo a JSON, o escribir el JSON manualmente).
 
 2. Genera como salida:
-   - Archivo CSS con custom properties (listo para copiar en `styles.css` de Angular).
-   - Archivo de configuración `@theme` para Tailwind CSS 4 (con la sintaxis correcta de `@theme { ... }`).
-   - Archivo TypeScript con las variables como objetos tipados (para usar en Angular si se necesita acceso programático a los tokens).
-   - Archivo SCSS (opcional, para compatibilidad con proyectos legacy).
-   - Documentación Markdown con tabla de tokens y muestras de color.
+    - Archivo CSS con custom properties (listo para copiar en `styles.css` de Angular).
+    - Archivo de configuración `@theme` para Tailwind CSS 4 (con la sintaxis correcta de `@theme { ... }`).
+    - Archivo TypeScript con las variables como objetos tipados (para usar en Angular si se necesita acceso programático a los tokens).
+    - Archivo SCSS (opcional, para compatibilidad con proyectos legacy).
+    - Documentación Markdown con tabla de tokens y muestras de color.
 
 3. Configura un script npm que ejecute Style Dictionary como parte del build, de modo que una modificación del JSON de entrada regenere automáticamente todos los archivos de salida.
 

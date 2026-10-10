@@ -145,18 +145,18 @@ El Design System debe incluir:
 - **Sombras**: Elevaciones (sm, md, lg, xl).
 - **Bordes y radios**: Radios de borde (none, sm, md, lg, xl, full).
 - **Componentes base** (usando Auto Layout, componentes y variantes de Figma):
-  - `Button`: Variantes de estilo (primary, secondary, outline, ghost, danger), tamaños (sm, md, lg), estados (default, hover, focus, active, disabled, loading), con/sin icono.
-  - `Input`: Variantes (text, email, password, number, textarea), estados (default, focus, error, disabled), con/sin label, con/sin helper text, con/sin icono (prepend/append).
-  - `Card`: Variantes (default, hoverable, bordered), con/sin header, con/sin footer.
-  - `Modal`: Tamaños (sm, md, lg, xl), con/sin overlay, animación de entrada.
-  - `Table`: Variantes (default, striped, bordered), con/sin paginación, con/sin ordenación, filas seleccionables.
-  - `Badge`: Variantes de color (primary, success, warning, danger, info), tamaños (sm, md).
-  - `Toast / Notificación`: Posiciones (top-right, top-left, bottom-right, bottom-left), variantes (success, error, warning, info), con/sin acción.
-  - `Dropdown`: Variantes (click, hover), alineación (left, right), con/sin icono.
-  - `Tabs`: Variantes (underline, pills), con/sin icono, con/sin badge.
-  - `Spinner / Loader`: Tamaños (sm, md, lg), variantes de color.
-  - `EmptyState`: Ilustración, título, descripción, acción opcional.
-  - `Skeleton`: Variantes para texto, tarjeta, tabla, gráfico.
+    - `Button`: Variantes de estilo (primary, secondary, outline, ghost, danger), tamaños (sm, md, lg), estados (default, hover, focus, active, disabled, loading), con/sin icono.
+    - `Input`: Variantes (text, email, password, number, textarea), estados (default, focus, error, disabled), con/sin label, con/sin helper text, con/sin icono (prepend/append).
+    - `Card`: Variantes (default, hoverable, bordered), con/sin header, con/sin footer.
+    - `Modal`: Tamaños (sm, md, lg, xl), con/sin overlay, animación de entrada.
+    - `Table`: Variantes (default, striped, bordered), con/sin paginación, con/sin ordenación, filas seleccionables.
+    - `Badge`: Variantes de color (primary, success, warning, danger, info), tamaños (sm, md).
+    - `Toast / Notificación`: Posiciones (top-right, top-left, bottom-right, bottom-left), variantes (success, error, warning, info), con/sin acción.
+    - `Dropdown`: Variantes (click, hover), alineación (left, right), con/sin icono.
+    - `Tabs`: Variantes (underline, pills), con/sin icono, con/sin badge.
+    - `Spinner / Loader`: Tamaños (sm, md, lg), variantes de color.
+    - `EmptyState`: Ilustración, título, descripción, acción opcional.
+    - `Skeleton`: Variantes para texto, tarjeta, tabla, gráfico.
 
 ### 4. Fase 2: Configuración del proyecto Angular
 
@@ -326,6 +326,7 @@ El Design System debe incluir:
 **Componentes obligatorios del Design System** (mínimo 10):
 
 Para cada componente, se debe implementar:
+
 - Componente Angular standalone con todas las variantes y estados.
 - Propiedades de entrada (`@Input()`) correctamente tipadas.
 - Eventos de salida (`@Output()`) para las interacciones.
@@ -573,10 +574,10 @@ Esta es la **fase más extensa del proyecto** (10 horas). Se implementan todas l
 
 - **Listado**: Tabla con filtros (estado, rango de fechas, cliente —dropdown con búsqueda). Columnas (número, cliente, fecha, vencimiento, total, estado). Botones de acción (ver, descargar PDF, cambiar estado).
 - **Creación**: Formulario complejo con:
-  - Cabecera: selector de cliente (dropdown con búsqueda entre clientes activos), fecha de emisión (por defecto hoy), fecha de vencimiento (por defecto +30 días), número auto-generado (secuencial por año: F2024-0001).
-  - Líneas de factura: array dinámico (FormArray). Cada línea: concepto (input text), cantidad (input number, min 1), precio unitario (input number, min 0, step 0.01), tipo de IVA (select: 21%, 10%, 4%, 0%), importe (campo calculado readonly = cantidad * precio unitario). Botón "Añadir línea" y botón X para eliminar línea.
-  - Resumen: base imponible (suma de importes), IVA desglosado por tipo (agrupado), total (base + IVA). Todo calculado en tiempo real con `computed()`.
-  - Acciones: "Vista previa" (abre PDF en nueva pestaña), "Guardar borrador" (estado = pendiente), "Emitir" (guarda y genera número definitivo).
+    - Cabecera: selector de cliente (dropdown con búsqueda entre clientes activos), fecha de emisión (por defecto hoy), fecha de vencimiento (por defecto +30 días), número auto-generado (secuencial por año: F2024-0001).
+    - Líneas de factura: array dinámico (FormArray). Cada línea: concepto (input text), cantidad (input number, min 1), precio unitario (input number, min 0, step 0.01), tipo de IVA (select: 21%, 10%, 4%, 0%), importe (campo calculado readonly = cantidad * precio unitario). Botón "Añadir línea" y botón X para eliminar línea.
+    - Resumen: base imponible (suma de importes), IVA desglosado por tipo (agrupado), total (base + IVA). Todo calculado en tiempo real con `computed()`.
+    - Acciones: "Vista previa" (abre PDF en nueva pestaña), "Guardar borrador" (estado = pendiente), "Emitir" (guarda y genera número definitivo).
 - **Detalle / Vista previa**: Simulación visual del PDF. Botones: descargar PDF, marcar como pagada, editar (solo si pendiente), eliminar.
 - **PDF de factura**: PDFMake con diseño profesional (como el desarrollado en la unidad 16).
 
@@ -642,24 +643,24 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 **Entregables documentales**:
 
 1. **README.md** en el repositorio de GitHub:
-   - Título y descripción del proyecto.
-   - Capturas de pantalla de las 5 pantallas principales.
-   - Tecnologías utilizadas (badges de shields.io).
-   - Instrucciones de instalación y ejecución (desarrollo y producción).
-   - Estructura del proyecto (árbol de directorios).
-   - Enlaces al despliegue de Storybook, Figma y demo.
-   - Licencia.
+    - Título y descripción del proyecto.
+    - Capturas de pantalla de las 5 pantallas principales.
+    - Tecnologías utilizadas (badges de shields.io).
+    - Instrucciones de instalación y ejecución (desarrollo y producción).
+    - Estructura del proyecto (árbol de directorios).
+    - Enlaces al despliegue de Storybook, Figma y demo.
+    - Licencia.
 
 2. **Memoria del proyecto (PDF)** con:
-   - Portada (título, autor, fecha, logo).
-   - Índice.
-   - Introducción y objetivos.
-   - Análisis y diseño: diagrama de casos de uso, diagrama de componentes, diseño en Figma (capturas de las 5 pantallas).
-   - Implementación: arquitectura Angular, Design System implementado, decisiones técnicas justificadas.
-   - Pruebas y validación: resultados de auditorías (Lighthouse, WAVE), capturas responsive.
-   - Empaquetado con Electron: proceso, capturas del instalador y la app en escritorio.
-   - Conclusiones y líneas futuras.
-   - Referencias.
+    - Portada (título, autor, fecha, logo).
+    - Índice.
+    - Introducción y objetivos.
+    - Análisis y diseño: diagrama de casos de uso, diagrama de componentes, diseño en Figma (capturas de las 5 pantallas).
+    - Implementación: arquitectura Angular, Design System implementado, decisiones técnicas justificadas.
+    - Pruebas y validación: resultados de auditorías (Lighthouse, WAVE), capturas responsive.
+    - Empaquetado con Electron: proceso, capturas del instalador y la app en escritorio.
+    - Conclusiones y líneas futuras.
+    - Referencias.
 
 3. **Storybook desplegado**: Ejecutar `npm run build-storybook` y desplegar la carpeta `storybook-static` en GitHub Pages, Netlify o Vercel.
 
@@ -709,19 +710,19 @@ Selector de tipo de informe (ventas por período, por cliente, top productos, re
 ### 13. Entregables requeridos
 
 1. **Enlace al repositorio GitHub** (público o privado con acceso al profesor). El repositorio debe incluir:
-   - Código fuente completo de la aplicación Angular.
-   - Archivos de configuración de Electron (`main.js`, `preload.js`).
-   - Archivo `README.md` completo.
-   - Archivo `.gitignore` correctamente configurado (sin `node_modules`, `dist`, `release`, `storybook-static`).
+    - Código fuente completo de la aplicación Angular.
+    - Archivos de configuración de Electron (`main.js`, `preload.js`).
+    - Archivo `README.md` completo.
+    - Archivo `.gitignore` correctamente configurado (sin `node_modules`, `dist`, `release`, `storybook-static`).
 
 2. **Enlace al proyecto Figma** (archivo `.fig` o enlace de solo lectura al proyecto en Figma Community/Teams).
 
 3. **Enlace a Storybook desplegado** (GitHub Pages, Netlify, Vercel o similar).
 
 4. **Instaladores** (al menos 1 plataforma, idealmente 3):
-   - Windows: archivo `.exe` (NSIS o portable).
-   - macOS: archivo `.dmg`.
-   - Linux: archivo `.AppImage` o `.deb`.
+    - Windows: archivo `.exe` (NSIS o portable).
+    - macOS: archivo `.dmg`.
+    - Linux: archivo `.AppImage` o `.deb`.
 
 5. **Memoria del proyecto** en formato PDF.
 
@@ -1018,6 +1019,7 @@ export class DashboardComponent implements OnInit {
     ### Ampliación 1: Tests unitarios con Jasmine/Karma
 
     Implementa tests unitarios para al menos 5 servicios y 5 componentes:
+    
     - `AuthService`: test de login exitoso, login fallido, registro, logout.
     - `InvoicePdfService`: test de generación de documento PDF (verificar estructura).
     - `ButtonComponent`: test de renderizado con diferentes inputs, test de emisión de eventos.
@@ -1027,6 +1029,7 @@ export class DashboardComponent implements OnInit {
     ### Ampliación 2: Tests end-to-end con Cypress o Playwright
 
     Implementa al menos 5 tests e2e que cubran flujos completos:
+    
     - Login → Dashboard → Navegación a Clientes → Crear cliente → Verificar en listado.
     - Crear factura con líneas → Vista previa → Emitir → Verificar estado.
     - Dashboard → Cambiar rango de fechas → Verificar que los gráficos se actualizan.
@@ -1040,6 +1043,7 @@ export class DashboardComponent implements OnInit {
     ### Ampliación 4: PWA (Progressive Web Application)
 
     Convierte la aplicación Angular en una PWA instalable en dispositivos móviles y escritorio:
+    
     - Añade `@angular/pwa` (`ng add @angular/pwa`).
     - Configura el Service Worker para cache offline.
     - Personaliza el manifest (nombre, iconos, colores, orientación).
@@ -1048,12 +1052,14 @@ export class DashboardComponent implements OnInit {
     ### Ampliación 5: Backend real con Firebase o Supabase
 
     Sustituye el json-server por un backend real:
+    
     - Firebase: Authentication (login/registro con email/password), Firestore (base de datos NoSQL para clientes, facturas, productos), Storage (para logos y avatares).
     - Supabase: alternativa open source a Firebase con PostgreSQL, autenticación y storage.
 
     ### Ampliación 6: Internacionalización (i18n)
 
     Añade soporte para español e inglés:
+    
     - Implementa `@angular/localize` o `ngx-translate`.
     - Traduce toda la interfaz (menús, etiquetas, mensajes de error, tooltips, textos de botones).
     - Añade un selector de idioma en la configuración.
@@ -1062,6 +1068,7 @@ export class DashboardComponent implements OnInit {
     ### Ampliación 7: Versión móvil con Capacitor
 
     Migra la aplicación a una app móvil nativa para Android e iOS usando Capacitor:
+    
     - Instala Capacitor: `npm install @capacitor/core @capacitor/cli`.
     - Adapta la UI para pantallas táctiles pequeñas.
     - Añade funcionalidades nativas móviles (cámara para avatar, GPS para dirección, compartir factura por WhatsApp).
@@ -1142,6 +1149,7 @@ export class DashboardComponent implements OnInit {
 - **GitHub Pages para Storybook**: https://storybook.js.org/docs/sharing/publish-storybook
 
 **Plantillas y ejemplos de referencia**:
+
 - Repositorio de ejemplo completo (búsqueda recomendada): "angular standalone tailwind dashboard github"
 - Colección de componentes accesibles: https://www.w3.org/WAI/ARIA/apg/patterns/
 - Ejemplos de facturas con PDFMake: http://pdfmake.org/playground.html (buscar "invoice")

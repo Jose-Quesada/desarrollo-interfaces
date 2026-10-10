@@ -43,57 +43,57 @@ Criterios de evaluación oficiales asociados:
 ## Contenidos
 
 1. **¿Qué es Electron y cómo funciona?**
-   - 1.1. Definición y propósito: framework open source (GitHub, 2013) para construir aplicaciones de escritorio multiplataforma utilizando tecnologías web estándar (HTML, CSS, JavaScript/TypeScript).
-   - 1.2. ¿Cómo funciona internamente?: Electron combina dos componentes principales en un único ejecutable:
+    - 1.1. Definición y propósito: framework open source (GitHub, 2013) para construir aplicaciones de escritorio multiplataforma utilizando tecnologías web estándar (HTML, CSS, JavaScript/TypeScript).
+    - 1.2. ¿Cómo funciona internamente?: Electron combina dos componentes principales en un único ejecutable:
      - **Chromium**: el motor de renderizado de código abierto que impulsa Google Chrome. Se encarga de mostrar la interfaz de usuario (HTML + CSS) y ejecutar el JavaScript del lado del cliente.
      - **Node.js**: el entorno de ejecución de JavaScript en el servidor. Se encarga de interactuar con el sistema operativo: leer/escribir archivos, acceder a la red, ejecutar procesos hijos, interactuar con hardware, etc.
-   - 1.3. La "magia" de Electron: en lugar de ejecutarse en un servidor remoto y mostrarse en un navegador, la aplicación web se ejecuta localmente dentro de una ventana nativa (sin barra de direcciones ni botones de navegador), y tiene acceso directo a las capacidades del sistema operativo a través de Node.js.
-   - 1.4. Ventajas de Electron frente al desarrollo nativo tradicional (C++, C#, JavaFX, Qt): un solo código base para 3 plataformas (Windows, macOS, Linux), uso de tecnologías web que todo desarrollador frontend ya conoce, ecosistema npm con cientos de miles de paquetes, desarrollo más rápido, iteración más ágil, hot reload en desarrollo.
-   - 1.5. Desventajas y críticas a Electron: consumo de memoria RAM elevado (cada aplicación Electron incluye su propia instancia de Chromium, lo que significa al menos 50-100 MB de RAM base incluso para una app "Hola Mundo"), tamaño del instalador grande (mínimo 50-80 MB comprimido), rendimiento inferior al nativo en operaciones intensivas de CPU, no es adecuado para aplicaciones que requieren acceso a hardware de muy bajo nivel o latencia mínima (audio profesional, videojuegos AAA).
+    - 1.3. La "magia" de Electron: en lugar de ejecutarse en un servidor remoto y mostrarse en un navegador, la aplicación web se ejecuta localmente dentro de una ventana nativa (sin barra de direcciones ni botones de navegador), y tiene acceso directo a las capacidades del sistema operativo a través de Node.js.
+    - 1.4. Ventajas de Electron frente al desarrollo nativo tradicional (C++, C#, JavaFX, Qt): un solo código base para 3 plataformas (Windows, macOS, Linux), uso de tecnologías web que todo desarrollador frontend ya conoce, ecosistema npm con cientos de miles de paquetes, desarrollo más rápido, iteración más ágil, hot reload en desarrollo.
+    - 1.5. Desventajas y críticas a Electron: consumo de memoria RAM elevado (cada aplicación Electron incluye su propia instancia de Chromium, lo que significa al menos 50-100 MB de RAM base incluso para una app "Hola Mundo"), tamaño del instalador grande (mínimo 50-80 MB comprimido), rendimiento inferior al nativo en operaciones intensivas de CPU, no es adecuado para aplicaciones que requieren acceso a hardware de muy bajo nivel o latencia mínima (audio profesional, videojuegos AAA).
 
 2. **Arquitectura de procesos en Electron**
-   - 2.1. **Proceso Principal (Main Process)**:
+    - 2.1. **Proceso Principal (Main Process)**:
      - Es el punto de entrada de la aplicación (el script definido en `"main"` de package.json).
      - Solo hay UN proceso principal por aplicación. Se crea cuando la aplicación arranca y se destruye cuando la aplicación se cierra.
      - Tiene acceso completo a Node.js y a todas sus APIs (`fs`, `path`, `os`, `child_process`, `net`, `http`, `crypto`, etc.).
      - Es el responsable de gestionar el ciclo de vida de la aplicación: crear ventanas (`BrowserWindow`), gestionar menús nativos (`Menu`), registrar atajos de teclado globales, mostrar diálogos nativos, gestionar la bandeja del sistema (`Tray`), manejar eventos de la aplicación (`app.on('ready')`, `app.on('window-all-closed')`, `app.on('activate')`), y gestionar actualizaciones automáticas.
      - No tiene acceso directo al DOM ni a las APIs del navegador (`window`, `document`, `localStorage`), ya que no hay ventana renderizada en este proceso.
      - Se comunica con los procesos renderizadores mediante IPC (Inter-Process Communication).
-   - 2.2. **Proceso Renderizador (Renderer Process)**:
+    - 2.2. **Proceso Renderizador (Renderer Process)**:
      - Cada ventana (`BrowserWindow`) que se abre tiene su propio proceso renderizador independiente.
      - Ejecuta la interfaz de usuario: HTML, CSS y JavaScript (Angular en nuestro caso).
      - Por defecto, por seguridad, NO tiene acceso a Node.js (`nodeIntegration: false`). Solo tiene acceso a las APIs estándar del navegador (DOM, Fetch API, localStorage, etc.) y a las APIs que el Preload Script expone explícitamente.
      - Se comunica con el proceso principal mediante IPC para solicitar operaciones que requieran acceso al sistema operativo.
-   - 2.3. **Preload Script**:
+    - 2.3. **Preload Script**:
      - Es un script JavaScript que se ejecuta en el contexto del proceso renderizador, pero ANTES de que se cargue la página web.
      - Tiene acceso a Node.js y a las APIs del DOM (es un entorno privilegiado).
      - Su función es ser un puente seguro: utiliza `contextBridge.exposeInMainWorld()` para exponer un objeto con métodos específicos en el `window` del renderizador, de forma que el código Angular pueda llamar a funcionalidades nativas sin tener acceso directo a Node.js.
      - Esto implementa el principio de mínimo privilegio: el renderizador solo puede hacer lo que el preload script le permite explícitamente.
-   - 2.4. **IPC (Inter-Process Communication)**:
+    - 2.4. **IPC (Inter-Process Communication)**:
      - Es el mecanismo de comunicación entre el proceso principal y los procesos renderizadores.
      - En el proceso principal: `ipcMain.on('channel', callback)` para escuchar mensajes, `ipcMain.handle('channel', handler)` para manejar solicitudes con respuesta (modelo invoke/handle).
      - En el preload script: `ipcRenderer.invoke('channel', args)` para enviar solicitudes y esperar respuesta asíncrona, `ipcRenderer.on('channel', callback)` para escuchar mensajes enviados desde el proceso principal.
      - En el renderizador (a través del preload): `window.electronAPI.invoke('channel', args)`.
 
 3. **Casos reales de aplicaciones Electron**
-   - 3.1. **Visual Studio Code (Microsoft)**: El ejemplo canónico y el que demuestra que Electron puede escalar a aplicaciones enormes con excelente rendimiento. VS Code tiene cientos de miles de líneas de código TypeScript, cientos de extensiones ejecutándose simultáneamente, y un editor de texto que debe responder en milisegundos a cada pulsación de tecla. Claves de su arquitectura: uso intensivo de Web Workers para tareas pesadas (análisis sintáctico, linting, indexación), renderizado parcial y virtualizado del editor, lazy loading de extensiones, y un equipo de ingeniería dedicado a tiempo completo a optimizar el rendimiento. VS Code demuestra que Electron no es intrínsecamente lento: el rendimiento depende de la calidad de la ingeniería de software.
-   - 3.2. **Discord**: Aplicación de chat en tiempo real con voz y vídeo. Utiliza Electron para la capa de UI y WebRTC para la comunicación de voz/vídeo. La integración con el sistema operativo es clave: notificaciones nativas, superposición (overlay) en juegos, detección de qué juego se está ejecutando (Rich Presence), atajos de teclado globales para push-to-talk, y minimización a la bandeja del sistema.
-   - 3.3. **Slack**: Aplicación empresarial de mensajería. Aprovecha Electron para ofrecer una experiencia nativa (notificaciones, bandeja del sistema, apertura de enlaces en el navegador por defecto del SO) sobre una base de código web. Slack ha invertido significativamente en optimizar el consumo de memoria de su aplicación Electron.
-   - 3.4. **Figma Desktop**: Herramienta de diseño de interfaces. El caso de Figma es particularmente interesante porque, a diferencia de la mayoría de aplicaciones Electron que usan el renderizado DOM tradicional de Chromium, Figma utiliza WebGL para renderizar su lienzo de diseño directamente en la GPU, logrando un rendimiento comparable al nativo incluso con documentos complejos con miles de capas.
-   - 3.5. **Postman**: Cliente HTTP para probar APIs. Electron permite a Postman acceder al sistema de archivos (para guardar colecciones de requests), al portapapeles del sistema, y sortear las restricciones CORS que un navegador normal impondría (las peticiones HTTP desde Node.js no están sujetas a CORS).
-   - 3.6. **Obsidian**: Editor de notas basado en Markdown con ecosistema de plugins. Electron permite a Obsidian acceder al sistema de archivos para trabajar con bóvedas (vaults) locales de archivos `.md`, algo imposible en una aplicación puramente web.
-   - 3.7. **WhatsApp Desktop**: La versión de escritorio de WhatsApp, utilizada por cientos de millones de personas.
-   - 3.8. **Spotify Desktop**: Aunque Spotify utiliza su propio framework (Chromium Embedded Framework, CEF), la arquitectura es conceptualmente idéntica a Electron: una capa web (HTML/CSS/JS) ejecutándose en un shell nativo con acceso a APIs del sistema operativo.
+    - 3.1. **Visual Studio Code (Microsoft)**: El ejemplo canónico y el que demuestra que Electron puede escalar a aplicaciones enormes con excelente rendimiento. VS Code tiene cientos de miles de líneas de código TypeScript, cientos de extensiones ejecutándose simultáneamente, y un editor de texto que debe responder en milisegundos a cada pulsación de tecla. Claves de su arquitectura: uso intensivo de Web Workers para tareas pesadas (análisis sintáctico, linting, indexación), renderizado parcial y virtualizado del editor, lazy loading de extensiones, y un equipo de ingeniería dedicado a tiempo completo a optimizar el rendimiento. VS Code demuestra que Electron no es intrínsecamente lento: el rendimiento depende de la calidad de la ingeniería de software.
+    - 3.2. **Discord**: Aplicación de chat en tiempo real con voz y vídeo. Utiliza Electron para la capa de UI y WebRTC para la comunicación de voz/vídeo. La integración con el sistema operativo es clave: notificaciones nativas, superposición (overlay) en juegos, detección de qué juego se está ejecutando (Rich Presence), atajos de teclado globales para push-to-talk, y minimización a la bandeja del sistema.
+    - 3.3. **Slack**: Aplicación empresarial de mensajería. Aprovecha Electron para ofrecer una experiencia nativa (notificaciones, bandeja del sistema, apertura de enlaces en el navegador por defecto del SO) sobre una base de código web. Slack ha invertido significativamente en optimizar el consumo de memoria de su aplicación Electron.
+    - 3.4. **Figma Desktop**: Herramienta de diseño de interfaces. El caso de Figma es particularmente interesante porque, a diferencia de la mayoría de aplicaciones Electron que usan el renderizado DOM tradicional de Chromium, Figma utiliza WebGL para renderizar su lienzo de diseño directamente en la GPU, logrando un rendimiento comparable al nativo incluso con documentos complejos con miles de capas.
+    - 3.5. **Postman**: Cliente HTTP para probar APIs. Electron permite a Postman acceder al sistema de archivos (para guardar colecciones de requests), al portapapeles del sistema, y sortear las restricciones CORS que un navegador normal impondría (las peticiones HTTP desde Node.js no están sujetas a CORS).
+    - 3.6. **Obsidian**: Editor de notas basado en Markdown con ecosistema de plugins. Electron permite a Obsidian acceder al sistema de archivos para trabajar con bóvedas (vaults) locales de archivos `.md`, algo imposible en una aplicación puramente web.
+    - 3.7. **WhatsApp Desktop**: La versión de escritorio de WhatsApp, utilizada por cientos de millones de personas.
+    - 3.8. **Spotify Desktop**: Aunque Spotify utiliza su propio framework (Chromium Embedded Framework, CEF), la arquitectura es conceptualmente idéntica a Electron: una capa web (HTML/CSS/JS) ejecutándose en un shell nativo con acceso a APIs del sistema operativo.
 
    **Análisis de lecciones comunes**: Todas estas aplicaciones comparten patrones: separación clara entre UI (web) y lógica nativa (Node.js), actualizaciones automáticas silenciosas, instalación nativa (no "abrir en navegador"), acceso a funcionalidades del sistema operativo que las diferencian de sus versiones web, y un enfoque "offline-first" (la app funciona incluso sin conexión a internet).
 
 4. **Integración de Angular con Electron**
 
-   - 4.1. **Dos enfoques principales**:
+    - 4.1. **Dos enfoques principales**:
      - **Enfoque A (recomendado)**: El proyecto Angular existe de forma independiente. Electron se añade como una capa que "envuelve" la aplicación Angular ya compilada. La app Angular se ejecuta en el proceso renderizador dentro de una `BrowserWindow`. Durante el desarrollo, la ventana de Electron carga `http://localhost:4200` (el servidor de desarrollo de Angular). En producción, carga el `index.html` compilado desde el sistema de archivos local.
      - **Enfoque B**: Usar soluciones integradas como `electron-builder` con configuraciones específicas para Angular, o frameworks como Electron Forge con plantillas Angular preconfiguradas.
 
-   - 4.2. **Configuración paso a paso**:
+    - 4.2. **Configuración paso a paso**:
 
      **Paso 1: Proyecto Angular existente**
      Asegurarse de que el proyecto Angular funciona correctamente: `ng serve` arranca sin errores, `ng build --configuration production` genera los archivos en `dist/`.
@@ -273,7 +273,7 @@ Criterios de evaluación oficiales asociados:
      }
      ```
 
-   - 4.3. **Servicio ElectronService en Angular**:
+    - 4.3. **Servicio ElectronService en Angular**:
 
      ```typescript
      import { Injectable, inject, signal } from '@angular/core';
@@ -364,19 +364,19 @@ Criterios de evaluación oficiales asociados:
 
 5. **APIs nativas clave de Electron**
 
-   - 5.1. **Sistema de archivos (fs)**: A diferencia del File API del navegador (limitado, basado en selección de archivo por el usuario y sandbox), en Electron se tiene acceso completo al sistema de archivos del usuario mediante el módulo `fs` de Node.js. Esto permite leer y escribir archivos en cualquier ubicación del disco (con los permisos del usuario), crear directorios, listar archivos, vigilar cambios en archivos (`fs.watch`), y trabajar con streams para archivos grandes.
+    - 5.1. **Sistema de archivos (fs)**: A diferencia del File API del navegador (limitado, basado en selección de archivo por el usuario y sandbox), en Electron se tiene acceso completo al sistema de archivos del usuario mediante el módulo `fs` de Node.js. Esto permite leer y escribir archivos en cualquier ubicación del disco (con los permisos del usuario), crear directorios, listar archivos, vigilar cambios en archivos (`fs.watch`), y trabajar con streams para archivos grandes.
 
-   - 5.2. **Diálogos nativos (dialog)**: `dialog.showOpenDialog(win, options)` muestra el diálogo nativo de apertura de archivos del sistema operativo (no un componente HTML simulado). `dialog.showSaveDialog(win, options)` muestra el diálogo de guardar. `dialog.showMessageBox(win, options)` muestra un cuadro de diálogo con mensaje y botones personalizables. `dialog.showErrorBox(title, content)` muestra un cuadro de error simple.
+    - 5.2. **Diálogos nativos (dialog)**: `dialog.showOpenDialog(win, options)` muestra el diálogo nativo de apertura de archivos del sistema operativo (no un componente HTML simulado). `dialog.showSaveDialog(win, options)` muestra el diálogo de guardar. `dialog.showMessageBox(win, options)` muestra un cuadro de diálogo con mensaje y botones personalizables. `dialog.showErrorBox(title, content)` muestra un cuadro de error simple.
 
-   - 5.3. **Menús nativos (Menu)**: `Menu.buildFromTemplate(template)` construye un menú a partir de una definición declarativa. `Menu.setApplicationMenu(menu)` establece el menú de la aplicación (macOS: menú superior de la pantalla; Windows/Linux: menú de la ventana). Cada `MenuItem` puede tener `label`, `accelerator` (atajo de teclado), `click` (función callback), `type` (normal, separator, submenu, checkbox, radio), `enabled`, `visible`, `checked`.
+    - 5.3. **Menús nativos (Menu)**: `Menu.buildFromTemplate(template)` construye un menú a partir de una definición declarativa. `Menu.setApplicationMenu(menu)` establece el menú de la aplicación (macOS: menú superior de la pantalla; Windows/Linux: menú de la ventana). Cada `MenuItem` puede tener `label`, `accelerator` (atajo de teclado), `click` (función callback), `type` (normal, separator, submenu, checkbox, radio), `enabled`, `visible`, `checked`.
 
-   - 5.4. **Bandeja del sistema (Tray)**: `new Tray(iconPath)` crea un icono en la bandeja del sistema (área de notificación en Windows, barra de menú en macOS). Se puede asociar un menú contextual y un tooltip. El evento `click` permite restaurar la ventana principal cuando el usuario hace clic en el icono.
+    - 5.4. **Bandeja del sistema (Tray)**: `new Tray(iconPath)` crea un icono en la bandeja del sistema (área de notificación en Windows, barra de menú en macOS). Se puede asociar un menú contextual y un tooltip. El evento `click` permite restaurar la ventana principal cuando el usuario hace clic en el icono.
 
-   - 5.5. **Notificaciones nativas (Notification)**: `new Notification({ title, body, icon, silent })` muestra una notificación del sistema. En Windows 10/11, aparecen en el Centro de actividades. En macOS, en el Centro de notificaciones. En Linux, dependen del entorno de escritorio (soporte nativo en GNOME, KDE). El evento `click` permite enfocar la ventana de la aplicación cuando el usuario hace clic en la notificación.
+    - 5.5. **Notificaciones nativas (Notification)**: `new Notification({ title, body, icon, silent })` muestra una notificación del sistema. En Windows 10/11, aparecen en el Centro de actividades. En macOS, en el Centro de notificaciones. En Linux, dependen del entorno de escritorio (soporte nativo en GNOME, KDE). El evento `click` permite enfocar la ventana de la aplicación cuando el usuario hace clic en la notificación.
 
-   - 5.6. **Atajos de teclado globales (globalShortcut)**: A diferencia de los atajos de teclado locales (que solo funcionan cuando la app tiene el foco), los atajos globales funcionan incluso cuando la aplicación está en segundo plano. `globalShortcut.register('CommandOrControl+Shift+Space', callback)`. Usar con moderación y siempre permitir al usuario configurarlos o desactivarlos.
+    - 5.6. **Atajos de teclado globales (globalShortcut)**: A diferencia de los atajos de teclado locales (que solo funcionan cuando la app tiene el foco), los atajos globales funcionan incluso cuando la aplicación está en segundo plano. `globalShortcut.register('CommandOrControl+Shift+Space', callback)`. Usar con moderación y siempre permitir al usuario configurarlos o desactivarlos.
 
-   - 5.7. **Ventanas (BrowserWindow)**: Las opciones de configuración de `BrowserWindow` son muy extensas:
+    - 5.7. **Ventanas (BrowserWindow)**: Las opciones de configuración de `BrowserWindow` son muy extensas:
      - `width`, `height`, `minWidth`, `minHeight`, `maxWidth`, `maxHeight`: dimensiones.
      - `x`, `y`: posición inicial en pantalla.
      - `fullscreen: true`: pantalla completa.
@@ -389,10 +389,10 @@ Criterios de evaluación oficiales asociados:
      - `show: false`: crear la ventana oculta y mostrarla cuando esté lista (evita el flash blanco).
      - `kiosk: true`: modo quiosco (pantalla completa sin posibilidad de salir).
 
-   - 5.8. **Auto-actualización (autoUpdater)**: `autoUpdater` permite que la aplicación se actualice automáticamente descargando nuevas versiones desde un servidor. Se integra con `electron-updater` (npm) para soportar GitHub Releases, S3, Bintray y servidores personalizados. El flujo típico es: comprobar actualizaciones al iniciar (`autoUpdater.checkForUpdatesAndNotify()`), descargar en segundo plano, notificar al usuario cuando esté lista, instalar al reiniciar.
+    - 5.8. **Auto-actualización (autoUpdater)**: `autoUpdater` permite que la aplicación se actualice automáticamente descargando nuevas versiones desde un servidor. Se integra con `electron-updater` (npm) para soportar GitHub Releases, S3, Bintray y servidores personalizados. El flujo típico es: comprobar actualizaciones al iniciar (`autoUpdater.checkForUpdatesAndNotify()`), descargar en segundo plano, notificar al usuario cuando esté lista, instalar al reiniciar.
 
-   - 5.9. **Portapapeles (clipboard)**: `clipboard.writeText(text)`, `clipboard.readText()`, `clipboard.writeImage(image)`, `clipboard.readImage()`.
-   - 5.10. **Shell**: `shell.openExternal(url)` abre una URL en el navegador por defecto del sistema. `shell.openPath(path)` abre un archivo con la aplicación predeterminada. `shell.showItemInFolder(path)` revela un archivo en el explorador de archivos del sistema.
+    - 5.9. **Portapapeles (clipboard)**: `clipboard.writeText(text)`, `clipboard.readText()`, `clipboard.writeImage(image)`, `clipboard.readImage()`.
+    - 5.10. **Shell**: `shell.openExternal(url)` abre una URL en el navegador por defecto del sistema. `shell.openPath(path)` abre un archivo con la aplicación predeterminada. `shell.showItemInFolder(path)` revela un archivo en el explorador de archivos del sistema.
 
 6. **Seguridad en Electron**
 
@@ -400,38 +400,39 @@ Criterios de evaluación oficiales asociados:
 
    **Reglas de seguridad obligatorias (checklist del equipo oficial de Electron)**:
 
-   1. **`nodeIntegration: false` (SIEMPRE)**: Esta es la regla más importante. Nunca, bajo ninguna circunstancia, habilites `nodeIntegration` en una `BrowserWindow` que cargue contenido remoto o contenido que pueda incluir scripts de terceros. Con `nodeIntegration: true`, cualquier script que se ejecute en el renderizador tiene acceso completo a `require()` y a todas las APIs de Node.js, lo que significa acceso total al sistema de archivos, red, procesos del sistema, etc.
+    1. **`nodeIntegration: false` (SIEMPRE)**: Esta es la regla más importante. Nunca, bajo ninguna circunstancia, habilites `nodeIntegration` en una `BrowserWindow` que cargue contenido remoto o contenido que pueda incluir scripts de terceros. Con `nodeIntegration: true`, cualquier script que se ejecute en el renderizador tiene acceso completo a `require()` y a todas las APIs de Node.js, lo que significa acceso total al sistema de archivos, red, procesos del sistema, etc.
 
-   2. **`contextIsolation: true` (SIEMPRE)**: Esta configuración (activada por defecto desde Electron 12) aísla los contextos de JavaScript del preload script y del renderizador. Sin ella, el código del renderizador podría acceder a las APIs de Node.js expuestas en el preload script. Con `contextIsolation: true`, la única forma de comunicación es a través de `contextBridge.exposeInMainWorld()`.
+    2. **`contextIsolation: true` (SIEMPRE)**: Esta configuración (activada por defecto desde Electron 12) aísla los contextos de JavaScript del preload script y del renderizador. Sin ella, el código del renderizador podría acceder a las APIs de Node.js expuestas en el preload script. Con `contextIsolation: true`, la única forma de comunicación es a través de `contextBridge.exposeInMainWorld()`.
 
-   3. **Usar `contextBridge` en el preload script**: No exponer APIs de Node.js directamente. Exponer solo funciones específicas y validadas. El objeto expuesto a través de `contextBridge` no puede ser modificado por el código del renderizador.
+    3. **Usar `contextBridge` en el preload script**: No exponer APIs de Node.js directamente. Exponer solo funciones específicas y validadas. El objeto expuesto a través de `contextBridge` no puede ser modificado por el código del renderizador.
 
-   4. **Content Security Policy (CSP)**: Configurar una política CSP restrictiva para prevenir ataques XSS. La CSP se puede configurar mediante el meta tag HTTP o mediante la cabecera `Content-Security-Policy`:
+    4. **Content Security Policy (CSP)**: Configurar una política CSP restrictiva para prevenir ataques XSS. La CSP se puede configurar mediante el meta tag HTTP o mediante la cabecera `Content-Security-Policy`:
 
        ```html
        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:;">
        ```
 
-   5. **Validar y sanitizar todas las entradas del renderizador en el proceso principal**: El proceso principal nunca debe confiar en los datos que recibe del renderizador. Antes de ejecutar cualquier operación con datos recibidos por IPC, validar tipos, rangos, longitudes y formato.
+    5. **Validar y sanitizar todas las entradas del renderizador en el proceso principal**: El proceso principal nunca debe confiar en los datos que recibe del renderizador. Antes de ejecutar cualquier operación con datos recibidos por IPC, validar tipos, rangos, longitudes y formato.
 
-   6. **No confiar en contenido externo sin sanitizar**: Si la aplicación carga contenido de internet (páginas web, HTML de terceros), utilizar `webview` con `sandbox` en lugar de `BrowserWindow`, o implementar sanitización rigurosa con DOMPurify.
+    6. **No confiar en contenido externo sin sanitizar**: Si la aplicación carga contenido de internet (páginas web, HTML de terceros), utilizar `webview` con `sandbox` en lugar de `BrowserWindow`, o implementar sanitización rigurosa con DOMPurify.
 
-   7. **Deshabilitar o limitar la creación de nuevas ventanas**: `mainWindow.webContents.setWindowOpenHandler()` permite controlar qué ventanas se pueden abrir desde el renderizador, previniendo que contenido malicioso abra ventanas no autorizadas.
+    7. **Deshabilitar o limitar la creación de nuevas ventanas**: `mainWindow.webContents.setWindowOpenHandler()` permite controlar qué ventanas se pueden abrir desde el renderizador, previniendo que contenido malicioso abra ventanas no autorizadas.
 
-   8. **Usar `sandbox: true`**: Activar el sandbox de Chromium para el proceso renderizador añade una capa adicional de seguridad, aunque puede limitar algunas funcionalidades (acceso a `require` desde el preload, que ya no debería ser necesario con `contextIsolation`).
+    8. **Usar `sandbox: true`**: Activar el sandbox de Chromium para el proceso renderizador añade una capa adicional de seguridad, aunque puede limitar algunas funcionalidades (acceso a `require` desde el preload, que ya no debería ser necesario con `contextIsolation`).
 
 7. **Aplicación de ejemplo: "Gestor de Notas" con Angular + Electron**
 
    Esta aplicación completa demuestra la integración de todas las tecnologías y conceptos de la unidad.
 
    **Requisitos funcionales**:
-   - Crear, abrir, editar y guardar notas de texto.
-   - Las notas se almacenan como archivos `.md` (Markdown) en el sistema de archivos local.
-   - Menú nativo: Archivo (Nuevo Ctrl+N, Abrir Ctrl+O, Guardar Ctrl+S, Guardar como... Ctrl+Shift+S, Salir Ctrl+Q), Edición (Deshacer Ctrl+Z, Rehacer Ctrl+Y, Cortar Ctrl+X, Copiar Ctrl+C, Pegar Ctrl+V), Ver (Modo oscuro, Pantalla completa F11), Ayuda (Acerca de, Documentación).
-   - Bandeja del sistema: icono con menú contextual para restaurar la ventana o salir.
-   - Atajos de teclado para todas las operaciones comunes.
-   - Indicador de cambios no guardados (punto en la barra de título, diálogo de confirmación al cerrar).
-   - Título de la ventana actualizado con el nombre del archivo actual.
+
+    - Crear, abrir, editar y guardar notas de texto.
+    - Las notas se almacenan como archivos `.md` (Markdown) en el sistema de archivos local.
+    - Menú nativo: Archivo (Nuevo Ctrl+N, Abrir Ctrl+O, Guardar Ctrl+S, Guardar como... Ctrl+Shift+S, Salir Ctrl+Q), Edición (Deshacer Ctrl+Z, Rehacer Ctrl+Y, Cortar Ctrl+X, Copiar Ctrl+C, Pegar Ctrl+V), Ver (Modo oscuro, Pantalla completa F11), Ayuda (Acerca de, Documentación).
+    - Bandeja del sistema: icono con menú contextual para restaurar la ventana o salir.
+    - Atajos de teclado para todas las operaciones comunes.
+    - Indicador de cambios no guardados (punto en la barra de título, diálogo de confirmación al cerrar).
+    - Título de la ventana actualizado con el nombre del archivo actual.
 
    **Estructura de archivos del proyecto**:
    ```
@@ -583,8 +584,8 @@ Criterios de evaluación oficiales asociados:
    ```
 
 6. Modifica `package.json`:
-   - Añade `"main": "main.js"` en la raíz.
-   - Añade los scripts `electron:dev` y `electron:build` como se describió anteriormente.
+    - Añade `"main": "main.js"` en la raíz.
+    - Añade los scripts `electron:dev` y `electron:build` como se describió anteriormente.
 
 7. Crea/modifica `src/app/app.component.ts` para que muestre un mensaje indicando si se está ejecutando en Electron o en navegador, utilizando el `ElectronService` descrito en la sección 4.3.
 
@@ -794,6 +795,7 @@ En el servicio `ElectronService` y en el componente, suscribirse a estos eventos
 10. Toma una captura de pantalla de la aplicación funcionando.
 
 **Criterios de evaluación**:
+
 - La aplicación se ejecuta correctamente tanto en navegador (`ng serve`) como en Electron (`npm run electron:dev`).
 - El `ElectronService` detecta correctamente el entorno de ejecución.
 - La configuración de seguridad es correcta (`nodeIntegration: false`, `contextIsolation: true`).
@@ -813,15 +815,16 @@ En el servicio `ElectronService` y en el componente, suscribirse a estos eventos
 2. Amplía `main.js` para implementar los manejadores IPC correspondientes usando `dialog.showOpenDialog`, `dialog.showSaveDialog`, `fs.readFileSync` y `fs.writeFileSync`.
 3. Añade al `ElectronService` los métodos `openFile()` y `saveFile()` que devuelvan promesas con el contenido del archivo.
 4. Crea un componente `TextEditorComponent` con:
-   - Un `textarea` vinculado con `[(ngModel)]`.
-   - Botones "Abrir" y "Guardar".
-   - Un indicador de si hay cambios sin guardar.
+    - Un `textarea` vinculado con `[(ngModel)]`.
+    - Botones "Abrir" y "Guardar".
+    - Un indicador de si hay cambios sin guardar.
 5. Implementa la lógica:
-   - Al pulsar "Abrir": muestra el diálogo nativo, lee el archivo, carga el contenido en el textarea.
-   - Al pulsar "Guardar": si hay una ruta actual, guarda directamente; si no, muestra el diálogo "Guardar como".
+    - Al pulsar "Abrir": muestra el diálogo nativo, lee el archivo, carga el contenido en el textarea.
+    - Al pulsar "Guardar": si hay una ruta actual, guarda directamente; si no, muestra el diálogo "Guardar como".
 6. Prueba la funcionalidad completa: abre un archivo `.txt`, modifícalo, guárdalo y verifica que los cambios persisten en el disco.
 
 **Criterios de evaluación**:
+
 - Los diálogos nativos se muestran correctamente (son los del sistema operativo, no HTML simulado).
 - La lectura y escritura de archivos funciona correctamente con diferentes codificaciones (UTF-8, con tildes y eñes).
 - El manejo de errores es robusto (archivo no encontrado, permisos denegados).
@@ -842,13 +845,14 @@ En el servicio `ElectronService` y en el componente, suscribirse a estos eventos
 4. En el preload script, expón un método `onMenuAction(callback)` para escuchar los eventos del menú.
 5. En el componente Angular principal, suscríbete a los eventos del menú y ejecuta las acciones correspondientes.
 6. Añade un icono en la bandeja del sistema usando `Tray`:
-   - Carga un icono PNG (crea uno simple de 16x16 o 22x22 píxeles).
-   - Asocia un menú contextual con opciones: "Mostrar ventana", "Salir".
-   - Configura el evento `click` en el icono para restaurar/mostrar la ventana principal.
-   - Al cerrar la ventana, minimiza a la bandeja en lugar de salir (excepto si se selecciona "Salir" explícitamente).
+    - Carga un icono PNG (crea uno simple de 16x16 o 22x22 píxeles).
+    - Asocia un menú contextual con opciones: "Mostrar ventana", "Salir".
+    - Configura el evento `click` en el icono para restaurar/mostrar la ventana principal.
+    - Al cerrar la ventana, minimiza a la bandeja en lugar de salir (excepto si se selecciona "Salir" explícitamente).
 7. Prueba todas las funcionalidades: atajos de teclado, acciones del menú, bandeja del sistema.
 
 **Criterios de evaluación**:
+
 - El menú nativo funciona correctamente en el sistema operativo del alumno.
 - Los atajos de teclado ejecutan las acciones esperadas.
 - El icono en la bandeja del sistema aparece y responde a clics.
@@ -1010,6 +1014,7 @@ Finalmente, las buenas prácticas y los errores frecuentes recogen la experienci
 ## Recursos complementarios
 
 **Documentación oficial**:
+
 - Electron - Documentación oficial: https://www.electronjs.org/docs/latest/
 - Electron - Guía de seguridad: https://www.electronjs.org/docs/latest/tutorial/security
 - Electron - Checklist de seguridad: https://www.electronjs.org/docs/latest/tutorial/security#checklist-security-recommendations
@@ -1018,21 +1023,25 @@ Finalmente, las buenas prácticas y los errores frecuentes recogen la experienci
 - IPC: https://www.electronjs.org/docs/latest/tutorial/ipc
 
 **Ejemplos y tutoriales**:
+
 - Repositorio oficial de ejemplos de Electron: https://github.com/electron/electron/tree/main/docs/fiddles
 - Electron API Demos (aplicación descargable que demuestra todas las APIs): https://github.com/electron/electron-api-demos
 - Tutorial: "Building an Electron App with Angular" (blog "Angular University")
 - Video: "Electron + Angular Crash Course" (canal de YouTube "Fireship")
 
 **Referencias de aplicaciones reales**:
+
 - VS Code - Repositorio de código fuente: https://github.com/microsoft/vscode
 - Obsidian - Documentación para desarrolladores de plugins: https://docs.obsidian.md/
 
 **Herramientas**:
+
 - Electron Fiddle - Entorno de pruebas rápido para Electron: https://www.electronjs.org/fiddle
 - Spectron - Testing de aplicaciones Electron (obsoleto, usar Playwright para Electron en su lugar)
 - Playwright con soporte Electron: https://playwright.dev/docs/api/class-electron
 
 **Comunidad**:
+
 - Electron en Stack Overflow: etiqueta `[electron]`
 - Discord de la comunidad Electron: https://discord.gg/electronjs
 - Awesome Electron - Lista curada de recursos: https://github.com/sindresorhus/awesome-electron

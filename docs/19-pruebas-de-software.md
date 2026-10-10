@@ -41,27 +41,32 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 ## Contenidos
 
 **Bloque 1: Estrategia de pruebas**
+
 - Objetivos, alcance y limitaciones del proceso de prueba; pirámide de pruebas (unidad → integración → E2E).
 - Selección de herramientas por nivel: Jest + Testing Library (unidad), pruebas de servicios/integración, Playwright/Cypress (E2E).
 - Criterios de entrada/salida y definición de «prueba aceptable».
 
 **Bloque 2: Pruebas de componentes y servicios**
+
 - Pruebas unitarias de componentes Angular (renderizado, `inputs`, eventos `outputs`).
 - Pruebas de servicios con inyección de dependencias y mocks (HttpClient, servicios del módulo).
 - Cobertura de código e interpretación de umbrales.
 
 **Bloque 3: Pruebas de integración y end-to-end**
+
 - Integración de componentes entre sí y con el enrutador.
 - Flujos completos E2E: registro, creación de un elemento, generación de un informe, exportación.
 - Ejecución en distintos navegadores y tamaños de pantalla (responsive).
 
 **Bloque 4: Regresión, volumen, estrés, seguridad y recursos**
+
 - Pruebas de regresión: reejecutar la suite tras cada cambio; detección de roturas.
 - Volumen y estrés: comportamiento con grandes volúmenes de datos y carga sostenida.
 - Seguridad básica: validación de entradas, inyección, gestión de errores que no filtren información sensible.
 - Uso de recursos: memoria (fugas), rendimiento (Core Web Vitals) y consumo en la versión de escritorio (Electron).
 
 **Bloque 5: Documentación de resultados**
+
 - Informes de pruebas: casos, entorno, resultados, defectos y severidad.
 - Trazabilidad requisito → caso de prueba → resultado.
 - Integración en el pipeline (CI que ejecuta la suite y publica el informe).

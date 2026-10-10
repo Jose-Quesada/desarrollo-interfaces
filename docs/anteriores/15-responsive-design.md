@@ -17,6 +17,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 Esta unidad contribuye al Resultado de Aprendizaje 2 del currículo del módulo 0488 Desarrollo de Interfaces del CFGS Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía: "Implementa interfaces de usuario adaptables y responsivas utilizando frameworks de diseño frontend, aplicando técnicas de maquetación responsive y patrones de adaptación a diferentes dispositivos y resoluciones."
 
 Criterios de evaluación asociados:
+
 - Se ha aplicado el enfoque Mobile First en el diseño e implementación de interfaces de aplicación.
 - Se ha utilizado el sistema de breakpoints de un framework CSS para adaptar el layout al tamaño de pantalla.
 - Se han implementado estrategias responsive específicas para componentes de aplicación (navegación, tablas, formularios, dashboards).

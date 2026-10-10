@@ -51,18 +51,18 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 ## Contenidos
 
 1. **El ciclo completo de vida de una aplicación de escritorio**
-   - 1.1. **Fases del ciclo**: desarrollo (escribir código, probar localmente) → build (compilar Angular, agrupar con Electron) → empaquetado (generar instaladores para cada plataforma) → distribución (publicar en servidor/tienda) → instalación (el usuario descarga e instala) → actualización (mecanismo de entrega de nuevas versiones).
-   - 1.2. **Diferencias fundamentales con el desarrollo web**: en la web, "desplegar" significa subir archivos a un servidor y los usuarios acceden instantáneamente a la nueva versión. En escritorio, "distribuir" significa generar un instalador de decenas de megabytes que el usuario debe descargar, ejecutar e instalar. Esta diferencia tiene implicaciones profundas en la experiencia de usuario y en la estrategia de actualizaciones.
-   - 1.3. **Importancia del empaquetado correcto**: un instalador mal configurado puede generar errores de permisos, antivirus que bloquean la aplicación, certificados de seguridad que generan miedo en el usuario, o simplemente una aplicación que no arranca. ==La calidad del empaquetado afecta directamente a la tasa de adopción y retención de usuarios==.
+    - 1.1. **Fases del ciclo**: desarrollo (escribir código, probar localmente) → build (compilar Angular, agrupar con Electron) → empaquetado (generar instaladores para cada plataforma) → distribución (publicar en servidor/tienda) → instalación (el usuario descarga e instala) → actualización (mecanismo de entrega de nuevas versiones).
+    - 1.2. **Diferencias fundamentales con el desarrollo web**: en la web, "desplegar" significa subir archivos a un servidor y los usuarios acceden instantáneamente a la nueva versión. En escritorio, "distribuir" significa generar un instalador de decenas de megabytes que el usuario debe descargar, ejecutar e instalar. Esta diferencia tiene implicaciones profundas en la experiencia de usuario y en la estrategia de actualizaciones.
+    - 1.3. **Importancia del empaquetado correcto**: un instalador mal configurado puede generar errores de permisos, antivirus que bloquean la aplicación, certificados de seguridad que generan miedo en el usuario, o simplemente una aplicación que no arranca. ==La calidad del empaquetado afecta directamente a la tasa de adopción y retención de usuarios==.
 
 2. **Electron Builder: la herramienta principal de empaquetado**
-   - 2.1. Instalación y configuración básica:
+    - 2.1. Instalación y configuración básica:
      ```bash
      npm install --save-dev electron-builder
      ```
-   - 2.2. Configuración en `package.json` (campo `"build"`): electron-builder lee la configuración desde el campo `"build"` del `package.json` o desde un archivo separado `electron-builder.yml`. Se recomienda usar `package.json` para mantener la configuración centralizada.
+    - 2.2. Configuración en `package.json` (campo `"build"`): electron-builder lee la configuración desde el campo `"build"` del `package.json` o desde un archivo separado `electron-builder.yml`. Se recomienda usar `package.json` para mantener la configuración centralizada.
 
-   - 2.3. **Opciones de configuración principales**:
+    - 2.3. **Opciones de configuración principales**:
      ```json
      {
        "build": {
@@ -152,7 +152,7 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
      }
      ```
 
-   - 2.4. **Explicación de los campos clave**:
+    - 2.4. **Explicación de los campos clave**:
      - **appId**: Identificador único de la aplicación en formato reverse-domain (`com.empresa.app`). Debe ser único globalmente. Se usa para identificar la aplicación en el sistema operativo, para las actualizaciones y para la firma de código.
      - **productName**: Nombre visible de la aplicación que aparece en el instalador, en el menú de inicio, en la carpeta de aplicaciones y en la barra de título.
      - **directories.output**: Carpeta donde se generarán los instaladores (por defecto `dist`). Se recomienda usar `release` para evitar conflictos con la salida de Angular.
@@ -162,18 +162,18 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 
 3. **Formatos de salida por plataforma**
 
-   - 3.1. **Windows**:
+    - 3.1. **Windows**:
      - **NSIS (Nullsoft Scriptable Install System)**: Formato recomendado para instaladores tradicionales. Genera un archivo `.exe` que guía al usuario a través de un asistente de instalación. Ventajas: ampliamente compatible (Windows 7+), permite personalizar el diálogo de instalación, soporta instalación por usuario o por máquina, permite elegir directorio de instalación, crea accesos directos en el escritorio y menú de inicio, incluye desinstalador. Es la opción por defecto de electron-builder para Windows.
      - **Portable**: Archivo `.exe` autocontenido que no requiere instalación. El usuario lo descarga y lo ejecuta directamente. Ideal para entornos corporativos donde los usuarios no tienen permisos de instalación, o para herramientas que se usan ocasionalmente. Desventajas: no se integra en el menú de inicio, no se asocia con extensiones de archivo, las actualizaciones deben gestionarse manualmente.
      - **AppX / MSIX**: Formato de paquete de aplicación para la Microsoft Store (Windows 10/11). Requiere una cuenta de desarrollador de Microsoft ($19 USD único para particulares). Ventajas: distribución a través de la tienda oficial de Microsoft, actualizaciones automáticas gestionadas por la tienda, instalación y desinstalación limpias sin dejar residuos en el registro.
 
-   - 3.2. **macOS**:
+    - 3.2. **macOS**:
      - **DMG (Disk Image)**: Formato más común para distribuir aplicaciones macOS fuera de la App Store. Es una imagen de disco que se "monta" como un volumen virtual. El usuario arrastra el icono de la aplicación a la carpeta `/Applications`. electron-builder permite personalizar el fondo, el tamaño de los iconos y la disposición de los elementos dentro de la ventana del DMG.
      - **PKG**: Instalador de paquetes de macOS, similar a un instalador MSI en Windows. Más adecuado para aplicaciones que necesitan instalar componentes en ubicaciones del sistema.
      - **MAS (Mac App Store)**: Formato para publicación en la Mac App Store. Requiere un Apple Developer Program membership ($99/año), cumplir con las directrices de revisión de Apple (sandbox obligatorio, uso de APIs permitidas, interfaz de usuario de calidad), y pasar la revisión manual de Apple.
      - **ZIP**: Archivo comprimido simple. Menos profesional que un DMG, pero útil para distribución interna o CI/CD.
 
-   - 3.3. **Linux**:
+    - 3.3. **Linux**:
      - **AppImage**: Formato de aplicación portable autocontenida. No requiere instalación: se descarga, se da permiso de ejecución (`chmod +x`) y se ejecuta. Funciona en prácticamente cualquier distribución Linux. Es la opción más fácil para los desarrolladores, pero no se integra con el gestor de paquetes del sistema.
      - **DEB**: Paquete para Debian, Ubuntu, Linux Mint, elementary OS y derivadas. Se instala mediante `dpkg -i` o `apt install ./paquete.deb`. Se integra con el gestor de paquetes del sistema.
      - **RPM**: Paquete para Fedora, Red Hat Enterprise Linux, CentOS, openSUSE y derivadas. Se instala mediante `rpm -i` o `dnf install ./paquete.rpm`.
@@ -182,12 +182,12 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 
 4. **Iconos y personalización visual del instalador**
 
-   - 4.1. **Requisitos de iconos por plataforma**:
+    - 4.1. **Requisitos de iconos por plataforma**:
      - **Windows (`.ico`)**: Formato ICO con múltiples resoluciones: 16x16, 32x32, 48x48, 64x64, 128x128, 256x256 píxeles. Se pueden generar con herramientas como ImageMagick, GIMP, o generadores online.
      - **macOS (`.icns`)**: Formato ICNS con las mismas resoluciones que Windows. Se puede generar con `iconutil` (herramienta de línea de comandos de macOS) o con herramientas como `electron-icon-builder`.
      - **Linux (`.png`)**: Formato PNG, típicamente 256x256 o 512x512 píxeles. Electron-builder acepta un directorio con varios tamaños (`16x16.png`, `32x32.png`, ..., `512x512.png`).
 
-   - 4.2. **Herramienta recomendada: `electron-icon-builder`**:
+    - 4.2. **Herramienta recomendada: `electron-icon-builder`**:
      ```bash
      npm install --save-dev electron-icon-builder
      ```
@@ -199,22 +199,22 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
      ```
      La imagen de entrada debe ser un PNG de al menos 1024x1024 píxeles.
 
-   - 4.3. **Personalización del instalador NSIS (Windows)**:
+    - 4.3. **Personalización del instalador NSIS (Windows)**:
      - `oneClick: false`: Muestra el asistente de instalación completo (permite elegir directorio, ver licencia, etc.). Con `true`, la instalación es silenciosa en un solo clic.
      - `perMachine: true`: Instala para todos los usuarios de la máquina (requiere permisos de administrador). Con `false`, instala solo para el usuario actual.
      - `installerSidebar`: Imagen lateral en el instalador (164x314 píxeles).
      - `uninstallDisplayName`: Nombre que aparece en "Agregar o quitar programas" de Windows.
 
-   - 4.4. **Personalización del DMG (macOS)**:
+    - 4.4. **Personalización del DMG (macOS)**:
      - `background`: Imagen de fondo del DMG (formato PNG, 540x380 píxeles). Normalmente incluye una flecha indicando al usuario que arrastre el icono de la app a la carpeta Applications.
      - `iconSize`: Tamaño de los iconos en el DMG (por defecto 80 píxeles).
      - `contents`: Array de objetos definiendo la posición de cada elemento (icono de la app y enlace a /Applications).
 
 5. **CI/CD para Electron con GitHub Actions**
 
-   - 5.1. **Workflow de build multiplataforma**: GitHub Actions permite ejecutar builds en runners de Windows, macOS y Linux de forma paralela (matrix strategy). Cada runner genera el instalador para su plataforma nativa.
+    - 5.1. **Workflow de build multiplataforma**: GitHub Actions permite ejecutar builds en runners de Windows, macOS y Linux de forma paralela (matrix strategy). Cada runner genera el instalador para su plataforma nativa.
 
-   - 5.2. **Archivo `.github/workflows/release.yml` completo**:
+    - 5.2. **Archivo `.github/workflows/release.yml` completo**:
      ```yaml
      name: Build and Release
 
@@ -301,25 +301,25 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      ```
 
-   - 5.3. **Explicación del workflow**: El workflow se activa al pushear un tag de versión (ej: `git tag v1.0.0 && git push origin v1.0.0`). El job `build` usa una **matrix** para ejecutarse en los 3 sistemas operativos en paralelo. Cada runner instala dependencias, compila Angular, genera el instalador con electron-builder para su plataforma correspondiente, y sube los artefactos (instaladores) como artifacts de GitHub Actions. El job `create-release` (que se ejecuta al finalizar todos los builds) descarga todos los artifacts y crea una release en GitHub con los instaladores adjuntos.
+    - 5.3. **Explicación del workflow**: El workflow se activa al pushear un tag de versión (ej: `git tag v1.0.0 && git push origin v1.0.0`). El job `build` usa una **matrix** para ejecutarse en los 3 sistemas operativos en paralelo. Cada runner instala dependencias, compila Angular, genera el instalador con electron-builder para su plataforma correspondiente, y sube los artefactos (instaladores) como artifacts de GitHub Actions. El job `create-release` (que se ejecuta al finalizar todos los builds) descarga todos los artifacts y crea una release en GitHub con los instaladores adjuntos.
 
 6. **Firma de código (Code Signing)**
 
-   - 6.1. **¿Por qué es importante la firma de código?**: Cuando un usuario descarga un ejecutable de internet, el sistema operativo verifica si está firmado por un desarrollador de confianza. Si no está firmado:
+    - 6.1. **¿Por qué es importante la firma de código?**: Cuando un usuario descarga un ejecutable de internet, el sistema operativo verifica si está firmado por un desarrollador de confianza. Si no está firmado:
      - **Windows**: SmartScreen muestra una advertencia de seguridad ("Windows protegió su equipo"), en azul para aplicaciones sin firma y en rojo para aplicaciones con mala reputación. Muchos usuarios abandonan la instalación al ver este mensaje. Para conseguir reputación, se necesita un certificado de firma de código (Code Signing Certificate), preferiblemente Extended Validation (EV), que cuesta entre 200-400 €/año.
      - **macOS**: Gatekeeper bloquea la aplicación mostrando un mensaje de que "no se puede abrir porque es de un desarrollador no identificado". Para sortear esto, el usuario debe ir a Preferencias del Sistema > Seguridad y privacidad y autorizar manualmente la aplicación. Con un Apple Developer ID Certificate ($99/año), la aplicación puede ser notarizada por Apple, eliminando esta fricción.
      - **Linux**: La firma GPG es opcional pero recomendable para paquetes distribuidos a través de repositorios oficiales.
 
-   - 6.2. **Firma en Windows**: Se necesita un archivo `.pfx` (PKCS#12) con el certificado y la clave privada. Se configura con `CSC_LINK` (ruta al `.pfx` o cadena base64) y `CSC_KEY_PASSWORD` (contraseña del `.pfx`). En CI/CD, estos valores se almacenan como secrets de GitHub.
+    - 6.2. **Firma en Windows**: Se necesita un archivo `.pfx` (PKCS#12) con el certificado y la clave privada. Se configura con `CSC_LINK` (ruta al `.pfx` o cadena base64) y `CSC_KEY_PASSWORD` (contraseña del `.pfx`). En CI/CD, estos valores se almacenan como secrets de GitHub.
 
-   - 6.3. **Firma y notarización en macOS**: Proceso más complejo:
+    - 6.3. **Firma y notarización en macOS**: Proceso más complejo:
      1. Obtener un Apple Developer ID Certificate desde developer.apple.com.
      2. Exportar el certificado como `.p12` con su contraseña (CSC_KEY_PASSWORD).
      3. Generar una App-Specific Password para la cuenta de Apple ID (se usa `APPLE_APP_SPECIFIC_PASSWORD`).
      4. Configurar `hardenedRuntime: true` y los entitlements necesarios.
      5. electron-builder se encarga automáticamente de firmar la app con `CSC_LINK` y de notarizarla ante Apple (`notarize: true` en la configuración de macOS).
 
-   - 6.4. **Entitlements en macOS**: Los entitlements son permisos específicos que la aplicación necesita para funcionar (acceso a cámara, micrófono, red, USB, etc.). Se definen en archivos `.plist`:
+    - 6.4. **Entitlements en macOS**: Los entitlements son permisos específicos que la aplicación necesita para funcionar (acceso a cámara, micrófono, red, USB, etc.). Se definen en archivos `.plist`:
 
      ```xml
      <?xml version="1.0" encoding="UTF-8"?>
@@ -346,14 +346,14 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 
 7. **Actualizaciones automáticas (electron-updater)**
 
-   - 7.1. **Instalación**:
+    - 7.1. **Instalación**:
      ```bash
      npm install electron-updater
      ```
 
-   - 7.2. **Principio de funcionamiento**: `electron-updater` compara la versión instalada (definida en `package.json`) con la última versión disponible en el servidor de actualizaciones (por ejemplo, la release más reciente en GitHub). Si hay una versión más reciente, descarga los archivos de actualización en segundo plano y los aplica cuando la aplicación se reinicia.
+    - 7.2. **Principio de funcionamiento**: `electron-updater` compara la versión instalada (definida en `package.json`) con la última versión disponible en el servidor de actualizaciones (por ejemplo, la release más reciente en GitHub). Si hay una versión más reciente, descarga los archivos de actualización en segundo plano y los aplica cuando la aplicación se reinicia.
 
-   - 7.3. **Configuración en el proceso principal (`main.js`)**:
+    - 7.3. **Configuración en el proceso principal (`main.js`)**:
      ```javascript
      const { autoUpdater } = require('electron-updater');
 
@@ -397,21 +397,21 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
      ipcMain.handle('update:install', () => autoUpdater.quitAndInstall());
      ```
 
-   - 7.4. **Experiencia de usuario recomendada**: Al detectar una actualización disponible, notificar al usuario con un diálogo no intrusivo (no forzar la actualización). Mostrar progreso de descarga. Cuando la descarga termine, preguntar si desea reiniciar ahora para aplicar la actualización o posponerlo. La actualización se aplica al reiniciar la aplicación.
+    - 7.4. **Experiencia de usuario recomendada**: Al detectar una actualización disponible, notificar al usuario con un diálogo no intrusivo (no forzar la actualización). Mostrar progreso de descarga. Cuando la descarga termine, preguntar si desea reiniciar ahora para aplicar la actualización o posponerlo. La actualización se aplica al reiniciar la aplicación.
 
 8. **Tiendas de aplicaciones**
 
-   - 8.1. **Microsoft Store**: Requiere una cuenta de desarrollador ($19 USD pago único para particulares). La aplicación se empaqueta como **AppX/MSIX**. Ventajas: distribución a millones de usuarios, actualizaciones automáticas gestionadas por la tienda, instalación/desinstalación limpias, los usuarios confían más en aplicaciones de la tienda oficial. Desventajas: proceso de revisión (menos estricto que Apple), limitaciones técnicas (no se puede usar `shell.openExternal` libremente, algunas APIs de Electron están restringidas), requiere Windows 10/11.
+    - 8.1. **Microsoft Store**: Requiere una cuenta de desarrollador ($19 USD pago único para particulares). La aplicación se empaqueta como **AppX/MSIX**. Ventajas: distribución a millones de usuarios, actualizaciones automáticas gestionadas por la tienda, instalación/desinstalación limpias, los usuarios confían más en aplicaciones de la tienda oficial. Desventajas: proceso de revisión (menos estricto que Apple), limitaciones técnicas (no se puede usar `shell.openExternal` libremente, algunas APIs de Electron están restringidas), requiere Windows 10/11.
 
-   - 8.2. **Mac App Store**: Requiere Apple Developer Program ($99/año). La aplicación debe cumplir estrictas directrices: sandbox obligatorio (la app se ejecuta en un entorno aislado y solo puede acceder a los recursos que declare explícitamente), uso exclusivo de APIs públicas de Apple, interfaz de usuario de calidad, privacidad del usuario (describir qué datos se recopilan y por qué). El proceso de revisión puede llevar de 1 a 7 días y las aplicaciones son rechazadas con frecuencia la primera vez. Ventajas: acceso al ecosistema de usuarios de Apple, confianza del usuario, actualizaciones automáticas, facturación integrada (para apps de pago).
+    - 8.2. **Mac App Store**: Requiere Apple Developer Program ($99/año). La aplicación debe cumplir estrictas directrices: sandbox obligatorio (la app se ejecuta en un entorno aislado y solo puede acceder a los recursos que declare explícitamente), uso exclusivo de APIs públicas de Apple, interfaz de usuario de calidad, privacidad del usuario (describir qué datos se recopilan y por qué). El proceso de revisión puede llevar de 1 a 7 días y las aplicaciones son rechazadas con frecuencia la primera vez. Ventajas: acceso al ecosistema de usuarios de Apple, confianza del usuario, actualizaciones automáticas, facturación integrada (para apps de pago).
 
-   - 8.3. **Snap Store (Linux)**: Gestionada por Canonical. La aplicación se empaqueta como Snap usando `snapcraft`. Ventajas: funciona en más de 40 distribuciones Linux, actualizaciones automáticas, sandbox de seguridad, canales de distribución (stable, candidate, beta, edge). Requiere un archivo `snapcraft.yaml` con la configuración del paquete.
+    - 8.3. **Snap Store (Linux)**: Gestionada por Canonical. La aplicación se empaqueta como Snap usando `snapcraft`. Ventajas: funciona en más de 40 distribuciones Linux, actualizaciones automáticas, sandbox de seguridad, canales de distribución (stable, candidate, beta, edge). Requiere un archivo `snapcraft.yaml` con la configuración del paquete.
 
 9. **Estrategia de distribución dual: web + escritorio**
 
-   - 9.1. **Un código base, dos destinos**: La misma aplicación Angular puede desplegarse como SPA web en un servidor (Vercel, Netlify, servidor propio) y empaquetarse como aplicación de escritorio con Electron. Esto maximiza el alcance: usuarios que prefieren web pueden usar la SPA, usuarios que necesitan funcionalidades nativas pueden instalar la app de escritorio.
+    - 9.1. **Un código base, dos destinos**: La misma aplicación Angular puede desplegarse como SPA web en un servidor (Vercel, Netlify, servidor propio) y empaquetarse como aplicación de escritorio con Electron. Esto maximiza el alcance: usuarios que prefieren web pueden usar la SPA, usuarios que necesitan funcionalidades nativas pueden instalar la app de escritorio.
 
-   - 9.2. **Configuración de environments en Angular**: Se crean dos environments:
+    - 9.2. **Configuración de environments en Angular**: Se crean dos environments:
      ```typescript
      // environment.web.ts
      export const environment = {
@@ -434,7 +434,7 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
      }
      ```
 
-   - 9.3. **Comportamiento condicionado por plataforma**:
+    - 9.3. **Comportamiento condicionado por plataforma**:
      ```typescript
      @Injectable({ providedIn: 'root' })
      export class PlatformService {
@@ -467,9 +467,9 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
     - 10.1. **Módulos nativos de Node.js**: Algunas dependencias npm incluyen código compilado en C/C++ (**módulos nativos**) que requiere `node-gyp` y un entorno de compilación (Visual Studio Build Tools en Windows, Xcode Command Line Tools en macOS, build-essential en Linux). Ejemplos: `sharp` (procesamiento de imágenes), `sqlite3` (base de datos), `bcrypt` (hashing).
 
     - 10.2. **Estrategias para manejar módulos nativos**:
-      - **Rebuild**: `electron-builder` soporta la opción `"npmRebuild": true` que recompila automáticamente los módulos nativos para la versión de Electron que se está usando. Esto requiere que el entorno de build tenga las herramientas de compilación instaladas.
-      - **Prebuild**: Algunos módulos proporcionan binarios precompilados para diferentes plataformas y versiones de Electron (por ejemplo, `sharp` y `sqlite3`).
-      - **Evitar módulos nativos**: Cuando sea posible, usar alternativas puras en JavaScript. Por ejemplo, `bcryptjs` (JavaScript puro, aunque más lento) en lugar de `bcrypt` (módulo nativo).
+        - **Rebuild**: `electron-builder` soporta la opción `"npmRebuild": true` que recompila automáticamente los módulos nativos para la versión de Electron que se está usando. Esto requiere que el entorno de build tenga las herramientas de compilación instaladas.
+        - **Prebuild**: Algunos módulos proporcionan binarios precompilados para diferentes plataformas y versiones de Electron (por ejemplo, `sharp` y `sqlite3`).
+        - **Evitar módulos nativos**: Cuando sea posible, usar alternativas puras en JavaScript. Por ejemplo, `bcryptjs` (JavaScript puro, aunque más lento) en lugar de `bcrypt` (módulo nativo).
 
 ## Ejemplos guiados
 
@@ -478,6 +478,7 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 **Objetivo**: Configurar **electron-builder** en un proyecto Angular + Electron y generar un instalador NSIS para Windows.
 
 **Paso 1**: Asegurarse de que el proyecto tiene la estructura correcta:
+
 - `main.js` en la raíz.
 - `preload.js` en la raíz.
 - `package.json` con `"main": "main.js"`.
@@ -490,6 +491,7 @@ npm install --save-dev electron-builder
 **Paso 3**: Añadir la configuración `"build"` en `package.json` como se describió en la sección 2.3 del desarrollo teórico.
 
 **Paso 4**: Crear los directorios y archivos necesarios:
+
 - `build/`: carpeta para recursos de build (iconos, fondos, certificados).
 - `build/icon.ico`: icono de la aplicación en formato ICO (múltiples resoluciones).
 
@@ -509,12 +511,14 @@ npm run build:electron:win
 ```
 
 **Paso 7**: Verificar los archivos generados en `release/`:
+
 - `Mi Aplicación Setup 1.0.0.exe` (instalador NSIS).
 - `Mi Aplicación 1.0.0.exe` (versión portable, si se configuró).
 - `builder-effective-config.yaml` (configuración efectiva aplicada).
 - `latest.yml` (archivo de metadatos para auto-update).
 
 **Paso 8**: Probar el instalador generado en una máquina Windows:
+
 - Ejecutar el instalador (`Mi Aplicación Setup 1.0.0.exe`).
 - Verificar que el asistente de instalación se muestra correctamente (en español, si se configuró).
 - Completar la instalación.
@@ -636,6 +640,7 @@ export class UpdateNotificationComponent implements OnInit {
 **Paso 1**: Crear el archivo `.github/workflows/release.yml` con el contenido descrito en la sección 5.2 del desarrollo teórico.
 
 **Paso 2**: Configurar los secrets necesarios en GitHub (Settings > Secrets and variables > Actions):
+
 - `CSC_LINK`: Certificado de firma de código (base64 del archivo `.pfx` o `.p12`).
 - `CSC_KEY_PASSWORD`: Contraseña del certificado.
 - `APPLE_ID`: Apple ID del desarrollador (solo para macOS).
@@ -669,18 +674,20 @@ git push origin v1.0.0
 
 1. Partiendo del proyecto "Gestor de Notas" (Angular + Electron) desarrollado en la unidad 20, instala electron-builder: `npm install --save-dev electron-builder`.
 2. Crea un icono para la aplicación: diseña un icono simple de 1024x1024 píxeles (puedes usar Figma, GIMP o Inkscape) y genera los formatos necesarios:
-   - Windows: `.ico` (con múltiples resoluciones).
-   - macOS: `.icns`.
-   - Linux: varios PNGs de diferentes tamaños en una carpeta `build/icons/`.
+    - Windows: `.ico` (con múltiples resoluciones).
+    - macOS: `.icns`.
+    - Linux: varios PNGs de diferentes tamaños en una carpeta `build/icons/`.
 3. Configura el campo `"build"` en `package.json` con la configuración para tu plataforma (siguiendo los ejemplos de la sección 2.3).
 4. Configura los scripts `build:electron` y `build:electron:TU_PLATAFORMA` en `package.json`.
 5. Ejecuta el build: `npm run build:electron:TU_PLATAFORMA`.
 6. Si estás en Windows: prueba el instalador `.exe`. Verifica que la aplicación se instala, se abre, y se desinstala correctamente.
    Si estás en macOS: prueba el `.dmg`. Verifica que la aplicación se puede arrastrar a `/Applications`.
    Si estás en Linux: prueba el `.AppImage`. Verifica que la aplicación se ejecuta.
+
 7. Documenta los pasos seguidos y los problemas encontrados.
 
 **Criterios de evaluación**:
+
 - El instalador se genera sin errores.
 - La aplicación instalada funciona correctamente (se abre, las funcionalidades de Electron —menú nativo, diálogos de archivo— operan correctamente).
 - La desinstalación es limpia.
@@ -704,6 +711,7 @@ git push origin v1.0.0
 7. Para probar en desarrollo: crea un tag de versión ficticio (`v0.0.1`), genera un build, súbelo a GitHub como release, luego cambia la versión a `v0.0.2` en `package.json` y ejecuta `npm run electron:dev`. El auto-updater debería detectar la "nueva versión" disponible (aunque en desarrollo apunta a localhost).
 
 **Criterios de evaluación**:
+
 - El sistema de auto-update se inicializa sin errores al arrancar la aplicación.
 - Los eventos del auto-updater se comunican correctamente al renderizador.
 - El componente de notificación muestra la información adecuadamente.
@@ -721,10 +729,11 @@ git push origin v1.0.0
 1. Asegúrate de que el proyecto "Gestor de Notas" está en un repositorio de GitHub.
 2. Crea el archivo `.github/workflows/release.yml` con el contenido de la sección 5.2 del desarrollo teórico, adaptando los paths y comandos a tu proyecto.
 3. Configura los secrets necesarios en GitHub (Settings > Secrets and variables > Actions):
-   - `GH_TOKEN` (necesario para crear releases, usa un Personal Access Token con permisos de repo).
-   - Para macOS, necesitarás los secrets de Apple si quieres firmar la aplicación.
-   - Para Windows, necesitarás el certificado de firma si quieres firmar.
+    - `GH_TOKEN` (necesario para crear releases, usa un Personal Access Token con permisos de repo).
+    - Para macOS, necesitarás los secrets de Apple si quieres firmar la aplicación.
+    - Para Windows, necesitarás el certificado de firma si quieres firmar.
    (Para esta actividad de aprendizaje, puedes omitir la firma de código —añade `"verifyUpdateCodeSignature": false` en la configuración de Windows— y centrarte en el flujo de build.)
+
 4. Crea un tag de versión de prueba: `git tag v1.0.0-beta.1 && git push origin v1.0.0-beta.1`.
 5. Ve a la pestaña "Actions" del repositorio en GitHub y observa cómo se ejecutan los jobs en paralelo para las 3 plataformas.
 6. Al finalizar, verifica que se ha creado una release (o draft release) con los archivos adjuntos.
@@ -732,6 +741,7 @@ git push origin v1.0.0
 8. Documenta el proceso completo, incluyendo los problemas encontrados y sus soluciones.
 
 **Criterios de evaluación**:
+
 - El workflow se ejecuta correctamente para al menos 1 plataforma (idealmente las 3).
 - Los artefactos (instaladores) se generan y se adjuntan a la release.
 - El alumno es capaz de explicar el flujo completo y depurar errores en los logs de GitHub Actions.
@@ -786,9 +796,9 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
 
 1. Configura `standard-version` o `semantic-release` para automatizar el versionado basado en commits convencionales (feat, fix, BREAKING CHANGE).
 2. Configura el workflow de GitHub Actions para que:
-   - Al pushear a `main`, se ejecuten tests y lint.
-   - Al crear un PR hacia `main`, se ejecute un build de prueba.
-   - Al fusionar un PR con commits `feat:` o `fix:`, se genere automáticamente un tag de versión, se compile para las 3 plataformas, se cree una GitHub Release con notas generadas automáticamente, y se publique la actualización para los usuarios existentes mediante electron-updater.
+    - Al pushear a `main`, se ejecuten tests y lint.
+    - Al crear un PR hacia `main`, se ejecute un build de prueba.
+    - Al fusionar un PR con commits `feat:` o `fix:`, se genere automáticamente un tag de versión, se compile para las 3 plataformas, se cree una GitHub Release con notas generadas automáticamente, y se publique la actualización para los usuarios existentes mediante electron-updater.
 3. Configura un canal "beta" para releases pre-release (versiones con sufijo `-beta.1`).
 4. Documenta todo el flujo en un diagrama.
 
@@ -889,6 +899,7 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
 ## Recursos complementarios
 
 **Documentación oficial**:
+
 - electron-builder - Documentación: https://www.electron.build/
 - electron-builder - Opciones de configuración: https://www.electron.build/configuration/configuration
 - electron-updater - Documentación: https://www.electron.build/auto-update
@@ -896,6 +907,7 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
 - Electron - Empaquetado de aplicaciones: https://www.electronjs.org/docs/latest/tutorial/application-packaging
 
 **Guías y tutoriales**:
+
 - GitHub Actions - Documentación oficial: https://docs.github.com/en/actions
 - Electron + GitHub Actions: buscar "electron github actions release" en Google
 - Microsoft Store - Publicación de aplicaciones de escritorio: https://learn.microsoft.com/es-es/windows/msix/desktop/desktop-to-uwp-manual-conversion
@@ -903,6 +915,7 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
 - Snapcraft - Creación de snaps: https://snapcraft.io/docs/creating-a-snap
 
 **Herramientas**:
+
 - electron-icon-builder: https://github.com/safu9/electron-icon-builder
 - standard-version: https://github.com/conventional-changelog/standard-version
 - semantic-release: https://github.com/semantic-release/semantic-release
@@ -910,6 +923,7 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
 !!! info "Dato clave"
 
     **Referencias de costes (2024-2025)**:
+    
     - Certificado de firma de código Windows (OV): ~200-300 €/año (proveedores: Sectigo, DigiCert, GlobalSign)
     - Certificado de firma de código Windows (EV): ~300-500 €/año
     - Apple Developer Program: 99 €/año
@@ -917,6 +931,7 @@ Implementa un flujo de trabajo automatizado de **versionado semántico** y relea
     - Snap Store: gratuito
 
 **Comunidad**:
+
 - Stack Overflow: etiquetas `[electron-builder]`, `[electron-updater]`, `[github-actions]`
 - Awesome Electron - Lista curada de recursos: https://github.com/sindresorhus/awesome-electron
 - Discord de la comunidad Electron: https://discord.gg/electronjs

@@ -61,11 +61,13 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 ## Contenidos
 
 **Bloque 1: Fundamentos de las interfaces de usuario**
+
 - **Definición de interfaz de usuario**: concepto, función y relevancia en sistemas software.
 - **Tipologías de interfaces**: GUI (Graphical User Interface), CLI (Command Line Interface), VUI (Voice User Interface), NUI (Natural User Interface), TUI (Tangible User Interface).
 - **Características técnicas de cada tipo de interfaz**: dispositivos de entrada/salida asociados, tecnologías subyacentes, casos de uso representativos.
 
 **Bloque 2: Evolución histórica de las interfaces**
+
 - **De la línea de comandos a las ventanas**: Xerox Alto, Apple Lisa, Windows 1.0.
 - **La era web**: del HTML estático a las aplicaciones de una sola página (SPA).
 - **La revolución móvil**: interfaces táctiles, gestos, diseño responsive.
@@ -73,11 +75,13 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 - **Interfaces conversacionales e inteligencia artificial generativa**.
 
 **Bloque 3: UX vs UI**
+
 - **Definición precisa de User Experience (UX)**: arquitectura de la información, investigación de usuarios, flujos de navegación, prototipado, usabilidad.
 - **Definición precisa de User Interface (UI)**: tipografía, color, espaciado, iconografía, sistemas de diseño, microinteracciones.
 - **Comparativa y sinergias entre ambos ámbitos**: por qué son disciplinas complementarias pero diferenciadas.
 
 **Bloque 4: Interfaces web y multiplataforma**
+
 - **Web apps tradicionales**: características, ventajas, limitaciones.
 - **Progressive Web Apps (PWA)**: service workers, manifiesto, instalabilidad, funcionalidad offline.
 - **Aplicaciones híbridas**: Apache Cordova, Ionic, Capacitor.
@@ -85,6 +89,7 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 - **Electron**: arquitectura, proceso principal y procesos renderizadores, casos de uso emblemáticos (VS Code, Discord, Figma, Slack, Postman, Notion).
 
 **Bloque 5: Tendencias actuales en diseño de interfaces**
+
 - **Neumorfismo**: fundamentos estéticos, implementación técnica, cuándo usarlo y cuándo evitarlo.
 - **Glassmorphism**: efecto vidrio esmerilado, backdrop-filter, jerarquía visual.
 - **Minimalismo y brutalismo**: reducción a lo esencial.
@@ -95,6 +100,7 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 - **IA en interfaces**: generación de layouts, personalización adaptativa, asistentes integrados.
 
 **Bloque 6: El ecosistema Angular en el desarrollo de interfaces**
+
 - **Angular como framework para aplicaciones empresariales**: filosofía, ecosistema, gobernanza.
 - **Single Page Applications (SPA)**: concepto y arquitectura.
 - **Modelo de componentes**: encapsulación, reutilización, composición.
@@ -104,6 +110,7 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 - **Angular Signals**: reactividad moderna y granular.
 
 **Bloque 7: Diseño Centrado en el Usuario (UCD)**
+
 - **Proceso UCD según ISO 9241-210**: investigación, especificación, diseño, evaluación.
 - **Técnicas de investigación**: entrevistas, encuestas, observación contextual, análisis competitivo.
 - **Personas y escenarios de uso**: definición, construcción y aplicación.
@@ -113,6 +120,7 @@ Este módulo profesional 0488 *Desarrollo de interfaces* (CFGS en Desarrollo de 
 - **Iteración**: el ciclo construir-medir-aprender.
 
 **Bloque 8: El rol profesional del desarrollador de interfaces**
+
 - **Competencias técnicas requeridas**: HTML, CSS, JavaScript/TypeScript, frameworks, control de versiones, testing.
 - **Competencias transversales**: comunicación, trabajo en equipo, resolución de problemas.
 - **Colaboración multidisciplinar**: relación con diseñadores UX/UI, product managers, desarrolladores backend, DevOps.
@@ -346,6 +354,7 @@ Angular está diseñado para aplicaciones a gran escala (*enterprise-grade*). Su
 **Modelo de componentes**
 
 Un componente en Angular es una clase TypeScript decorada con `@Component` que encapsula:
+
 - Un template HTML que define la vista.
 - Estilos CSS (con encapsulación por defecto mediante Shadow DOM emulado).
 - Lógica de presentación (propiedades, métodos, manejadores de eventos).
@@ -492,22 +501,22 @@ El módulo de Desarrollo de Interfaces se imparte en el segundo curso del Ciclo 
 ![Spotify](./img/00/spotify.png)
 
 2. **Análisis UX:**
-   - **Navegación principal:** Menú lateral siempre visible con las secciones principales. Patrón de navegación persistente que reduce la carga cognitiva: el usuario siempre sabe dónde está y cómo ir a otra sección.
-   - **Arquitectura de la información:** Jerarquía clara de tres niveles: secciones principales (Inicio, Buscar, Biblioteca) > subsecciones (Playlists, Podcasts, Artistas) > contenido detallado (una playlist concreta, un álbum).
-   - **Búsqueda:** Búsqueda predictiva con sugerencias mientras se escribe. Muestra resultados por categorías (artistas, canciones, álbumes, playlists, podcasts) reduciendo el tiempo para encontrar contenido.
-   - **Reproductor persistente:** Barra inferior siempre visible que muestra la canción actual, controles y progreso. El usuario puede interactuar con la reproducción en cualquier momento sin perder el contexto de navegación.
+    - **Navegación principal:** Menú lateral siempre visible con las secciones principales. Patrón de navegación persistente que reduce la carga cognitiva: el usuario siempre sabe dónde está y cómo ir a otra sección.
+    - **Arquitectura de la información:** Jerarquía clara de tres niveles: secciones principales (Inicio, Buscar, Biblioteca) > subsecciones (Playlists, Podcasts, Artistas) > contenido detallado (una playlist concreta, un álbum).
+    - **Búsqueda:** Búsqueda predictiva con sugerencias mientras se escribe. Muestra resultados por categorías (artistas, canciones, álbumes, playlists, podcasts) reduciendo el tiempo para encontrar contenido.
+    - **Reproductor persistente:** Barra inferior siempre visible que muestra la canción actual, controles y progreso. El usuario puede interactuar con la reproducción en cualquier momento sin perder el contexto de navegación.
 
 3. **Análisis UI:**
-   - **Paleta de colores:** Modo oscuro con negro profundo (`#121212`) como base, verde característico (`#1DB954`) como color de acento y escalas de grises para jerarquía de texto.
-   - **Tipografía:** Circular (tipografía propietaria de Spotify), con variantes Bold para títulos, Book para cuerpo y diferentes tamaños claramente jerarquizados.
-   - **Cards:** Tarjetas cuadradas con imagen, título y descripción. Implementadas con hover effects (escala, sombra, botón de reproducción) que proporcionan feedback y affordance claro.
-   - **Consistencia:** Todas las pantallas comparten el mismo lenguaje visual (idénticos espaciados, mismas tipografías, mismos efectos hover).
+    - **Paleta de colores:** Modo oscuro con negro profundo (`#121212`) como base, verde característico (`#1DB954`) como color de acento y escalas de grises para jerarquía de texto.
+    - **Tipografía:** Circular (tipografía propietaria de Spotify), con variantes Bold para títulos, Book para cuerpo y diferentes tamaños claramente jerarquizados.
+    - **Cards:** Tarjetas cuadradas con imagen, título y descripción. Implementadas con hover effects (escala, sombra, botón de reproducción) que proporcionan feedback y affordance claro.
+    - **Consistencia:** Todas las pantallas comparten el mismo lenguaje visual (idénticos espaciados, mismas tipografías, mismos efectos hover).
 
 4. **Identificación de patrones técnicos:**
-   - Scroll infinito con lazy loading en listas largas (optimización de rendimiento).
-   - Skeleton screens durante la carga (mejor experiencia que un spinner genérico).
-   - Transiciones suaves entre páginas (animaciones de navegación).
-   - Borrosidad en fondos de cabeceras (glassmorphism).
+    - Scroll infinito con lazy loading en listas largas (optimización de rendimiento).
+    - Skeleton screens durante la carga (mejor experiencia que un spinner genérico).
+    - Transiciones suaves entre páginas (animaciones de navegación).
+    - Borrosidad en fondos de cabeceras (glassmorphism).
 
 5. **Discusión:** ¿Qué tecnologías utilizarían para implementar esta interfaz? Angular para la estructura SPA y los componentes, Tailwind CSS para los estilos, RxJS para los datos en tiempo real (streaming de reproducción).
 

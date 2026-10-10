@@ -40,29 +40,34 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 ## Contenidos
 
 **Bloque 1: Fundamentos de las interfaces naturales**
+
 - De la GUI a la NUI: reducción de la distancia entre intención y acción.
 - Modalidades: VUI (voz), gestual, corporal, háptica y realidad aumentada/virtual (RA/RV).
 - Arquitectura típica: captura del sensor → preprocesado → modelo de reconocimiento → interpretación semántica → acción en la aplicación.
 - Tasa de error, ambigüedad y el principio de «alternativa siempre disponible» (Shneiderman).
 
 **Bloque 2: Reconocimiento de voz (VUI)**
+
 - Web Speech API: `SpeechRecognition` / `SpeechRecognitionResult` y síntesis con `SpeechSynthesis`.
 - Diferencia entre comandos discretos («guardar», «filtrar por fecha») y lenguaje natural.
 - Manejo de eventos (`result`, `end`, `error`), idiomas y confianza del reconocimiento (`confidence`).
 - Patrones de diseño de diálogos: confirmación, repetición y salida de la conversación.
 
 **Bloque 3: Detección de movimiento corporal**
+
 - Captura con `getUserMedia` y análisis de fotogramas.
 - TensorFlow.js y MediaPipe (Pose Landmarker, Hand Landmarker): inferencia en el navegador sin backend.
 - Representación de partes del cuerpo (landmarks) y definición de gestos a partir de su posición relativa.
 - Umbrales, suavizado temporal y histeresis para evitar activaciones erróneas.
 
 **Bloque 4: Realidad aumentada en la web**
+
 - WebXR Device API: sesiones `immersive-ar` e `immersive-vr`.
 - Three.js como motor de renderizado y su integración con el ciclo de vida de un componente Angular.
 - Hit-test y anclaje de contenido sobre el mundo real; limitaciones por dispositivo.
 
 **Bloque 5: Integración en la aplicación del módulo**
+
 - Encapsulación de cada modalidad en un servicio Angular (`VoiceCommandService`, `GestureService`).
 - Emisión de eventos/`Signal`s que los componentes suscriben para ejecutar acciones (equivalentes a pulsar un botón).
 - Accesibilidad: transcripción visible, atajos por teclado equivalentes y aviso de estado del reconocimiento.

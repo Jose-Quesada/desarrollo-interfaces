@@ -3,6 +3,7 @@
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
+
 - Diseñar e implementar formularios reactivos avanzados con Angular Reactive Forms, integrando feedback visual inmediato mediante Tailwind CSS.
 - Crear validadores personalizados síncronos y asíncronos, incluyendo validación cross-field y validación contra APIs externas.
 - Construir sistemas de mensajes de error contextualizados, internacionalizados y accesibles que mejoren la experiencia de usuario.
@@ -16,6 +17,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 RA4 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla interfaces de usuario, aplicando técnicas de programación visual y gestionando la interacción con el usuario."
 
 Criterios de evaluación relacionados:
+
 - Se han gestionado eventos de usuario para controlar la interacción con la interfaz.
 - Se han implementado validaciones de datos de entrada en formularios.
 - Se ha proporcionado realimentación visual al usuario ante acciones y errores.
@@ -24,6 +26,7 @@ Criterios de evaluación relacionados:
 ## Conocimientos previos
 
 El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+
 - Angular Reactive Forms: FormControl, FormGroup, FormBuilder, valueChanges, statusChanges.
 - TypeScript: tipos avanzados, funciones como parámetros y retorno, genéricos, utility types.
 - Tailwind CSS 4: clases utilitarias, animaciones, transiciones, personalización con @theme.
@@ -152,6 +155,7 @@ export class LoginFormComponent {
 ```
 
 La clave del patron es el mapeo de estados:
+
 - **Pristine**: borde gris neutro, sin indicacion de correccion o error.
 - **Valid + touched**: borde verde, senal silenciosa de "esto esta bien".
 - **Invalid + touched**: borde rojo, mensaje de error descriptivo.
@@ -346,6 +350,7 @@ El uso de `debounceTime(500)` es esencial para no saturar el servidor con una pe
 #### Opcion updateOn: cuando validar
 
 La opcion `updateOn` controla en que momento se ejecutan los validadores y se actualizan los valores del control:
+
 - `'change'` (por defecto): en cada pulsacion de tecla o cambio.
 - `'blur'`: cuando el control pierde el foco.
 - `'submit'`: solo cuando el formulario se envia.
@@ -835,6 +840,7 @@ export class PhoneMaskDirective implements ControlValueAccessor {
 #### Estados de boton y transiciones
 
 Los botones deben comunicar claramente su estado en cada momento mediante representacion visual distinta y transiciones suaves:
+
 - **Default:** Color de fondo correspondiente a la variante.
 - **Hover:** Oscurecimiento ligero o cambio de elevacion.
 - **Active/Pressed:** Oscurecimiento adicional o reduccion de escala (0.98).
@@ -1060,6 +1066,7 @@ submitForm(): void {
 **Objetivo:** Crear validadores personalizados para CIF/NIF espanol e IBAN en un formulario de alta de cliente.
 
 **Desarrollo:**
+
 1. El docente explica el formato real del CIF espanol (letra + 7 digitos + digito de control) y del IBAN espanol.
 2. El alumnado implementa `cifValidator()` y `ibanValidator()` como funciones que devuelven `ValidatorFn`.
 3. Integrar los validadores en un `FormGroup` de cliente y crear el template con feedback visual usando Tailwind.
@@ -1074,6 +1081,7 @@ submitForm(): void {
 **Objetivo:** Crear un mapa de mensajes de error que soporte multiples idiomas (espanol e ingles) y un componente `FormErrorComponent` que los utilice.
 
 **Desarrollo:**
+
 1. Implementar un `ErrorMessageService` que contenga un diccionario de mensajes por idioma.
 2. Permitir cambiar el idioma dinamicamente mediante un Signal.
 3. Integrar el servicio en `FormErrorComponent`.
@@ -1088,6 +1096,7 @@ submitForm(): void {
 **Objetivo:** Crear un formulario de busqueda que recuerde los filtros aplicados entre sesiones.
 
 **Desarrollo:**
+
 1. Crear un formulario de busqueda con campos: termino, categoria (dropdown), rango de precio (min/max), ordenacion (select), y fecha (rango de fechas).
 2. Implementar auto-guardado de filtros en `localStorage` usando `FormDraftService`.
 3. Al cargar la pagina, recuperar los filtros guardados y aplicarlos.
@@ -1107,6 +1116,7 @@ submitForm(): void {
 **Descripcion:** Construir un formulario completo de creacion de producto en una tienda online que incluya validacion asincrona para verificar que el SKU (codigo de producto) no esta duplicado en la base de datos.
 
 **Requisitos:**
+
 - Campos: nombre, SKU, descripcion, precio, categoria (dropdown cargado de API), imagen (URL con previsualizacion), y stock.
 - Validacion asincrona del SKU con debounce de 500ms y estado pending visual (spinner + texto "Verificando codigo...").
 - Todos los campos requeridos deben mostrar feedback visual segun estado (touched, valid, invalid).
@@ -1123,6 +1133,7 @@ submitForm(): void {
 **Descripcion:** Construir un wizard de configuracion de cuenta de usuario con 4 pasos secuenciales.
 
 **Requisitos:**
+
 - Paso 1 — Perfil: nombre, apellidos, fecha de nacimiento, genero.
 - Paso 2 — Contacto: email, telefono, direccion, codigo postal.
 - Paso 3 — Preferencias: idioma, zona horaria, notificaciones (checkboxes), tema (toggle claro/oscuro).
@@ -1141,6 +1152,7 @@ submitForm(): void {
 **Descripcion:** Construir un formulario de creacion de encuestas donde el usuario pueda anadir y quitar preguntas dinamicamente, y cada pregunta pueda ser de distinto tipo.
 
 **Requisitos:**
+
 - El formulario tiene un titulo y una descripcion (campos fijos).
 - Cada pregunta es un FormGroup dentro de un FormArray, con campos: enunciado, tipo (select: texto corto, texto largo, opcion multiple, escala numerica), requerido (checkbox).
 - Si el tipo es "opcion multiple", se muestra un FormArray anidado para las opciones de respuesta.
@@ -1158,6 +1170,7 @@ submitForm(): void {
 **Descripcion:** Implementar un sistema de busqueda avanzada que combine el componente `Autocomplete` con filtros adicionales.
 
 **Requisitos:**
+
 - Campo de busqueda principal con autocompletado (sugerencias de la API).
 - Panel de filtros avanzados que se despliega al hacer click en "Filtros avanzados".
 - Filtros: rango de precio, categoria, valoracion minima (estrellas), en stock (toggle), ordenar por (select).
@@ -1177,6 +1190,7 @@ submitForm(): void {
 **Descripcion:** Implementar el flujo de checkout de un comercio electronico con 3 pasos.
 
 **Requisitos:**
+
 - Paso 1 — Direccion de envio: formulario de direccion con validacion de codigo postal y posibilidad de usar la misma direccion para facturacion (checkbox que copia los datos).
 - Paso 2 — Metodo de pago: seleccion de tarjeta (formulario con mascara para numero de tarjeta, fecha de caducidad y CVV) o PayPal.
 - Paso 3 — Revision: resumen del pedido con productos, direccion, metodo de pago y total.
@@ -1198,6 +1212,7 @@ submitForm(): void {
 **Descripcion:** Disenar un sistema que genere formularios Angular dinamicamente a partir de un esquema JSON, similar a JSON Schema Forms.
 
 **Requisitos:**
+
 - Definir un formato de esquema JSON que describa: campos, tipos, validaciones, orden, dependencias entre campos.
 - Crear un componente `DynamicFormComponent` que reciba un esquema y renderice los campos correspondientes.
 - Soportar tipos: text, number, email, select, checkbox, radio, date, textarea, file.
@@ -1213,6 +1228,7 @@ submitForm(): void {
 **Descripcion:** Investigar, probar y comparar tres librerias de formularios para Angular, documentando ventajas, desventajas y casos de uso.
 
 **Librerias a comparar:**
+
 - Angular Reactive Forms (nativo).
 - Formly (formularios dinamicos por configuracion JSON).
 - @rxweb/reactive-form-validators (validadores extendidos).
@@ -1226,6 +1242,7 @@ submitForm(): void {
 **Descripcion:** Construir un editor visual de formularios donde el usuario pueda arrastrar campos desde una paleta a un lienzo, configurar sus propiedades y generar el formulario resultante.
 
 **Requisitos:**
+
 - Paleta de campos disponibles: texto, numero, email, select, checkbox, radio, fecha, area de texto, encabezado, parrafo informativo, separador.
 - Lienzo donde se sueltan los campos (drag and drop con Angular CDK Drag and Drop).
 - Panel de propiedades que se muestra al seleccionar un campo en el lienzo: label, placeholder, requerido, validaciones, opciones (para select/radio).

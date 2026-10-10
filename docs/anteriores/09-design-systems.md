@@ -3,6 +3,7 @@
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
+
 - Comprender qué es un Design System, sus componentes y su valor estratégico en el desarrollo de interfaces profesionales.
 - Aplicar la metodología Atomic Design para descomponer una interfaz en átomos, moléculas, organismos, templates y páginas, y trasladar esta estructura a un proyecto Angular.
 - Definir, implementar y gestionar Design Tokens como fuente única de verdad visual, sincronizándolos entre Figma y código mediante Tailwind CSS 4.
@@ -16,6 +17,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 RA3 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla componentes software para la interfaz de usuario, aplicando las técnicas de programación orientada a eventos y utilizando librerías de componentes."
 
 Criterios de evaluación relacionados:
+
 - Se han identificado las guías de estilo y los sistemas de diseño aplicables al desarrollo de interfaces.
 - Se han utilizado herramientas de diseño visual para la definición de componentes de interfaz.
 - Se ha documentado el sistema de diseño y los componentes desarrollados.
@@ -24,6 +26,7 @@ Criterios de evaluación relacionados:
 ## Conocimientos previos
 
 El alumnado debe dominar los siguientes conocimientos antes de abordar esta unidad:
+
 - Angular Standalone Components, Signals, @Input/@Output, proyección de contenido (Unidades 6 y 7).
 - Tailwind CSS 4: sistema de clases utilitarias, configuración con @theme, capas (base, components, utilities).
 - Figma: fundamentos de diseño de interfaces, manejo de estilos compartidos, componentes y variantes.
@@ -61,6 +64,7 @@ Los componentes fundamentales de un Design System son:
 5. **Documentación:** Storybook, guías de uso, principios de diseño, tokens disponibles, ejemplos de código, consideraciones de accesibilidad y directrices de contribución.
 
 Los beneficios de invertir en un Design System son sustanciales y medibles:
+
 - **Consistencia visual:** La misma paleta de colores, la misma tipografía, los mismos espaciados en toda la aplicación, sin desviaciones accidentales.
 - **Velocidad de desarrollo:** Los desarrolladores ensamblan interfaces a partir de componentes existentes en lugar de construir cada pantalla desde cero. Se estima que un Design System reduce el tiempo de desarrollo de nuevas funcionalidades entre un 25% y un 50%.
 - **Escalabilidad:** Nuevas features y nuevos productos pueden construirse sobre la misma base, garantizando que se vean y se comporten como parte de la misma familia.
@@ -74,6 +78,7 @@ Atomic Design, metodología creada por Brad Frost, propone descomponer las inter
 #### Átomos: los bloques fundamentales
 
 Los átomos son los elementos más básicos de la interfaz: etiquetas HTML nativas estilizadas y los tokens de diseño aplicados a ellas. En el contexto de Angular + Tailwind, los átomos no suelen ser componentes independientes, sino que se implementan como:
+
 - **Design Tokens en Tailwind:** La configuración `@theme` define los átomos de color (colores primitivos y semánticos), tipografía (familias, tamaños, pesos, alturas de línea) y espaciado (escala base de 4px).
 - **Estilos base (layer base de Tailwind):** Estilos globales para elementos HTML nativos como `h1-h6`, `p`, `a`, `ul`, `ol`, `blockquote`, `code`, que se definen una sola vez y afectan a toda la aplicación.
 - **Componentes atómicos simples:** `BadgeComponent`, `AvatarComponent`, `IconComponent`, `DividerComponent` — componentes que envuelven un único concepto visual sin composición de otros componentes.
@@ -155,6 +160,7 @@ Ejemplo de átomos como tokens en Tailwind 4:
 Las moléculas son combinaciones de átomos que funcionan juntos como una unidad. En Angular, las moléculas son componentes que combinan elementos HTML (átomos) y posiblemente otros componentes atómicos para formar una unidad funcional con propósito específico.
 
 Ejemplos de moléculas en Angular:
+
 - **FormFieldComponent:** Combina un `label` (átomo), un `input` (átomo HTML), un mensaje de `error` (átomo de texto) y posiblemente un `icon` (átomo visual) en una unidad cohesiva de entrada de datos.
 - **SearchBarComponent:** Combina un `FormField` o un `input` con un `Button` de búsqueda y posiblemente un `Dropdown` de filtros.
 - **NavItemComponent:** Combina un `icon` con un texto y un enlace, con estado activo basado en la ruta actual.
@@ -206,6 +212,7 @@ export class SearchBarComponent {
 Los organismos son conjuntos de moléculas y átomos que forman una sección distintiva de la interfaz. Son lo suficientemente complejos como para tener una función autónoma dentro de la página, pero no son páginas completas. En Angular, los organismos son Smart Components o componentes compuestos que orquestan múltiples moléculas.
 
 Ejemplos de organismos:
+
 - **HeaderComponent:** Contiene el logotipo, la navegación principal (múltiples NavItem), la barra de búsqueda (SearchBar), el menú de usuario (Dropdown) y el toggle de tema (ThemeToggle).
 - **DataTableWithFiltersComponent:** Combina una barra de filtros (SearchBar + Dropdowns + DatePicker), una tabla de datos (DataTable) con paginación, y un contador de resultados.
 - **ProductFormComponent:** Formulario completo con secciones de datos básicos, imágenes, precios y variantes, cada una con múltiples FormField.
@@ -221,7 +228,7 @@ Ejemplos de organismos:
       <div class="flex h-16 items-center gap-4 px-4 sm:px-6">
         <!-- Logo -->
         <a routerLink="/" class="flex items-center gap-2">
-          <img src="logo.svg" alt="Logo" class="h-8 w-auto" />
+          <img src="https://dummyimage.com/200x200/ccc/000.png&text=logo.svg" alt="Logo" class="h-8 w-auto" />
           <span class="text-lg font-bold text-gray-900">Brand</span>
         </a>
 
@@ -307,6 +314,7 @@ src/app/
 Los Design Tokens se organizan en tres niveles jerárquicos, cada uno con un propósito y un ámbito de uso específico:
 
 **Tokens globales (opciones primitivas):** Son los valores más básicos y atómicos. No tienen significado semántico, solo representan opciones disponibles en la paleta. Ejemplos:
+
 - `--color-blue-500: #3b82f6`
 - `--color-red-500: #ef4444`
 - `--font-size-16: 1rem`
@@ -315,6 +323,7 @@ Los Design Tokens se organizan en tres niveles jerárquicos, cada uno con un pro
 Estos tokens no deberían usarse directamente en componentes, porque si se decide cambiar el color primario de azul a verde, habría que modificar todos los componentes individualmente.
 
 **Tokens de alias (semánticos):** Mapean los tokens globales a significados funcionales en el contexto de la aplicación. Son el nivel que los componentes deben consumir:
+
 - `--color-primary: var(--color-blue-600)`
 - `--color-success: var(--color-green-600)`
 - `--color-text-primary: var(--color-gray-900)`
@@ -323,6 +332,7 @@ Estos tokens no deberían usarse directamente en componentes, porque si se decid
 Si el color primario cambia de azul a verde, solo se modifica la definición del alias, y todos los componentes que usan `--color-primary` se actualizan automáticamente. Esta indirección es la clave de la flexibilidad de un Design System.
 
 **Tokens de componente:** Valores específicos para componentes concretos que heredan de los tokens semánticos pero pueden sobrescribirse:
+
 - `--button-primary-bg: var(--color-primary)`
 - `--button-primary-text: var(--color-white)`
 - `--card-padding-x: var(--spacing-6)`
@@ -412,6 +422,7 @@ La sincronización entre Figma (diseño) y el código (Tailwind + Angular) es un
 **Variables de Figma:** Las variables nativas de Figma (introducidas en 2023) permiten definir tokens directamente en la herramienta de diseño. A través de la API REST de Figma, se pueden extraer estas variables y transformarlas a código mediante scripts automatizados.
 
 **Workflow bidireccional ideal:**
+
 1. Los diseñadores definen/actualizan tokens en Figma (usando Figma Tokens o Variables).
 2. Un pipeline de CI/CD (GitHub Actions) ejecuta un script que: extrae los tokens de Figma vía API, los transforma a CSS (@theme) y TypeScript usando Style Dictionary, y crea un Pull Request automático con los cambios.
 3. Los desarrolladores revisan y aprueban el PR, integrando los tokens actualizados.
@@ -422,6 +433,7 @@ La sincronización entre Figma (diseño) y el código (Tailwind + Angular) es un
 #### Paso 1: Auditoría de interfaz
 
 La auditoría consiste en inventariar sistemáticamente todos los elementos visuales existentes en la aplicación. El objetivo es identificar:
+
 - Colores utilizados (muchas veces hay 15 azules ligeramente diferentes).
 - Tamaños de fuente y familias tipográficas presentes.
 - Tipos de botones y sus variaciones visuales.
@@ -444,6 +456,7 @@ Los principios de diseño son 3-5 frases que resumen los valores que guiarán la
 #### Paso 3: Definir Design Tokens
 
 Con la auditoría completada, se procede a consolidar todos los valores en un conjunto coherente de tokens:
+
 - Consolidar colores: elegir una paleta principal con escalas de 50 a 950 para cada matiz, definir colores semánticos (primary, success, warning, error, info) y colores de superficie y texto.
 - Definir la escala tipográfica: elegir una o dos familias tipográficas, definir la escala modular de tamaños y sus pesos y alturas de línea asociados.
 - Definir la escala de espaciado: baseline grid de 4px u 8px, definiendo los valores de spacing desde 1 (4px) hasta 16 (64px) o más.
@@ -477,6 +490,7 @@ Con la base atómica sólida, construir las moléculas (FormField, SearchBar, Na
 #### Paso 7: Documentar en Storybook
 
 Cada componente debe documentarse en Storybook con:
+
 - Descripción del propósito y uso del componente.
 - Stories para cada variante y estado.
 - Tabla de inputs, outputs y slots de contenido.
@@ -486,6 +500,7 @@ Cada componente debe documentarse en Storybook con:
 #### Paso 8: Versionar y mantener
 
 El Design System es un producto vivo que evoluciona con la aplicación. Debe versionarse semánticamente (MAJOR.MINOR.PATCH):
+
 - **MAJOR:** Cambios que rompen la compatibilidad (eliminación de un componente, cambio en la API de inputs).
 - **MINOR:** Nuevos componentes o nuevas variantes en componentes existentes.
 - **PATCH:** Corrección de bugs visuales o de accesibilidad.
@@ -586,12 +601,14 @@ full:  9999px           — Elementos circulares (avatares, badges circulares)
 #### Material Design 3 (Google)
 
 Material Design 3 (Material You) representa la evolución más reciente del sistema de diseño de Google. Sus características distintivas incluyen:
+
 - **Dynamic Color:** Extrae colores del wallpaper del usuario y genera automáticamente una paleta de colores completa (primario, secundario, terciario, neutral y sus variantes), demostrando el poder de los tokens semánticos.
 - **Tokens en 3 niveles:** Reference tokens (valores crudos de color, tipografía, forma), System tokens (mapeo semántico de los reference tokens al contexto), y Component tokens (valores específicos de cada componente Material).
 - **Tipografía:** Escala de 15 tamaños agrupados en 5 categorías (Display, Headline, Title, Body, Label), cada una con 3 tamaños.
 - **Forma (Shape):** Sistema de redondeo con 4 familias (none, extra small, small, medium, large, extra large, full) aplicables a 3 categorías de componentes.
 
 Lecciones para nuestro Design System:
+
 - La separación en 3 niveles de tokens es muy poderosa y debería adoptarse.
 - La generación dinámica de temas a partir de una semilla de color demuestra la importancia de los tokens semánticos.
 - La documentación exhaustiva y las guías de uso son tan importantes como los componentes mismos.
@@ -599,6 +616,7 @@ Lecciones para nuestro Design System:
 #### Ant Design (Alibaba)
 
 Ant Design es el sistema de diseño enterprise más popular del mundo, creado por Alibaba. Sus características:
+
 - **Enfoque enterprise:** Diseñado para aplicaciones de gestión con mucha densidad de datos: tablas complejas, formularios extensos, flujos de trabajo.
 - **Sistema de 10 colores:** Paleta con 12 tonos por color, más colores funcionales (success, warning, error, info, link).
 - **Componentes de alto nivel:** Más de 60 componentes que cubren casos de uso enterprise (Transfer, Cascader, ProTable, ProForm).
@@ -609,6 +627,7 @@ Lecciones: La densidad de información no está reñida con un diseño limpio si
 #### Carbon (IBM)
 
 Carbon es el sistema de diseño open-source de IBM, orientado a productos enterprise con un fuerte énfasis en accesibilidad e inclusión:
+
 - **Accesibilidad como requisito fundamental:** Cada componente está diseñado y testeado para cumplir WCAG AA, con documentación específica de accesibilidad.
 - **Sistema de grid 2x:** El grid de Carbon usa el concepto de "2x grid" donde cada unidad de grid es 8px, y todo el layout se construye sobre múltiplos de 8.
 - **Temas:** Soporte para 4 temas (White, Gray 10, Gray 90, Gray 100) que cubren desde claro hasta oscuro extremo.
@@ -619,6 +638,7 @@ Lecciones: La accesibilidad debe ser un pilar fundacional, no un añadido. El si
 #### Spectrum (Adobe)
 
 Spectrum es el sistema de diseño de Adobe para sus productos Creative Cloud y Experience Cloud. Sus características:
+
 - **Multiplataforma:** Diseñado para funcionar en web, desktop y mobile con adaptaciones específicas para cada plataforma pero manteniendo el lenguaje visual.
 - **Escala de títulos y cuerpos separadas:** Spectrum distingue entre "heading" (para títulos) y "body" (para texto de lectura), con escalas diferentes.
 - **Sistema de slots visuales:** Componentes como Card, Dialog y Popover tienen "slots" predefinidos (imagen, encabezado, cuerpo, acciones) que guían la composición.
@@ -628,6 +648,7 @@ Lecciones: La distinción entre plataformas es importante; un botón en web pued
 #### Lightning (Salesforce)
 
 Lightning Design System es la base de todas las interfaces de Salesforce. Su enfoque:
+
 - **Consistencia ecosistema:** Cientos de aplicaciones construidas por equipos diferentes deben verse y comportarse como una sola.
 - **Componentes accesibles e internacionalizados:** Todo componente funciona con lectores de pantalla y soporta RTL (right-to-left) y traducción.
 - **Sistema de iconos:** Más de 500 iconos SVG personalizados y categorizados, disponibles como componentes o como URLs de sprite.
@@ -789,6 +810,7 @@ export class ThemeToggleComponent {
 **Objetivo:** Reorganizar un proyecto Angular existente para que refleje la estructura de Atomic Design.
 
 **Desarrollo:** Partiendo de un proyecto con componentes desorganizados, el alumnado:
+
 1. Identifica qué componentes son átomos, cuáles moléculas, cuáles organismos.
 2. Reubica los componentes en la estructura de carpetas adecuada.
 3. Asegura que los átomos no dependen de moléculas ni organismos.
@@ -799,6 +821,7 @@ export class ThemeToggleComponent {
 **Objetivo:** Implementar el `ThemeService` y `ThemeToggle` para soportar 3 temas (claro, oscuro, high-contrast).
 
 **Desarrollo:**
+
 1. Definir las variables CSS para los 3 temas en `tokens.css`.
 2. Implementar `ThemeService` con Signals.
 3. Crear `ThemeToggleComponent` con ciclo entre los 3 temas o toggle claro/oscuro.
@@ -816,14 +839,15 @@ export class ThemeToggleComponent {
 **Objetivo:** Realizar una auditoría visual completa de una aplicación web existente para identificar todos sus elementos de diseño.
 
 **Desarrollo:**
+
 1. El docente proporciona la URL de una aplicación web real (puede ser una demo de un template de SaaS).
 2. El alumnado, en equipos de 2, navega por al menos 5 pantallas diferentes y documenta:
-   - Todos los colores utilizados (fondo, texto, primario, secundario, error, éxito, bordes).
-   - Todas las familias y tamaños tipográficos encontrados.
-   - Tipos de botones y sus variantes.
-   - Tipos de tarjetas, modales y contenedores.
-   - Espaciados (márgenes entre secciones, padding de tarjetas).
-   - Inconsistencias detectadas (mismo elemento con diferente estilo en distintas pantallas).
+    - Todos los colores utilizados (fondo, texto, primario, secundario, error, éxito, bordes).
+    - Todas las familias y tamaños tipográficos encontrados.
+    - Tipos de botones y sus variantes.
+    - Tipos de tarjetas, modales y contenedores.
+    - Espaciados (márgenes entre secciones, padding de tarjetas).
+    - Inconsistencias detectadas (mismo elemento con diferente estilo en distintas pantallas).
 3. El alumnado presenta sus hallazgos en una tabla y propone una paleta consolidada de colores y tipografía.
 
 **Entregable:** Documento de auditoría visual con capturas y tabla de hallazgos.
@@ -835,13 +859,14 @@ export class ThemeToggleComponent {
 **Objetivo:** Definir el conjunto completo de Design Tokens para una aplicación de comercio electrónico.
 
 **Desarrollo:**
+
 1. A partir de un briefing de diseño (proporcionado por el docente), el alumnado define:
-   - Paleta de colores completa (primarios, semánticos, superficie, texto, borde).
-   - Escala tipográfica (familia, tamaños, pesos, alturas de línea).
-   - Escala de espaciado (baseline grid de 4px).
-   - Escala de sombras (1-5 niveles de elevación).
-   - Escala de border radius (3-4 valores).
-   - Animaciones: duraciones y curvas de easing estándar.
+    - Paleta de colores completa (primarios, semánticos, superficie, texto, borde).
+    - Escala tipográfica (familia, tamaños, pesos, alturas de línea).
+    - Escala de espaciado (baseline grid de 4px).
+    - Escala de sombras (1-5 niveles de elevación).
+    - Escala de border radius (3-4 valores).
+    - Animaciones: duraciones y curvas de easing estándar.
 2. Implementar los tokens en dos formatos: CSS con `@theme` de Tailwind 4 y TypeScript (`tokens.ts`).
 3. Verificar que los tokens TypeScript y CSS están sincronizados (mismos nombres, mismos valores).
 
@@ -854,6 +879,7 @@ export class ThemeToggleComponent {
 **Objetivo:** Implementar un sistema de temas múltiples usando el patrón de ThemeService con Signals.
 
 **Desarrollo:**
+
 1. Implementar `ThemeService` (como se muestra en la Sección G).
 2. Crear `ThemeToggleComponent` con selector de 3 temas (no solo toggle binario).
 3. Definir variables CSS para los 3 temas en `tokens.css`.
@@ -873,6 +899,7 @@ export class ThemeToggleComponent {
 **Descripción:** Diseñar e implementar un Design System completo para una aplicación de banca digital ficticia.
 
 **Requisitos:**
+
 - Definir al menos 30 Design Tokens organizados en 3 niveles (globales, semánticos, de componente).
 - Implementar 8 componentes atómicos: Button (5 variantes), Input (5 estados), Card (3 variantes), Badge (5 tipos), Avatar, Modal, Tabs, y DataTable.
 - Todos los componentes deben estar correctamente tematizados (responder a los temas claro, oscuro y high-contrast aplicando solo las clases de Tailwind generadas).
@@ -889,6 +916,7 @@ export class ThemeToggleComponent {
 **Descripción:** Implementar un pipeline automatizado que extraiga Design Tokens desde Figma y los transforme a CSS y TypeScript usando Style Dictionary.
 
 **Requisitos:**
+
 - Definir los tokens en Figma usando el plugin "Figma Tokens" o las Variables nativas.
 - Exportar los tokens a un archivo JSON.
 - Configurar Style Dictionary para transformar el JSON a: variables CSS de Tailwind 4 (@theme), archivo TypeScript de tokens, y documentación en Markdown.
@@ -904,6 +932,7 @@ export class ThemeToggleComponent {
 **Descripción:** Refactorizar un proyecto Angular existente (proporcionado por el docente) aplicando la metodología Atomic Design.
 
 **Requisitos:**
+
 - Clasificar todos los componentes existentes como átomos, moléculas u organismos.
 - Reorganizar la estructura de carpetas del proyecto para reflejar esta clasificación.
 - Asegurar que los componentes atómicos no dependen de moléculas ni organismos.
@@ -919,6 +948,7 @@ export class ThemeToggleComponent {
 **Descripción:** Construir un componente de configuración de tema que permita al usuario personalizar visualmente los colores primarios y ver los cambios en tiempo real.
 
 **Requisitos:**
+
 - Panel de configuración con: selector de tema (claro, oscuro, sistema), color picker para el color primario, selector de radio de borde (sharp, rounded, pill), y selector de densidad (compact, default, comfortable).
 - Previsualización en tiempo real: una miniatura de la aplicación que muestra los cambios instantáneamente.
 - Los cambios se aplican al tema global mediante el ThemeService.
@@ -934,6 +964,7 @@ export class ThemeToggleComponent {
 **Descripción:** Realizar una auditoría completa de accesibilidad sobre todos los componentes del Design System construido.
 
 **Requisitos:**
+
 - Evaluar cada componente contra los criterios WCAG 2.1 AA: contraste de color, navegación por teclado, etiquetas ARIA, foco visible, texto alternativo.
 - Utilizar herramientas: axe DevTools, Lighthouse, y comprobación manual con lector de pantalla (NVDA en Windows o VoiceOver en macOS).
 - Documentar los problemas encontrados, su severidad y la solución propuesta.
@@ -952,6 +983,7 @@ export class ThemeToggleComponent {
 **Descripción:** Construir una herramienta visual que permita a diseñadores o desarrolladores crear nuevos temas para el Design System sin escribir código.
 
 **Requisitos:**
+
 - Interfaz visual con controles para modificar: color primario (con generación automática de la paleta completa), color de fondo, color de texto, familia tipográfica, radio de borde base, y densidad de espaciado.
 - Previsualización en vivo de una página de muestra con todos los componentes del Design System.
 - Exportación del tema creado a: archivo CSS de variables, archivo de configuración de Tailwind, y archivo JSON de tokens.
@@ -966,6 +998,7 @@ export class ThemeToggleComponent {
 **Descripción:** Tomar un Design System existente implementado con CSS tradicional (clases BEM o similares) y migrarlo completamente a Tailwind 4 con Design Tokens.
 
 **Requisitos:**
+
 - Analizar el Design System de origen (proporcionado por el docente o uno público como Bootstrap).
 - Mapear todas las variables CSS y clases a tokens de Tailwind (@theme).
 - Reescribir los componentes usando exclusivamente clases utilitarias de Tailwind.
@@ -981,6 +1014,7 @@ export class ThemeToggleComponent {
 **Descripción:** Desarrollar un plugin de Figma que, dado un componente de diseño seleccionado, genere automáticamente el código Angular correspondiente con Tailwind.
 
 **Requisitos:**
+
 - El plugin detecta las propiedades del componente en Figma: dimensiones, colores, tipografía, espaciado, bordes, sombras.
 - Mapea los estilos de Figma a tokens del Design System (si el componente usa estilos de Figma que coinciden con tokens definidos).
 - Genera un archivo TypeScript con el componente Angular (decorador, inputs/outputs deducidos de las variantes de Figma) y un template HTML con las clases de Tailwind correspondientes.

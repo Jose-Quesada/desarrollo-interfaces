@@ -48,16 +48,16 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
 ## Contenidos
 
 1. **Introducción a los dashboards empresariales**
-   - 1.1. Definición y propósito: panel de control visual que consolida KPIs, métricas y datos clave en una sola vista para facilitar la monitorización y la toma de decisiones.
-   - 1.2. Diferencias entre un dashboard, un informe y un cuadro de mando.
-   - 1.3. Tipos de dashboards: operacionales (monitorización en tiempo real, segundos/minutos), tácticos (análisis semanal/mensual, mandos intermedios), estratégicos (visión a largo plazo, alta dirección, trimestral/anual).
-   - 1.4. Principios de diseño de dashboards según Edward Tufte y Stephen Few: maximizar la proporción datos-tinta (data-ink ratio), eliminar el chartjunk (decoración innecesaria), presentar la información de un vistazo, jerarquía visual clara, sin ruido ni distracciones.
-   - 1.5. Anatomía de un dashboard típico: fila superior de KPI cards, zona central con gráficos principales, panel lateral o inferior con tabla de datos, filtros temporales y de segmentación en la parte superior.
+    - 1.1. Definición y propósito: panel de control visual que consolida KPIs, métricas y datos clave en una sola vista para facilitar la monitorización y la toma de decisiones.
+    - 1.2. Diferencias entre un dashboard, un informe y un cuadro de mando.
+    - 1.3. Tipos de dashboards: operacionales (monitorización en tiempo real, segundos/minutos), tácticos (análisis semanal/mensual, mandos intermedios), estratégicos (visión a largo plazo, alta dirección, trimestral/anual).
+    - 1.4. Principios de diseño de dashboards según Edward Tufte y Stephen Few: maximizar la proporción datos-tinta (data-ink ratio), eliminar el chartjunk (decoración innecesaria), presentar la información de un vistazo, jerarquía visual clara, sin ruido ni distracciones.
+    - 1.5. Anatomía de un dashboard típico: fila superior de KPI cards, zona central con gráficos principales, panel lateral o inferior con tabla de datos, filtros temporales y de segmentación en la parte superior.
 
 2. **La librería Chart.js en profundidad**
-   - 2.1. Instalación en proyectos Angular standalone: `npm install chart.js`.
-   - 2.2. Conceptos fundamentales: `Chart` (instancia del gráfico), `type` (tipo de gráfico), `data` (labels + datasets), `options` (configuración de aspecto y comportamiento), `plugins` (extensiones).
-   - 2.3. Tipos de gráficos disponibles en Chart.js v4 y criterios de selección:
+    - 2.1. Instalación en proyectos Angular standalone: `npm install chart.js`.
+    - 2.2. Conceptos fundamentales: `Chart` (instancia del gráfico), `type` (tipo de gráfico), `data` (labels + datasets), `options` (configuración de aspecto y comportamiento), `plugins` (extensiones).
+    - 2.3. Tipos de gráficos disponibles en Chart.js v4 y criterios de selección:
      - **Barras (bar)**: comparar categorías discretas. Subtipos: vertical, horizontal (`indexAxis: 'y'`), apiladas (stacked), agrupadas.
      - **Líneas (line)**: evolución temporal, tendencias, series temporales. Subtipos: línea simple, línea con área (fill), múltiples series, stepped.
      - **Circular (doughnut/pie)**: composición, proporciones, partes de un todo. Doughnut (anillo, recomendado sobre pie por mejor legibilidad) vs pie (círculo completo).
@@ -67,43 +67,43 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
      - **Dispersión (scatter)**: correlación entre dos variables numéricas.
      - **Área (area)**: evolución temporal con énfasis en el volumen acumulado.
      - **Velas (candlestick)**: series financieras (precio de apertura, cierre, máximo, mínimo).
-   - 2.4. Configuración detallada de un gráfico Chart.js:
+    - 2.4. Configuración detallada de un gráfico Chart.js:
      - `type`: string con el tipo de gráfico.
      - `data`: objeto con `labels` (array de etiquetas para el eje X) y `datasets` (array de objetos, cada uno representando una serie de datos).
      - `datasets`: cada dataset incluye `label` (nombre de la serie, aparece en la leyenda), `data` (array de valores numéricos), `backgroundColor` (color de relleno), `borderColor` (color del borde), `borderWidth`, `tension` (suavizado de curvas, 0 = líneas rectas, 0.4 = curvas suaves), `fill` (relleno bajo la línea), `pointRadius`, `pointHoverRadius`.
      - `options`: objeto masivo de configuración con subsecciones para `responsive` (booleano, ajuste automático al contenedor), `maintainAspectRatio` (mantener proporción), `scales` (configuración de ejes X e Y), `plugins` (leyenda, tooltip, título, zoom, anotaciones), `animation` (duración y tipo de animación), `interaction` (modo de interacción: nearest, index, dataset, point).
-   - 2.5. Configuración de escalas (ejes):
+    - 2.5. Configuración de escalas (ejes):
      - Eje Y (`y`): `beginAtZero` (empezar desde cero), `min`/`max` (límites), `ticks` (callback para formatear etiquetas, stepSize), `grid` (color y estilo de las líneas de la cuadrícula), `title` (texto y estilo del título del eje).
      - Eje X (`x`): similar al eje Y. Para datos temporales, `type: 'time'` requiere el adaptador `chartjs-adapter-date-fns` o `chartjs-adapter-luxon`.
-   - 2.6. Plugins de Chart.js:
+    - 2.6. Plugins de Chart.js:
      - **Legend** (leyenda): `display`, `position` (top, bottom, left, right, chartArea), `labels` (usePointStyle, padding, font, color).
      - **Tooltip**: información emergente al pasar el cursor. `enabled`, `mode`, `intersect`, `callbacks` (label, title, afterBody para personalizar el contenido del tooltip).
      - **Title**: título del gráfico. `display`, `text`, `position`, `font`, `color`.
      - **Zoom** (plugin externo `chartjs-plugin-zoom`): permite hacer zoom y desplazamiento (pan) en gráficos con muchos datos.
      - **Annotation** (plugin externo `chartjs-plugin-annotation`): añadir líneas de referencia, áreas sombreadas, anotaciones de texto.
      - **Datalabels** (plugin externo `chartjs-plugin-datalabels`): mostrar los valores numéricos directamente sobre los elementos del gráfico.
-   - 2.7. Registro de elementos de Chart.js (Tree shaking): para optimizar el bundle, Chart.js permite registrar solo los elementos necesarios (controllers, elements, scales, plugins) en lugar de importar toda la librería.
+    - 2.7. Registro de elementos de Chart.js (Tree shaking): para optimizar el bundle, Chart.js permite registrar solo los elementos necesarios (controllers, elements, scales, plugins) en lugar de importar toda la librería.
 
 3. **Chart.js en Angular: integración y ciclo de vida**
-   - 3.1. Acceso al elemento canvas mediante `@ViewChild('chartCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>`.
-   - 3.2. Creación de la instancia: `this.chart = new Chart(this.canvasRef.nativeElement, config)`.
-   - 3.3. Inicialización en `ngAfterViewInit()`: en este punto del ciclo de vida, el canvas ya está disponible en el DOM. Es el momento correcto para crear la instancia de Chart.
-   - 3.4. Destrucción en `ngOnDestroy()`: `this.chart?.destroy()` para evitar fugas de memoria. Chart.js mantiene referencias internas a temporizadores y event listeners que deben limpiarse.
-   - 3.5. Actualización reactiva: cuando los datos cambian (por Signals o Inputs), actualizar `this.chart.data` y llamar a `this.chart.update()`. Se puede pasar un modo de transición: `'none'` (sin animación, instantáneo), `'default'` (con animación).
-   - 3.6. Componente `ChartWidget` reutilizable: encapsula la lógica de Chart.js en un componente standalone que recibe la configuración como `@Input()`, gestiona el ciclo de vida y expone métodos para actualizar datos y exportar a imagen.
-   - 3.7. Integración con Signals: usar `computed()` para transformar los datos de la aplicación al formato `{ labels, datasets }` que espera Chart.js. Usar `effect()` para reaccionar a cambios en los datos y llamar a `chart.update()`.
+    - 3.1. Acceso al elemento canvas mediante `@ViewChild('chartCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>`.
+    - 3.2. Creación de la instancia: `this.chart = new Chart(this.canvasRef.nativeElement, config)`.
+    - 3.3. Inicialización en `ngAfterViewInit()`: en este punto del ciclo de vida, el canvas ya está disponible en el DOM. Es el momento correcto para crear la instancia de Chart.
+    - 3.4. Destrucción en `ngOnDestroy()`: `this.chart?.destroy()` para evitar fugas de memoria. Chart.js mantiene referencias internas a temporizadores y event listeners que deben limpiarse.
+    - 3.5. Actualización reactiva: cuando los datos cambian (por Signals o Inputs), actualizar `this.chart.data` y llamar a `this.chart.update()`. Se puede pasar un modo de transición: `'none'` (sin animación, instantáneo), `'default'` (con animación).
+    - 3.6. Componente `ChartWidget` reutilizable: encapsula la lógica de Chart.js en un componente standalone que recibe la configuración como `@Input()`, gestiona el ciclo de vida y expone métodos para actualizar datos y exportar a imagen.
+    - 3.7. Integración con Signals: usar `computed()` para transformar los datos de la aplicación al formato `{ labels, datasets }` que espera Chart.js. Usar `effect()` para reaccionar a cambios en los datos y llamar a `chart.update()`.
 
 4. **ApexCharts: la alternativa moderna**
-   - 4.1. Instalación: `npm install apexcharts ng-apexcharts`.
-   - 4.2. Ventajas sobre Chart.js: más tipos de gráficos (radialBar, heatmap, treemap, candlestick, boxPlot, rangeBar), animaciones más fluidas, mejor estética por defecto (no requiere tanta personalización para verse profesional), tooltips más ricos, modo oscuro integrado (configuración `theme: { mode: 'dark' }`), mayor interactividad (zoom, selección, drill-down).
-   - 4.3. Desventajas: bundle más pesado (~500 KB vs ~250 KB de Chart.js), curva de aprendizaje ligeramente mayor, documentación extensa pero a veces confusa, la versión comunitaria gratuita tiene limitaciones (la versión de pago añade exportación nativa a PDF/CSV/PNG/SVG).
-   - 4.4. Componente `apx-chart` en Angular: `<apx-chart [series]="series" [chart]="chartOptions" [xaxis]="xaxis"></apx-chart>`.
-   - 4.5. Tipos de gráficos exclusivos de ApexCharts:
+    - 4.1. Instalación: `npm install apexcharts ng-apexcharts`.
+    - 4.2. Ventajas sobre Chart.js: más tipos de gráficos (radialBar, heatmap, treemap, candlestick, boxPlot, rangeBar), animaciones más fluidas, mejor estética por defecto (no requiere tanta personalización para verse profesional), tooltips más ricos, modo oscuro integrado (configuración `theme: { mode: 'dark' }`), mayor interactividad (zoom, selección, drill-down).
+    - 4.3. Desventajas: bundle más pesado (~500 KB vs ~250 KB de Chart.js), curva de aprendizaje ligeramente mayor, documentación extensa pero a veces confusa, la versión comunitaria gratuita tiene limitaciones (la versión de pago añade exportación nativa a PDF/CSV/PNG/SVG).
+    - 4.4. Componente `apx-chart` en Angular: `<apx-chart [series]="series" [chart]="chartOptions" [xaxis]="xaxis"></apx-chart>`.
+    - 4.5. Tipos de gráficos exclusivos de ApexCharts:
      - **RadialBar**: medidores circulares, ideales para KPIs (porcentaje de objetivo alcanzado, nivel de ocupación, tasa de conversión). Permiten un diseño muy visual tipo velocímetro.
      - **Heatmap**: matriz de colores donde la intensidad del color representa la magnitud. Ideal para visualizar patrones temporales (actividad por hora del día y día de la semana).
      - **Treemap**: rectángulos anidados cuyo tamaño representa una magnitud. Ideal para visualizar jerarquías y composición (ventas por categoría > subcategoría > producto).
      - **Candlestick**: gráfico de velas para series financieras con OHLC (Open, High, Low, Close).
-   - 4.6. Configuración de ApexCharts en Angular:
+    - 4.6. Configuración de ApexCharts en Angular:
      ```typescript
      import { ChartComponent, ApexChartComponent } from 'ng-apexcharts';
      // En el template:
@@ -111,27 +111,27 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
      ```
 
 5. **Diseño de dashboards en Angular con Tailwind CSS**
-   - 5.1. Layouts con CSS Grid y Tailwind:
+    - 5.1. Layouts con CSS Grid y Tailwind:
      - `grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4` para la fila de KPI cards (1 columna en móvil, 2 en tablet, 4 en desktop).
      - `grid grid-cols-1 lg:grid-cols-3 gap-6` para la zona central (gráfico principal ocupa 2 columnas, gráfico secundario 1 columna).
      - `col-span-2` para que un gráfico grande ocupe dos columnas.
-   - 5.2. Componentes widget para dashboards:
+    - 5.2. Componentes widget para dashboards:
      - **StatCard**: tarjeta de indicador KPI. Muestra icono (svg o emoji), etiqueta, valor numérico grande, variación porcentual (flecha arriba/abajo en verde/rojo), comparación con período anterior. Estados: carga (skeleton), error, datos.
      - **ChartWidget**: gráfico genérico reutilizable. Recibe `@Input() config`, `@Input() data`, `@Input() type`. Gestiona la instancia de Chart.js/ApexCharts, actualización reactiva, y exportación a imagen.
      - **FilterBar**: barra de filtros con selector de rango de fechas (input date o datepicker), dropdown de categorías, botón de aplicar/limpiar filtros.
-   - 5.3. Modo oscuro/claro en dashboards:
+    - 5.3. Modo oscuro/claro en dashboards:
      - ApexCharts soporta `theme: { mode: 'dark' }` nativamente.
      - Chart.js requiere cambiar manualmente los colores del grid, labels, tooltips cuando se cambia de tema. Estrategia: escuchar cambios de tema (Signal `isDarkMode`) y regenerar la configuración del gráfico o usar un `effect()` que actualice `chart.options.scales` y llame a `chart.update()`.
-   - 5.4. Estados del dashboard: vacío (sin datos, mostrar ilustración y mensaje orientativo), carga (skeleton loaders para gráficos y KPI cards), error (mensaje de error y botón de reintentar), datos (visualización normal), actualización (indicador sutil de última actualización y botón de refrescar).
+    - 5.4. Estados del dashboard: vacío (sin datos, mostrar ilustración y mensaje orientativo), carga (skeleton loaders para gráficos y KPI cards), error (mensaje de error y botón de reintentar), datos (visualización normal), actualización (indicador sutil de última actualización y botón de refrescar).
 
 6. **Exportación de datos y gráficos desde el dashboard**
-   - 6.1. Botón "Exportar CSV": convierte los datos subyacentes de cualquier tabla o gráfico a CSV y descarga el archivo (usando el `CsvExportService` desarrollado en la unidad anterior).
-   - 6.2. Botón "Exportar Excel": genera un archivo Excel con los datos del dashboard.
-   - 6.3. Botón "Exportar PDF": genera un informe PDF de 1-2 páginas que incluye los KPI cards como tabla resumen, los gráficos como imágenes (capturados con `chart.toBase64Image()`) y las tablas de datos. Utiliza el `PdfService` de la unidad anterior.
-   - 6.4. Captura de gráficos como imagen: `const base64Image = this.chart.toBase64Image('image/png', 1.0);` — donde el segundo parámetro es la calidad (0.0 a 1.0). La imagen resultante puede incrustarse directamente en un PDF con PDFMake como `{ image: base64Image, width: 450 }`.
+    - 6.1. Botón "Exportar CSV": convierte los datos subyacentes de cualquier tabla o gráfico a CSV y descarga el archivo (usando el `CsvExportService` desarrollado en la unidad anterior).
+    - 6.2. Botón "Exportar Excel": genera un archivo Excel con los datos del dashboard.
+    - 6.3. Botón "Exportar PDF": genera un informe PDF de 1-2 páginas que incluye los KPI cards como tabla resumen, los gráficos como imágenes (capturados con `chart.toBase64Image()`) y las tablas de datos. Utiliza el `PdfService` de la unidad anterior.
+    - 6.4. Captura de gráficos como imagen: `const base64Image = this.chart.toBase64Image('image/png', 1.0);` — donde el segundo parámetro es la calidad (0.0 a 1.0). La imagen resultante puede incrustarse directamente en un PDF con PDFMake como `{ image: base64Image, width: 450 }`.
 
 7. **Proyecto integrador de la unidad: Dashboard empresarial completo**
-   - 7.1. Especificación funcional:
+    - 7.1. Especificación funcional:
      - 4 tarjetas KPI (ingresos totales, número de pedidos, ticket medio, tasa de conversión) con indicador de tendencia (+12%, -3%, etc.) respecto al período anterior.
      - Gráfico de líneas: evolución de ingresos mensuales en los últimos 12 meses (1 serie).
      - Gráfico de barras: top 5 productos por ingresos (horizontal para mejor legibilidad de nombres largos).
@@ -139,7 +139,7 @@ Como RA secundario, se vincula al **RA 4** («Diseña interfaces gráficas ident
      - Tabla de últimos 10 pedidos con columnas: ID, cliente, fecha, importe, estado (badge de color).
      - Barra de filtros: selector de rango de fechas (últimos 7 días, 30 días, 90 días, año actual, año anterior, personalizado).
      - Botones de exportación: CSV, Excel, PDF (informe resumen).
-   - 7.2. Especificación técnica:
+    - 7.2. Especificación técnica:
      - Componentes standalone Angular.
      - `DashboardLayoutComponent` como componente padre que gestiona los filtros y distribuye los datos.
      - `StatCardComponent` reutilizable con `@Input() label`, `@Input() value`, `@Input() trend`, `@Input() icon`.
@@ -164,18 +164,21 @@ La diferencia fundamental entre un dashboard y un informe tradicional es la **in
 La clasificación más aceptada distingue tres tipos de dashboards según su propósito temporal y su audiencia:
 
 **Dashboards operacionales**:
+
 - **Propósito**: Monitorizar procesos de negocio en tiempo real o casi real (segundos, minutos, horas).
 - **Audiencia**: Personal de primera línea, operadores, supervisores de turno.
 - **Ejemplos**: Panel de control de un centro de atención al cliente (llamadas en cola, tiempo medio de espera, agentes disponibles, satisfacción en tiempo real); monitorización de servidores (CPU, memoria, tráfico de red, errores 500); panel de seguimiento de pedidos de un e-commerce (pedidos por minuto, tasa de conversión, carritos abandonados en la última hora).
 - **Características**: Datos muy frecuentes, enfocados en la excepción (alertas cuando algo se sale de los rangos normales), diseño simple y directo, a menudo en pantallas grandes (monitores de pared) visibles por todo el equipo.
 
 **Dashboards tácticos**:
+
 - **Propósito**: Analizar tendencias a medio plazo (semanas, meses) y apoyar la planificación táctica.
 - **Audiencia**: Mandos intermedios, jefes de departamento, analistas de negocio.
 - **Ejemplos**: Panel de ventas mensual por región, producto y vendedor; panel de marketing con ROAS (Return On Ad Spend), CAC (Customer Acquisition Cost), y rendimiento de campañas; panel de RRHH con rotación, absentismo y satisfacción de empleados.
 - **Características**: Datos actualizados diaria o semanalmente, mayor profundidad analítica, capacidad de filtrar y segmentar (drill-down: pasar de vista agregada a detalle), gráficos comparativos (mes actual vs mes anterior, año actual vs año anterior).
 
 **Dashboards estratégicos**:
+
 - **Propósito**: Seguimiento de objetivos estratégicos a largo plazo (trimestres, años).
 - **Audiencia**: Alta dirección (CEO, CFO, COO), consejo de administración, inversores.
 - **Ejemplos**: Cuadro de Mando Integral (Balanced Scorecard) con 4 perspectivas: financiera, clientes, procesos internos, aprendizaje y crecimiento; panel de cumplimiento de objetivos anuales (OKRs); panel de salud financiera de la empresa (EBITDA, cash flow, deuda, burn rate).
@@ -474,6 +477,7 @@ La elección de colores es uno de los aspectos más críticos y a menudo más de
     **Para gráficos de una sola serie** (líneas, barras): usar el color primario de la marca o un azul corporativo. No es necesario un arcoíris de colores cuando solo hay una serie.
 
     **Para gráficos de múltiples series** (varias líneas, barras agrupadas): usar una paleta de colores cualitativos (para categorías) o secuenciales (para valores ordinales). Recursos recomendados:
+    
     - **Coolors.co**: generador de paletas de colores.
     - **ColorBrewer2.org**: paletas optimizadas para visualización de datos, con opciones para daltonismo.
     - **Tailwind CSS color palette**: consistente con el design system de la aplicación.

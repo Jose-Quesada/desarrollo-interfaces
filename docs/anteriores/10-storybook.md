@@ -3,6 +3,7 @@
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
+
 - Instalar y configurar Storybook en un proyecto Angular con Standalone Components, TypeScript y Tailwind CSS 4.
 - Escribir stories completas utilizando el formato CSF3 (Component Story Format 3) para documentar todas las variantes y estados de un componente.
 - Utilizar los addons esenciales de Storybook: Controls, Actions, Viewport, Backgrounds, Accessibility, Interactions y Design (Figma).
@@ -17,6 +18,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 RA3 del currículo de Desarrollo de Aplicaciones Multiplataforma (DAM): "Desarrolla componentes software para la interfaz de usuario, aplicando las técnicas de programación orientada a eventos y utilizando librerías de componentes."
 
 Criterios de evaluación relacionados:
+
 - Se ha documentado la interfaz de uso de los componentes desarrollados.
 - Se han generado informes técnicos sobre el desarrollo de componentes de interfaz.
 - Se han utilizado herramientas de testing visual para verificar la correcta renderización de los componentes.
@@ -25,6 +27,7 @@ Criterios de evaluación relacionados:
 ## Conocimientos previos
 
 El alumnado debe poseer los siguientes conocimientos antes de abordar esta unidad:
+
 - Angular: Standalone Components, Signals, @Input/@Output, proyección de contenido, ciclo de vida (Unidades 6, 7 y 8).
 - TypeScript: tipos avanzados, genéricos, const assertions, satisfies operator.
 - Tailwind CSS 4: clases utilitarias, personalización con @theme, variantes (Unidad 9).
@@ -72,6 +75,7 @@ npx storybook@latest init
 ```
 
 Este comando realiza las siguientes acciones:
+
 1. Detecta automáticamente que el proyecto es Angular (por la presencia de `angular.json`).
 2. Instala las dependencias necesarias: `@storybook/angular`, `@storybook/addon-essentials`, `@storybook/addon-interactions` y sus peer dependencies.
 3. Crea la carpeta `.storybook/` en la raíz del proyecto con dos archivos de configuración.
@@ -170,6 +174,7 @@ La línea `import '!style-loader!css-loader!postcss-loader!../src/styles.css'` e
 #### Integración con Tailwind 4
 
 Para que Storybook procese correctamente Tailwind 4, es necesario asegurarse de que:
+
 1. El archivo `styles.css` importado en `preview.ts` contiene `@import "tailwindcss"`.
 2. El archivo de configuración de Storybook usa PostCSS (que ya viene configurado por defecto en proyectos Angular con Tailwind).
 3. Si se usan tokens personalizados con `@theme`, el archivo que los define debe estar importado en `styles.css` para que Storybook los tenga disponibles.
@@ -811,6 +816,7 @@ La integración entre Storybook y Figma cierra la brecha entre diseño y desarro
 #### Plugin Storybook Connect para Figma
 
 Este plugin de Figma permite:
+
 1. Vincular componentes de Figma con stories de Storybook.
 2. Ver en Figma si un componente de diseño tiene una implementación correspondiente en Storybook.
 3. Navegar directamente desde Figma a la story de Storybook del componente.
@@ -938,6 +944,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Objetivo:** Realizar la instalación y configuración completa de Storybook en el proyecto Angular del curso.
 
 **Desarrollo:**
+
 1. El alumnado ejecuta `npx storybook@latest init` en el proyecto Angular donde tiene los componentes de unidades anteriores.
 2. Verifica que Storybook arranca correctamente (`npm run storybook`) y muestra las stories de ejemplo.
 3. Configura `preview.ts` para importar Tailwind (estilos globales) y añadir viewports personalizados.
@@ -954,6 +961,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Objetivo:** Escribir stories para los 14 componentes del catálogo de la Unidad 7.
 
 **Desarrollo:**
+
 1. El alumnado crea un archivo `.stories.ts` para cada componente del catálogo.
 2. Para cada componente, escribe al menos: una story por variante (3-5), una story por cada estado especial (disabled, loading, empty y error), y una story con caso de uso real.
 3. Configura los argTypes con controles apropiados y descripciones JSDoc.
@@ -969,6 +977,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Objetivo:** Crear documentación narrativa en MDX para los componentes Button, DataTable y Modal.
 
 **Desarrollo:**
+
 1. Crear archivos `.stories.mdx` (o `.mdx`) para los 3 componentes.
 2. Incluir: introducción, cuándo usar/no usar, variantes visuales (con Canvas embebidos), tabla de API (Controls), consideraciones de accesibilidad, ejemplos de código y enlaces a componentes relacionados.
 3. Añadir incrustación de Figma (usar URLs de ejemplo si no hay diseños reales).
@@ -987,6 +996,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Escribir un archivo de stories para el componente FormField (de la Unidad 7) que cubra todos los estados y variantes.
 
 **Requisitos:**
+
 - Stories para cada tipo de input: text, email, password, number, search.
 - Stories para cada estado: default, focus, filled, error, disabled.
 - Stories con y sin: label, placeholder, hint, icono, indicador de requerido.
@@ -1003,6 +1013,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Crear la página de introducción y las páginas de documentación para las categorías principales del Design System usando MDX.
 
 **Requisitos:**
+
 - Página de introducción (`Introduction.mdx`): bienvenida, principios, cómo usar, tokens.
 - Página de átomos (`Atoms.mdx`): resumen de todos los componentes atómicos con ejemplos.
 - Página de moléculas (`Molecules.mdx`): resumen de todos los componentes moleculares con ejemplos.
@@ -1018,6 +1029,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Escribir play functions exhaustivas para el componente DataTable que prueben todas las interacciones del usuario.
 
 **Requisitos:**
+
 - Play function para ordenación: hacer click en la cabecera de una columna, verificar que cambia la dirección del icono de ordenación.
 - Play function para paginación: hacer click en "Siguiente", verificar que cambia la página mostrada.
 - Play function para selección: hacer click en un checkbox de fila, verificar que la fila se selecciona.
@@ -1035,6 +1047,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Configurar un pipeline completo de integración continua que ejecute los tests de Storybook y Chromatic en cada Pull Request.
 
 **Requisitos:**
+
 - Workflow que ejecute `npm run build-storybook` para verificar que el build no tiene errores.
 - Workflow que ejecute Chromatic para detectar cambios visuales.
 - Workflow que ejecute el test runner de Storybook para verificar play functions y a11y.
@@ -1051,6 +1064,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Construir una story compuesta (Composite Story) que muestre todos los componentes del Design System juntos en una sola página, a modo de galería o "showcase".
 
 **Requisitos:**
+
 - Crear una página "Showcase" que renderice una grid con todos los componentes.
 - Incluir: una barra de navegación (Header), tarjetas de estadísticas (StatCard), una tabla de datos (DataTable), un formulario (con varios FormField + Button), modales, toasts, badges, avatares.
 - La galería debe ser interactiva: los botones deben funcionar, los modales deben abrirse, las notificaciones deben aparecer.
@@ -1069,6 +1083,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Desarrollar un addon de Storybook personalizado que añada una pestaña con información específica del Design System (por ejemplo, un panel que muestre los Design Tokens aplicados al componente seleccionado).
 
 **Requisitos:**
+
 - El addon debe aparecer como una pestaña adicional en el panel de addons.
 - Debe mostrar los tokens de diseño (colores, tipografía, espaciado) que el componente está utilizando.
 - Debe estar empaquetado como un paquete npm instalable.
@@ -1083,6 +1098,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Integrar Storybook con Zeroheight (plataforma de documentación de Design Systems) para crear un portal unificado que combine documentación de diseño (Figma) y desarrollo (Storybook).
 
 **Requisitos:**
+
 - Crear una cuenta en Zeroheight (plan gratuito).
 - Integrar las stories de Storybook mediante embeds.
 - Sincronizar los design tokens y componentes entre Figma, Storybook y Zeroheight.
@@ -1098,6 +1114,7 @@ Resultado: una documentación completa del Button con 12+ stories que cubren tod
 **Descripción:** Configurar Chromatic u otra herramienta de visual testing para que capture screenshots de cada story en diferentes temas (claro, oscuro) y diferentes navegadores (Chrome, Firefox, Safari).
 
 **Requisitos:**
+
 - Configurar Chromatic para capturar screenshots en los temas claro y oscuro (usando el background addon o el ThemeService).
 - Configurar Chromatic para ejecutarse en al menos dos navegadores.
 - Crear stories específicas para tema oscuro que activen la clase `.dark` en el contenedor.

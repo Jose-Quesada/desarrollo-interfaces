@@ -41,6 +41,7 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 ## Contenidos
 
 **Bloque 1: Tipos de documentación y destinatarios**
+
 - Ayuda general vs. ayuda sensible al contexto (context-sensitive help).
 - Manual de usuario, guía de referencia rápida, guías rápidas (*quick start*).
 - Manuales de instalación, configuración y administración.
@@ -48,17 +49,20 @@ Criterios de evaluación oficiales que se trabajan en esta unidad:
 - Matriz documento → destinatario (usuario final, administrador, desarrollador).
 
 **Bloque 2: Sistemas y herramientas de generación de ayudas**
+
 - Generadores de documentación estática: Docusaurus, VitePress, MkDocs, Sphinx.
 - Documentación in-app: tooltips, paneles de ayuda contextuales, `title`/`aria-describedby`, atajos de teclado documentados.
 - Formatos de exportación: HTML, PDF (con las herramientas vistas en la unidad de informes), Markdown.
 - Integración en el repositorio y en el pipeline (CI que publica la documentación).
 
 **Bloque 3: Documentación de la información persistente**
+
 - Diagramas del modelo de datos (entidad-relación) y esquemas.
 - Contratos de API: OpenAPI/Swagger como fuente única de verdad.
 - Diccionario de datos: campos, tipos, restricciones y valores permitidos.
 
 **Bloque 4: Documentación de código y componentes**
+
 - Comentar el «por qué», no el «qué». Convenciones (TSDoc/JSDoc).
 - Storybook como documentación viva de componentes (Unidad 14).
 - Changelogs, `CONTRIBUTING.md` y política de versiones.

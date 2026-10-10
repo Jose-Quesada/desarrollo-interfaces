@@ -46,64 +46,64 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
 **Bloque A - Flexbox con Tailwind (nivel profesional, orientado a interfaces de aplicación)**
 
 - Repaso rápido de conceptos clave:
-  - Main axis (eje principal) y cross axis (eje perpendicular). Determinados por `flex-direction`.
-  - Contenedor flex (elemento padre con `display: flex`) y elementos flex (hijos directos).
-  - Propiedades del contenedor: `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap` (row-gap y column-gap).
-  - Propiedades de los elementos flex: `flex-grow`, `flex-shrink`, `flex-basis`, `flex` (shorthand), `align-self`, `order`.
+    - Main axis (eje principal) y cross axis (eje perpendicular). Determinados por `flex-direction`.
+    - Contenedor flex (elemento padre con `display: flex`) y elementos flex (hijos directos).
+    - Propiedades del contenedor: `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, `align-content`, `gap` (row-gap y column-gap).
+    - Propiedades de los elementos flex: `flex-grow`, `flex-shrink`, `flex-basis`, `flex` (shorthand), `align-self`, `order`.
 
 - Traducción completa a clases Tailwind:
-  - `flex`, `inline-flex` → activan el contexto flex.
-  - `flex-row`, `flex-row-reverse`, `flex-col`, `flex-col-reverse` → dirección.
-  - `flex-wrap`, `flex-nowrap`, `flex-wrap-reverse` → ajuste de línea.
-  - `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly` → alineación en main axis.
-  - `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch` → alineación en cross axis.
-  - `content-start`, `content-end`, `content-center`, `content-between`, `content-around`, `content-evenly` → alineación de filas cuando hay wrap.
-  - `gap-{size}`, `gap-x-{size}`, `gap-y-{size}` → espaciado entre elementos.
-  - `flex-1` (`flex: 1 1 0%`), `flex-auto` (`flex: 1 1 auto`), `flex-initial` (`flex: 0 1 auto`), `flex-none` (`flex: none`).
-  - `grow`, `grow-0`, `shrink`, `shrink-0` → control fino de crecimiento/decrecimiento.
-  - `self-auto`, `self-start`, `self-end`, `self-center`, `self-stretch`, `self-baseline` → alineación individual.
+    - `flex`, `inline-flex` → activan el contexto flex.
+    - `flex-row`, `flex-row-reverse`, `flex-col`, `flex-col-reverse` → dirección.
+    - `flex-wrap`, `flex-nowrap`, `flex-wrap-reverse` → ajuste de línea.
+    - `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly` → alineación en main axis.
+    - `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch` → alineación en cross axis.
+    - `content-start`, `content-end`, `content-center`, `content-between`, `content-around`, `content-evenly` → alineación de filas cuando hay wrap.
+    - `gap-{size}`, `gap-x-{size}`, `gap-y-{size}` → espaciado entre elementos.
+    - `flex-1` (`flex: 1 1 0%`), `flex-auto` (`flex: 1 1 auto`), `flex-initial` (`flex: 0 1 auto`), `flex-none` (`flex: none`).
+    - `grow`, `grow-0`, `shrink`, `shrink-0` → control fino de crecimiento/decrecimiento.
+    - `self-auto`, `self-start`, `self-end`, `self-center`, `self-stretch`, `self-baseline` → alineación individual.
 
 - Equivalencias con layouts de escritorio clásicos:
-  - **VBox (JavaFX/Swing):** Contenedor que apila hijos verticalmente → `flex flex-col` (y normalmente `gap-N`).
-  - **HBox (JavaFX/Swing):** Contenedor que alinea hijos horizontalmente → `flex flex-row` (comportamiento por defecto de flex) + `gap-N`.
-  - **StackPane (JavaFX):** Contenedor que superpone hijos uno sobre otro → `relative` en el padre, `absolute inset-0` en los hijos.
-  - **BorderPane (JavaFX):** Contenedor con 5 regiones (top, bottom, left, right, center) → `flex flex-col` en el padre raíz, con regiones top/bottom como hijos en columna, y región central como `flex flex-row` con left/right/center.
-  - **GridPane (JavaFX):** Contenedor con filas y columnas → `grid grid-cols-{N}` y potencialmente `grid-rows-{M}`.
-  - **AnchorPane (JavaFX):** Contenedor donde los hijos se anclan a los bordes del contenedor → `relative` en el padre, `absolute` con posiciones `top-0`, `left-0`, etc., en los hijos.
+    - **VBox (JavaFX/Swing):** Contenedor que apila hijos verticalmente → `flex flex-col` (y normalmente `gap-N`).
+    - **HBox (JavaFX/Swing):** Contenedor que alinea hijos horizontalmente → `flex flex-row` (comportamiento por defecto de flex) + `gap-N`.
+    - **StackPane (JavaFX):** Contenedor que superpone hijos uno sobre otro → `relative` en el padre, `absolute inset-0` en los hijos.
+    - **BorderPane (JavaFX):** Contenedor con 5 regiones (top, bottom, left, right, center) → `flex flex-col` en el padre raíz, con regiones top/bottom como hijos en columna, y región central como `flex flex-row` con left/right/center.
+    - **GridPane (JavaFX):** Contenedor con filas y columnas → `grid grid-cols-{N}` y potencialmente `grid-rows-{M}`.
+    - **AnchorPane (JavaFX):** Contenedor donde los hijos se anclan a los bordes del contenedor → `relative` en el padre, `absolute` con posiciones `top-0`, `left-0`, etc., en los hijos.
 
 - Construcción de layouts profesionales con Flexbox:
-  - **Sidebar layout (barra lateral + contenido):** Contenedor `flex h-screen`. Sidebar: `w-64 flex-shrink-0`. Contenido: `flex-1 overflow-auto`.
-  - **Toolbar horizontal:** `flex items-center gap-3 px-4 py-2 border-b`.
-  - **List layout (elementos apilados):** `flex flex-col divide-y` (para listas con separadores) o `flex flex-col gap-4`.
-  - **Card grid flexible:** Aunque Grid es más natural para grids de tarjetas, Flexbox con `flex-wrap` + `flex-1` + `basis` también funciona. Comparativa Flex vs Grid para este caso.
-  - **Status bar inferior:** `flex items-center justify-between px-4 py-1 bg-gray-900 text-white text-xs`.
+    - **Sidebar layout (barra lateral + contenido):** Contenedor `flex h-screen`. Sidebar: `w-64 flex-shrink-0`. Contenido: `flex-1 overflow-auto`.
+    - **Toolbar horizontal:** `flex items-center gap-3 px-4 py-2 border-b`.
+    - **List layout (elementos apilados):** `flex flex-col divide-y` (para listas con separadores) o `flex flex-col gap-4`.
+    - **Card grid flexible:** Aunque Grid es más natural para grids de tarjetas, Flexbox con `flex-wrap` + `flex-1` + `basis` también funciona. Comparativa Flex vs Grid para este caso.
+    - **Status bar inferior:** `flex items-center justify-between px-4 py-1 bg-gray-900 text-white text-xs`.
 
 **Bloque B - CSS Grid con Tailwind (orientado a dashboards y aplicaciones)**
 
 - Repaso de conceptos:
-  - Contenedor grid y grid items (hijos directos).
-  - Definición de columnas: `grid-template-columns` (tamaños fijos, fracciones `fr`, `repeat()`, `minmax()`).
-  - Definición de filas: `grid-template-rows`.
-  - Posicionamiento de items: `grid-column-start/end`, `grid-row-start/end`, `grid-area`.
-  - Alineación: `justify-items`, `align-items`, `justify-content`, `align-content` (contenedor), `justify-self`, `align-self` (items).
-  - Gap: `gap`, `column-gap`, `row-gap`.
+    - Contenedor grid y grid items (hijos directos).
+    - Definición de columnas: `grid-template-columns` (tamaños fijos, fracciones `fr`, `repeat()`, `minmax()`).
+    - Definición de filas: `grid-template-rows`.
+    - Posicionamiento de items: `grid-column-start/end`, `grid-row-start/end`, `grid-area`.
+    - Alineación: `justify-items`, `align-items`, `justify-content`, `align-content` (contenedor), `justify-self`, `align-self` (items).
+    - Gap: `gap`, `column-gap`, `row-gap`.
 
 - Traducción completa a clases Tailwind:
-  - `grid`, `inline-grid` → activan el contexto grid.
-  - `grid-cols-{n}` (1 a 12), `grid-cols-none`, `grid-cols-subgrid` → número de columnas explícitas.
-  - `col-span-{n}` (1 a 12), `col-span-full`, `col-start-{n}`, `col-end-{n}` → posicionamiento en columnas.
-  - `grid-rows-{n}` (1 a 6), `grid-rows-none`, `grid-rows-subgrid` → número de filas explícitas.
-  - `row-span-{n}`, `row-start-{n}`, `row-end-{n}` → posicionamiento en filas.
-  - `auto-cols-auto`, `auto-cols-min`, `auto-cols-max`, `auto-cols-fr` → tamaño de columnas implícitas (creadas automáticamente).
-  - `auto-rows-auto`, `auto-rows-min`, `auto-rows-max`, `auto-rows-fr` → tamaño de filas implícitas.
-  - `grid-flow-row`, `grid-flow-col`, `grid-flow-dense`, `grid-flow-row-dense`, `grid-flow-col-dense` → algoritmo de colocación automática.
-  - `justify-items-start/end/center/stretch`, `items-start/end/center/stretch` (atajo) → alineación horizontal de items.
-  - `justify-self-start/end/center/stretch`, `self-start/end/center/stretch` (atajo) → alineación horizontal individual.
-  - `gap-{size}`, `gap-x-{size}`, `gap-y-{size}` → espaciado entre celdas.
+    - `grid`, `inline-grid` → activan el contexto grid.
+    - `grid-cols-{n}` (1 a 12), `grid-cols-none`, `grid-cols-subgrid` → número de columnas explícitas.
+    - `col-span-{n}` (1 a 12), `col-span-full`, `col-start-{n}`, `col-end-{n}` → posicionamiento en columnas.
+    - `grid-rows-{n}` (1 a 6), `grid-rows-none`, `grid-rows-subgrid` → número de filas explícitas.
+    - `row-span-{n}`, `row-start-{n}`, `row-end-{n}` → posicionamiento en filas.
+    - `auto-cols-auto`, `auto-cols-min`, `auto-cols-max`, `auto-cols-fr` → tamaño de columnas implícitas (creadas automáticamente).
+    - `auto-rows-auto`, `auto-rows-min`, `auto-rows-max`, `auto-rows-fr` → tamaño de filas implícitas.
+    - `grid-flow-row`, `grid-flow-col`, `grid-flow-dense`, `grid-flow-row-dense`, `grid-flow-col-dense` → algoritmo de colocación automática.
+    - `justify-items-start/end/center/stretch`, `items-start/end/center/stretch` (atajo) → alineación horizontal de items.
+    - `justify-self-start/end/center/stretch`, `self-start/end/center/stretch` (atajo) → alineación horizontal individual.
+    - `gap-{size}`, `gap-x-{size}`, `gap-y-{size}` → espaciado entre celdas.
 
 - Construcción de layouts complejos con CSS Grid:
 
-  1. **Dashboard con widgets (tipo Google Analytics / panel de control):**
+    1. **Dashboard con widgets (tipo Google Analytics / panel de control):**
      - Grid de 12 columnas con diferentes tamaños de widget.
      - Widgets principales (gráficos grandes): `col-span-8 row-span-2`.
      - Widgets secundarios (estadísticas, KPIs): `col-span-4`.
@@ -111,22 +111,22 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
      - Widget de tabla: `col-span-full`.
      - Responsive: en móvil, todo `col-span-full` (una sola columna).
 
-  2. **Panel administrativo (tipo WordPress / Django Admin):**
+    2. **Panel administrativo (tipo WordPress / Django Admin):**
      - Sidebar izquierdo fijo (250px) + área de contenido.
      - El área de contenido a su vez tiene un grid: toolbar superior a toda anchura, área principal con formularios/tablas, panel de detalles opcional a la derecha.
      - Uso de `grid-cols-[250px_1fr]` (sintaxis de Tailwind con valores arbitrarios) o `grid-cols-[auto_1fr]`.
 
-  3. **Layout de ecommerce (catálogo de productos):**
+    3. **Layout de ecommerce (catálogo de productos):**
      - Grid principal: sidebar de filtros (250px) + área de productos (resto).
      - Área de productos: grid de tarjetas de producto: `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6`.
      - Cabecera con buscador, carrito, cuenta de usuario (flex).
      - Footer con múltiples columnas (grid).
 
-  4. **Aplicación SaaS típica (tipo Notion / Linear / Slack):**
+    4. **Aplicación SaaS típica (tipo Notion / Linear / Slack):**
      - Estructura de 3 columnas: navegación de workspace (izquierda, más estrecha), sidebar de contenido (centro-izquierda), área principal (derecha, más ancha).
      - Layout: `grid grid-cols-[60px_240px_1fr]` o `flex` con una combinación.
 
-  5. **Layout de 3 paneles (maestro-detalle, tipo Outlook / Gmail):**
+    5. **Layout de 3 paneles (maestro-detalle, tipo Outlook / Gmail):**
      - Panel izquierdo: lista de carpetas/etiquetas (flex).
      - Panel central: lista de mensajes (scroll).
      - Panel derecho: detalle del mensaje seleccionado.
@@ -135,26 +135,26 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
 **Bloque C - Posicionamiento**
 
 - Repaso de los valores de `position`:
-  - `static` (por defecto): el elemento se posiciona según el flujo normal del documento. Ignora top/right/bottom/left y z-index.
-  - `relative`: el elemento se posiciona respecto a su posición original en el flujo. Crea un nuevo contexto de posicionamiento para hijos absolute. El espacio original se conserva.
-  - `absolute`: el elemento se posiciona respecto al ancestro posicionado más cercano (con position diferente a static). Sale del flujo (el espacio original NO se conserva).
-  - `fixed`: el elemento se posiciona respecto al viewport. Sale del flujo. Permanece fijo al hacer scroll.
-  - `sticky`: híbrido entre relative y fixed. Se comporta como relative hasta que cruza un umbral de scroll; entonces se vuelve fixed. Útil para cabeceras que se pegan al hacer scroll.
+    - `static` (por defecto): el elemento se posiciona según el flujo normal del documento. Ignora top/right/bottom/left y z-index.
+    - `relative`: el elemento se posiciona respecto a su posición original en el flujo. Crea un nuevo contexto de posicionamiento para hijos absolute. El espacio original se conserva.
+    - `absolute`: el elemento se posiciona respecto al ancestro posicionado más cercano (con position diferente a static). Sale del flujo (el espacio original NO se conserva).
+    - `fixed`: el elemento se posiciona respecto al viewport. Sale del flujo. Permanece fijo al hacer scroll.
+    - `sticky`: híbrido entre relative y fixed. Se comporta como relative hasta que cruza un umbral de scroll; entonces se vuelve fixed. Útil para cabeceras que se pegan al hacer scroll.
 
 - Traducción a clases Tailwind:
-  - `static`, `relative`, `absolute`, `fixed`, `sticky`.
-  - Coordenadas: `top-0`, `top-{n}`, `-top-{n}`, `top-full`, `top-1/2` (50%)... y equivalentes para right, bottom, left.
-  - `inset-0`, `inset-x-0`, `inset-y-0` → atajo para todas las coordenadas (útil para superposiciones a pantalla completa).
-  - z-index: `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto`.
+    - `static`, `relative`, `absolute`, `fixed`, `sticky`.
+    - Coordenadas: `top-0`, `top-{n}`, `-top-{n}`, `top-full`, `top-1/2` (50%)... y equivalentes para right, bottom, left.
+    - `inset-0`, `inset-x-0`, `inset-y-0` → atajo para todas las coordenadas (útil para superposiciones a pantalla completa).
+    - z-index: `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto`.
 
 - Casos de uso prácticos:
-  - **Tooltip:** Contenedor `relative` (padre), tooltip `absolute` posicionado arriba/derecha/abajo/izquierda del padre, con `z-10`.
-  - **Dropdown / Menú desplegable:** Botón `relative`, menú `absolute top-full left-0 mt-1 z-20`.
-  - **Modal / Overlay:** Fondo oscuro semitransparente `fixed inset-0 bg-black/50 z-40`, contenido del modal `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50`.
-  - **Header fija:** `fixed top-0 left-0 right-0 z-30 bg-white border-b`. Añadir `pt-{altura-header}` al contenido para que no quede tapado.
-  - **Sidebar fija:** `fixed top-0 left-0 h-full w-64 z-20`. Añadir `pl-64` al contenido.
-  - **Boton "volver arriba":** `fixed bottom-8 right-8 z-10`.
-  - **Sticky header en tablas:** Cabecera de tabla `sticky top-0 bg-white z-10`.
+    - **Tooltip:** Contenedor `relative` (padre), tooltip `absolute` posicionado arriba/derecha/abajo/izquierda del padre, con `z-10`.
+    - **Dropdown / Menú desplegable:** Botón `relative`, menú `absolute top-full left-0 mt-1 z-20`.
+    - **Modal / Overlay:** Fondo oscuro semitransparente `fixed inset-0 bg-black/50 z-40`, contenido del modal `fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50`.
+    - **Header fija:** `fixed top-0 left-0 right-0 z-30 bg-white border-b`. Añadir `pt-{altura-header}` al contenido para que no quede tapado.
+    - **Sidebar fija:** `fixed top-0 left-0 h-full w-64 z-20`. Añadir `pl-64` al contenido.
+    - **Boton "volver arriba":** `fixed bottom-8 right-8 z-10`.
+    - **Sticky header en tablas:** Cabecera de tabla `sticky top-0 bg-white z-10`.
 
 **Bloque D - Técnicas avanzadas de layout**
 
@@ -198,21 +198,22 @@ Se realizará una evaluación diagnóstica al inicio de la unidad consistente en
   Tailwind 4 permite valores arbitrarios para aplicar estas funciones: `w-[clamp(320px,80vw,1200px)]` o definir tokens personalizados en `@theme`.
 
 - **Técnicas de centrado:**
-  - Centrado horizontal de un elemento bloque: `mx-auto` (funciona para cualquier elemento con width definido).
-  - Centrado con Flexbox (más versátil): `flex items-center justify-center` en el contenedor padre. Los hijos (únicos o múltiples) se centran vertical y horizontalmente.
-  - Centrado con Grid: `grid place-items-center` en el contenedor. El hijo (único o múltiples) se centra en ambas direcciones. Es la sintaxis más concisa para centrar un único elemento.
-  - Centrado absoluto (para overlays y modales): `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`.
+    - Centrado horizontal de un elemento bloque: `mx-auto` (funciona para cualquier elemento con width definido).
+    - Centrado con Flexbox (más versátil): `flex items-center justify-center` en el contenedor padre. Los hijos (únicos o múltiples) se centran vertical y horizontalmente.
+    - Centrado con Grid: `grid place-items-center` en el contenedor. El hijo (único o múltiples) se centra en ambas direcciones. Es la sintaxis más concisa para centrar un único elemento.
+    - Centrado absoluto (para overlays y modales): `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`.
 
 - **Espaciado consistente (sistema de gap y padding):**
   Un sistema de espaciado consistente es la diferencia entre una interfaz que se siente "bien" y una que se siente "rara". Tailwind proporciona una escala de espaciado predefinida (basada en 0.25rem = 4px) que debe usarse de forma consistente:
-  - 1 (0.25rem = 4px): micro-espaciado (entre iconos y texto, dentro de chips).
-  - 2 (0.5rem = 8px): espaciado pequeño (entre elementos de un formulario, dentro de un grupo).
-  - 3 (0.75rem = 12px): espaciado medio-pequeño (padding interior de componentes, gap de listas).
-  - 4 (1rem = 16px): espaciado medio (padding de tarjetas, gap entre párrafos).
-  - 6 (1.5rem = 24px): espaciado medio-grande (entre secciones de una página).
-  - 8 (2rem = 32px): espaciado grande (padding de página, entre componentes mayores).
-  - 12 (3rem = 48px): espaciado muy grande (entre secciones principales).
-  - 16 (4rem = 64px): macro-espaciado (márgenes de secciones hero).
+
+    - 1 (0.25rem = 4px): micro-espaciado (entre iconos y texto, dentro de chips).
+    - 2 (0.5rem = 8px): espaciado pequeño (entre elementos de un formulario, dentro de un grupo).
+    - 3 (0.75rem = 12px): espaciado medio-pequeño (padding interior de componentes, gap de listas).
+    - 4 (1rem = 16px): espaciado medio (padding de tarjetas, gap entre párrafos).
+    - 6 (1.5rem = 24px): espaciado medio-grande (entre secciones de una página).
+    - 8 (2rem = 32px): espaciado grande (padding de página, entre componentes mayores).
+    - 12 (3rem = 48px): espaciado muy grande (entre secciones principales).
+    - 16 (4rem = 64px): macro-espaciado (márgenes de secciones hero).
 
   La clave es la consistencia: no mezclar `p-3` (12px) con `p-[14px]` (arbitrario). Todo debe pertenecer a la escala.
 
@@ -231,8 +232,8 @@ Cuando aplicas `display: flex` (o la clase `flex` de Tailwind) a un contenedor, 
 1. El contenedor se convierte en un **flex container**.
 2. Todos sus hijos directos se convierten automáticamente en **flex items** (no es necesario aplicar clases a los hijos para que participen en el layout flex, aunque puedes hacerlo para controlar su comportamiento).
 3. Se establecen dos ejes:
-   - **Main axis (eje principal):** definido por `flex-direction`. Por defecto, horizontal (row) de izquierda a derecha. Si cambias a `flex-col`, el eje principal es vertical de arriba a abajo.
-   - **Cross axis (eje perpendicular):** perpendicular al eje principal. Si main axis es horizontal, cross axis es vertical.
+    - **Main axis (eje principal):** definido por `flex-direction`. Por defecto, horizontal (row) de izquierda a derecha. Si cambias a `flex-col`, el eje principal es vertical de arriba a abajo.
+    - **Cross axis (eje perpendicular):** perpendicular al eje principal. Si main axis es horizontal, cross axis es vertical.
 
 Esta distinción entre ejes es **crítica**. Las propiedades `justify-*` siempre actúan sobre el main axis, y las propiedades `items-*` siempre actúan sobre el cross axis. Invertir la dirección invierte qué hace cada propiedad.
 
@@ -355,7 +356,7 @@ Este patrón es preferible a `justify-between` cuando no quieres separar todos l
     </nav>
     <div class="p-4 border-t border-gray-700">
       <div class="flex items-center gap-3">
-        <img src="avatar.jpg" class="w-8 h-8 rounded-full" alt="User" />
+        <img src="https://dummyimage.com/200x200/ccc/000.png&text=avatar.jpg" class="w-8 h-8 rounded-full" alt="User" />
         <span class="text-sm">María García</span>
       </div>
     </div>
@@ -377,6 +378,7 @@ Este patrón es preferible a `justify-between` cuando no quieres separar todos l
 ```
 
 **Elementos clave de este layout:**
+
 - `h-screen` en el contenedor raíz para que ocupe toda la altura del viewport.
 - `flex-shrink-0` en el sidebar para que nunca se encoja cuando el contenido es muy ancho.
 - `flex-1` en el contenido para que ocupe el resto del espacio.
@@ -397,13 +399,14 @@ Este patrón es preferible a `justify-between` cuando no quieres separar todos l
       <p class="text-sm text-gray-500">Proyecto Alpha · Vence mañana</p>
     </div>
     <span class="flex-shrink-0 px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Urgente</span>
-    <img src="avatar.jpg" class="flex-shrink-0 w-6 h-6 rounded-full" alt="Assignee" />
+    <img src="https://dummyimage.com/200x200/ccc/000.png&text=avatar.jpg" class="flex-shrink-0 w-6 h-6 rounded-full" alt="Assignee" />
   </div>
   <!-- Más items... -->
 </div>
 ```
 
 **Patrones importantes aquí:**
+
 - `divide-y divide-gray-200` en el contenedor añade bordes entre items (más limpio que `border-b` en cada item).
 - Todos los elementos que no queremos que se encojan tienen `flex-shrink-0`.
 - El elemento de texto tiene `flex-1 min-w-0` y `truncate` para que ocupe el espacio disponible y trunque con "..." si es demasiado largo.
@@ -634,7 +637,7 @@ En este layout, Grid maneja la estructura bidimensional (KPI cards en fila, main
         <!-- Product Card (repetido para cada producto) -->
         <div class="group bg-white rounded-xl overflow-hidden border hover:shadow-lg transition-shadow">
           <div class="aspect-square bg-gray-100 relative overflow-hidden">
-            <img src="product.jpg" alt="Product Name" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            <img src="https://dummyimage.com/800x600/ccc/000.png&text=product.jpg" alt="Product Name" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
             <button class="absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
               <svg><!-- Heart icon --></svg>
             </button>
@@ -762,6 +765,7 @@ La práctica profesional ha consolidado una regla empírica que resuelve la duda
 > **Grid para la estructura de página (macro-layout), Flexbox para los componentes (micro-layout).**
 
 Esta regla se basa en las fortalezas naturales de cada sistema:
+
 - Grid es bidimensional: ideal para layouts que necesitan alinear elementos en filas Y columnas simultáneamente.
 - Flexbox es unidimensional: ideal para distribuir elementos en una fila O una columna, con control fino sobre alineación y distribución de espacio.
 
@@ -994,6 +998,7 @@ El docente guía al alumnado mientras implementan el dashboard descrito en la Se
 ```
 
 Aspectos a destacar en este layout:
+
 - `flex h-screen` en el contenedor raíz para ocupar toda la altura.
 - `flex-shrink-0` en las columnas fijas para que nunca se reduzcan.
 - `flex-1 min-w-0` en el área de contenido para que ocupe el resto y permita overflow.
@@ -1095,7 +1100,7 @@ Aspectos a destacar en este layout:
     <div class="flex-1 overflow-y-auto px-4 py-4">
       <!-- Mensaje de ejemplo -->
       <div class="flex items-start gap-3 mb-4 hover:bg-gray-50 -mx-2 px-2 py-1 rounded-lg">
-        <img src="avatar.jpg" class="w-8 h-8 rounded-full mt-0.5 flex-shrink-0" alt="User" />
+        <img src="https://dummyimage.com/200x200/ccc/000.png&text=avatar.jpg" class="w-8 h-8 rounded-full mt-0.5 flex-shrink-0" alt="User" />
         <div>
           <div class="flex items-baseline gap-2">
             <span class="font-semibold text-sm">María López</span>
@@ -1133,12 +1138,14 @@ Este layout de chat es un excelente ejemplo de composición de Flexbox: tres pan
 **Duración:** 25 minutos
 
 **Desarrollo:** El docente proporciona 3 layouts con errores intencionados (uno de Flexbox, uno de Grid, uno de posicionamiento). El alumnado debe:
+
 1. Abrir las DevTools y usar el panel Elements + Styles para inspeccionar.
 2. Activar los overlays de Flexbox y Grid (en el panel Layout de DevTools) para visualizar la distribución.
 3. Identificar el error.
 4. Corregirlo cambiando las clases de Tailwind adecuadas.
 
 Errores comunes a incluir:
+
 - Sidebar con `flex-1` en lugar de `flex-shrink-0` (se encoge con contenido largo).
 - `min-width: auto` implícito causando desbordamiento (falta `min-w-0`).
 - Contenedor flex sin `flex-col` cuando se pretendía layout vertical.
@@ -1163,6 +1170,7 @@ El docente enfatiza la filosofía mobile-first de Tailwind: las clases base defi
 **Duración:** 30 minutos
 
 **Desarrollo:** El docente proporciona 3 diseños de Figma (capturas de pantalla o archivo Figma con Dev Mode accesible). El alumnado debe:
+
 1. Analizar la estructura del diseño: ¿dónde usa Grid? ¿dónde Flexbox? ¿hay posicionamiento absolute/fixed?
 2. Traducir mentalmente las estructuras de Auto Layout de Figma a Flexbox/Grid de Tailwind (recordando la equivalencia de la Unidad 3: Auto Layout horizontal = flex-row, Auto Layout vertical = flex-col).
 3. Escribir el código HTML + Tailwind correspondiente (no completo, solo la estructura de layout, con placeholders para el contenido).
@@ -1195,12 +1203,14 @@ El docente enfatiza la filosofía mobile-first de Tailwind: las clases base defi
 **Enunciado:** Crea un componente Angular standalone llamado `DashboardComponent` que implemente un dashboard de análisis con la siguiente estructura:
 
 El dashboard usa un grid de 12 columnas con los siguientes elementos:
+
 - **Fila 1 - KPI Cards (4 tarjetas):** Cada tarjeta ocupa 3 columnas en escritorio, 6 en tablet, 12 en móvil. Muestran: icono, título (e.g., "Total Revenue"), valor ($45,231.89), variación porcentual (+20.1% en verde o -5.2% en rojo).
 - **Fila 2 - Gráfico principal:** Ocupa 8 columnas en escritorio, 12 en tablet/móvil. Placeholder para un gráfico (un rectángulo con altura fija 400px).
 - **Fila 2 - Panel lateral (en las 4 columnas restantes):** Lista de "Recent Transactions" con 5 items. Cada item: avatar, nombre, descripción, cantidad, timestamp relativo ("hace 2 horas").
 - **Fila 3 - Tabla de datos:** Ocupa las 12 columnas completas. Tabla con columnas: Invoice, Status (badge coloreado), Method, Amount. Al menos 6 filas de datos.
 
 Además, el dashboard debe tener:
+
 - Sidebar izquierdo (colapsable con un botón de hamburguesa) que contiene el logo y navegación.
 - Header superior con título de la página, campo de búsqueda y avatar de usuario.
 - El sidebar y el header deben ser componentes separados, reutilizables.
@@ -1240,19 +1250,19 @@ Además, el dashboard debe tener:
 2. **Gestión de estado:** Usa Angular signals para gestionar: servidor activo, canal activo, lista de mensajes del canal (array de objetos Mensaje con id, autor, avatar, texto, timestamp). Los mensajes se "envían" localmente (no se necesita backend, solo añadir al array).
 
 3. **Componentes hijos (mínimo 5):**
-   - `ServerListComponent`: Lista de iconos de servidores.
-   - `ChannelListComponent`: Lista de canales del servidor activo.
-   - `MessageListComponent`: Lista de mensajes con scroll automático al final al recibir/enviar uno nuevo.
-   - `MessageInputComponent`: Campo de texto con emoji picker placeholder, soporte para Enter para enviar, auto-resize del textarea.
-   - `ChatHeaderComponent`: Nombre del canal + botones de acción.
+    - `ServerListComponent`: Lista de iconos de servidores.
+    - `ChannelListComponent`: Lista de canales del servidor activo.
+    - `MessageListComponent`: Lista de mensajes con scroll automático al final al recibir/enviar uno nuevo.
+    - `MessageInputComponent`: Campo de texto con emoji picker placeholder, soporte para Enter para enviar, auto-resize del textarea.
+    - `ChatHeaderComponent`: Nombre del canal + botones de acción.
 
 4. **Layout responsive:** En móvil (< 768px), solo se muestra una columna cada vez (servidores → canales → chat). Implementa navegación hacia atrás (botón "←" para volver de chat a canales, de canales a servidores).
 
 5. **Funcionalidades adicionales:**
-   - Agrupación de mensajes del mismo autor (no repetir avatar).
-   - Indicador de "está escribiendo..." cuando el textarea tiene contenido.
-   - Timestamp en los mensajes con formato relativo ("hace 2 minutos", "ayer a las 15:30").
-   - Búsqueda de mensajes (filtrar en cliente).
+    - Agrupación de mensajes del mismo autor (no repetir avatar).
+    - Indicador de "está escribiendo..." cuando el textarea tiene contenido.
+    - Timestamp en los mensajes con formato relativo ("hace 2 minutos", "ayer a las 15:30").
+    - Búsqueda de mensajes (filtrar en cliente).
 
 **Requisitos:** Todo con Angular Signals. Sin servicios HTTP (todo datos locales). Tipos TypeScript para todos los modelos de datos. Tests unitarios para al menos 2 componentes (MessageList, MessageInput).
 **Pistas:** Para el scroll automático al final en MessageList, usa `ViewChild` + `ElementRef` y llama a `scrollIntoView()` después de añadir un mensaje. Para formatear timestamps relativos, puedes usar `Intl.RelativeTimeFormat` o una pequeña función utilitaria.
@@ -1319,10 +1329,10 @@ Diseña e implementa un "layout engine" para paneles de datos que se adapte auto
 1. Recibir un array de "paneles" donde cada panel tiene: tipo de visualización (kpi, chart, table, list, text), datos (genéricos, tipados), y prioridad (high, medium, low).
 
 2. Analizar los paneles y decidir automáticamente el layout más adecuado:
-   - Si hay 1-2 KPIs: se muestran grandes y centrados.
-   - Si hay 3-4 KPIs: grid de 2×2.
-   - Si hay un chart y KPIs: el chart ocupa 2/3, los KPIs 1/3.
-   - Los paneles de baja prioridad se muestran más pequeños o colapsados al final de la página.
+    - Si hay 1-2 KPIs: se muestran grandes y centrados.
+    - Si hay 3-4 KPIs: grid de 2×2.
+    - Si hay un chart y KPIs: el chart ocupa 2/3, los KPIs 1/3.
+    - Los paneles de baja prioridad se muestran más pequeños o colapsados al final de la página.
 
 3. El layout debe ser responsive: adaptarse a diferentes tamaños de pantalla sin perder la jerarquía de prioridad.
 

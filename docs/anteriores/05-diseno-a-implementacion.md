@@ -28,6 +28,7 @@ Esta unidad representa la culminación del módulo y trabaja de manera intensiva
 **RA 3. Implementa interfaces web utilizando lenguajes de marcas y hojas de estilo.**
 
 Criterios de evaluación trabajados:
+
 - CE a. Se han utilizado lenguajes de marcas para estructurar el contenido — HTML5 semántico en templates Angular.
 - CE b. Se han aplicado hojas de estilo en cascada para el diseño visual — Tailwind CSS a partir de design tokens.
 - CE c. Se han integrado elementos multimedia en las interfaces — exportación e integración de assets desde Figma.
@@ -47,6 +48,7 @@ Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entor
 ## Contenidos
 
 **FASE 1: Inspección de diseños en Figma**
+
 - Lectura sistemática de un diseño: metodología de capas (de fuera hacia dentro), jerarquía visual (tamaño, color, posición), espaciado, agrupación lógica.
 - Uso del Dev Mode para extraer información precisa: medidas, distancias, colores (hex/rgba), tipografías (familia, peso, tamaño, line-height, letter-spacing), bordes y sombras.
 - Identificación de patrones de Auto Layout en el diseño y traducción a estructuras Flexbox/Grid.
@@ -55,42 +57,45 @@ Antes de iniciar esta unidad, se verificará que todo el alumnado tiene su entor
 - Comparación de versiones del diseño: identificación de cambios entre iteraciones del diseño y planificación de las modificaciones en código.
 
 **FASE 2: Extracción del sistema de diseño (Design Tokens)**
+
 - Identificación de la paleta de colores completa en el diseño:
-  - Colores de marca (primario, secundario, acento).
-  - Colores neutros (escala de grises para fondos, textos, bordes).
-  - Colores semánticos (success, warning, error, info).
-  - Variantes claras/oscuras para modo oscuro.
+    - Colores de marca (primario, secundario, acento).
+    - Colores neutros (escala de grises para fondos, textos, bordes).
+    - Colores semánticos (success, warning, error, info).
+    - Variantes claras/oscuras para modo oscuro.
 - Identificación de la escala tipográfica:
-  - Familias tipográficas (heading, body, mono).
-  - Escala de tamaños (xs, sm, base, lg, xl, 2xl, 3xl, 4xl).
-  - Pesos utilizados (light, regular, medium, semibold, bold).
-  - Interlineados (line-height) y espaciado entre letras (letter-spacing).
+    - Familias tipográficas (heading, body, mono).
+    - Escala de tamaños (xs, sm, base, lg, xl, 2xl, 3xl, 4xl).
+    - Pesos utilizados (light, regular, medium, semibold, bold).
+    - Interlineados (line-height) y espaciado entre letras (letter-spacing).
 - Identificación de la escala de espaciado:
-  - Múltiplo base (generalmente 4px u 8px).
-  - Valores de la escala: 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96...
+    - Múltiplo base (generalmente 4px u 8px).
+    - Valores de la escala: 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80, 96...
 - Identificación de border-radius (escala de redondeos: none, sm, md, lg, xl, 2xl, full).
 - Identificación de sombras (box-shadow) y otros efectos (blur, backdrop-filter).
 - Documentación en una tabla de Design Tokens: formato estructurado con nombre del token, valor, descripción, ejemplo de uso.
 
 **FASE 3: Configuración de Tailwind @theme**
+
 - Traducción de los Design Tokens extraídos a la directiva `@theme` de Tailwind 4.
 - Mapeo de categorías:
-  - Colores de Figma → `--color-{nombre}: {valor}` en @theme.
-  - Tipografías de Figma → `--font-{nombre}: {familia}`, `--text-{tamaño}: {valor}`, `--font-weight-{nombre}: {peso}`, `--leading-{nombre}: {interlineado}`.
-  - Espaciados de Figma → `--spacing-{nombre}: {valor}`.
-  - Border-radius de Figma → `--radius-{nombre}: {valor}`.
+    - Colores de Figma → `--color-{nombre}: {valor}` en @theme.
+    - Tipografías de Figma → `--font-{nombre}: {familia}`, `--text-{tamaño}: {valor}`, `--font-weight-{nombre}: {peso}`, `--leading-{nombre}: {interlineado}`.
+    - Espaciados de Figma → `--spacing-{nombre}: {valor}`.
+    - Border-radius de Figma → `--radius-{nombre}: {valor}`.
 - Configuración de modo oscuro: variables con valores diferentes según el selector `.dark` (estrategia `class` de Tailwind).
 - Configuración de fuentes: importación desde Google Fonts o archivos locales con `@font-face`.
 - Configuración de estilos base (`@layer base`): estilos para `body`, headings (`h1`-`h6`), enlaces, scrollbar, selección de texto, antialiasing.
 - Verificación: crear un componente de prueba que use los nuevos tokens para confirmar que la configuración funciona.
 
 **FASE 4: Organización de componentes Angular**
+
 - Aplicación de Atomic Design al análisis del diseño:
-  - Átomos: elementos indivisibles (Button, Input, Icon, Badge, Avatar, Label, Checkbox, Radio, Toggle, Divider, Spinner).
-  - Moléculas: combinaciones simples de átomos (InputField = Label + Input + Error message; SearchBar = Input + Icon + Button; ListItem = Avatar + Text + Badge).
-  - Organismos: secciones complejas de la interfaz (Navbar, Sidebar, Card, Modal, Table, Form, DataGrid, Chart, Dashboard, UserMenu).
-  - Templates: composiciones de organismos que definen la estructura de una página (DashboardTemplate, AuthTemplate, SettingsTemplate).
-  - Pages: templates con contenido real (DashboardPage, LoginPage, SettingsPage).
+    - Átomos: elementos indivisibles (Button, Input, Icon, Badge, Avatar, Label, Checkbox, Radio, Toggle, Divider, Spinner).
+    - Moléculas: combinaciones simples de átomos (InputField = Label + Input + Error message; SearchBar = Input + Icon + Button; ListItem = Avatar + Text + Badge).
+    - Organismos: secciones complejas de la interfaz (Navbar, Sidebar, Card, Modal, Table, Form, DataGrid, Chart, Dashboard, UserMenu).
+    - Templates: composiciones de organismos que definen la estructura de una página (DashboardTemplate, AuthTemplate, SettingsTemplate).
+    - Pages: templates con contenido real (DashboardPage, LoginPage, SettingsPage).
 - Creación de la arquitectura de carpetas del proyecto Angular:
 
 ```
@@ -136,36 +141,39 @@ src/app/
 - Criterios de decisión: ¿qué va en shared/ui, shared/components, shared/layouts, features? Reglas: en shared/ui van los átomos puramente presentacionales; en shared/components van moléculas reutilizables; en shared/layouts van templates de layout; en features van páginas completas y componentes específicos de una funcionalidad.
 
 **FASE 5: Implementación de componentes**
+
 - Proceso iterativo para cada componente:
-  1. Analizar el componente en Figma: dimensiones, variantes, estados.
-  2. Crear el componente Angular con CLI: `ng g c shared/ui/button --standalone`.
-  3. Definir los inputs (usando la función `input<T>()`) y outputs (`output<T>()`).
-  4. Implementar el template HTML con clases Tailwind.
-  5. Implementar la lógica de variantes (clases condicionales basadas en inputs).
-  6. Comparar visualmente con el diseño de Figma (abrir Figma en Dev Mode + la app en el navegador lado a lado).
-  7. Ajustar hasta que la implementación coincida con el diseño (dentro de márgenes razonables de 1-2px).
-  8. Escribir las stories de Storybook cubriendo todas las variantes y estados.
-  9. Escribir tests unitarios básicos (renderización, cambios de estado al modificar inputs).
-  10. Documentar el componente en Storybook Docs (descripción, props, ejemplos).
-  11. Pasar al siguiente componente.
+    1. Analizar el componente en Figma: dimensiones, variantes, estados.
+    2. Crear el componente Angular con CLI: `ng g c shared/ui/button --standalone`.
+    3. Definir los inputs (usando la función `input<T>()`) y outputs (`output<T>()`).
+    4. Implementar el template HTML con clases Tailwind.
+    5. Implementar la lógica de variantes (clases condicionales basadas en inputs).
+    6. Comparar visualmente con el diseño de Figma (abrir Figma en Dev Mode + la app en el navegador lado a lado).
+    7. Ajustar hasta que la implementación coincida con el diseño (dentro de márgenes razonables de 1-2px).
+    8. Escribir las stories de Storybook cubriendo todas las variantes y estados.
+    9. Escribir tests unitarios básicos (renderización, cambios de estado al modificar inputs).
+    10. Documentar el componente en Storybook Docs (descripción, props, ejemplos).
+    11. Pasar al siguiente componente.
 
 **FASE 6: Exportación y optimización de assets**
+
 - Iconos:
-  - Exportación desde Figma: seleccionar capa → Export → SVG.
-  - Alternativa mejor: usar una librería de iconos (Lucide, Heroicons, Iconify) que ya está optimizada.
-  - Optimización de SVGs: usar SVGO para eliminar metadata, comentarios y código innecesario.
-  - Estrategias: SVG inline (para iconos que necesitan cambiar de color dinámicamente) vs SVG como imagen (para iconos estáticos) vs SVG sprite (para rendimiento con muchos iconos).
+    - Exportación desde Figma: seleccionar capa → Export → SVG.
+    - Alternativa mejor: usar una librería de iconos (Lucide, Heroicons, Iconify) que ya está optimizada.
+    - Optimización de SVGs: usar SVGO para eliminar metadata, comentarios y código innecesario.
+    - Estrategias: SVG inline (para iconos que necesitan cambiar de color dinámicamente) vs SVG como imagen (para iconos estáticos) vs SVG sprite (para rendimiento con muchos iconos).
 - Imágenes:
-  - Exportación desde Figma: PNG (rasterizado) o SVG (si es vectorial simple).
-  - Formatos web: PNG (con transparencia), JPEG (fotos sin transparencia), WebP (formato moderno, mejor compresión), AVIF (aún mejor compresión, soporte creciente).
-  - Optimización: usar herramientas como Squoosh, Sharp, ImageOptim, o plugins de build (vite-plugin-imagemin).
-  - Responsive images: atributo `srcset` y elemento `<picture>` para servir diferentes resoluciones según el dispositivo.
+    - Exportación desde Figma: PNG (rasterizado) o SVG (si es vectorial simple).
+    - Formatos web: PNG (con transparencia), JPEG (fotos sin transparencia), WebP (formato moderno, mejor compresión), AVIF (aún mejor compresión, soporte creciente).
+    - Optimización: usar herramientas como Squoosh, Sharp, ImageOptim, o plugins de build (vite-plugin-imagemin).
+    - Responsive images: atributo `srcset` y elemento `<picture>` para servir diferentes resoluciones según el dispositivo.
 - Fuentes:
-  - Opción A: Google Fonts con `@import` en el CSS global (fácil, CDN rápida).
-  - Opción B: Auto-hospedaje (las fuentes se descargan y se sirven desde el mismo dominio). Mejor para rendimiento y privacidad (no leak a Google).
-  - Configuración: `@font-face` en `@layer base` del CSS, con `font-display: swap` para evitar FOIT (Flash of Invisible Text).
+    - Opción A: Google Fonts con `@import` en el CSS global (fácil, CDN rápida).
+    - Opción B: Auto-hospedaje (las fuentes se descargan y se sirven desde el mismo dominio). Mejor para rendimiento y privacidad (no leak a Google).
+    - Configuración: `@font-face` en `@layer base` del CSS, con `font-display: swap` para evitar FOIT (Flash of Invisible Text).
 
 **FASE 7: Construcción de pantallas completas**
+
 - Composición de organismos y moléculas para construir páginas completas.
 - Implementación de la navegación (Angular Router) conectando las páginas.
 - Gestión de estado global con Signals (señales compartidas mediante servicios).
@@ -174,6 +182,7 @@ src/app/
 - Implementación de todos los estados de la página: ideal, loading (skeleton screens), empty (sin datos), error (fallo al cargar), edge cases (datos extremadamente largos, caracteres especiales, etc.).
 
 **FASE 8: Testing y aseguramiento de la calidad**
+
 - Testing unitario: tests para componentes individuales verificando renderización condicional basada en inputs.
 - Testing de integración: tests para organismos que componen múltiples átomos/moléculas.
 - Testing visual: comparación Storybook vs Figma (manual o automatizada con Chromatic).
@@ -198,6 +207,7 @@ Cuando recibes un diseño en Figma, la tentación es empezar inmediatamente a pr
 **Paso 3: Descomposición por capas (de fuera hacia dentro).** Empieza por el frame más externo (la pantalla completa) y ve profundizando. Para cada nivel de la jerarquía, pregúntate: ¿Qué sistema de layout usa? (Auto Layout horizontal, Auto Layout vertical, Grid, posicionamiento libre). ¿Cuáles son sus dimensiones? ¿Qué espaciado (padding, gap) tiene?
 
 **Paso 4: Inspección detallada de cada elemento.** Para cada elemento significativo, utiliza el Dev Mode de Figma (atajo Shift+D) para extraer:
+
 - Dimensiones exactas (width × height en px).
 - Distancias a elementos adyacentes y a los bordes del contenedor padre.
 - Colores: fills (relleno), strokes (borde). Anota el valor hex y, crucialmente, el NOMBRE de la variable de Figma si se utilizó una variable.
@@ -207,6 +217,7 @@ Cuando recibes un diseño en Figma, la tentación es empezar inmediatamente a pr
 - Opacidad (del elemento completo y de fills/strokes individuales).
 
 **Paso 5: Identificación de estados.** El diseño que recibes normalmente muestra el "happy path": todo cargado correctamente, datos ideales, ningún error. Pero en la aplicación real, la pantalla pasará por múltiples estados:
+
 - **Ideal:** El diseño que recibes.
 - **Loading / Skeleton:** ¿Cómo se ve mientras se cargan los datos? ¿Spinner central? ¿Esqueletos de contenido (skeleton screens)?
 - **Empty:** ¿Qué muestra cuando no hay datos? (ej: "No tienes tareas pendientes. ¡Crea tu primera tarea!")
@@ -216,6 +227,7 @@ Cuando recibes un diseño en Figma, la tentación es empezar inmediatamente a pr
 Si el diseño no incluye estos estados, consulta con el diseñador antes de implementar. Implementar estados adivinando es una de las principales causas de inconsistencia visual en las aplicaciones.
 
 **Paso 6: Documentación de la inspección.** Crea un documento (puede ser un Notion, un Google Doc, o incluso comentarios en el propio Figma) con:
+
 - Un checklist de elementos inspeccionados.
 - Duda y preguntas para el diseñador.
 - Observaciones sobre posibles problemas técnicos (animaciones costosas, fuentes no disponibles gratuitamente, assets en resoluciones insuficientes, etc.).
@@ -264,28 +276,32 @@ Los design tokens son la "materia prima" del diseño. Extraerlos correctamente d
 1. **Abrir el panel de variables de Figma** (icono de variable en la barra lateral o panel "Local variables"). Identificar todas las colecciones de variables definidas (Colors, Typography, Spacing, Effects, etc.).
 
 2. Si el diseño NO usa variables de Figma (usa estilos o valores hardcodeados), debes **inferir los tokens** inspeccionando múltiples componentes y buscando patrones:
-   - Inspecciona todos los botones: ¿qué color de fondo usan? ¿Son consistentes? Anota.
-   - Inspecciona todos los textos: ¿qué color usan los títulos? ¿y el texto normal? ¿y el texto secundario? ¿Son consistentes? Anota.
-   - Mide los paddings de todas las tarjetas, botones, inputs, etc. ¿Hay un patrón? Anota.
+    - Inspecciona todos los botones: ¿qué color de fondo usan? ¿Son consistentes? Anota.
+    - Inspecciona todos los textos: ¿qué color usan los títulos? ¿y el texto normal? ¿y el texto secundario? ¿Son consistentes? Anota.
+    - Mide los paddings de todas las tarjetas, botones, inputs, etc. ¿Hay un patrón? Anota.
 
 **Paleta de colores**
 
 Organiza los colores en categorías:
 
 **Colores de marca (Brand):**
+
 - `primary-50`, `primary-100`, ..., `primary-900`, `primary-950` (escala completa).
 - `secondary-50` a `secondary-950` (si la marca tiene color secundario).
 
 **Colores neutros (Neutral/Gray):**
+
 - `neutral-0` (blanco), `neutral-50` (casi blanco, fondos sutiles), `neutral-100`, `neutral-200`, `neutral-300` (bordes), `neutral-400`, `neutral-500` (texto secundario), `neutral-600`, `neutral-700`, `neutral-800`, `neutral-900` (texto principal), `neutral-950` (casi negro).
 
 **Colores semánticos:**
+
 - `success-500` (verde para éxito/positivo), `success-100` (fondo sutil verde).
 - `warning-500` (ámbar/naranja para advertencias), `warning-100`.
 - `error-500` (rojo para errores), `error-100`.
 - `info-500` (azul claro para información), `info-100`.
 
 **Variantes de modo oscuro (si aplica):**
+
 - En modo oscuro, los neutros se invierten (neutral-900 para fondo, neutral-50 para texto).
 - Los colores de marca suelen mantenerse pero con ajustes de saturación/luminosidad para mantener el contraste.
 - Documenta ambas versiones (Light y Dark) en tu tabla de tokens.
@@ -569,6 +585,7 @@ Con los tokens configurados, volvemos al diseño de Figma para identificar los c
 3. Agrúpalos por nivel atómico:
 
 **Átomos (elementos indivisibles, no tienen sentido por sí solos):**
+
 - Button (con variantes: primary, secondary, outline, ghost, danger)
 - Input (con estados: default, focus, error, disabled; con variantes: text, password, number, textarea)
 - Label (texto asociado a un input)
@@ -582,6 +599,7 @@ Con los tokens configurados, volvemos al diseño de Figma para identificar los c
 - Spinner (indicador de carga)
 
 **Moléculas (combinaciones de átomos que funcionan juntos):**
+
 - InputField = Label + Input + ErrorMessage (texto de error debajo del input)
 - SearchBar = Input + Icon (lupa) + botón de limpiar (X) opcional
 - CheckboxField = Checkbox + Label
@@ -593,6 +611,7 @@ Con los tokens configurados, volvemos al diseño de Figma para identificar los c
 - Toast/Notification = Icon + mensaje + botón de cerrar
 
 **Organismos (secciones complejas de la interfaz):**
+
 - Navbar (barra de navegación superior: logo + menú + acciones + avatar)
 - Sidebar (barra lateral: navegación jerárquica)
 - Card (tarjeta contenedora: header opcional, contenido, footer opcional)
@@ -605,12 +624,14 @@ Con los tokens configurados, volvemos al diseño de Figma para identificar los c
 - Chart/Graph (contenedor de gráfico con título, leyenda, tooltips)
 
 **Templates (layouts de página):**
+
 - DashboardLayout (sidebar + header + contenido con grid para widgets)
 - AuthLayout (layout centrado para login/registro, sin sidebar ni header complejo)
 - SettingsLayout (sidebar de secciones de configuración + área de contenido)
 - DocsLayout (sidebar de navegación de documentación + área de contenido con tabla de contenidos)
 
 **Pages (instancias de templates con contenido real):**
+
 - DashboardPage
 - LoginPage
 - RegisterPage
@@ -639,6 +660,7 @@ Para cada componente, seguimos un proceso iterativo de 10 pasos. Vamos a detalla
 **Paso 1: Analizar el componente en Figma**
 
 En Figma, abrimos Dev Mode y seleccionamos un InputField. Observamos:
+
 - Estructura: label (texto superior, weight medium, size 14px, color neutral-700), input (height 40px, padding horizontal 12px, border 1px neutral-300, border-radius 8px), mensaje de error (texto inferior, size 12px, color error-500, margin-top 4px).
 - Estados: default (borde neutral-300), focus (borde primary-500, ring de 3px primary-100), error (borde error-500, texto error debajo), disabled (opacity 50%, fondo neutral-100).
 - Variantes: con leading icon, con trailing icon.
@@ -751,6 +773,7 @@ Abrir la aplicación Angular (`npm start`) en una ventana del navegador, y Figma
 **Paso 7: Ajustes**
 
 Errores comunes que se detectan en la comparación:
+
 - El interlineado es diferente en Figma que en el navegador (Figma renderiza tipografías de manera ligeramente distinta).
 - El color en Figma parece más claro/oscuro por la configuración de gestión de color del sistema operativo.
 - El espaciado entre label e input no coincide (en Figma podrían ser 6px y nosotros pusimos `gap-1.5` = 6px = 0.375rem; correcto).
@@ -928,12 +951,14 @@ La decisión más importante es **qué estrategia de iconos usar**:
 **Opción A: Librería de iconos (RECOMENDADA)**
 
 En lugar de exportar manualmente iconos SVG de Figma uno por uno, usa una librería de iconos profesional que:
+
 - Ya está optimizada (SVGs limpios, sin metadatos innecesarios).
 - Ofrece consistencia (todos los iconos tienen el mismo estilo visual, grosor, grid).
 - Proporciona el icono como componente Angular, no como archivo estático.
 - Soporta cambiar color, tamaño y stroke-width dinámicamente.
 
 Librerías recomendadas:
+
 - **Lucide Angular:** `npm install lucide-angular` (fork de Feather Icons, mantenido y con soporte para Angular, más de 1000 iconos).
 - **Angular Material Icons:** `@angular/material` incluye `MatIconModule` (si ya usas Angular Material).
 - **Heroicons (Tailwind team):** Iconos SVG diseñados por el equipo de Tailwind, perfectos para estilos Tailwind. Se copian como SVG directo o se usa la librería `@ng-icons/heroicons`.
@@ -963,11 +988,12 @@ export class IconComponent {
 **Opción B: Exportación manual desde Figma**
 
 Si necesitas iconos muy específicos diseñados a medida:
+
 1. En Figma, selecciona la capa del icono.
 2. En el panel Export (modo diseño), configura: formato SVG, resolución 1x, y activa "Show in export" para que aparezca en Dev Mode.
 3. Descarga el SVG.
 4. Pásalo por SVGO (optimizador de SVG) para eliminar código innecesario: comentarios, metadatos de Figma, IDs de capa, etc.
-5. Incrústalo como SVG inline en tu componente Angular, o guárdalo en `assets/icons/` y usa `<img src="assets/icons/mi-icono.svg" />`.
+5. Incrústalo como SVG inline en tu componente Angular, o guárdalo en `assets/icons/` y usa `<img src="https://dummyimage.com/200x200/ccc/000.png&text=mi-icono.svg" />`.
 
 **Opción C: SVG Sprite (para muchos iconos)**
 
@@ -976,10 +1002,12 @@ Para aplicaciones con docenas o cientos de iconos, genera un sprite SVG (un arch
 **Imágenes**
 
 **Exportación desde Figma:**
+
 - Para gráficos vectoriales (ilustraciones, diagramas, logos): exportar como SVG.
 - Para imágenes raster (fotos, texturas): exportar como PNG (2x para pantallas retina) o mejor aún, como PNG original y luego convertir a WebP/AVIF con herramientas externas.
 
 **Formatos y optimización:**
+
 - **WebP:** Soporta transparencia y ofrece un 25-35% mejor compresión que PNG/JPEG. Soporte universal en navegadores modernos (>96% en 2025).
 - **AVIF:** Aún mejor compresión que WebP (hasta 50% mejor que JPEG). Soporte creciente (>90% en navegadores modernos en 2025).
 - Estrategia: servir WebP como formato principal, con fallback a PNG/JPEG para navegadores antiguos (usando el elemento `<picture>` o la librería de build de Vite que genera automáticamente múltiples formatos).
@@ -987,8 +1015,8 @@ Para aplicaciones con docenas o cientos de iconos, genera un sprite SVG (un arch
 **Responsive images:**
 ```html
 <img
-  src="producto-800w.webp"
-  srcset="producto-400w.webp 400w, producto-800w.webp 800w, producto-1200w.webp 1200w"
+  src="https://dummyimage.com/800x600/ccc/000.png&text=producto-800w.webp"
+  srcset="https://dummyimage.com/400x300/ccc/000.png&text=producto-400w.webp 400w, https://dummyimage.com/800x600/ccc/000.png&text=producto-800w.webp 800w, https://dummyimage.com/1200x400/ccc/000.png&text=producto-1200w.webp 1200w"
   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
   alt="Descripción del producto"
   loading="lazy"
@@ -1202,6 +1230,7 @@ Tests para verificar que los componentes renderizan correctamente según sus inp
 **Testing visual (Storybook + Chromatic o manual)**
 
 Para cada componente, verificar que:
+
 - La story coincide visualmente con el diseño de Figma.
 - Todas las variantes y estados se ven correctamente.
 - El responsive funciona (usar el addon Viewport de Storybook para simular diferentes tamaños).
@@ -1209,6 +1238,7 @@ Para cada componente, verificar que:
 **Auditoría de accesibilidad**
 
 Usar el addon `@storybook/addon-a11y` (basado en axe-core) para detectar automáticamente problemas:
+
 - Contraste insuficiente.
 - Elementos interactivos sin etiquetas accesibles.
 - Imágenes sin alt text.
@@ -1220,6 +1250,7 @@ Ejecutar en cada story y corregir todos los problemas detectados.
 **Auditoría de rendimiento**
 
 Ejecutar Lighthouse en la aplicación compilada en producción:
+
 - Performance: objetivo >= 90. Optimizar imágenes, diferir CSS/JS no crítico, usar lazy loading para componentes/rutas.
 - Accessibility: objetivo >= 95.
 - Best Practices: objetivo >= 90.
@@ -1289,6 +1320,7 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 **Duración:** 20 minutos
 
 **Desarrollo:** El docente proporciona la implementación de un componente (por ejemplo, un InputField con 3-4 errores intencionados: falta `min-w-0`, clases condicionales incorrectas, falta estado disabled visual, tipado `any` en lugar de tipos literales). El alumnado, en parejas, realiza una code review:
+
 1. Identificar los errores.
 2. Proponer correcciones.
 3. Comparar la corrección con el diseño original en Figma.
@@ -1299,6 +1331,7 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 **Duración:** 20 minutos
 
 **Desarrollo:** El docente proporciona un componente Card implementado pero con problemas de accesibilidad (imagen sin alt text, botones sin aria-label, texto con contraste insuficiente, no navegable por teclado). Usando el addon a11y de Storybook o axe DevTools, el alumnado debe:
+
 1. Ejecutar la auditoría.
 2. Identificar todos los problemas.
 3. Proponer soluciones concretas (código HTML/Tailwind específico).
@@ -1363,6 +1396,7 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 **Fase 4 (documento + código):** Identificación de componentes según Atomic Design. Estructura de carpetas en `src/app/`. Crear la estructura con Angular CLI (al menos los directorios).
 
 **Fase 5 (código):** Implementar AL MENOS los siguientes componentes (átomos + moléculas):
+
 - Button (4 variantes, 3 tamaños)
 - Input / InputField (con label, error, iconos)
 - Badge (4 colores, 2 tamaños)
@@ -1373,6 +1407,7 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 - Modal (overlay + ventana centrada + título + contenido + acciones)
 
 **Fase 5b (código):** Implementar las 3 pantallas:
+
 - **LibraryDashboardPage:** KPI cards (total libros, libros leídos, préstamos activos), gráfico de lectura por mes (placeholder), lista de libros prestados actualmente (tabla simplificada).
 - **BookListPage:** SearchBar + grid de BookCards + filtros (por estado: todos, leyendo, leído, pendiente, por género).
 - **BookDetailPage:** Abre en modal o página aparte. Muestra: portada grande, título, autor, género, estado, rating (estrellas), sinopsis, notas personales.
@@ -1422,10 +1457,10 @@ Ejecutar Lighthouse en la aplicación compilada en producción:
 3. **Layout responsive** (sidebar + header + contenido) usando Grid y Flexbox con Tailwind, adaptado a móvil, tablet y escritorio.
 
 4. **3-4 pantallas funcionales:**
-   - Dashboard: resumen de proyectos, tareas pendientes, actividad reciente.
-   - Board / Proyecto: vista kanban con columnas (To Do, In Progress, Review, Done). Arrastrar tareas entre columnas (Angular CDK Drag & Drop).
-   - Detalle de tarea: modal o página con título, descripción, estado, prioridad, asignado, fecha, comentarios.
-   - Configuración: perfil de usuario, preferencias de tema, notificaciones.
+    - Dashboard: resumen de proyectos, tareas pendientes, actividad reciente.
+    - Board / Proyecto: vista kanban con columnas (To Do, In Progress, Review, Done). Arrastrar tareas entre columnas (Angular CDK Drag & Drop).
+    - Detalle de tarea: modal o página con título, descripción, estado, prioridad, asignado, fecha, comentarios.
+    - Configuración: perfil de usuario, preferencias de tema, notificaciones.
 
 5. **Gestión de estado con Angular Signals:** Servicios con signals para proyectos, tareas, usuario. Datos mockeados pero estructurados como si vinieran de una API (servicios con métodos asíncronos que devuelven Promises/Observables).
 
@@ -1453,6 +1488,7 @@ Investiga e implementa un sistema de "plugins de temas" inspirado en cómo funci
 4. **Assets opcionales:** fuentes, texturas de fondo, iconos personalizados.
 
 El sistema debe permitir:
+
 - Cargar temas desde archivos JSON locales o desde una URL (API).
 - Validar el schema del tema antes de aplicarlo.
 - Previsualizar el tema sin necesidad de aplicarlo completamente (aplicar solo a un frame/preview).

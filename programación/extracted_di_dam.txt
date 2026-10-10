@@ -1,0 +1,658 @@
+--- TABLE START ---
+ | PROGRAMACIÓN DE LOS  CICLOS FORMATIVOS DE FORMACIÓN PROFESIONAL
+--- TABLE END ---
+P: PROGRAMACIÓN
+P: DE LOS 
+P: CICLOS FORMATIVOS
+P: DE FORMACIÓN PROFESIONAL
+--- TABLE START ---
+ | INFORMÁTICA  Y  COMUNICACIONES
+--- TABLE END ---
+P: INFORMÁTICA 
+P: Y 
+P: COMUNICACIONES
+P: DESARROLLO DE APLICACIONES MULTIPLATAFORMA
+P: MÓDULO: DESARROLLO DE INTERFACESMÓDULO: DESARROLLO DE INTERFACES
+P: MÓDULO: DESARROLLO DE INTERFACES
+P: MÓDULO: DESARROLLO DE INTERFACES
+P: Curso académico 2025 – 2026
+P: 1.-INTRODUCCIÓN
+P: Este módulo es de 210 horas (6 horas semanales) y se desarrolla en el segundo curso de grado superior de Desarrollo de Aplicaciones Multiplataforma 
+P: 1.1. Normativa legal
+P: Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional.
+P: Real Decreto 659/2023, de 18 de julio, por el que se desarrolla la ordenación del Sistema de Formación Profesional.
+P: El artículo 72.2 de la Ley 17/2007, de 10 de diciembre, de Educación de Andalucía, que dispone que la formación profesional se organizará de forma flexible y modular. 
+P: Decreto 147/2025, de 17 de septiembre de 2025, por el que se establece la ordenación de las enseñanzas de los Grados D y E del Sistema de Formación Profesional en la Comunidad Autónoma de Andalucía.
+P: Orden de 18 de septiembre de 2025, por la que se regula la evaluación, certificación, acreditación y titulación académica del alumnado que cursa enseñanzas de los grados D y E del Sistema de Formación Profesional en la Comunidad Autónoma de Andalucía.
+P: Orden de 26 de septiembre de 2025, por la que se regula la fase de formación en empresa u organismo equiparado de los grados D y E del Sistema de Formación Profesional de la Comunidad Autónoma de Andalucía.
+P: Real Decreto 450/2010, de 16 de abril, por el que se establece el título de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma y se fijan sus enseñanzas mínimas.
+P: Real Decreto 686/2010, de 20 de mayo, por el que se establece el título de Técnico Superior en Desarrollo de Aplicaciones Web y se fijan sus enseñanzas mínimas.
+P: Real Decreto 405/2023, de 29 de mayo, por el que se actualizan los títulos de la formación profesional del sistema educativo de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma y Técnico Superior en Desarrollo de Aplicaciones Web, de la familia profesional Informática y Comunicaciones, y se fijan sus enseñanzas mínimas.
+P: Real Decreto 500/2024, de 21 de mayo, por el que se modifican determinados reales decretos por los que se establecen títulos de Formación Profesional de grado superior y se fijan sus enseñanzas mínimas
+P: Decreto 301/2009, de 14 de julio, por el que se regula el calendario y la jornada escolar en los centros docentes, a excepción de los universitarios. 
+P: ORDEN de 16 de junio de 2011, por la que se desarrolla el currículo correspondiente al título de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma.
+P: 1.2 Contextualización del grupo
+P: El grupo de 2º de Desarrollo de Aplicaciones Multiplataforma está compuesto por 11 alumnos/as procedentes de Martos, Torredonjimeno, Torredelcampo, Escañuela, Jaén y Priego de Córdoba. La edad del alumnado varía entre los 20 y 30 años.
+P: El grupo de alumnos presenta las siguientes características:
+P: ·  10 proceden del primer curso del mismo ciclo y centro educativo.
+P: ·  1 han cursado con anterioridad el ciclo de DAM y se han matriculado directamente en segundo curso.
+P: La formación académica del alumnado es homogénea, teniendo en cuenta la base del primer curso. Los alumnos no procedentes del centro cuentan con carencias de base para poder seguir el normal desarrollo del curso(programación, lenguajes de marcas, bases de datos, etc.).
+P: El grupo necesita motivación para realizar las tareas y tiene un buen comportamiento normalmente. Dentro del grupo se pueden observar ciertos perfiles de liderazgo que hacen que el resto del grupo avance y se mantenga cohesionado.
+P: 2. OBJETIVOS
+P: 2.1 OBJETIVOS GENERALES
+P: De los objetivos generales del ciclo formativo de DAM, detallados en el Artículo 3 de la Orden de 16 de junio de 2011, el alumnado alcanza, total o parcialmente, desde el módulo de Desarrollo de interfaces, los siguientes:
+P: e) Seleccionar y emplear lenguajes, herramientas y librerías, interpretando las especificaciones para desarrollar aplicaciones multiplataforma con acceso a bases de datos.
+P: f) Gestionar la información almacenada, planificando e implementando sistemas de formularios e informes para desarrollar aplicaciones de gestión. 
+P: g) Seleccionar y utilizar herramientas específicas, lenguajes y librerías, evaluando sus posibilidades y siguiendo un manual de estilo, para manipular e integrar en aplicaciones multiplataforma contenidos gráficos y componentes multimedia. 
+P: h) Emplear herramientas de desarrollo, lenguajes y componentes visuales, siguiendo las especificaciones y verificando interactividad y usabilidad, para desarrollar interfaces gráficos de usuario en aplicaciones multiplataforma. 
+P: k) Valorar y emplear herramientas específicas, atendiendo a la estructura de los contenidos, para crear ayudas generales y sensibles al contexto.
+P: l) Valorar y emplear herramientas específicas, atendiendo a la estructura de los contenidos, para crear tutoriales, manuales de usuario y otros documentos asociados a una aplicación. 
+P: m) Seleccionar y emplear técnicas y herramientas, evaluando la utilidad de los asistentes de instalación generados, para empaquetar aplicaciones. 
+P: r) Verificar los componentes software desarrollados, analizando las especificaciones, para completar un plan de pruebas. 
+P: s) Establecer procedimientos, verificando su funcionalidad, para desplegar y distribuir aplicaciones.
+P: w) Identificar los cambios tecnológicos, organizativos, económicos y laborales en su actividad, analizando sus implicaciones en el ámbito de trabajo, para mantener el espíritu de innovación. 
+P: 2.3 RESULTADOS DE APRENDIZAJE 
+P: Los objetivos específicos del módulo profesional de Desarrollo de interfaces son Real Decreto 405/2023, de 29 de mayo, por el que se actualizan los títulos de la formación profesional del sistema educativo de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma y Técnico Superior en Desarrollo de Aplicaciones Web, de la familia profesional Informática y Comunicaciones, y se fijan sus enseñanzas mínimas y se detallan a continuación:
+P: Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado.
+P: Genera interfaces naturales de usuario utilizando herramientas visuales.
+P: Crea componentes visuales valorando y empleando herramientas específicas.  
+P: Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
+P: Crea informes evaluando y utilizando herramientas gráficas.  
+P: Documenta aplicaciones seleccionando y utilizando herramientas específicas.  
+P: Prepara aplicaciones para su distribución evaluando y utilizando herramientas específicas.
+P: Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas.  
+P: 2.4 COMPETENCIAS PROFESIONALES, PERSONALES Y SOCIALES
+P: La educación no puede limitarse a la adquisición por parte del alumnado de una serie de conocimientos que preparen para estudios universitarios, profesionales o para el mundo laboral. Una educación completa debe dar una respuesta más global e integradora, debiendo ser un instrumento que contribuya al pleno desarrollo de la personalidad.
+P: Según la Orden de 16 de junio de 2011, la formación del módulo contribuye a alcanzar las competencias profesionales, personales y sociales de este título que se relacionan a continuación:
+P: d) Gestionar entornos de desarrollo adaptando su configuración en cada caso para permitir el desarrollo y despliegue de aplicaciones. 
+P: e) Desarrollar aplicaciones multiplataforma con acceso a bases de datos utilizando lenguajes, librerías y herramientas adecuados a las especificaciones.  
+P: f) Desarrollar aplicaciones implementando un sistema completo de formularios e informes que permitan gestionar de forma integral la información almacenada.  
+P: g) Integrar contenidos gráficos y componentes multimedia en aplicaciones multiplataforma, empleando herramientas específicas y cumpliendo los requerimientos establecidos.  
+P: h) Desarrollar interfaces gráficos de usuario interactivos y con la usabilidad adecuada, empleando componentes visuales estándar o implementando componentes visuales específicos.  
+P: k) Crear ayudas generales y sensibles al contexto, empleando herramientas específicas e integrándolas en sus correspondientes aplicaciones.  
+P: l) Crear tutoriales, manuales de usuario, de instalación, de configuración y de administración, empleando herramientas específicas.  
+P: m) Empaquetar aplicaciones para su distribución preparando paquetes auto instalables con asistentes incorporados.  
+P: r) Realizar planes de pruebas verificando el funcionamiento de los componentes software desarrollados, según las especificaciones. 
+P: s) Desplegar y distribuir aplicaciones en distintos ámbitos de implantación verificando su comportamiento y realizando las modificaciones necesarias.  
+P: t) Establecer vías eficaces de relación profesional y comunicación con sus superiores, compañeros y subordinados, respetando la autonomía y competencias de las distintas personas.  
+P: w) Mantener el espíritu de innovación y actualización en el ámbito de su trabajo para adaptarse a los cambios tecnológicos y organizativos de su entorno profesional.
+P: 3. CONTENIDOS
+P: 3.1 SECUENCIACIÓN DE UNIDADES DIDÁCTICAS.
+P: La concreción de contenidos y su secuenciación de aprendizaje se ha realizado atendiendo a los siguientes criterios:
+P: Adaptación de los contenidos a los conocimientos previos del alumnado.
+P: Adecuación al desarrollo evolutivo del alumnado.
+P: Continuidad y progresión en los contenidos.
+P: Equilibrio entre las secuencias de conceptos, objetivos y capacidades.
+P: Interrelación entre contenidos.
+P: Tomando como referencia los contenidos del módulo de Desarrollo de interfaces que propone Real Decreto 405/2023, de 29 de mayo, por el que se actualizan los títulos de la formación profesional del sistema educativo de Técnico Superior en Desarrollo de Aplicaciones Multiplataforma y Técnico Superior en Desarrollo de Aplicaciones Web, de la familia profesional Informática y Comunicaciones, y se fijan sus enseñanzas mínimas y atendiendo al marco productivo, las unidades didácticas propuestas son las siguientes:
+--- TABLE START ---
+Unidad Didáctica | Horas | Trimestre
+UD 01. Introducción al desarrollo de interfaces. | 6 | 1º
+UD 02. Principios de UX para desarrolladores. | 10 | 
+UD 03. Accesibilidad web (WCAG). | 10 | 
+UD 04. Interfaces naturales de usuario (NUI). | 8 | 
+UD 05. Diseño de interfaces con Figma. | 14 | 
+UD 06. Layouts modernos para interfaces web. | 8 | 
+UD 07. Tailwind CSS 4 en el desarrollo de interfaces. | 12 | 
+UD 08. Implementación de componentes con Tailwind CSS. | 12 | 
+UD 09. Responsive design en aplicaciones Angular. | 8 | 
+UD 10. Ecosistema profesional del desarrollo frontend. | 6 | 
+UD 11. Arquitectura de interfaces con Angular. | 12 | 
+UD 12. Componentes reutilizables. | 10 | 2º
+UD 13. Formularios e interacción. | 10 | 
+UD 14. Design systems. | 8 | 
+UD 15. Documentación de componentes con Storybook. | 6 | 
+UD 16. Del diseño a la implementación. | 10 | 
+UD 17. Generación de informes y documentos. | 8 | 
+UD 18. Dashboards y visualización de datos. | 8 | 
+UD 19. Documentación de aplicaciones. | 6 | 
+UD 20. Pruebas de software. | 6 | 
+UD 21. Aplicaciones de escritorio con Electron. | 8 | 
+UD 22. Empaquetado y distribución de aplicaciones. | 8 | 
+UD 23. Proyecto final integrador: aplicación empresarial «GesFlow». | 16 | 
+--- TABLE END ---
+P: Unidad Didáctica
+P: Horas
+P: Trimestre
+P: UD 01. Introducción al desarrollo de interfaces.
+P: 6
+P: 1º
+P: UD 02. Principios de UX para desarrolladores.
+P: 10
+P: UD 03. Accesibilidad web (WCAG).
+P: 10
+P: UD 04. Interfaces naturales de usuario (NUI).
+P: 8
+P: UD 05. Diseño de interfaces con Figma.
+P: 14
+P: UD 06. Layouts modernos para interfaces web.
+P: 8
+P: UD 07. Tailwind CSS 4 en el desarrollo de interfaces.
+P: 12
+P: UD 08. Implementación de componentes con Tailwind CSS.
+P: 12
+P: UD 09. Responsive design en aplicaciones Angular.
+P: 8
+P: UD 10. Ecosistema profesional del desarrollo frontend.
+P: 6
+P: UD 11. Arquitectura de interfaces con Angular.
+P: 12
+P: UD 12. Componentes reutilizables.
+P: 10
+P: 2º
+P: UD 13. Formularios e interacción.
+P: 10
+P: UD 14. Design systems.
+P: 8
+P: UD 15. Documentación de componentes con Storybook.
+P: 6
+P: UD 16. Del diseño a la implementación.
+P: 10
+P: UD 17. Generación de informes y documentos.
+P: 8
+P: UD 18. Dashboards y visualización de datos.
+P: 8
+P: UD 19. Documentación de aplicaciones.
+P: 6
+P: UD 20. Pruebas de software.
+P: 6
+P: UD 21. Aplicaciones de escritorio con Electron.
+P: 8
+P: UD 22. Empaquetado y distribución de aplicaciones.
+P: 8
+P: UD 23. Proyecto final integrador: aplicación empresarial «GesFlow».
+P: 16
+P: 3.2 DESARROLLO DE LAS UNIDADES DIDÁCTICAS. CONTENIDOS.
+P: Introducción al desarrollo de interfaces.
+P: Concepto de interfaz de usuario y tipologías: GUI, CLI, VUI, NUI, TUI e interfaces conversacionales.
+P: Evolución histórica de las interfaces gráficas, desde la línea de comandos hasta las interfaces conversacionales basadas en inteligencia artificial.
+P: UX vs UI: ámbitos, metodologías y perfiles profesionales asociados.
+P: Interfaces web y multiplataforma: aplicaciones web, PWA, aplicaciones híbridas, aplicaciones nativas y Electron.
+P: Tendencias actuales en diseño de interfaces: neumorfismo, glassmorfismo, minimalismo, brutalismo, dark mode, microinteracciones, motion design, diseño inclusivo e IA en interfaces.
+P: El ecosistema Angular en el desarrollo de interfaces: modelo de componentes, enrutamiento, servicios, signals, Angular Material y CDK.
+P: Diseño Centrado en el Usuario (UCD) según ISO 9241-210: investigación, especificación, diseño, evaluación e iteración.
+P: El rol profesional del desarrollador de interfaces en equipos de desarrollo modernos.
+P: Principios de UX para desarrolladores.
+P: Diseño Centrado en el Usuario (UCD) aplicado al desarrollo de interfaces.
+P: Las 10 heurísticas de usabilidad de Jakob Nielsen: análisis y corrección de violaciones.
+P: Arquitectura de la información y patrones de navegación.
+P: Flujos de usuario: happy path, casos extremos y estados de error.
+P: Principios de diseño visual para desarrolladores: jerarquía visual, leyes de Gestalt, espacio en blanco y contraste.
+P: UX writing (microcopy) para botones, mensajes y formularios.
+P: Técnicas de validación de UX sin ser diseñador.
+P: Accesibilidad web (WCAG).
+P: Fundamentos de la accesibilidad web; tipos de discapacidad y barreras que generan las interfaces inaccesibles.
+P: WCAG 2.1/2.2: versiones, niveles de conformidad A, AA y AAA; normativa aplicable en España y la Unión Europea.
+P: Principios POUR: perceptible, operable, comprensible y robusto.
+P: ARIA: roles, propiedades, estados y regiones en vivo; «no uses ARIA si HTML ya lo resuelve».
+P: Implementación de accesibilidad en Angular: CDK, Angular Material y Angular ESLint.
+P: Herramientas de evaluación de accesibilidad: Lighthouse, WAVE, axe DevTools y lectores de pantalla.
+P: Checklist de accesibilidad para el desarrollo.
+P: Interfaces naturales de usuario (NUI).
+P: De la GUI a la NUI: modalidades (voz, gestos, movimiento corporal, háptica y realidad aumentada/virtual).
+P: Reconocimiento de voz con Web Speech API: comandos discretos y lenguaje natural, eventos y confianza del reconocimiento.
+P: Detección de movimiento corporal: getUserMedia, TensorFlow.js y MediaPipe; landmarks y definición de gestos.
+P: Realidad aumentada en la web: WebXR Device API, Three.js y hit-test.
+P: Integración en las aplicaciones del módulo: encapsulación en servicios Angular, signals y accesibilidad de las NUI.
+P: Diseño de interfaces con Figma.
+P: Fundamentos de Figma: espacio de trabajo, herramientas, capas, páginas y plugins esenciales.
+P: Frames y elementos básicos: tamaños de dispositivo, constraints, propiedades y texto.
+P: Auto Layout: dirección, gap, padding, alineación y resizing; equivalencia directa con Flexbox/Tailwind.
+P: Variables de diseño (colores, tipografías, espaciados) organizadas en colecciones y modos light/dark.
+P: Componentes reutilizables con propiedades configurables y conjuntos de variantes; Atomic Design.
+P: Design tokens y sistemas de diseño en Figma: librerías compartidas y mapeo con el código.
+P: Plugins útiles para desarrolladores (Tailwind CSS, Iconify, Stark, Content Reel).
+P: Modo desarrollador (Dev Mode) y handoff del diseño al desarrollo; puente completo Figma → Tailwind → Angular.
+P: Layouts modernos para interfaces web.
+P: Flexbox con Tailwind: propiedades del contenedor y de los elementos, traducción completa a clases utility.
+P: Equivalencias con layouts de escritorio clásicos (VBox, HBox, StackPane, BorderPane, GridPane, AnchorPane).
+P: CSS Grid con Tailwind: áreas, líneas, auto-fit/minmax y layouts fluidos.
+P: Posicionamiento (relative, absolute, fixed, sticky): tooltips, dropdowns, modales y cabeceras fijas.
+P: Técnicas avanzadas: combinación Grid + Flexbox, container queries, layouts fluidos con clamp()/minmax() y espaciado consistente.
+P: Tailwind CSS 4 en el desarrollo de interfaces.
+P: Filosofía utility-first en el contexto empresarial; cuándo conviene Tailwind y cuándo no.
+P: Configuración de Tailwind 4 en Angular con Vite (@tailwindcss/vite); sistema de diseño mediante la directiva @theme (colores oklch, tipografías, espaciados, breakpoints).
+P: Organización del CSS en un proyecto Angular: estilos globales, estilos por componente y uso limitado de @apply.
+P: Clases utility clave para interfaces de aplicación: layout, espaciado, colores, tipografía, estados interactivos, dark mode, formularios y accesibilidad.
+P: Técnicas avanzadas: valores arbitrarios, variantes personalizadas, peer/group, has-*; motor JIT.
+P: Tailwind CSS IntelliSense para VS Code.
+P: Estrategia de migración a Tailwind en proyectos existentes.
+P: Implementación de componentes con Tailwind CSS.
+P: Sistema completo de botones: variantes, tamaños y estados visuales.
+P: Sistema de tarjetas (cards) y tablas de datos (filas alternas, ordenación, selección, scroll horizontal).
+P: Componentes de formulario con estados complejos y validación reactiva en Angular.
+P: Modales accesibles con gestión de foco de Angular CDK y ARIA.
+P: Barras de navegación adaptables (navbar horizontal, sidebar colapsable) y sistemas de pestañas.
+P: Dashboard como componente integrador; comparativa sistemática CSS tradicional vs Tailwind.
+P: Responsive design en aplicaciones Angular.
+P: Mobile First en aplicaciones de escritorio y web empresariales.
+P: Breakpoints de Tailwind (sm, md, lg, xl, 2xl) aplicados a interfaces de gestión.
+P: Estrategias responsive por componente: sidebar, tablas, dashboards, formularios y modales.
+P: BreakpointObserver (Angular CDK): lógica condicional en TypeScript y conversión a signals.
+P: Particularidades del diseño responsive en aplicaciones Electron.
+P: Proyecto integrador: dashboard completamente responsive.
+P: Ecosistema profesional del desarrollo frontend.
+P: Node.js y npm: dependencias, scripts, versionado semántico y .gitignore.
+P: Angular como framework completo: arquitectura standalone, Angular CLI y estructura de proyectos profesionales.
+P: TypeScript en Angular: tipado de inputs/outputs, interfaces, genéricos y decoradores.
+P: Angular Signals: signal, computed y effect; comparativa con RxJS.
+P: Tailwind CSS 4 como sistema de estilos utility-first: novedades y configuración con @theme.
+P: Storybook: desarrollo, prueba y documentación de componentes en aislamiento.
+P: Electron: aplicaciones de escritorio con tecnologías web (arquitectura y casos reales).
+P: Herramientas de productividad: VS Code, Git/GitHub, ESLint, Prettier y metodologías ágiles; configuración completa del entorno de desarrollo.
+P: Arquitectura de interfaces con Angular.
+P: Fundamentos de componentes para interfaces: standalone components con imports explícitos.
+P: Organización de proyectos profesionales por features.
+P: Patrón Smart (contenedores) vs Presentational (presentación).
+P: Comunicación entre componentes: @Input, @Output, model inputs y signals.
+P: Manipulación del DOM de forma reactiva con viewChild y contentChild.
+P: Componentes reutilizables.
+P: Principios de reutilización en componentes de interfaz (SOLID).
+P: Catálogo completo de componentes UI con Angular standalone + Tailwind CSS 4.
+P: Proyección de contenido con ng-content; componentes compuestos y flexibles.
+P: Estados de interfaz: loading, empty, error y data.
+P: Accesibilidad como parte integral del diseño de cada componente (ARIA, teclado, foco).
+P: Documentación de la API pública de los componentes (inputs, outputs, modelos).
+P: Formularios e interacción.
+P: Reactive Forms avanzados con feedback visual inmediato mediante Tailwind CSS.
+P: Validadores personalizados síncronos y asíncronos; validación cross-field y contra APIs externas.
+P: Sistemas de mensajes de error contextualizados, internacionalizados y accesibles.
+P: Patrones avanzados de UX en formularios: wizards multipaso, formularios dinámicos (FormArray), autoguardado y confirmación de salida.
+P: Feedback visual en los estados de interacción y microinteracciones.
+P: Máscaras de entrada, autocompletado y sugerencias.
+P: Design systems.
+P: Qué es un design system: componentes y valor estratégico.
+P: Metodología Atomic Design aplicada a proyectos Angular.
+P: Design tokens como fuente única de verdad visual; sincronización Figma-código con Tailwind CSS 4.
+P: Construcción de un design system paso a paso: auditoría visual, documentación y versionado.
+P: Escalas consistentes de tipografía, espaciado, color, sombras y bordes.
+P: Análisis de design systems reales (Material Design 3, Ant Design, Carbon, Spectrum).
+P: ThemeProvider en Angular con signals: temas claro, oscuro y alto contraste.
+P: Documentación de componentes con Storybook.
+P: Fundamentos de Storybook: instalación y configuración en un proyecto Angular.
+P: Escritura de stories en formato CSF3; variantes y estados de los componentes.
+P: Addons esenciales: Controls, Actions, Viewport, Accessibility, Interactions y Design (Figma).
+P: Documentación narrativa con MDX.
+P: Testing de interacciones (play functions) y testing automatizado de accesibilidad.
+P: Integración con Figma (Chromatic) y publicación/despliegue de un Storybook estático.
+P: Del diseño a la implementación.
+P: Inspección de diseños en Figma Dev Mode: medidas, colores, tipografías, espaciados y assets; checklist de inspección.
+P: Extracción del sistema de design tokens: paletas de color, escalas tipográficas, espaciado, border-radius y sombras; documentación en tablas.
+P: Configuración del tema de Tailwind 4 con la directiva @theme: modo oscuro y estilos base.
+P: Organización de componentes mediante Atomic Design y arquitectura de carpetas Angular (shared/features).
+P: Implementación iterativa de componentes a partir de los diseños de Figma (todos los estados) y documentación en Storybook.
+P: Exportación y optimización de assets: iconos SVG, imágenes web y fuentes.
+P: Construcción de pantallas completas con navegación y estados (loading, empty, error).
+P: Testing y aseguramiento de calidad: pruebas unitarias, testing visual, auditorías de accesibilidad y rendimiento.
+P: Generación de informes y documentos.
+P: Tipos de documentos generados por aplicaciones empresariales: facturas, informes, certificados, albaranes, contratos y presupuestos; requisitos legales y fiscales.
+P: Generación en cliente vs servidor: ventajas, inconvenientes y criterios de decisión.
+P: Librería PDFMake: estructura declarativa, estilos, tablas, imágenes, fuentes y métodos de salida.
+P: Librerías alternativas: jsPDF (con AutoTable) y PDF-LIB; comparativa.
+P: Casos prácticos: facturas, informes de ventas con gráficos y certificados.
+P: Arquitectura de servicios de generación de documentos en Angular: inyección de dependencias, interfaces y vista previa.
+P: Exportación de datos en otros formatos: CSV y Excel (SheetJS/xlsx).
+P: Dashboards y visualización de datos.
+P: Dashboards empresariales: propósito, tipos (operacional, táctico, estratégico) y principios de diseño (data-ink ratio).
+P: Librería Chart.js: tipos de gráficos, configuración detallada y criterios de selección.
+P: Integración reactiva de gráficos en Angular con signals; ciclo de vida de las instancias.
+P: ApexCharts como alternativa moderna a Chart.js.
+P: Diseño de dashboards completos con CSS Grid y Tailwind: tarjetas KPI, widgets y filtros.
+P: Componentes reutilizables para dashboards: StatCard, ChartWidget y DataTable.
+P: Exportación de datos y gráficos desde el dashboard (CSV, Excel, PDF) y proyecto integrador.
+P: Documentación de aplicaciones.
+P: Tipos de documentación y destinatarios: ayuda general y sensible al contexto, manual de usuario, guía de referencia, manuales de instalación, configuración y administración, tutoriales.
+P: Sistemas y herramientas de generación de ayudas: generadores estáticos (Docusaurus, VitePress, MkDocs), documentación in-app y formatos de exportación.
+P: Documentación de la información persistente: modelos de datos, contratos OpenAPI y diccionario de datos.
+P: Documentación de código y componentes: convenciones TSDoc/JSDoc, Storybook y changelogs.
+P: Pruebas de software.
+P: Estrategia de pruebas: pirámide de pruebas (unidad → integración → E2E); herramientas por nivel (Jest/Testing Library, Playwright/Cypress).
+P: Pruebas unitarias de componentes y servicios Angular con mocks; cobertura de código.
+P: Pruebas de integración y end-to-end: flujos completos en distintos navegadores y tamaños de pantalla.
+P: Pruebas de regresión, volumen, estrés, seguridad y uso de recursos.
+P: Documentación de resultados: informes de pruebas, trazabilidad requisito-caso de prueba e integración en el pipeline (CI).
+P: Aplicaciones de escritorio con Electron.
+P: Qué es Electron: Chromium + Node.js; ventajas e inconvenientes frente al desarrollo nativo.
+P: Arquitectura de procesos: proceso principal, procesos renderizadores, scripts de precarga e IPC (ipcMain/ipcRenderer).
+P: Análisis de casos reales: VS Code, Discord, Slack, Figma, Postman y Obsidian.
+P: Integración de Angular con Electron: proyectos standalone, contextBridge y electron-builder.
+P: APIs nativas: sistema de archivos, diálogos, notificaciones, menús nativos, bandeja del sistema, atajos globales y autoactualizaciones.
+P: Servicio ElectronService tipado: API unificada para los entornos web y de escritorio.
+P: Seguridad en Electron: nodeIntegration, contextIsolation, CSP y validación de entradas.
+P: Empaquetado y distribución de aplicaciones.
+P: Ciclo completo de vida de una aplicación de escritorio: build, empaquetado, distribución, instalación y actualización.
+P: electron-builder: configuración y formatos de salida por plataforma (NSIS, portable, AppX, DMG, pkg, AppImage, deb, rpm, snap).
+P: Iconos y personalización visual del instalador (NSIS y DMG).
+P: Pipeline CI/CD con GitHub Actions: builds multiplataforma y publicación de releases.
+P: Firma de código: Authenticode (Windows), Apple Developer ID y notarización (macOS), GPG (Linux).
+P: Actualizaciones automáticas con electron-updater: servidores de actualización y experiencia de usuario.
+P: Tiendas de aplicaciones (Microsoft Store, Mac App Store, Snap Store) y estrategia de distribución dual web + escritorio.
+P: Proyecto final integrador: aplicación empresarial «GesFlow».
+P: Enunciado del proyecto: aplicación empresarial completa (Angular + Tailwind CSS + Electron).
+P: Planificación del proyecto en 9 fases, desde el diseño en Figma hasta la distribución del producto final.
+P: Especificación funcional y técnica; arquitectura Angular por features.
+P: Guía de implementación fase por fase.
+P: Entregables: aplicación empaquetada, Storybook, pruebas e informes.
+P: Rúbrica de evaluación y ampliaciones opcionales.
+P: 5. EVALUACIÓN
+P: 5.2. INSTRUMENTOS DE EVALUACIÓN
+P: Los instrumentos de evaluación a utilizar serán los siguientes:
+P: Realización de ejercicios de clase, como ejercicios guiados, trabajos, prácticas… (Pract). Aquí se incluye la realización de ejercicios prácticos que se llevan a cabo a lo largo de las sesiones de todas las unidades didácticas y de supuestos prácticos que incluyen los contenidos de diferentes unidades con el objetivo de globalizar los conocimientos adquiridos. Se requiere una nota igual o superior a 5 para hacer la media.
+P: Realización del proyecto/s web obligatorio/s del módulo con exposición y defensa individual (Proy). Al final del trimestre y/o del módulo y con tiempo suficiente y una fecha de entrega consensuada con el alumnado, se llevará a cabo la entrega y defensa de un proyecto práctico que aglutine todos los conocimientos adquiridos. El profesor solicitará una nota igual o superior a 5 para hacer la media.
+P: Pruebas objetivas (examen) (Ex). Siendo imprescindible que el estudiante obtenga una nota superior o igual a 5 en ese apartado para hacer la media. Las pruebas objetivas podrán ser cuestionarios, así como exámenes prácticos cuya fecha se consensuará con el alumnado con tiempo suficiente.
+P: Cada instrumento va asociado a uno o más criterios de evaluación y llevará asociada su rúbrica con la que se calificará el o los criterios correspondientes.
+P: La nota final de trimestre, será la media aritmética de las unidades didácticas incluidas en el trimestre.
+P: Para aprobar este módulo se han de aprobar las 2 evaluaciones, y la calificación será la media de la nota que haya obtenido en cada evaluación. 
+P: 5.3 CRITERIOS DE CALIFICACIÓN.
+P: Para evaluar el aprendizaje del alumnado y según la ORDEN de 16 de junio de 2011, que establece los criterios de evaluación correspondientes a los diferentes resultados de aprendizaje para este módulo profesional, se va a orientar esta evaluación al modelo por competencias, "construyéndose" la nota final del alumno en función del porcentaje de adquisición de los distintos criterios de evaluación de cada resultado de aprendizaje. A continuación, se muestran los resultados de aprendizaje, criterios, porcentaje asignado a cada uno de ellos e instrumento con el que se evalúa:
+--- TABLE START ---
+ | RA | % total del RA | % individual | CE
+1 | Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado. | 22 | 2 | a) Se han analizado las herramientas y librerías disponibles para la generación de interfaces gráficos.
+ |  |  | 2 | b) Se ha creado un interfaz gráfico utilizando las herramientas de un editor visual.
+ |  |  | 2 | c) Se han utilizado las funciones del editor para ubicar los componentes del interfaz.
+ |  |  | 2 | d) Se han modificado las propiedades de los componentes para adecuarlas a las necesidades de la aplicación.
+ |  |  | 3 | e) Se ha analizado el código generado por el editor visual.
+ |  |  | 3 | f) Se ha modificado el código generado por el editor visual.
+ |  |  | 4 | g) Se han asociado a los eventos las acciones correspondientes.
+ |  |  | 4 | h) Se ha desarrollado una aplicación que incluye el interfaz gráfico obtenido.
+2 | Genera interfaces naturales de usuario utilizando herramientas visuales. | 16 | 2 | a) Se han identificado las herramientas disponibles para el aprendizaje automático relacionadas con las interfaces de usuario.
+ |  |  | 2 | b) Se ha creado una interfaz natural de usuario utilizando las herramientas disponibles.
+ |  |  | 2 | c) Se ha utilizado el reconocimiento de voz para implementar acciones en las interfaces naturales de usuario.
+ |  |  | 2 | d) Se ha incorporado la detección del movimiento del cuerpo para implementar acciones en las interfaces naturales de usuario.
+ |  |  | 4 | e) Se han integrado elementos de detección de partes del cuerpo para implementar acciones en las interfaces naturales de usuario.
+ |  |  | 4 | f) Se ha integrado la realidad aumentada en los interfaces de usuario.
+3 | Crea componentes visuales valorando y empleando herramientas específicas. | 20 | 2 | a) Se han identificado las herramientas para diseño y prueba de componentes.
+ |  |  | 2 | b) Se han creado componentes visuales.
+ |  |  | 2 | c) Se han definido sus métodos y propiedades con asignación de valores por defecto.
+ |  |  | 2 | d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
+ |  |  | 2 | e) Se han realizado pruebas unitarias sobre los componentes desarrollados.
+ |  |  | 2 | f) Se han documentado los componentes creados.
+ |  |  | 4 | g) Se han empaquetado componentes.
+ |  |  | 4 | h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+4 | Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad. | 11 | 1 | a) Se han identificado los principales estándares de usabilidad y accesibilidad.
+ |  |  | 1 | b) Se ha valorado la importancia del uso de estándares para la creación de interfaces.
+ |  |  | 1 | c) Se han creado diferentes tipos de menús cuya estructura y contenido siguen los estándares establecidos.
+ |  |  | 1 | d) Se han distribuido las acciones en menús, barras de herramientas, botones de comando, entre otros, siguiendo un criterio coherente.
+ |  |  | 1 | e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
+ |  |  | 1 | f) Se ha utilizado el tipo de control más apropiado en cada caso.
+ |  |  | 1 | g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+ |  |  | 2 | h) Se ha verificado que los mensajes generados por la aplicación son adecuados en extensión y claridad.
+ |  |  | 2 | i) Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
+5 | Crea informes evaluando y utilizando herramientas gráficas. | 4 | 0,5 | a) Se ha establecido la estructura del informe.
+ |  |  | 0,5 | b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+ |  |  | 0,5 | c) Se han establecido filtros sobre los valores a presentar en los informes.
+ |  |  | 0,5 | d) Se han incluido valores calculados, recuentos y totales.
+ |  |  | 0,5 | e) Se han incluido gráficos generados a partir de los datos.
+ |  |  | 0,5 | f) Se han utilizado herramientas para generar el código correspondiente a los informes de una aplicación.
+ |  |  | 0,5 | g) Se ha modificado el código correspondiente a los informes.
+ |  |  | 0,5 | h) Se ha desarrollado una aplicación que incluye informes incrustados.
+6 | Documenta aplicaciones seleccionando y utilizando herramientas específicas. | 7 | 1 | a) Se han identificado sistemas de generación de ayudas.
+ |  |  | 1 | b) Se han generado ayudas en los formatos habituales.
+ |  |  | 1 | c) Se han generado ayudas sensibles al contexto.
+ |  |  | 1 | d) Se ha documentado la estructura de la información persistente.
+ |  |  | 1 | e) Se ha confeccionado el manual de usuario y la guía de referencia.
+ |  |  | 1 | f) Se han confeccionado los manuales de instalación, configuración y administración.
+ |  |  | 1 | g) Se han confeccionado tutoriales.
+7 | Prepara aplicaciones para su distribución evaluando y utilizando herramientas específicas. | 10 | 1 | a) Se han empaquetado los componentes que requiere la aplicación.
+ |  |  | 1 | b) Se ha personalizado el asistente de instalación.
+ |  |  | 1 | c) Se han generado paquetes de instalación utilizando el entorno de desarrollo.
+ |  |  | 1 | d) Se han generado paquetes de instalación utilizando herramientas externas.
+ |  |  | 1 | e) Se han firmado digitalmente las aplicaciones para su distribución.
+ |  |  | 1 | f) Se han generado paquetes instalables en modo desatendido.
+ |  |  | 2 | g) Se ha preparado el paquete de instalación para que la aplicación pueda ser correctamente desinstalada.
+ |  |  | 2 | h) Se ha preparado la aplicación para ser distribuida a través de diferentes canales de distribución.
+8 | Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas. | 10 | 1 | a) Se ha establecido una estrategia de pruebas.
+ |  |  | 1 | b) Se han realizado pruebas de integración de los distintos elementos.
+ |  |  | 1 | c) Se han realizado pruebas de regresión.
+ |  |  | 1 | d) Se han realizado pruebas de volumen y estrés.
+ |  |  | 2 | e) Se han realizado pruebas de seguridad.
+ |  |  | 2 | f) Se han realizado pruebas de uso de recursos por parte de la aplicación.
+ |  |  | 2 | g) Se ha documentado la estrategia de pruebas y los resultados obtenidos.
+--- TABLE END ---
+P: RA
+P: % total del RA
+P: % individual
+P: CE
+P: 1
+P: Genera interfaces gráficos de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado.
+P: 22
+P: 2
+P: a) Se han analizado las herramientas y librerías disponibles para la generación de interfaces gráficos.
+P: 2
+P: b) Se ha creado un interfaz gráfico utilizando las herramientas de un editor visual.
+P: 2
+P: c) Se han utilizado las funciones del editor para ubicar los componentes del interfaz.
+P: 2
+P: d) Se han modificado las propiedades de los componentes para adecuarlas a las necesidades de la aplicación.
+P: 3
+P: e) Se ha analizado el código generado por el editor visual.
+P: 3
+P: f) Se ha modificado el código generado por el editor visual.
+P: 4
+P: g) Se han asociado a los eventos las acciones correspondientes.
+P: 4
+P: h) Se ha desarrollado una aplicación que incluye el interfaz gráfico obtenido.
+P: 2
+P: Genera interfaces naturales de usuario utilizando herramientas visuales.
+P: 16
+P: 2
+P: a) Se han identificado las herramientas disponibles para el aprendizaje automático relacionadas con las interfaces de usuario.
+P: 2
+P: b) Se ha creado una interfaz natural de usuario utilizando las herramientas disponibles.
+P: 2
+P: c) Se ha utilizado el reconocimiento de voz para implementar acciones en las interfaces naturales de usuario.
+P: 2
+P: d) Se ha incorporado la detección del movimiento del cuerpo para implementar acciones en las interfaces naturales de usuario.
+P: 4
+P: e) Se han integrado elementos de detección de partes del cuerpo para implementar acciones en las interfaces naturales de usuario.
+P: 4
+P: f) Se ha integrado la realidad aumentada en los interfaces de usuario.
+P: 3
+P: Crea componentes visuales valorando y empleando herramientas específicas.
+P: 20
+P: 2
+P: a) Se han identificado las herramientas para diseño y prueba de componentes.
+P: 2
+P: b) Se han creado componentes visuales.
+P: 2
+P: c) Se han definido sus métodos y propiedades con asignación de valores por defecto.
+P: 2
+P: d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
+P: 2
+P: e) Se han realizado pruebas unitarias sobre los componentes desarrollados.
+P: 2
+P: f) Se han documentado los componentes creados.
+P: 4
+P: g) Se han empaquetado componentes.
+P: 4
+P: h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+P: 4
+P: Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
+P: 11
+P: 1
+P: a) Se han identificado los principales estándares de usabilidad y accesibilidad.
+P: 1
+P: b) Se ha valorado la importancia del uso de estándares para la creación de interfaces.
+P: 1
+P: c) Se han creado diferentes tipos de menús cuya estructura y contenido siguen los estándares establecidos.
+P: 1
+P: d) Se han distribuido las acciones en menús, barras de herramientas, botones de comando, entre otros, siguiendo un criterio coherente.
+P: 1
+P: e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
+P: 1
+P: f) Se ha utilizado el tipo de control más apropiado en cada caso.
+P: 1
+P: g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+P: 2
+P: h) Se ha verificado que los mensajes generados por la aplicación son adecuados en extensión y claridad.
+P: 2
+P: i) Se han realizado pruebas para evaluar la usabilidad y accesibilidad de la aplicación.
+P: 5
+P: Crea informes evaluando y utilizando herramientas gráficas.
+P: 4
+P: 0,5
+P: a) Se ha establecido la estructura del informe.
+P: 0,5
+P: b) Se han generado informes básicos a partir de diferentes fuentes de datos mediante asistentes.
+P: 0,5
+P: c) Se han establecido filtros sobre los valores a presentar en los informes.
+P: 0,5
+P: d) Se han incluido valores calculados, recuentos y totales.
+P: 0,5
+P: e) Se han incluido gráficos generados a partir de los datos.
+P: 0,5
+P: f) Se han utilizado herramientas para generar el código correspondiente a los informes de una aplicación.
+P: 0,5
+P: g) Se ha modificado el código correspondiente a los informes.
+P: 0,5
+P: h) Se ha desarrollado una aplicación que incluye informes incrustados.
+P: 6
+P: Documenta aplicaciones seleccionando y utilizando herramientas específicas.
+P: 7
+P: 1
+P: a) Se han identificado sistemas de generación de ayudas.
+P: 1
+P: b) Se han generado ayudas en los formatos habituales.
+P: 1
+P: c) Se han generado ayudas sensibles al contexto.
+P: 1
+P: d) Se ha documentado la estructura de la información persistente.
+P: 1
+P: e) Se ha confeccionado el manual de usuario y la guía de referencia.
+P: 1
+P: f) Se han confeccionado los manuales de instalación, configuración y administración.
+P: 1
+P: g) Se han confeccionado tutoriales.
+P: 7
+P: Prepara aplicaciones para su distribución evaluando y utilizando herramientas específicas.
+P: 10
+P: 1
+P: a) Se han empaquetado los componentes que requiere la aplicación.
+P: 1
+P: b) Se ha personalizado el asistente de instalación.
+P: 1
+P: c) Se han generado paquetes de instalación utilizando el entorno de desarrollo.
+P: 1
+P: d) Se han generado paquetes de instalación utilizando herramientas externas.
+P: 1
+P: e) Se han firmado digitalmente las aplicaciones para su distribución.
+P: 1
+P: f) Se han generado paquetes instalables en modo desatendido.
+P: 2
+P: g) Se ha preparado el paquete de instalación para que la aplicación pueda ser correctamente desinstalada.
+P: 2
+P: h) Se ha preparado la aplicación para ser distribuida a través de diferentes canales de distribución.
+P: 8
+P: Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas.
+P: 10
+P: 1
+P: a) Se ha establecido una estrategia de pruebas.
+P: 1
+P: b) Se han realizado pruebas de integración de los distintos elementos.
+P: 1
+P: c) Se han realizado pruebas de regresión.
+P: 1
+P: d) Se han realizado pruebas de volumen y estrés.
+P: 2
+P: e) Se han realizado pruebas de seguridad.
+P: 2
+P: f) Se han realizado pruebas de uso de recursos por parte de la aplicación.
+P: 2
+P: g) Se ha documentado la estrategia de pruebas y los resultados obtenidos.
+P: El proceso de evaluación y calificación es el siguiente: por cada unidad, se realizarán una serie de actividades, prácticas, exámenes, preguntas o trabajos relacionados. La nota de cada uno de ellos se irá asignando a cada criterio de evaluación implicado (en el caso de existir más de una actividad por criterio, se tomaría la media, teniendo todas ellas el mismo peso). La nota con la que se calificará la primera y segunda evaluación será una nota ponderada a los criterios de evaluación que se hayan evaluado hasta la fecha, no teniendo ningún tipo de validez más allá del informativo, ya que hasta que no se llegue al final de la tercera evaluación no se dispondrá de la nota final completa con el 100% de todos los criterios de evaluación evaluados.
+P: 5.4. SESIONES DE EVALUACIÓN
+P: Para la modalidad presencial en los Grados D, como mínimo, se realizarán dos sesiones de evaluación parcial dentro del periodo lectivo, y dos sesiones de evaluación final en cada curso académico, sin perjuicio de lo que el centro recoja en su proyecto educativo.
+P: 5.5. EVALUACIÓN DE LA ASISTENCIA
+P: Según las Instrucciones del 14 de mayo de 2025, si un alumno/a baja del 80% de horas de asistencia sin motivo justificado, perderá la evaluación continua, teniendo que acudir al examen final ordinario.
+P: 5.6 CRITERIOS DE RECUPERACIÓN
+P: Aquellos alumnos que no superen alguno de los resultados de aprendizaje, tendrán la oportunidad de recuperarlo en un examen final ordinario a finales de mayo.
+P: Para aquellos alumnos que pierdan el derecho a realizar las pruebas parciales de las unidades didácticas por sus faltas de asistencia, solo tienen derecho a ser evaluados en el examen final ordinario a finales de mayo de todos los contenidos del módulo profesional.
+P: Aquellos alumnos que no superen el examen final ordinario dispondrán de clases de apoyo antes del examen final extraordinario que se realizará a finales de junio.
+P: 6. FORMACIÓN EN EMPRESAS 
+P: Con el objetivo de cumplir lo escrito en la Ley Orgánica 3/2022, una parte de los Resultados de Aprendizaje y por ende, de los Criterios de Evaluación, se desarrollarán en Empresas. Según recoge el plan de formación inicial de este ciclo en nuestro centro, la formación en empresas se realizará de la siguiente forma:
+P: • Se realizarán 500h de formación en las empresas, cumpliendo con el porcentaje exigido del 25% de las horas totales.
+P: • La formación en empresas de los primeros cursos tendrá una duración de 104 horas, mientras que en segundo curso se desarrollarán 400 horas.
+P: • Se dualizan todos los módulos formativos de los ciclos.
+P: • Establecer en 400 la duración de la formación en empresas para los segundos cursos de los ciclos de informática, con el siguiente reparto de horas en los módulos implicados:
+--- TABLE START ---
+MÓDULO | HORAS TOTALES | HORAS EN CENTRO | HORAS EN EMPRESA | HORAS REALES EMPRESA
+Programación Servicios Procesos | 105 | 62,15 | 42,85 | 43
+Desarrollo Interfaces | 210 | 124,29 | 85,71 | 86
+Programación Móvil | 105 | 62,15 | 42,85 | 43
+Acceso a Datos | 140 | 82,86 | 57,14 | 57
+Sistemas Gestión | 140 | 82,86 | 57,14 | 57
+Optativa | 105 | 62,15 | 42,85 | 43
+Inglés | 70 | 41,43 | 28,57 | 28
+IPE II | 105 | 62,15 | 42,85 | 43
+TOTAL | 980h+70hProyecto=1050h | 580,04h | 398,5 (50 jornadas) | 400
+--- TABLE END ---
+P: MÓDULO
+P: HORAS TOTALES
+P: HORAS EN CENTRO
+P: HORAS EN EMPRESA
+P: HORAS REALES EMPRESA
+P: Programación Servicios Procesos
+P: 105
+P: 62,15
+P: 42,85
+P: 43
+P: Desarrollo Interfaces
+P: 210
+P: 124,29
+P: 85,71
+P: 86
+P: Programación Móvil
+P: 105
+P: 62,15
+P: 42,85
+P: 43
+P: Acceso a Datos
+P: 140
+P: 82,86
+P: 57,14
+P: 57
+P: Sistemas Gestión
+P: 140
+P: 82,86
+P: 57,14
+P: 57
+P: Optativa
+P: 105
+P: 62,15
+P: 42,85
+P: 43
+P: Inglés
+P: 70
+P: 41,43
+P: 28,57
+P: 28
+P: IPE II
+P: 105
+P: 62,15
+P: 42,85
+P: 43
+P: TOTAL
+P: 980h+70hProyecto=1050h
+P: 580,04h
+P: 398,5 (50 jornadas)
+P: 400
+P: En el caso concreto de este módulo, se desarrollarán, en las empresas, los siguiente Resultados de Aprendizaje y Criterios de Evaluación asociados:
+--- TABLE START ---
+RA 3 .  Crea componentes visuales valorando y empleando herramientas específicas. | a) Se han identificado las herramientas para diseño y prueba de componentes. b) Se han creado componentes visuales. d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes. e) Se han realizado pruebas unitarias sobre los componentes desarrollados. f) Se han documentado los componentes creados. h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+RA 4 .    Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad. | c) Se han creado diferentes tipos de menús cuya estructura y contenido siguen los estándares establecidos. d) Se han distribuido las acciones en menús, barras de herramientas, botones  de comando, entre otros, siguiendo un criterio coherente. e) Se han distribuido adecuadamente los controles en la interfaz de usuario. f) Se ha utilizado el tipo de control más apropiado en cada caso. g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad. h) Se ha verificado que los mensajes generados por la aplicación son adecuados en extensión y claridad.
+--- TABLE END ---
+P: RA3. Crea componentes visuales valorando y empleando herramientas específicas.
+P: a) Se han identificado las herramientas para diseño y prueba de componentes.
+P: b) Se han creado componentes visuales.
+P: d) Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes.
+P: e) Se han realizado pruebas unitarias sobre los componentes desarrollados.
+P: f) Se han documentado los componentes creados.
+P: h) Se han programado aplicaciones cuyo interfaz gráfico utiliza los componentes creados.
+P: RA4.  Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad.
+P: c) Se han creado diferentes tipos de menús cuya estructura y contenido siguen los estándares establecidos.
+P: d) Se han distribuido las acciones en menús, barras de herramientas, botones de comando, entre otros, siguiendo un criterio coherente.
+P: e) Se han distribuido adecuadamente los controles en la interfaz de usuario.
+P: f) Se ha utilizado el tipo de control más apropiado en cada caso.
+P: g) Se ha diseñado el aspecto de la interfaz de usuario (colores y fuentes entre otros) atendiendo a su legibilidad.
+P: h) Se ha verificado que los mensajes generados por la aplicación son adecuados en extensión y claridad.
+P: Además, el alumnado con NEAE (Necesidades Específicas de Apoyo Educativo) recibirán un acompañamiento más específico por su parte de su tutor dual, que, junto al tutor laboral, se asegurarán de que el puesto de trabajo se adecúe a las necesidades del alumno.

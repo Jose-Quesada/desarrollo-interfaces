@@ -38,6 +38,7 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 ## Contenidos
 
 **Bloque 1: Node.js y el gestor de paquetes npm**
+
 - Qué es Node.js: runtime de JavaScript fuera del navegador, arquitectura basada en eventos, motor V8.
 - npm (Node Package Manager): repositorio de paquetes, gestión de dependencias, ficheros package.json y package-lock.json.
 - Dependencias de desarrollo (devDependencies) vs dependencias de producción (dependencies).
@@ -47,6 +48,7 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - .gitignore: archivos y directorios a excluir del control de versiones (node_modules, dist, .env).
 
 **Bloque 2: Angular: el framework completo para interfaces empresariales**
+
 - Filosofía y posicionamiento en el ecosistema: comparativa con React, Vue, Svelte, Solid.
 - Arquitectura: módulos (NgModules) vs componentes standalone, el cambio de paradigma.
 - Angular CLI: scaffolding (ng new), generación de componentes/servicios/directivas/pipes (ng generate), servidor de desarrollo (ng serve), build de producción (ng build), testing (ng test).
@@ -56,6 +58,7 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - Versiones de Angular: historial de cambios clave desde Angular 2 hasta la última versión estable (v19 en 2025).
 
 **Bloque 3: TypeScript como lenguaje fundamental**
+
 - Qué es TypeScript: superset tipado de JavaScript desarrollado por Microsoft.
 - Compilación: de .ts a .js mediante tsc (TypeScript Compiler).
 - Sistema de tipos: tipos primitivos (string, number, boolean, null, undefined), tipos complejos (arrays, tuples, enums, objetos literales tipados), tipos especiales (any, unknown, void, never).
@@ -66,30 +69,32 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - Por qué TypeScript es fundamental en el desarrollo de interfaces: detección temprana de errores, autocompletado en IDE, documentación viva del código, refactorización segura, mantenibilidad en equipos grandes.
 
 **Bloque 4: Tailwind CSS 4 - Sistema de estilos utility-first**
+
 - Filosofía utility-first: clases atómicas que aplican una única propiedad CSS, composición en el HTML.
 - Ventajas frente a CSS tradicional, SASS/SCSS y CSS-in-JS: sin cambios de contexto, sin nombrar clases, estilos predecibles y fáciles de leer en el template, bundle CSS mínimo (solo las clases usadas), consistencia forzada (sistema de diseño implícito a través de la configuración).
 - Novedades de Tailwind CSS 4:
-  - Configuración 100% CSS: ya no se necesita `tailwind.config.js` (aunque sigue siendo compatible). La configuración se hace mediante CSS con `@theme`, `@import "tailwindcss"`, etc.
-  - Integración con Vite como plugin nativo.
-  - Sistema de capas en CSS (@layer base, components, utilities).
-  - Nuevas utilidades y mejoras de rendimiento.
+    - Configuración 100% CSS: ya no se necesita `tailwind.config.js` (aunque sigue siendo compatible). La configuración se hace mediante CSS con `@theme`, `@import "tailwindcss"`, etc.
+    - Integración con Vite como plugin nativo.
+    - Sistema de capas en CSS (@layer base, components, utilities).
+    - Nuevas utilidades y mejoras de rendimiento.
 - Clases utilitarias principales categorizadas:
-  - Layout (flex, grid, container, columns, display, position, z-index).
-  - Spacing (padding, margin, gap, space-between).
-  - Sizing (width, height, min/max).
-  - Typography (font-family, font-size, font-weight, line-height, letter-spacing, text-align, text-color, text-decoration).
-  - Backgrounds (background-color, background-image, gradient).
-  - Borders (border-width, border-color, border-radius, outline, ring).
-  - Effects (box-shadow, opacity, blend mode).
-  - Transitions y Animations (transition, animate).
-  - Interactivity (cursor, user-select, pointer-events, scroll behavior).
-  - Responsive Design (prefijos sm:, md:, lg:, xl:, 2xl: aplicando mobile-first).
+    - Layout (flex, grid, container, columns, display, position, z-index).
+    - Spacing (padding, margin, gap, space-between).
+    - Sizing (width, height, min/max).
+    - Typography (font-family, font-size, font-weight, line-height, letter-spacing, text-align, text-color, text-decoration).
+    - Backgrounds (background-color, background-image, gradient).
+    - Borders (border-width, border-color, border-radius, outline, ring).
+    - Effects (box-shadow, opacity, blend mode).
+    - Transitions y Animations (transition, animate).
+    - Interactivity (cursor, user-select, pointer-events, scroll behavior).
+    - Responsive Design (prefijos sm:, md:, lg:, xl:, 2xl: aplicando mobile-first).
 - Configuración del tema con `@theme`: personalización de colores, tipografía, espaciado, breakpoints.
 - Directiva `@apply`: uso y controversia (cuándo sí, cuándo no).
 - Modo oscuro con la clase `dark:` y la estrategia `class` o `media`.
 - Plugin oficial de Tailwind CSS para Vite.
 
 **Bloque 5: Figma - Diseño colaborativo**
+
 - Rol de Figma en el ecosistema profesional: herramienta de diseño basada en navegador, colaboración en tiempo real, único source of truth del diseño.
 - Comparativa con alternativas: Sketch (macOS, no colaborativo nativo), Adobe XD (en desuso tras la compra de Figma por Adobe -frustrada- y el giro estratégico).
 - Figma en modo desarrollador (Dev Mode): inspección de medidas, colores, tipografías, assets exportables, snippets de código (CSS, Tailwind, SwiftUI, Compose).
@@ -98,6 +103,7 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - Próximamente: Unidad 3 dedicada íntegramente a Figma.
 
 **Bloque 6: Storybook - Desarrollo y documentación de componentes**
+
 - Qué es Storybook: entorno aislado para desarrollar, probar y documentar componentes de interfaz.
 - Por qué es estándar en la industria: permite desarrollar componentes de forma aislada (sin necesidad de navegar por la app completa), documenta visualmente el sistema de diseño (catálogo vivo), facilita el testing visual (Chromatic, Percy), mejora la comunicación entre diseño y desarrollo.
 - Stories: definición (archivos *.stories.ts), estructura (args, argTypes, decorators, parameters).
@@ -107,6 +113,7 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - Chromatic: servicio cloud de Storybook para revisión visual, UI tests y capturas de pantalla automatizadas.
 
 **Bloque 7: Electron - Aplicaciones de escritorio con tecnologías web**
+
 - Arquitectura de Electron: proceso principal (Main) con Node.js, procesos renderizadores (Renderer) con Chromium, IPC (Inter-Process Communication) para comunicación entre procesos.
 - Configuración de un proyecto Electron: instalación, main.js, preload.js, BrowserWindow.
 - Integración con Angular: empaquetado de la aplicación Angular como Electron app. Herramientas como electron-builder para generar instaladores (Windows .exe/.msi, macOS .dmg/.pkg, Linux .AppImage/.deb/.rpm).
@@ -115,45 +122,47 @@ Se realizará una actividad de diagnóstico inicial consistente en un breve cues
 - Cuándo usar Electron y cuándo no: electron para apps multiplataforma de escritorio con necesidades web, no electron para apps que requieran ultra-bajo consumo de recursos o máximo rendimiento nativo (juegos, edición de vídeo profesional).
 
 **Bloque 8: Herramientas de productividad y flujo de trabajo profesional**
+
 - Visual Studio Code: extensiones esenciales para el stack:
-  - Angular Language Service (autocompletado, navegación en templates, diagnóstico de errores).
-  - Tailwind CSS IntelliSense (autocompletado de clases, hover preview, linting).
-  - ESLint (integración en editor, corrección automática al guardar).
-  - Prettier (formateo automático de código, configuración .prettierrc).
-  - Figma for VS Code (incrustar diseños de Figma en el editor).
-  - GitLens (información de Git inline, blame, historial).
-  - GitHub Copilot o alternativa gratuita (asistente de código AI).
+    - Angular Language Service (autocompletado, navegación en templates, diagnóstico de errores).
+    - Tailwind CSS IntelliSense (autocompletado de clases, hover preview, linting).
+    - ESLint (integración en editor, corrección automática al guardar).
+    - Prettier (formateo automático de código, configuración .prettierrc).
+    - Figma for VS Code (incrustar diseños de Figma en el editor).
+    - GitLens (información de Git inline, blame, historial).
+    - GitHub Copilot o alternativa gratuita (asistente de código AI).
 - Git y GitHub:
-  - Repaso: clone, add, commit (conventional commits: feat:, fix:, docs:, refactor:, style:, test:, chore:), push, pull, fetch.
-  - Ramas (feature branches, main/master, develop, release).
-  - Pull requests: creación, revisión de código, resolución de conflictos.
-  - .gitignore para proyectos Angular + Tailwind (node_modules, dist, .angular, .env, etc.).
-  - GitHub Actions: integración continua (CI) básica para lint, test y build.
+    - Repaso: clone, add, commit (conventional commits: feat:, fix:, docs:, refactor:, style:, test:, chore:), push, pull, fetch.
+    - Ramas (feature branches, main/master, develop, release).
+    - Pull requests: creación, revisión de código, resolución de conflictos.
+    - .gitignore para proyectos Angular + Tailwind (node_modules, dist, .angular, .env, etc.).
+    - GitHub Actions: integración continua (CI) básica para lint, test y build.
 - ESLint y Prettier:
-  - ESLint: qué es, cómo funciona (reglas, plugins, parser TypeScript), configuración (.eslintrc.json o eslint.config.js en nuevo formato flat config).
-  - Prettier: qué es, filosofía (opinionated, decisions made), configuración (.prettierrc, .prettierignore), integración con ESLint (eslint-config-prettier para evitar conflictos).
-  - Husky y lint-staged: ejecución de linting y formateo antes del commit (pre-commit hooks).
+    - ESLint: qué es, cómo funciona (reglas, plugins, parser TypeScript), configuración (.eslintrc.json o eslint.config.js en nuevo formato flat config).
+    - Prettier: qué es, filosofía (opinionated, decisions made), configuración (.prettierrc, .prettierignore), integración con ESLint (eslint-config-prettier para evitar conflictos).
+    - Husky y lint-staged: ejecución de linting y formateo antes del commit (pre-commit hooks).
 - Metodologías ágiles en el desarrollo de interfaces:
-  - Scrum: roles (Product Owner, Scrum Master, Development Team), ceremonias (Sprint Planning, Daily Standup, Sprint Review, Sprint Retrospective), artefactos (Product Backlog, Sprint Backlog, Increment).
-  - Kanban: tablero visual (To Do, In Progress, Review, Done), limitación de WIP (Work In Progress).
-  - Cómo las metodologías ágiles afectan al desarrollo de interfaces: entregas incrementales de componentes, iteración sobre feedback de diseño, integración continua del sistema de diseño.
+    - Scrum: roles (Product Owner, Scrum Master, Development Team), ceremonias (Sprint Planning, Daily Standup, Sprint Review, Sprint Retrospective), artefactos (Product Backlog, Sprint Backlog, Increment).
+    - Kanban: tablero visual (To Do, In Progress, Review, Done), limitación de WIP (Work In Progress).
+    - Cómo las metodologías ágiles afectan al desarrollo de interfaces: entregas incrementales de componentes, iteración sobre feedback de diseño, integración continua del sistema de diseño.
 
 **Bloque 9: Configuración completa del entorno de desarrollo**
+
 - Guía paso a paso (detallada en los ejemplos guiados):
-  1. Instalación de Node.js (LTS) con nvm (Node Version Manager).
-  2. Verificación: node --version, npm --version.
-  3. Instalación global de Angular CLI: npm install -g @angular/cli.
-  4. Creación de proyecto Angular con Tailwind CSS 4: ng new mi-proyecto --standalone --style css.
-  5. Instalación de Tailwind CSS 4 como plugin Vite.
-  6. Configuración de Tailwind en styles.css (@import "tailwindcss"; @theme).
-  7. Verificación: crear un componente de prueba con clases Tailwind.
-  8. Instalación de ESLint (si no viene con Angular) y Prettier.
-  9. Configuración de reglas y scripts npm (lint, format).
-  10. Inicialización de Git y primer commit.
-  11. Instalación de Storybook: npx storybook init (para Angular).
-  12. Configuración de Storybook con Tailwind.
-  13. Verificación: story de un componente simple (Button).
-  14. Creación de repositorio en GitHub y primer push.
+    1. Instalación de Node.js (LTS) con nvm (Node Version Manager).
+    2. Verificación: node --version, npm --version.
+    3. Instalación global de Angular CLI: npm install -g @angular/cli.
+    4. Creación de proyecto Angular con Tailwind CSS 4: ng new mi-proyecto --standalone --style css.
+    5. Instalación de Tailwind CSS 4 como plugin Vite.
+    6. Configuración de Tailwind en styles.css (@import "tailwindcss"; @theme).
+    7. Verificación: crear un componente de prueba con clases Tailwind.
+    8. Instalación de ESLint (si no viene con Angular) y Prettier.
+    9. Configuración de reglas y scripts npm (lint, format).
+    10. Inicialización de Git y primer commit.
+    11. Instalación de Storybook: npx storybook init (para Angular).
+    12. Configuración de Storybook con Tailwind.
+    13. Verificación: story de un componente simple (Button).
+    14. Creación de repositorio en GitHub y primer push.
 
 ## Desarrollo teórico
 
@@ -475,6 +484,7 @@ Figma ha sustituido a herramientas como Sketch y Adobe XD como el estándar de f
 Para los desarrolladores de interfaces, Figma es mucho más que una herramienta de diseño. Es la fuente de verdad del diseño (*source of truth*): el lugar donde encontramos los diseños aprobados, las especificaciones de colores y tipografías, las medidas exactas, los assets exportables, y el prototipo navegable para entender flujos de interacción.
 
 Figma ofrece un modo específico para desarrolladores (Dev Mode) accesible mediante un toggle en la interfaz, que proporciona:
+
 - Medidas en píxeles entre elementos.
 - Código CSS generado automáticamente para cada elemento seleccionado (con soporte para Tailwind CSS mediante plugin o configuración).
 - Valores de variables (colores, tipografías, espaciados) con nombres semánticos.
@@ -598,51 +608,61 @@ La mayoría de aplicaciones de negocio, productividad y comunicación caen en el
 El desarrollo profesional de interfaces no es un acto aislado de escritura de código, sino un proceso multidisciplinar que integra diseño, implementación, testing, colaboración y despliegue. Comprender este flujo completo es esencial para contextualizar cada herramienta y cada habilidad que aprenderemos en el módulo.
 
 **Fase 1: Investigación y conceptualización**
+
 - Herramientas: entrevistas con usuarios, análisis competitivo, encuestas.
 - Artefactos: personas, escenarios, mapas de empatía, journey maps.
 - Responsables principales: UX researcher, Product Manager.
 
 **Fase 2: Diseño de experiencia (UX)**
+
 - Herramientas: Figma, Miro, Whimsical (para diagramas de flujo y wireframes).
 - Artefactos: diagramas de flujo, wireframes de baja fidelidad, arquitectura de la información.
 - Responsables principales: UX Designer.
 
 **Fase 3: Diseño visual (UI)**
+
 - Herramientas: Figma (componentes, variantes, Auto Layout, variables).
 - Artefactos: diseños de alta fidelidad, prototipo interactivo, sistema de diseño (componentes + tokens), assets exportables.
 - Responsables principales: UI Designer.
 
 **Fase 4: Handoff diseño → desarrollo**
+
 - Herramientas: Figma Dev Mode, Zeplin (alternativa legacy), plugins de exportación de tokens.
 - Artefactos: especificaciones de diseño (medidas, colores, tipografías), assets en formatos de desarrollo (SVG, PNG, fuentes).
 - Responsables: UI Designer (prepara) + Frontend Developer (recibe e inspecciona).
 
 **Fase 5: Configuración del proyecto**
+
 - Herramientas: Angular CLI, npm, Vite, Tailwind CSS, ESLint, Prettier, Git, GitHub.
 - Artefactos: repositorio Git inicializado, proyecto Angular andando, configuración de Tailwind con design tokens, ESLint y Prettier configurados, scripts npm funcionales.
 - Responsables: Frontend Developer (posiblemente asignado a un Lead Frontend).
 
 **Fase 6: Desarrollo de componentes (donde pasaremos la mayor parte del módulo)**
+
 - Herramientas: Angular (standalone components, signals), Tailwind CSS (clases utilitarias), Storybook (desarrollo aislado y documentación).
 - Artefactos: componentes unitarios (átomos y moléculas), componentes compuestos (organismos), stories con todas las variantes documentadas, tests unitarios (Jasmine/Jest + Angular Testing Library).
 - Responsables: Frontend Developer.
 
 **Fase 7: Integración y construcción de pantallas**
+
 - Herramientas: Angular (composición de componentes, enrutamiento, servicios, signals para estado global).
 - Artefactos: pantallas completas (páginas) integrando organismos y componentes, navegación funcional, conexión con APIs reales (o mockeadas durante desarrollo), gestión de estado de la aplicación.
 - Responsables: Frontend Developer.
 
 **Fase 8: Testing y calidad**
+
 - Herramientas: Storybook (testing visual), ESLint + Prettier (calidad de código), Jest/Karma (tests unitarios), Cypress/Playwright (tests end-to-end), Lighthouse (auditoría de rendimiento y accesibilidad), axe-core/WAVE (auditoría de accesibilidad).
 - Artefactos: informes de tests, informes de auditoría, issues de bugs.
 - Responsables: Frontend Developer + QA Engineer + Diseñador (para validación visual).
 
 **Fase 9: Build y despliegue**
+
 - Herramientas: Angular CLI build (producción), CI/CD (GitHub Actions, GitLab CI, Jenkins), servicios de hosting (Vercel, Netlify, Firebase Hosting, AWS S3/CloudFront, Azure Static Web Apps) para web; electron-builder para escritorio.
 - Artefactos: bundle de producción optimizado (minificado, tree-shaken, code-splitted), instaladores para escritorio, aplicación desplegada en producción.
 - Responsables: Frontend Developer (build y configuración) + DevOps (pipeline CI/CD y despliegue).
 
 **Fase 10: Monitorización e iteración**
+
 - Herramientas: Google Analytics, Sentry (errores), Hotjar/FullStory (grabaciones de sesión y mapas de calor), encuestas NPS (Net Promoter Score), feedback de usuarios.
 - Artefactos: informes de uso (métricas cuantitativas) e investigación continua (feedback cualitativo), backlog de mejoras priorizado.
 - Responsables: Product Manager + Frontend Developer + UX Researcher.
@@ -939,6 +959,7 @@ Este caso ilustra cómo las herramientas del ecosistema no son fines en sí mism
 Una startup sevillana ha desarrollado un algoritmo de optimización de rutas de reparto. Necesitan dos interfaces: un dashboard para el gestor de flotas (escritorio, consulta de rutas, KPIs, gráficos) y una app para el repartidor (móvil, funcionamiento offline, escaneo de códigos de barras, firma digital del destinatario).
 
 Su stack de desarrollo de interfaces:
+
 - **Angular:** Framework único para ambas interfaces (dashboard SPA y PWA para el repartidor), compartiendo modelos TypeScript (interfaces para Rutas, Pedidos, Clientes) y servicios.
 - **Tailwind CSS:** Estilado consistente en ambas plataformas.
 - **PWA (Service Workers):** Para el funcionamiento offline de la app del repartidor (cacheo de rutas del día, cola de sincronización cuando recupere conexión).
@@ -962,6 +983,7 @@ La decisión de usar Angular + Tailwind en lugar de desarrollar nativo para iOS 
 **Duración:** 25 minutos
 
 **Desarrollo:** El docente proyecta y el alumnado accede simultáneamente a Storybooks públicos de proyectos open source conocidos:
+
 - GitHub Primer (sistema de diseño de GitHub): https://primer.style/react/storybook
 - Shopify Polaris: https://polaris.shopify.com
 - Carbon Design System (IBM): https://carbondesignsystem.com
@@ -977,6 +999,7 @@ Puesta en común: ¿Qué características de estos Storybooks profesionales os g
 **Desarrollo:** Siguiendo el Ejemplo Guiado 2, el alumnado crea el componente Button. El docente hace hincapié en la configuración estricta de TypeScript (verificar que `tsconfig.json` tiene `"strict": true`, `"strictNullChecks": true`, `"noImplicitAny": true`) y en cómo el tipado ayuda a prevenir errores comunes.
 
 **Variaciones para practicar:** El docente propone modificaciones al componente para que el alumnado vea cómo TypeScript les protege:
+
 - "Añadid una nueva variante 'danger' a Button. ¿Qué pasa si no actualizáis el Record de variantClasses?"
 - "Intentad pasar un valor numérico a la prop variant. ¿Qué error da TypeScript?"
 - "Añadid una prop opcional `icon` de tipo string. Haced que el icono se renderice solo si está definida. ¿Cómo tratáis el condicional con tipado seguro?"

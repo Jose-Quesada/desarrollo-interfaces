@@ -54,58 +54,58 @@ Como RA secundario, se vincula al **RA 6** («Documenta aplicaciones seleccionan
 ## Contenidos
 
 1. **La necesidad de generar documentos desde aplicaciones empresariales**
-   - 1.1. Tipos de documentos generados por aplicaciones: facturas, informes, certificados, albaranes, reportes, comprobantes, contratos, presupuestos, diplomas, cartas, etiquetas.
-   - 1.2. Requisitos legales y fiscales que afectan a la generación de documentos (formato de facturas, numeración, datos obligatorios, conservación).
-   - 1.3. Flujo de generación de documentos: obtención de datos → transformación → maquetación → renderizado → salida.
+    - 1.1. Tipos de documentos generados por aplicaciones: facturas, informes, certificados, albaranes, reportes, comprobantes, contratos, presupuestos, diplomas, cartas, etiquetas.
+    - 1.2. Requisitos legales y fiscales que afectan a la generación de documentos (formato de facturas, numeración, datos obligatorios, conservación).
+    - 1.3. Flujo de generación de documentos: obtención de datos → transformación → maquetación → renderizado → salida.
 
 2. **Enfoques de generación de documentos: cliente vs servidor**
-   - 2.1. Generación en el lado del cliente (navegador): ventajas (sin carga para el servidor, respuesta inmediata, offline), desventajas (limitaciones de rendimiento, dependencia de las capacidades del navegador), casos de uso recomendados.
-   - 2.2. Generación en el lado del servidor: ventajas (mayor potencia de procesamiento, acceso a librerías nativas, documentos más complejos), desventajas (latencia de red, carga del servidor, dependencia de conectividad), casos de uso recomendados.
-   - 2.3. Criterios de decisión: volumen de datos, complejidad del documento, necesidad de procesamiento en lote, requisitos de seguridad, disponibilidad offline.
+    - 2.1. Generación en el lado del cliente (navegador): ventajas (sin carga para el servidor, respuesta inmediata, offline), desventajas (limitaciones de rendimiento, dependencia de las capacidades del navegador), casos de uso recomendados.
+    - 2.2. Generación en el lado del servidor: ventajas (mayor potencia de procesamiento, acceso a librerías nativas, documentos más complejos), desventajas (latencia de red, carga del servidor, dependencia de conectividad), casos de uso recomendados.
+    - 2.3. Criterios de decisión: volumen de datos, complejidad del documento, necesidad de procesamiento en lote, requisitos de seguridad, disponibilidad offline.
 
 3. **Librerías de generación de PDF en el ecosistema JavaScript/Angular**
-   - 3.1. PDFMake: librería principal. Enfoque declarativo basado en definición de documento como objeto JavaScript. Instalación, tipos TypeScript, estructura del documento, elementos de contenido, estilos, tablas, imágenes, fuentes personalizadas.
-   - 3.2. jsPDF: librería alternativa. Enfoque imperativo basado en API de dibujo. Plugin jsPDF-AutoTable para tablas. Comparativa con PDFMake.
-   - 3.3. PDF-LIB: librería avanzada. Creación y manipulación de PDFs existentes. Rellenado de formularios, fusión de documentos, modificación de páginas.
-   - 3.4. Tabla comparativa de las tres librerías: facilidad de uso, potencia, tamaño del bundle, documentación, comunidad, licencia.
+    - 3.1. PDFMake: librería principal. Enfoque declarativo basado en definición de documento como objeto JavaScript. Instalación, tipos TypeScript, estructura del documento, elementos de contenido, estilos, tablas, imágenes, fuentes personalizadas.
+    - 3.2. jsPDF: librería alternativa. Enfoque imperativo basado en API de dibujo. Plugin jsPDF-AutoTable para tablas. Comparativa con PDFMake.
+    - 3.3. PDF-LIB: librería avanzada. Creación y manipulación de PDFs existentes. Rellenado de formularios, fusión de documentos, modificación de páginas.
+    - 3.4. Tabla comparativa de las tres librerías: facilidad de uso, potencia, tamaño del bundle, documentación, comunidad, licencia.
 
 4. **PDFMake en profundidad**
-   - 4.1. Instalación y configuración en proyectos Angular.
-   - 4.2. Estructura de la definición de documento: `content[]`, `styles{}`, `pageSize`, `pageOrientation`, `pageMargins`, `header`, `footer`, `background`, `images`, `defaultStyle`.
-   - 4.3. Elementos de contenido: texto (`text`), columnas (`columns`), tablas (`table` con `body`, `widths`, `layout`, `headerRows`), imágenes (`image`), stacks (`stack`), listas ordenadas y no ordenadas (`ol`, `ul`), saltos de página (`pageBreak`), líneas horizontales (`canvas`), código QR (`qr`).
-   - 4.4. Sistema de estilos: `fontSize`, `bold`, `italics`, `color`, `alignment`, `margin` (array de 4 valores o número único), `lineHeight`, `decoration`, `decorationStyle`, `decorationColor`, `background`, `fillColor`, `fillOpacity`.
-   - 4.5. Tablas avanzadas: anchos de columna (porcentajes, `'*'`, `'auto'`), layouts predefinidos (`noBorders`, `headerLineOnly`, `lightHorizontalLines`), layouts personalizados, combinación de celdas (`colSpan`, `rowSpan`), alineación vertical (`fillColor`), cabeceras repetidas en cada página (`headerRows`).
-   - 4.6. Imágenes en PDFMake: formatos soportados (JPEG, PNG, WebP), data URLs, imágenes en base64, dimensionamiento y relación de aspecto, imágenes desde URL remota (precarga y conversión a base64).
-   - 4.7. Fuentes personalizadas: el sistema `pdfMake.vfs`, inclusión de fuentes adicionales (Roboto, Open Sans, Lato), fuentes para caracteres especiales (UTF-8, símbolos), peso de las fuentes y rendimiento.
-   - 4.8. Métodos de salida: `download(defaultFilename)`, `open()` (nueva pestaña con Blob URL), `print()` (diálogo de impresión del navegador), `getDataUrl()` (obtener representación base64), `getBuffer()` (obtener ArrayBuffer), `getBlob()` (obtener objeto Blob).
+    - 4.1. Instalación y configuración en proyectos Angular.
+    - 4.2. Estructura de la definición de documento: `content[]`, `styles{}`, `pageSize`, `pageOrientation`, `pageMargins`, `header`, `footer`, `background`, `images`, `defaultStyle`.
+    - 4.3. Elementos de contenido: texto (`text`), columnas (`columns`), tablas (`table` con `body`, `widths`, `layout`, `headerRows`), imágenes (`image`), stacks (`stack`), listas ordenadas y no ordenadas (`ol`, `ul`), saltos de página (`pageBreak`), líneas horizontales (`canvas`), código QR (`qr`).
+    - 4.4. Sistema de estilos: `fontSize`, `bold`, `italics`, `color`, `alignment`, `margin` (array de 4 valores o número único), `lineHeight`, `decoration`, `decorationStyle`, `decorationColor`, `background`, `fillColor`, `fillOpacity`.
+    - 4.5. Tablas avanzadas: anchos de columna (porcentajes, `'*'`, `'auto'`), layouts predefinidos (`noBorders`, `headerLineOnly`, `lightHorizontalLines`), layouts personalizados, combinación de celdas (`colSpan`, `rowSpan`), alineación vertical (`fillColor`), cabeceras repetidas en cada página (`headerRows`).
+    - 4.6. Imágenes en PDFMake: formatos soportados (JPEG, PNG, WebP), data URLs, imágenes en base64, dimensionamiento y relación de aspecto, imágenes desde URL remota (precarga y conversión a base64).
+    - 4.7. Fuentes personalizadas: el sistema `pdfMake.vfs`, inclusión de fuentes adicionales (Roboto, Open Sans, Lato), fuentes para caracteres especiales (UTF-8, símbolos), peso de las fuentes y rendimiento.
+    - 4.8. Métodos de salida: `download(defaultFilename)`, `open()` (nueva pestaña con Blob URL), `print()` (diálogo de impresión del navegador), `getDataUrl()` (obtener representación base64), `getBuffer()` (obtener ArrayBuffer), `getBlob()` (obtener objeto Blob).
 
 5. **jsPDF como alternativa**
-   - 5.1. Instalación: `npm install jspdf` y `npm install jspdf-autotable`.
-   - 5.2. API imperativa: `doc.text()`, `doc.setFontSize()`, `doc.setTextColor()`, `doc.addPage()`, `doc.line()`, `doc.rect()`, `doc.circle()`, `doc.addImage()`.
-   - 5.3. jsPDF-AutoTable para tablas: `doc.autoTable({ head, body, startY, theme, styles, headStyles, bodyStyles, columnStyles })`.
-   - 5.4. Cuándo elegir jsPDF sobre PDFMake: necesidad de control fino de posicionamiento, documentos con gráficos vectoriales, integración con bibliotecas de terceros.
+    - 5.1. Instalación: `npm install jspdf` y `npm install jspdf-autotable`.
+    - 5.2. API imperativa: `doc.text()`, `doc.setFontSize()`, `doc.setTextColor()`, `doc.addPage()`, `doc.line()`, `doc.rect()`, `doc.circle()`, `doc.addImage()`.
+    - 5.3. jsPDF-AutoTable para tablas: `doc.autoTable({ head, body, startY, theme, styles, headStyles, bodyStyles, columnStyles })`.
+    - 5.4. Cuándo elegir jsPDF sobre PDFMake: necesidad de control fino de posicionamiento, documentos con gráficos vectoriales, integración con bibliotecas de terceros.
 
 6. **PDF-LIB: manipulación avanzada de PDFs**
-   - 6.1. Instalación: `npm install pdf-lib`.
-   - 6.2. Casos de uso: rellenar formularios PDF existentes, añadir páginas a documentos, fusionar múltiples PDFs, extraer páginas, añadir anotaciones, rotar páginas, modificar metadatos.
-   - 6.3. Ejemplo básico: cargar un PDF existente, rellenar campos de formulario, guardar el resultado.
+    - 6.1. Instalación: `npm install pdf-lib`.
+    - 6.2. Casos de uso: rellenar formularios PDF existentes, añadir páginas a documentos, fusionar múltiples PDFs, extraer páginas, añadir anotaciones, rotar páginas, modificar metadatos.
+    - 6.3. Ejemplo básico: cargar un PDF existente, rellenar campos de formulario, guardar el resultado.
 
 7. **Casos prácticos completos de generación de PDFs con Angular**
-   - 7.1. Factura profesional: logo de empresa (imagen en base64), datos del emisor y receptor en columnas, numeración y fecha, tabla de líneas de factura con anchos calculados, subtotales, IVA y total general calculados con Signals/computed, pie de página con datos bancarios y condiciones de pago, estilos corporativos (colores, tipografía, márgenes).
-   - 7.2. Informe de ventas: portada con título, nombre del autor, fecha, logo de la empresa y fondo de color corporativo, índice de contenidos generado dinámicamente, secciones con gráficos exportados desde Chart.js como imágenes en base64, tablas de datos formateadas con alternancia de colores en filas, conclusiones y recomendaciones con formato destacado.
-   - 7.3. Certificado o diploma: diseño decorativo con bordes gruesos y colores institucionales, imagen de fondo semitransparente (marca de agua), datos del alumno centrados y con tipografía elegante (Georgia, Merriweather o similar), espacio para firmas digitalizadas al pie, fecha de emisión, número de registro o código de verificación, sello de la institución como imagen superpuesta.
+    - 7.1. Factura profesional: logo de empresa (imagen en base64), datos del emisor y receptor en columnas, numeración y fecha, tabla de líneas de factura con anchos calculados, subtotales, IVA y total general calculados con Signals/computed, pie de página con datos bancarios y condiciones de pago, estilos corporativos (colores, tipografía, márgenes).
+    - 7.2. Informe de ventas: portada con título, nombre del autor, fecha, logo de la empresa y fondo de color corporativo, índice de contenidos generado dinámicamente, secciones con gráficos exportados desde Chart.js como imágenes en base64, tablas de datos formateadas con alternancia de colores en filas, conclusiones y recomendaciones con formato destacado.
+    - 7.3. Certificado o diploma: diseño decorativo con bordes gruesos y colores institucionales, imagen de fondo semitransparente (marca de agua), datos del alumno centrados y con tipografía elegante (Georgia, Merriweather o similar), espacio para firmas digitalizadas al pie, fecha de emisión, número de registro o código de verificación, sello de la institución como imagen superpuesta.
 
 8. **Arquitectura recomendada para generación de documentos en Angular**
-   - 8.1. Servicio `PdfService` centralizado: contiene métodos específicos por cada tipo de documento (`generateInvoice()`, `generateReport()`, `generateCertificate()`) y métodos auxiliares privados para tareas comunes (cargar imagen como base64, formatear fechas, formatear importes monetarios, aplicar estilos corporativos por defecto).
-   - 8.2. Interfaz `DocumentGenerator`: define el contrato que deben cumplir todos los generadores de documentos, facilitando la extensibilidad y el testing. Métodos: `generate(data: T): void`, `preview(data: T): void`.
-   - 8.3. Componente opcional `DocumentPreviewComponent`: muestra una vista previa del PDF en un iframe antes de permitir la descarga, mejorando la experiencia de usuario y reduciendo errores.
-   - 8.4. Plantillas de documento como objetos TypeScript tipados: cada plantilla es una función pura que recibe los datos y devuelve la definición del documento PDFMake (`TDocumentDefinitions`), facilitando el testing unitario y la reutilización.
-   - 8.5. Estrategia de extensión: añadir un nuevo tipo de documento implica crear una nueva clase que implemente `DocumentGenerator` y registrarla en el sistema de inyección de dependencias de Angular.
+    - 8.1. Servicio `PdfService` centralizado: contiene métodos específicos por cada tipo de documento (`generateInvoice()`, `generateReport()`, `generateCertificate()`) y métodos auxiliares privados para tareas comunes (cargar imagen como base64, formatear fechas, formatear importes monetarios, aplicar estilos corporativos por defecto).
+    - 8.2. Interfaz `DocumentGenerator`: define el contrato que deben cumplir todos los generadores de documentos, facilitando la extensibilidad y el testing. Métodos: `generate(data: T): void`, `preview(data: T): void`.
+    - 8.3. Componente opcional `DocumentPreviewComponent`: muestra una vista previa del PDF en un iframe antes de permitir la descarga, mejorando la experiencia de usuario y reduciendo errores.
+    - 8.4. Plantillas de documento como objetos TypeScript tipados: cada plantilla es una función pura que recibe los datos y devuelve la definición del documento PDFMake (`TDocumentDefinitions`), facilitando el testing unitario y la reutilización.
+    - 8.5. Estrategia de extensión: añadir un nuevo tipo de documento implica crear una nueva clase que implemente `DocumentGenerator` y registrarla en el sistema de inyección de dependencias de Angular.
 
 9. **Exportación de datos en otros formatos**
-   - 9.1. Formato CSV (Comma-Separated Values): generación manual construyendo cadenas de texto con los datos unidos por comas (o punto y coma para compatibilidad con Excel en español), inclusión del BOM (Byte Order Mark `\uFEFF`) para asegurar la correcta codificación UTF-8 en Excel, manejo de caracteres especiales (comillas dobles, saltos de línea dentro de celdas, comas dentro de valores), generación del Blob con tipo MIME `text/csv;charset=utf-8;` y descarga mediante `URL.createObjectURL` y enlace dinámico.
-   - 9.2. Formato Excel con SheetJS/xlsx: instalación (`npm install xlsx`), creación de un libro de trabajo (`XLSX.utils.book_new()`), creación de hojas de cálculo a partir de arrays de objetos (`XLSX.utils.json_to_sheet()`), adición de hojas al libro (`XLSX.utils.book_append_sheet()`), aplicación de estilos básicos (anchos de columna, formato de fecha, formato de moneda), generación del archivo binario (`XLSX.write()` con tipo `array`), creación del Blob y descarga. Limitaciones de la versión comunitaria de SheetJS respecto a estilos avanzados.
-   - 9.3. Integración de los botones de exportación en los componentes Angular: uso de servicios específicos (`CsvExportService`, `ExcelExportService`), manejo del estado de carga durante la generación de archivos grandes, retroalimentación al usuario mediante toasts o indicadores de progreso.
+    - 9.1. Formato CSV (Comma-Separated Values): generación manual construyendo cadenas de texto con los datos unidos por comas (o punto y coma para compatibilidad con Excel en español), inclusión del BOM (Byte Order Mark `\uFEFF`) para asegurar la correcta codificación UTF-8 en Excel, manejo de caracteres especiales (comillas dobles, saltos de línea dentro de celdas, comas dentro de valores), generación del Blob con tipo MIME `text/csv;charset=utf-8;` y descarga mediante `URL.createObjectURL` y enlace dinámico.
+    - 9.2. Formato Excel con SheetJS/xlsx: instalación (`npm install xlsx`), creación de un libro de trabajo (`XLSX.utils.book_new()`), creación de hojas de cálculo a partir de arrays de objetos (`XLSX.utils.json_to_sheet()`), adición de hojas al libro (`XLSX.utils.book_append_sheet()`), aplicación de estilos básicos (anchos de columna, formato de fecha, formato de moneda), generación del archivo binario (`XLSX.write()` con tipo `array`), creación del Blob y descarga. Limitaciones de la versión comunitaria de SheetJS respecto a estilos avanzados.
+    - 9.3. Integración de los botones de exportación en los componentes Angular: uso de servicios específicos (`CsvExportService`, `ExcelExportService`), manejo del estado de carga durante la generación de archivos grandes, retroalimentación al usuario mediante toasts o indicadores de progreso.
 
 10. **Integración completa con el flujo de una aplicación Angular**
     - 10.1. Obtención de datos desde servicios HTTP para alimentar los documentos.
@@ -150,12 +150,14 @@ La decisión sobre dónde ejecutar la generación del documento —en el navegad
 En este enfoque, la aplicación Angular que se ejecuta en el navegador del usuario es la responsable de construir el PDF completo utilizando librerías JavaScript como **PDFMake** o **jsPDF**. Los datos necesarios para el documento se obtienen previamente de la API y residen en memoria (en Signals, servicios o el estado del componente). La generación del PDF se realiza íntegramente en el hilo principal del navegador (o en un Web Worker si se desea evitar bloquear la interfaz de usuario durante documentos muy grandes).
 
 **Ventajas**:
+
 - **Sin carga en el servidor**: el servidor solo necesita servir los datos (normalmente en formato JSON), que es una operación mucho más ligera que renderizar un PDF completo. Esto permite escalar la aplicación a miles de usuarios concurrentes sin que la generación de documentos sea un cuello de botella.
 - **Respuesta inmediata**: al no existir latencia de red para la generación (los datos ya están en el cliente), el usuario percibe que el documento se genera instantáneamente al pulsar el botón de descarga.
 - **Funcionamiento offline**: si la aplicación es una **PWA (Progressive Web Application)**, los documentos pueden generarse incluso sin conexión a internet, siempre que los datos estén cacheados localmente.
 - **Previsualización en tiempo real**: el usuario puede ver cómo cambia el documento a medida que modifica los datos en un formulario, ya que la regeneración del PDF es instantánea y no requiere llamadas al servidor.
 
 **Desventajas**:
+
 - **Rendimiento limitado del cliente**: los navegadores tienen limitaciones de memoria y CPU. Generar un PDF de 500 páginas con cientos de imágenes puede bloquear la interfaz durante varios segundos e incluso causar que el navegador muestre el diálogo de "esta página no responde".
 - **Dependencia de las capacidades del navegador**: navegadores antiguos o con soporte limitado de JavaScript pueden no ser capaces de ejecutar las librerías de generación de PDFs.
 - **Peso del bundle**: las librerías de generación de PDFs como PDFMake añaden varios cientos de kilobytes al bundle de JavaScript que se descarga el usuario, incrementando el tiempo de carga inicial de la aplicación (mitigable con lazy loading de los módulos de generación de documentos).
@@ -167,12 +169,14 @@ En este enfoque, la aplicación Angular que se ejecuta en el navegador del usuar
 En este enfoque, la aplicación Angular envía una petición HTTP al servidor (por ejemplo, `POST /api/invoices/123/pdf`), el servidor recupera los datos de la base de datos, renderiza el PDF utilizando librerías del ecosistema del lenguaje de backend (Java, Node.js, Python, PHP, .NET) y devuelve el archivo PDF en el cuerpo de la respuesta HTTP con la cabecera `Content-Type: application/pdf`. El navegador, al recibir esta respuesta, muestra el PDF o lo descarga automáticamente.
 
 **Ventajas**:
+
 - **Mayor potencia de procesamiento**: el servidor tiene acceso a toda la CPU y memoria de la máquina, permitiendo generar documentos extremadamente complejos (miles de páginas, cientos de imágenes de alta resolución, gráficos vectoriales intrincados) sin afectar a la experiencia del usuario.
 - **Acceso a librerías nativas**: los lenguajes de servidor tienen acceso a librerías de generación de PDFs mucho más potentes y maduras (iText en Java, ReportLab en Python, FPDF/TCPDF en PHP, Puppeteer/Playwright en Node.js para renderizar HTML a PDF con motores de navegador reales como Chromium), que permiten funcionalidades avanzadas como firmas digitales, cifrado, metadatos XMP, cumplimiento de estándares **PDF/A** para archivado a largo plazo, accesibilidad PDF/UA, relleno de formularios PDF, capas opcionales (OCG), etc.
 - **Seguridad**: los datos sensibles nunca abandonan el servidor; solo se envía el producto final. Esto es crucial para documentos que contienen información confidencial (datos bancarios, historiales médicos, secretos comerciales). Además, ciertos procesos de negocio requieren que los documentos se generen en un entorno controlado y auditado.
 - **Independencia del dispositivo cliente**: el usuario puede solicitar la generación de un documento desde un dispositivo de bajas prestaciones (móvil, tablet) y el servidor se encarga del trabajo pesado.
 
 **Desventajas**:
+
 - **Latencia de red**: el usuario debe esperar a que el servidor procese la petición y devuelva el PDF, lo que puede llevar varios segundos dependiendo de la complejidad del documento y la carga del servidor.
 - **Carga computacional en el servidor**: cada petición de generación de PDF consume recursos del servidor, lo que puede requerir escalado horizontal (más instancias) y aumentar los costes de infraestructura para aplicaciones con alta demanda de generación de documentos.
 - **Dependencia de conectividad**: sin conexión a internet, no es posible generar ni descargar documentos.
@@ -500,6 +504,7 @@ Las columnas pueden contener cualquier tipo de contenido, incluyendo otras colum
 ```
 
 Los layouts predefinidos para las tablas son:
+
 - `noBorders`: sin bordes.
 - `headerLineOnly`: solo una línea debajo de la cabecera.
 - `lightHorizontalLines`: líneas horizontales finas.
@@ -649,6 +654,7 @@ widths: [
 ```
 
 El cálculo de anchos sigue estas reglas:
+
 1. Primero se asignan los anchos fijos (píxeles).
 2. Luego los porcentajes.
 3. Luego `'auto'`, que se ajusta al contenido más ancho.
@@ -768,6 +774,7 @@ Aunque PDFMake es la recomendación principal de esta unidad, es importante cono
 jsPDF opera con un modelo de "lienzo": el desarrollador especifica coordenadas (x, y) para cada elemento, lo que proporciona un control absoluto sobre el posicionamiento. La contrapartida es que el manejo de saltos de página, tablas y contenido dinámico recae completamente sobre el desarrollador.
 
 **Ventajas de jsPDF sobre PDFMake**:
+
 - **Control de coordenadas absolutas**: ideal para replicar formularios oficiales donde cada campo debe estar en una posición exacta.
 - **API de dibujo vectorial**: `doc.setDrawColor()`, `doc.setFillColor()`, `doc.rect()`, `doc.circle()`, `doc.ellipse()`, `doc.triangle()`, `doc.lines()`, `doc.roundedRect()`.
 - **Soporte para múltiples formatos de imagen** (JPEG, PNG, WebP, BMP, TIFF, GIF).
@@ -1612,10 +1619,10 @@ export class FacturaService {
 ```
 
 4. Dentro del método `generarFactura()`, define una definición de documento que incluya:
-   - Título "FACTURA" centrado y en negrita.
-   - Fecha de emisión y número de factura.
-   - Una tabla con 3 columnas (Concepto, Cantidad, Precio) y 3 filas de datos inventados.
-   - Total calculado manualmente al final de la tabla.
+    - Título "FACTURA" centrado y en negrita.
+    - Fecha de emisión y número de factura.
+    - Una tabla con 3 columnas (Concepto, Cantidad, Precio) y 3 filas de datos inventados.
+    - Total calculado manualmente al final de la tabla.
 5. Configura el tamaño de página A4 y márgenes de 40 puntos a cada lado.
 6. Llama a `pdfMake.createPdf(docDefinition).download('mi-factura.pdf')`.
 7. Crea un componente `FacturaPage` con un botón que llame al servicio.
@@ -1623,6 +1630,7 @@ export class FacturaService {
 9. Abre el PDF y comprueba que todos los elementos se visualizan correctamente.
 
 **Criterios de evaluación**:
+
 - El PDF se genera y descarga correctamente.
 - La factura contiene todos los elementos solicitados.
 - El código está correctamente tipado con TypeScript.
@@ -1642,21 +1650,22 @@ export class FacturaService {
 2. Muestra estos datos en una tabla HTML en un nuevo componente `ProductosPage`.
 3. Crea un servicio `ExportService` con dos métodos: `exportarCsv(datos, nombreArchivo)` y `exportarExcel(datos, nombreArchivo)`.
 4. Implementa `exportarCsv`:
-   - Genera una cadena CSV con BOM UTF-8 al inicio (`\uFEFF`).
-   - Usa punto y coma (`;`) como separador para compatibilidad con Excel en España.
-   - Escapa correctamente los valores que contengan comillas o saltos de línea.
-   - Crea un Blob con tipo MIME `text/csv;charset=utf-8;`.
-   - Descarga el archivo usando `URL.createObjectURL` y un enlace temporal.
+    - Genera una cadena CSV con BOM UTF-8 al inicio (`\uFEFF`).
+    - Usa punto y coma (`;`) como separador para compatibilidad con Excel en España.
+    - Escapa correctamente los valores que contengan comillas o saltos de línea.
+    - Crea un Blob con tipo MIME `text/csv;charset=utf-8;`.
+    - Descarga el archivo usando `URL.createObjectURL` y un enlace temporal.
 5. Instala **SheetJS**: `npm install xlsx`. Implementa `exportarExcel`:
-   - Crea un workbook con `XLSX.utils.book_new()`.
-   - Convierte los datos a hoja con `XLSX.utils.json_to_sheet()`.
-   - Añade la hoja al workbook con `XLSX.utils.book_append_sheet()`.
-   - Ajusta los anchos de columna basándote en la longitud de los datos.
-   - Genera el binario XLSX con `XLSX.write()` y descarga como Blob.
+    - Crea un workbook con `XLSX.utils.book_new()`.
+    - Convierte los datos a hoja con `XLSX.utils.json_to_sheet()`.
+    - Añade la hoja al workbook con `XLSX.utils.book_append_sheet()`.
+    - Ajusta los anchos de columna basándote en la longitud de los datos.
+    - Genera el binario XLSX con `XLSX.write()` y descarga como Blob.
 6. Añade dos botones en `ProductosPage`: "Exportar CSV" y "Exportar Excel".
 7. Verifica que ambos archivos se descargan correctamente y que Excel/Calc los abre sin problemas de codificación.
 
 **Criterios de evaluación**:
+
 - El CSV se genera con codificación UTF-8 correcta (las tildes y eñes se ven bien).
 - El Excel se abre correctamente con las columnas adecuadamente dimensionadas.
 - El servicio separa correctamente las responsabilidades de exportación.
@@ -1687,14 +1696,15 @@ export class FacturaService {
 5. Implementa un pie de página que muestre el número de factura a la izquierda y la numeración de página (`Página X de Y`) a la derecha.
 6. Diseña una paleta de colores corporativos y defínela como estilos en el documento (usa al menos 4 estilos con nombre).
 7. Implementa el cálculo automático de:
-   - Base imponible (suma de todas las líneas sin IVA).
-   - Cuota de IVA (suma del IVA de cada línea, calculado como `cantidad * precioUnitario * iva / 100`).
-   - Total (base imponible + cuota de IVA).
+    - Base imponible (suma de todas las líneas sin IVA).
+    - Cuota de IVA (suma del IVA de cada línea, calculado como `cantidad * precioUnitario * iva / 100`).
+    - Total (base imponible + cuota de IVA).
 8. Formatea todos los importes en euros usando `Intl.NumberFormat` con `style: 'currency'` y `currency: 'EUR'`.
 9. Añade un código QR en la esquina inferior derecha.
 10. Crea una vista previa que abra el PDF en una nueva pestaña antes de descargar, añadiendo un botón "Vista previa" junto al botón "Descargar".
 
 **Criterios de evaluación**:
+
 - La factura tiene apariencia profesional con colores corporativos coherentes.
 - La cabecera y el pie se repiten correctamente en todas las páginas (probar con suficientes líneas de factura para que ocupe más de una página).
 - Los cálculos de IVA y totales son correctos.
@@ -1709,8 +1719,8 @@ Desarrolla un componente Angular y un servicio PDF capaces de generar un informe
 1. Una portada con título, logotipo de la empresa, fecha y nombre del autor.
 2. Un índice de contenidos generado dinámicamente a partir de las secciones del informe.
 3. Al menos dos gráficos exportados desde **Chart.js** como imágenes base64 e incrustados en el PDF:
-   - Un gráfico de barras con las ventas de los 5 productos más vendidos del mes.
-   - Un gráfico circular con la distribución de ventas por categoría de producto.
+    - Un gráfico de barras con las ventas de los 5 productos más vendidos del mes.
+    - Un gráfico circular con la distribución de ventas por categoría de producto.
 4. Tablas de datos con al menos 20 filas, incluyendo formato condicional (resaltar productos con stock bajo en rojo, productos más vendidos en verde).
 5. Un apartado de "Conclusiones" con texto formateado.
 6. Numeración de páginas y encabezados de sección.
@@ -1755,9 +1765,9 @@ Crea un mini-dashboard en Angular que muestre indicadores de negocio y permita e
 
 1. Diseña un dashboard con 4 tarjetas KPI (ingresos totales, número de pedidos, ticket medio, clientes nuevos) y 2 gráficos (líneas y barras) usando **Chart.js**.
 2. Implementa un botón "Exportar informe" que genere un PDF de 1 página conteniendo:
-   - Las 4 tarjetas KPI en una fila de 4 columnas de igual ancho.
-   - Los 2 gráficos exportados como imágenes (usa `chart.toBase64Image()`).
-   - Una tabla resumen con los datos subyacentes.
+    - Las 4 tarjetas KPI en una fila de 4 columnas de igual ancho.
+    - Los 2 gráficos exportados como imágenes (usa `chart.toBase64Image()`).
+    - Una tabla resumen con los datos subyacentes.
 3. Para obtener las imágenes de los gráficos, necesitarás acceder a la instancia de Chart.js y llamar a `toBase64Image()`. Implementa un mecanismo para esperar a que todos los gráficos estén renderizados antes de generar el PDF.
 4. Añade también botones para exportar solo los datos a CSV y Excel.
 5. Aplica un diseño visual coherente entre la versión web del dashboard y la versión PDF exportada.

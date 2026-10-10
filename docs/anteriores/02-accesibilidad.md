@@ -17,6 +17,7 @@ Al finalizar esta unidad, el alumnado será capaz de:
 Esta unidad contribuye al Resultado de Aprendizaje 4 del currículo del módulo 0488 Desarrollo de Interfaces del CFGS Desarrollo de Aplicaciones Multiplataforma (DAM) en Andalucía: "Crea interfaces accesibles aplicando la normativa y los estándares de accesibilidad web, incorporando los criterios de diseño universal y las tecnologías asistivas disponibles."
 
 Criterios de evaluación asociados:
+
 - Se ha identificado la normativa vigente sobre accesibilidad web y su aplicación en el desarrollo de interfaces.
 - Se han creado interfaces que cumplen los niveles de conformidad A y AA de las WCAG.
 - Se han implementado componentes accesibles utilizando HTML semántico y atributos ARIA.

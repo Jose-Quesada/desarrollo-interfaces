@@ -7,6 +7,7 @@ icon: lucide/blocks
 ## Objetivos de aprendizaje
 
 Al finalizar esta unidad, el alumnado será capaz de:
+
 - Diseñar e implementar componentes de interfaz de usuario verdaderamente reutilizables siguiendo principios **SOLID**.
 - Construir un catálogo completo de componentes UI con **Angular Standalone**, TypeScript estricto y Tailwind CSS 4.
 - Aplicar proyección de contenido con **ng-content** para crear componentes compuestos y flexibles.
@@ -188,6 +189,7 @@ export class ButtonComponent {
 ```
 
 **Variantes y cuándo usar cada una:**
+
 - **Primary:** La acción principal de la página o sección. Solo debe haber un primary button por contexto visual.
 - **Secondary:** Acciones secundarias o alternativas. Se usa junto a un primary button, ofreciendo una opción menos prominente.
 - **Outline:** Acciones de importancia media, a menudo en tarjetas o junto a contenido. Útil cuando un primary button sería demasiado dominante.
@@ -195,6 +197,7 @@ export class ButtonComponent {
 - **Danger:** Acciones destructivas como eliminar, cancelar suscripción o resetear datos. El color rojo actúa como señal de advertencia.
 
 **Consideraciones de accesibilidad:**
+
 - El atributo `type` por defecto debe ser `'button'` para evitar envíos accidentales de formulario.
 - `aria-disabled` se usa en lugar de `disabled` nativo cuando se necesita mantener el foco en el elemento (útil para tooltips explicativos).
 - `aria-busy` se establece a `true` durante el estado de carga, notificando a tecnologías asistivas.
@@ -368,6 +371,7 @@ export class FormFieldComponent {
 ```
 
 **Estados visuales:**
+
 - **Default:** Borde gris claro, sin interacción aparente.
 - **Focus:** Borde azul con anillo de foco del mismo color (ring-2), transición suave.
 - **Filled:** Si el campo tiene contenido, se podría añadir un indicador visual (opcional, mediante lógica adicional con Signal).
@@ -375,6 +379,7 @@ export class FormFieldComponent {
 - **Disabled:** Fondo gris claro, texto atenuado, cursor not-allowed, sin interacción.
 
 **Consideraciones de accesibilidad:**
+
 - La asociación label-input mediante el atributo `for` es obligatoria.
 - `aria-invalid` se establece dinámicamente según la presencia de error.
 - `aria-describedby` enlaza el input con los elementos de hint y/o error.
@@ -472,7 +477,7 @@ export class CardComponent {
 ```
 <ui-card variant="elevated" padding="md">
   <div card-image>
-    <img src="producto.jpg" alt="Producto" class="h-48 w-full object-cover" />
+    <img src="https://dummyimage.com/800x600/ccc/000.png&text=producto.jpg" alt="Producto" class="h-48 w-full object-cover" />
   </div>
   <div card-header>
     <h3 class="text-lg font-semibold text-gray-900">Título de la tarjeta</h3>
@@ -635,6 +640,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 ```
 
 **Consideraciones de accesibilidad imprescindibles:**
+
 - `role="dialog"` y `aria-modal="true"` identifican el elemento como un diálogo modal.
 - La trampa de foco mantiene la navegación por teclado dentro del modal.
 - Escape cierra el modal.
@@ -1574,12 +1580,13 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Objetivo:** Evaluar un conjunto de componentes existentes y determinar su grado de reutilización, identificando problemas de acoplamiento y proponiendo mejoras.
 
 **Desarrollo:**
+
 1. El docente proporciona 4 componentes de una aplicación Angular (ej: `ProductCard`, `UserForm`, `OrderTable`, `NotificationBanner`) que tienen problemas de reutilización.
 2. El alumnado analiza cada componente respondiendo las siguientes preguntas:
-   - ¿Contiene referencias a conceptos de dominio específico?
-   - ¿Inyecta servicios que limitan su reutilización?
-   - ¿Su API de inputs es suficientemente genérica y configurable?
-   - ¿Cumple el principio de responsabilidad única?
+    - ¿Contiene referencias a conceptos de dominio específico?
+    - ¿Inyecta servicios que limitan su reutilización?
+    - ¿Su API de inputs es suficientemente genérica y configurable?
+    - ¿Cumple el principio de responsabilidad única?
 3. Para cada componente, el alumnado redacta una propuesta de refactorización que lo convierta en un componente verdaderamente reutilizable (ej: `ProductCard` → `MediaCard` genérico).
 4. Se ponen en común las propuestas y se debate cuál es la mejor aproximación.
 
@@ -1594,17 +1601,17 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Desarrollo:**
 
 1. El docente explica la especificación del componente `Alert`:
-   - Cuatro variantes: info, success, warning, error.
-   - Con o sin título.
-   - Con o sin botón de cierre.
-   - Con o sin icono.
-   - Capacidad de auto-desaparecer tras un tiempo configurable.
+    - Cuatro variantes: info, success, warning, error.
+    - Con o sin título.
+    - Con o sin botón de cierre.
+    - Con o sin icono.
+    - Capacidad de auto-desaparecer tras un tiempo configurable.
 2. El alumnado implementa el componente paso a paso siguiendo el método enseñado:
-   - Definición de tipos e interfaz.
-   - Template con Tailwind (color de fondo y borde según variante, icono correspondiente a cada tipo).
-   - Implementación de auto-dismiss con `setTimeout` y limpieza en `ngOnDestroy`.
-   - Accesibilidad: `role="alert"` para tipos warning/error, `role="status"` para info/success.
-   - Output `dismissed` para notificar al padre.
+    - Definición de tipos e interfaz.
+    - Template con Tailwind (color de fondo y borde según variante, icono correspondiente a cada tipo).
+    - Implementación de auto-dismiss con `setTimeout` y limpieza en `ngOnDestroy`.
+    - Accesibilidad: `role="alert"` para tipos warning/error, `role="status"` para info/success.
+    - Output `dismissed` para notificar al padre.
 3. Al finalizar, el alumnado prueba el componente en una página de demostración que muestre los cuatro tipos simultáneamente.
 
 **Entregable:** Componente `AlertComponent` funcional.
@@ -1618,16 +1625,16 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Desarrollo:**
 
 1. El alumnado parte del componente Dropdown básico proporcionado y lo extiende con:
-   - Soporte para `children` en `MenuItem` (submenús que se abren al hacer hover o click).
-   - Navegación completa por teclado: flechas arriba/abajo para moverse entre items, Enter/Space para seleccionar, Escape para cerrar, flecha derecha para abrir submenú.
-   - Separadores visuales (items con `label: '---'`).
-   - Atajos de teclado mostrados en el lado derecho (ej: `⌘K`, `Ctrl+S`).
-   - Items con estado danger (rojo) para acciones destructivas.
+    - Soporte para `children` en `MenuItem` (submenús que se abren al hacer hover o click).
+    - Navegación completa por teclado: flechas arriba/abajo para moverse entre items, Enter/Space para seleccionar, Escape para cerrar, flecha derecha para abrir submenú.
+    - Separadores visuales (items con `label: '---'`).
+    - Atajos de teclado mostrados en el lado derecho (ej: `⌘K`, `Ctrl+S`).
+    - Items con estado danger (rojo) para acciones destructivas.
 2. El alumnado implementa tests unitarios que verifiquen:
-   - La navegación por teclado produce el foco correcto.
-   - Enter en un item emite el evento `itemSelected`.
-   - Escape cierra el dropdown.
-   - Los items disabled no emiten eventos y no reciben foco.
+    - La navegación por teclado produce el foco correcto.
+    - Enter en un item emite el evento `itemSelected`.
+    - Escape cierra el dropdown.
+    - Los items disabled no emiten eventos y no reciben foco.
 
 **Entregable:** Componente `DropdownComponent` avanzado con tests.
 
@@ -1642,6 +1649,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Descripción:** El alumnado debe implementar desde cero los siguientes 5 componentes del catálogo, siguiendo las especificaciones detalladas en el desarrollo teórico: Button, Input (FormField), Card, Badge y Avatar. Cada componente debe incluir todas las variantes especificadas, manejo de estados, accesibilidad y estilos con Tailwind.
 
 **Requisitos adicionales:**
+
 - Cada componente debe tener al menos 3 variantes visuales documentadas.
 - Todos los componentes deben usar `ChangeDetectionStrategy.OnPush`.
 - Todos los inputs requeridos deben marcarse con `required: true`.
@@ -1657,6 +1665,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Descripción:** Implementar el sistema completo de notificaciones Toast basado en el servicio `ToastService` y los componentes `ToastContainer` y `Toast` descritos en el desarrollo teórico.
 
 **Requisitos adicionales:**
+
 - Las notificaciones deben apilarse verticalmente en la esquina superior derecha.
 - Debe haber animación de entrada (deslizar desde la derecha + fade) y salida.
 - El auto-dismiss debe ser configurable por notificación.
@@ -1673,6 +1682,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Descripción:** Implementar un sistema de pestañas (Tabs) completo que permita definir pestañas programáticamente y proyectar contenido para cada panel.
 
 **Requisitos:**
+
 - Los tabs se definen mediante un array de objetos `Tab` pasado por input.
 - El contenido de cada panel se proyecta con `ng-content` o se asocia mediante IDs.
 - Navegación completa por teclado: flechas izquierda/derecha entre tabs, Home/End para ir al primer/último tab.
@@ -1689,6 +1699,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Descripción:** Diseñar e implementar un componente `SearchInput` que incluya un campo de búsqueda con autocompletado, historial de búsquedas recientes y sugerencias.
 
 **Requisitos:**
+
 - Input de búsqueda con icono de lupa y botón de limpiar.
 - Debounce de 300ms antes de emitir el término de búsqueda.
 - Panel de sugerencias que se muestra al escribir, con resultados categorizados.
@@ -1706,6 +1717,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
 **Descripción:** Implementar un componente `FileUpload` que permita cargar archivos mediante arrastrar y soltar (drag and drop) o mediante el diálogo nativo de selección de archivos.
 
 **Requisitos:**
+
 - Zona de drop con borde punteado que se resalta al arrastrar archivos sobre ella.
 - Soporte para múltiples archivos.
 - Validación de tipos de archivo (extensiones permitidas).
@@ -1729,6 +1741,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
     **Descripción:** Diseñar un componente `ChartWidget` reutilizable que envuelva Chart.js y exponga una API genérica para diferentes tipos de gráficos.
 
     **Requisitos:**
+    
     - Soportar al menos 4 tipos de gráfico: líneas, barras, circular (doughnut) y radar.
     - Input `series` genérico que acepte datos en un formato común.
     - Inputs para configuración: `title`, `height`, `showLegend`, `showTooltip`, `colors`.
@@ -1746,6 +1759,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
     **Descripción:** Extender el componente `DataTable` desarrollado en el catálogo para que soporte scroll virtual con 10.000+ filas mediante `@angular/cdk/scrolling`.
 
     **Requisitos:**
+    
     - Utilizar `CdkVirtualScrollViewport` de Angular CDK.
     - Renderizar solo las filas visibles + un buffer configurable.
     - Mantener la funcionalidad de ordenación y selección.
@@ -1761,6 +1775,7 @@ Probar cada variante, cada tamaño, el estado disabled, el estado loading, la em
     **Descripción:** Integrar una librería de edición de texto enriquecido (Quill, Tiptap o Slate) en un componente Angular reutilizable con todas las funcionalidades esperables de un editor profesional.
 
     **Requisitos:**
+    
     - Barra de herramientas configurable por input (ej: `['bold', 'italic', 'underline', 'link', 'image', 'list']`).
     - Two-way binding del contenido HTML mediante `model()`.
     - Placeholder personalizable.
